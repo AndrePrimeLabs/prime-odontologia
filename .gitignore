@@ -5,3 +5,9 @@ node_modules/
 vendor/
 *.log
 .DS_Store
+
+# WordPress Studio SQLite & Cache
+wp-content/database/
+*.sqlite
+*.sqlite-journal
+*.sqlite3
