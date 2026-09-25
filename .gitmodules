@@ -1,0 +1,3 @@
+[submodule "wp-content/themes/prime-theme"]
+	path = wp-content/themes/prime-theme
+	url = https://github.com/AndrePrimeLabs/prime-theme.git
