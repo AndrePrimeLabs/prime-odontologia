@@ -1,0 +1,527 @@
+.wpconsent-inspector-panel {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 420px;
+	max-width: calc(100vw - 40px);
+	max-height: 70vh;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+	z-index: 999999;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+	font-size: 13px;
+	color: #1e1e1e;
+	display: flex;
+	flex-direction: column;
+}
+
+.wpconsent-inspector-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 16px;
+	border-bottom: 1px solid #eee;
+	background: #0a1e3d;
+	border-radius: 8px 8px 0 0;
+	color: #fff;
+}
+
+.wpconsent-inspector-header h3 {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: #fff;
+}
+
+.wpconsent-inspector-header-logo {
+	display: flex;
+	align-items: center;
+	color: #fff;
+}
+
+.wpconsent-inspector-header-logo svg {
+	width: 18px;
+	height: 18px;
+}
+
+.wpconsent-inspector-header-actions {
+	display: flex;
+	gap: 8px;
+}
+
+.wpconsent-inspector-header-actions button {
+	padding: 4px 10px;
+	font-size: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 4px;
+	cursor: pointer;
+	background: rgba(255, 255, 255, 0.1);
+	color: #fff;
+}
+
+.wpconsent-inspector-header-actions button:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.wpconsent-inspector-btn-stop {
+	color: #ff8a8a !important;
+	border-color: rgba(255, 138, 138, 0.5) !important;
+}
+
+.wpconsent-inspector-btn-stop:hover {
+	background: rgba(214, 54, 56, 0.3) !important;
+}
+
+.wpconsent-inspector-mode-label {
+	padding: 4px 16px;
+	font-size: 11px;
+	font-weight: 600;
+	color: #666;
+	background: #f6f7f7;
+	border-bottom: 1px solid #eee;
+}
+
+.wpconsent-inspector-summary {
+	padding: 10px 16px;
+	background: #f0f6fc;
+	border-bottom: 1px solid #eee;
+	font-size: 12px;
+}
+
+.wpconsent-inspector-body {
+	overflow-y: auto;
+	flex: 1;
+	max-height: 50vh;
+}
+
+.wpconsent-inspector-section-title {
+	padding: 8px 16px;
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #757575;
+	background: #fafafa;
+	border-bottom: 1px solid #eee;
+}
+
+.wpconsent-inspector-cookie {
+	padding: 10px 16px;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.wpconsent-inspector-cookie:last-child {
+	border-bottom: none;
+}
+
+.wpconsent-inspector-cookie-name {
+	font-weight: 600;
+	font-family: monospace;
+	font-size: 12px;
+}
+
+.wpconsent-inspector-cookie-meta {
+	font-size: 11px;
+	color: #757575;
+	margin-top: 2px;
+}
+
+.wpconsent-inspector-cookie-actions {
+	margin-top: 6px;
+}
+
+.wpconsent-inspector-cookie-actions button {
+	padding: 3px 8px;
+	font-size: 11px;
+	border: 1px solid #2271b1;
+	border-radius: 3px;
+	background: #2271b1;
+	color: #fff;
+	cursor: pointer;
+}
+
+.wpconsent-inspector-cookie-actions button:hover {
+	background: #135e96;
+}
+
+.wpconsent-inspector-add-form {
+	padding: 10px 16px;
+	background: #f9f9f9;
+	border-bottom: 1px solid #eee;
+}
+
+.wpconsent-inspector-add-form label {
+	display: block;
+	font-size: 11px;
+	font-weight: 600;
+	margin-bottom: 3px;
+	margin-top: 6px;
+}
+
+.wpconsent-inspector-add-form label:first-child {
+	margin-top: 0;
+}
+
+.wpconsent-inspector-add-form select,
+.wpconsent-inspector-add-form input,
+.wpconsent-inspector-add-form textarea {
+	width: 100%;
+	padding: 4px 8px;
+	font-size: 12px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+.wpconsent-inspector-add-form textarea {
+	height: 50px;
+	resize: vertical;
+}
+
+.wpconsent-inspector-add-form-actions {
+	margin-top: 8px;
+	display: flex;
+	gap: 6px;
+}
+
+.wpconsent-inspector-add-form-actions button {
+	padding: 4px 10px;
+	font-size: 11px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.wpconsent-inspector-btn-save {
+	background: #2271b1;
+	color: #fff;
+	border: 1px solid #2271b1;
+}
+
+.wpconsent-inspector-btn-cancel {
+	background: #fff;
+	color: #1e1e1e;
+	border: 1px solid #ddd;
+}
+
+.wpconsent-inspector-toggle {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: #0a1e3d;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	z-index: 999999;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px;
+}
+
+.wpconsent-inspector-toggle svg {
+	width: 24px;
+	height: 24px;
+}
+
+.wpconsent-inspector-toggle:hover {
+	background: #005AE0;
+}
+
+.wpconsent-inspector-section-title-attention {
+	color: #d63638;
+	background: #fcf0f1;
+}
+
+.wpconsent-inspector-section-title-unknown {
+	color: #996800;
+	background: #fcf9e8;
+}
+
+.wpconsent-inspector-section-title-ok {
+	color: #00a32a;
+	background: #edfaef;
+}
+
+.wpconsent-inspector-section-title-admin-context {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin: 0;
+	padding: 8px 16px;
+	border: 0;
+	font-family: inherit;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	text-align: left;
+	color: #2271b1;
+	background: #f0f6fc;
+	cursor: pointer;
+}
+
+.wpconsent-inspector-section-title-admin-context:hover,
+.wpconsent-inspector-section-title-admin-context:focus {
+	background: #e7f1fb;
+}
+
+.wpconsent-inspector-section-admin-context-caret {
+	display: inline-block;
+	font-size: 10px;
+	line-height: 1;
+	transform: rotate(90deg);
+	transition: transform 0.15s ease;
+}
+
+.wpconsent-inspector-section-admin-context-collapsed .wpconsent-inspector-section-admin-context-caret {
+	transform: rotate(0);
+}
+
+.wpconsent-inspector-section-admin-context-collapsed .wpconsent-inspector-admin-context-body {
+	display: none;
+}
+
+.wpconsent-inspector-admin-context-explainer {
+	padding: 8px 12px 12px;
+	color: #50575e;
+	font-size: 12px;
+	line-height: 1.5;
+	background: #f0f6fc;
+}
+
+.wpconsent-inspector-cookie-badge {
+	display: inline-block;
+	margin-left: 8px;
+	padding: 1px 6px;
+	font-size: 10px;
+	font-weight: 500;
+	line-height: 1.6;
+	border-radius: 3px;
+	vertical-align: middle;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+}
+
+.wpconsent-inspector-cookie-badge-admin-context {
+	color: #2271b1;
+	background: #f0f6fc;
+	border: 1px solid #c3d9ed;
+}
+
+.wpconsent-inspector-cookie-warning {
+	font-size: 11px;
+	color: #d63638;
+	margin-top: 4px;
+}
+
+.wpconsent-inspector-guidance {
+	padding: 10px 16px;
+	font-size: 12px;
+	line-height: 1.5;
+	border-bottom: 1px solid #eee;
+	background: #f0f6fc;
+	color: #1e1e1e;
+}
+
+.wpconsent-inspector-guidance-warning {
+	background: #fcf0f1;
+	color: #d63638;
+}
+
+.wpconsent-inspector-guidance-action {
+	background: #fcf9e8;
+	color: #996800;
+}
+
+.wpconsent-inspector-guidance-success {
+	background: #edfaef;
+	color: #00a32a;
+}
+
+.wpconsent-inspector-actions {
+	padding: 10px 16px;
+	border-bottom: 1px solid #eee;
+}
+
+.wpconsent-inspector-btn-review {
+	width: 100%;
+	padding: 8px;
+	font-size: 13px;
+	font-weight: 600;
+	background: #2271b1;
+	color: #fff;
+	border: 1px solid #2271b1;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.wpconsent-inspector-btn-review:hover {
+	background: #135e96;
+}
+
+.wpconsent-inspector-btn-finish {
+	width: 100%;
+	padding: 8px;
+	font-size: 13px;
+	font-weight: 600;
+	background: #00a32a;
+	color: #fff;
+	border: 1px solid #00a32a;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.wpconsent-inspector-btn-finish:hover {
+	background: #008a20;
+}
+
+.wpconsent-inspector-blocking-notice {
+	background-color: #fff3cd;
+	border: 1px solid #ffc107;
+	color: #664d03;
+	padding: 8px 12px;
+	border-radius: 4px;
+	font-size: 12px;
+	margin: 0 16px;
+}
+
+.wpconsent-inspector-blocking-notice a {
+	color: #664d03;
+	text-decoration: underline;
+}
+
+.wpconsent-inspector-suggested-pages {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 4px 8px;
+	margin-bottom: 10px;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.wpconsent-inspector-suggested-label {
+	color: #757575;
+	font-weight: 600;
+}
+
+.wpconsent-inspector-suggested-link {
+	color: #2271b1;
+	text-decoration: none;
+}
+
+.wpconsent-inspector-suggested-link:hover {
+	color: #135e96;
+	text-decoration: underline;
+}
+
+/* Move panel to the left side when the banner occupies the bottom-right corner. */
+.wpconsent-inspector-panel.wpconsent-inspector-left {
+	right: auto;
+	left: 20px;
+}
+
+.wpconsent-inspector-toggle.wpconsent-inspector-left {
+	right: auto;
+	left: 20px;
+}
+
+/* Raise the panel above a full-width bottom banner. */
+.wpconsent-inspector-panel.wpconsent-inspector-above-banner {
+	bottom: var(--wpconsent-banner-offset, 100px);
+}
+
+.wpconsent-inspector-toggle.wpconsent-inspector-above-banner {
+	bottom: var(--wpconsent-banner-offset, 100px);
+}
+
+/* Issue count badge on the minimized toggle button. */
+.wpconsent-inspector-badge {
+	position: absolute;
+	top: -4px;
+	right: -4px;
+	min-width: 18px;
+	height: 18px;
+	border-radius: 9px;
+	background: #d63638;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 18px;
+	text-align: center;
+	padding: 0 4px;
+	display: none;
+	box-sizing: border-box;
+	pointer-events: none;
+}
+
+/* One-time tooltip hint for the minimize button. */
+.wpconsent-inspector-hint {
+	position: fixed;
+	white-space: nowrap;
+	background: #fff;
+	color: #1e1e1e;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+	font-size: 12px;
+	font-weight: 400;
+	padding: 6px 12px;
+	border-radius: 4px;
+	z-index: 1000000;
+	cursor: pointer;
+	animation: wpconsent-hint-fade 0.3s ease;
+}
+
+.wpconsent-inspector-hint::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	right: 12px;
+	border: 5px solid transparent;
+	border-top-color: #fff;
+}
+
+@keyframes wpconsent-hint-fade {
+	from { opacity: 0; transform: translateY(-4px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+/* Small-screen responsive: full-width bottom sheet on phones and tablets. */
+@media (max-width: 600px) {
+	.wpconsent-inspector-panel,
+	.wpconsent-inspector-panel.wpconsent-inspector-above-banner {
+		width: auto;
+		max-width: none;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: 12px 12px 0 0;
+		box-sizing: border-box;
+	}
+
+	/* When banner is at the bottom and visible, stack the panel above it. */
+	.wpconsent-inspector-panel.wpconsent-inspector-banner-bottom {
+		bottom: var(--wpconsent-banner-offset, 0px);
+	}
+
+	/* Default: toggle stays bottom-right (banner at top or no banner). */
+	.wpconsent-inspector-toggle {
+		bottom: 12px;
+		right: 12px;
+	}
+
+	/* When banner is at the bottom, move the toggle to top-right to avoid overlap. */
+	.wpconsent-inspector-toggle.wpconsent-inspector-banner-bottom {
+		bottom: auto;
+		top: 12px;
+		right: 12px;
+	}
+}
+

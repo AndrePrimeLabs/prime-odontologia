@@ -1,0 +1,73 @@
+name: Deploy PrimeOS to Hostinger
+
+on:
+ push:
+ branches: [main]
+ workflow_dispatch:
+
+permissions:
+ contents: read
+
+concurrency:
+ group: hostinger-deploy
+ cancel-in-progress: true
+
+jobs:
+ deploy:
+ runs-on: ubuntu-latest
+
+ steps:
+ - name: Checkout
+ uses: actions/checkout@v4
+
+ - name: Setup Node
+ uses: actions/setup-node@v4
+ with:
+ node-version: 24
+ cache: npm
+
+ - name: Install dependencies
+ run: npm ci
+
+ - name: Build for primeos.primeodontologia.com.br
+ run: npm run build:primeos
+
+ - name: Create SPA fallback and cache rules
+ run: |
+ cat > dist/.htaccess << 'EOF'
+ Options -Indexes
+
+ <IfModule mod_headers.c>
+ <FilesMatch "(^index\.html$|^manifest\.json$|^service-worker\.js$)">
+ Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+ Header set Pragma "no-cache"
+ Header set Expires "0"
+ </FilesMatch>
+
+ <FilesMatch "\.(css|js|mjs|map|jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|otf)$">
+ Header set Cache-Control "public, max-age=31536000, immutable"
+ </FilesMatch>
+ </IfModule>
+
+ <IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteBase /
+ RewriteRule ^index\.html$ - [L]
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteRule . /index.html [L]
+ </IfModule>
+ EOF
+
+ - name: Deploy to Hostinger via FTP
+ uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+ with:
+ server: ${{ secrets.FTP_SERVER }}
+ username: ${{ secrets.FTP_USERNAME }}
+ password: ${{ secrets.FTP_PASSWORD }}
+ port: 21
+ protocol: ftp
+ local-dir: dist/
+ server-dir: public_html/primeos/
+ dangerous-clean-slate: false
+ state-name: .ftp-deploy-sync-state.json

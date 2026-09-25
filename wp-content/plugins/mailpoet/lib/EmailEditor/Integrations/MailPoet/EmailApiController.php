@@ -1,0 +1,420 @@
+<?php declare(strict_types = 1);
+
+namespace MailPoet\EmailEditor\Integrations\MailPoet;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\Entities\NewsletterEntity;
+use MailPoet\Entities\NewsletterOptionEntity;
+use MailPoet\Entities\NewsletterOptionFieldEntity;
+use MailPoet\Entities\NewsletterSegmentEntity;
+use MailPoet\Entities\SegmentEntity;
+use MailPoet\Newsletter\NewslettersRepository;
+use MailPoet\Newsletter\Options\NewsletterOptionFieldsRepository;
+use MailPoet\Newsletter\Options\NewsletterOptionsRepository;
+use MailPoet\Newsletter\Segment\NewsletterSegmentRepository;
+use MailPoet\Newsletter\Sending\TimeZoneCampaignScheduler;
+use MailPoet\Newsletter\Sharing\ShareVisibility;
+use MailPoet\Newsletter\Url as NewsletterUrl;
+use MailPoet\NotFoundException;
+use MailPoet\UnexpectedValueException;
+use MailPoet\Validator\Builder;
+use MailPoet\WP\Functions as WPFunctions;
+use MailPoetVendor\Doctrine\ORM\EntityManager;
+
+class EmailApiController {
+  /** @var NewslettersRepository */
+  private $newsletterRepository;
+
+  /** @var NewsletterUrl */
+  private $newsletterUrl;
+
+  /** @var NewsletterOptionFieldsRepository */
+  private $newsletterOptionFieldsRepository;
+
+  /** @var NewsletterOptionsRepository */
+  private $newsletterOptionsRepository;
+
+  /** @var NewsletterSegmentRepository */
+  private $newsletterSegmentRepository;
+
+  /** @var EntityManager */
+  private $entityManager;
+
+  /** @var ShareVisibility */
+  private $shareVisibility;
+
+  /** @var WPFunctions */
+  private $wp;
+
+  public function __construct(
+    NewslettersRepository $newsletterRepository,
+    NewsletterUrl $newsletterUrl,
+    NewsletterOptionFieldsRepository $newsletterOptionFieldsRepository,
+    NewsletterOptionsRepository $newsletterOptionsRepository,
+    NewsletterSegmentRepository $newsletterSegmentRepository,
+    EntityManager $entityManager,
+    ShareVisibility $shareVisibility,
+    WPFunctions $wp
+  ) {
+    $this->newsletterRepository = $newsletterRepository;
+    $this->newsletterUrl = $newsletterUrl;
+    $this->newsletterOptionFieldsRepository = $newsletterOptionFieldsRepository;
+    $this->newsletterOptionsRepository = $newsletterOptionsRepository;
+    $this->newsletterSegmentRepository = $newsletterSegmentRepository;
+    $this->entityManager = $entityManager;
+    $this->shareVisibility = $shareVisibility;
+    $this->wp = $wp;
+  }
+
+  /**
+   * @param array $postEmailData - WP_Post data
+   * @return array - MailPoet specific email data that will be attached to the post API response
+   */
+  public function getEmailData($postEmailData): array {
+    $newsletter = $this->newsletterRepository->findOneBy(['wpPost' => $postEmailData['id']]);
+    $isAutomationNewsletter = $newsletter && ($newsletter->isAutomation() || $newsletter->isAutomationTransactional());
+    $showInArchive = $newsletter
+      ? $newsletter->getOptionValue(NewsletterOptionFieldEntity::NAME_EXCLUDE_FROM_ARCHIVE) !== '1'
+      : true;
+    return [
+      'id' => $newsletter ? $newsletter->getId() : null,
+      'type' => $newsletter ? $newsletter->getType() : '',
+      'subject' => $newsletter ? $newsletter->getSubject() : '',
+      'preheader' => $newsletter ? $newsletter->getPreheader() : '',
+      'sender_name' => $newsletter ? $newsletter->getSenderName() : '',
+      'sender_address' => $newsletter ? $newsletter->getSenderAddress() : '',
+      'reply_to_name' => $newsletter ? $newsletter->getReplyToName() : '',
+      'reply_to_address' => $newsletter ? $newsletter->getReplyToAddress() : '',
+      'preview_url' => $this->newsletterUrl->getViewInBrowserUrl($newsletter),
+      'deleted_at' => $newsletter && $newsletter->getDeletedAt() !== null ? $newsletter->getDeletedAt()->format('c') : null,
+      'scheduled_at' => $newsletter ? $this->toSiteLocal($newsletter->getOptionValue(NewsletterOptionFieldEntity::NAME_SCHEDULED_AT)) : null,
+      'schedule_mode' => $newsletter ? $newsletter->getOptionValue(NewsletterOptionFieldEntity::NAME_SCHEDULE_MODE) : null,
+      'scheduled_local_date' => $newsletter ? $newsletter->getOptionValue(NewsletterOptionFieldEntity::NAME_SCHEDULED_LOCAL_DATE) : null,
+      'scheduled_local_time' => $newsletter ? $newsletter->getOptionValue(NewsletterOptionFieldEntity::NAME_SCHEDULED_LOCAL_TIME) : null,
+      'utm_campaign' => $newsletter ? $newsletter->getGaCampaign() : '',
+      'segment_ids' => $newsletter ? $newsletter->getSegmentIds() : [],
+      'is_automation_newsletter' => $isAutomationNewsletter,
+      'share_url' => $newsletter && $this->shareVisibility->isSupported($newsletter)
+        ? $this->newsletterUrl->getPublicShareUrl($newsletter)
+        : '',
+      'share_visibility' => $newsletter
+        ? $this->shareVisibility->getConfiguredVisibility($newsletter)
+        : ShareVisibility::VISIBILITY_DEFAULT,
+      'effective_share_visibility' => $newsletter
+        ? $this->shareVisibility->getEffectiveVisibility($newsletter)
+        : $this->shareVisibility->getDefaultVisibility(),
+      'can_share' => $newsletter ? $this->shareVisibility->canShare($newsletter) : false,
+      'show_in_archive' => $showInArchive,
+    ];
+  }
+
+  /**
+   * Update MailPoet specific data we store with Emails.
+   */
+  public function saveEmailData(array $data, \WP_Post $emailPost): void {
+    $newsletter = $this->newsletterRepository->findOneById($data['id']);
+    if (!$newsletter) {
+      throw new NotFoundException('Newsletter was not found');
+    }
+    if ($newsletter->getWpPostId() !== $emailPost->ID) {
+      throw new UnexpectedValueException('Newsletter ID does not match the post ID');
+    }
+
+    $newsletter->setSubject($data['subject']);
+    $newsletter->setPreheader($data['preheader']);
+
+    if (array_key_exists('sender_name', $data)) {
+      $newsletter->setSenderName($data['sender_name']);
+    }
+
+    if (array_key_exists('sender_address', $data)) {
+      $newsletter->setSenderAddress($data['sender_address']);
+    }
+
+    if (array_key_exists('reply_to_name', $data)) {
+      $newsletter->setReplyToName($data['reply_to_name']);
+    }
+
+    if (array_key_exists('reply_to_address', $data)) {
+      $newsletter->setReplyToAddress($data['reply_to_address']);
+    }
+
+    if (isset($data['utm_campaign'])) {
+      $newsletter->setGaCampaign($data['utm_campaign']);
+    }
+
+    if (isset($data['deleted_at'])) {
+      if (empty($data['deleted_at'])) {
+        $data['deleted_at'] = null;
+      } else {
+        $data['deleted_at'] = new \DateTime($data['deleted_at']);
+      }
+      $newsletter->setDeletedAt($data['deleted_at']);
+    }
+
+    if (array_key_exists('scheduled_at', $data)) {
+      $this->updateScheduledAtOption($newsletter, $data['scheduled_at']);
+    }
+
+    if (array_key_exists('schedule_mode', $data)) {
+      $this->updateScheduleModeOption($newsletter, $data['schedule_mode']);
+    }
+
+    if (array_key_exists('scheduled_local_date', $data)) {
+      $this->updateScheduledLocalOption(
+        $newsletter,
+        NewsletterOptionFieldEntity::NAME_SCHEDULED_LOCAL_DATE,
+        $data['scheduled_local_date'],
+        'Y-m-d',
+        'Invalid scheduled_local_date format. Expected a Y-m-d date string.'
+      );
+    }
+
+    if (array_key_exists('scheduled_local_time', $data)) {
+      $this->updateScheduledLocalOption(
+        $newsletter,
+        NewsletterOptionFieldEntity::NAME_SCHEDULED_LOCAL_TIME,
+        $data['scheduled_local_time'],
+        'H:i:s',
+        'Invalid scheduled_local_time format. Expected a H:i:s time string.'
+      );
+    }
+
+    if (array_key_exists('share_visibility', $data)) {
+      $this->updateOption(
+        $newsletter,
+        NewsletterOptionFieldEntity::NAME_SHARE_VISIBILITY,
+        $this->shareVisibility->sanitize((string)$data['share_visibility'])
+      );
+    }
+
+    if (array_key_exists('show_in_archive', $data)) {
+      $this->updateShowInArchiveOption($newsletter, $data['show_in_archive']);
+    }
+
+    if (isset($data['segment_ids']) && is_array($data['segment_ids'])) {
+      $this->updateSegments($newsletter, $data['segment_ids']);
+      $this->entityManager->refresh($newsletter);
+    }
+
+    $this->newsletterRepository->flush();
+  }
+
+  private function updateShowInArchiveOption(NewsletterEntity $newsletter, $showInArchiveValue): void {
+    if (!is_bool($showInArchiveValue)) {
+      throw new UnexpectedValueException('Invalid show_in_archive value. Expected a boolean.');
+    }
+
+    if ($newsletter->getType() !== NewsletterEntity::TYPE_STANDARD) {
+      return;
+    }
+
+    $this->updateOption(
+      $newsletter,
+      NewsletterOptionFieldEntity::NAME_EXCLUDE_FROM_ARCHIVE,
+      $showInArchiveValue ? '0' : '1'
+    );
+  }
+
+  private function updateOption($newsletter, string $optionName, $optionValue): void {
+    $optionField = $this->newsletterOptionFieldsRepository->findOneBy([
+      'name' => $optionName,
+      'newsletterType' => $newsletter->getType(),
+    ]);
+
+    if (!$optionField) {
+      return;
+    }
+
+    $option = $this->newsletterOptionsRepository->findOneBy([
+      'newsletter' => $newsletter,
+      'optionField' => $optionField,
+    ]);
+
+    if (!$option) {
+      $option = new NewsletterOptionEntity($newsletter, $optionField);
+      $this->newsletterOptionsRepository->persist($option);
+      $newsletter->getOptions()->add($option);
+    }
+
+    $option->setValue($optionValue);
+  }
+
+  private function updateScheduleModeOption(NewsletterEntity $newsletter, $scheduleModeValue): void {
+    $allowedModes = [
+      TimeZoneCampaignScheduler::SCHEDULE_MODE_WEBSITE_TIME,
+      TimeZoneCampaignScheduler::SCHEDULE_MODE_SUBSCRIBER_TIMEZONE,
+    ];
+    if ($scheduleModeValue !== null && $scheduleModeValue !== '' && !in_array($scheduleModeValue, $allowedModes, true)) {
+      throw new UnexpectedValueException('Invalid schedule_mode value.');
+    }
+
+    $this->updateOption($newsletter, NewsletterOptionFieldEntity::NAME_SCHEDULE_MODE, $scheduleModeValue);
+
+    // Subscriber timezone scheduling has no scheduled_at datetime, so the isScheduled
+    // option derived from scheduled_at would stay '0' and sending would dispatch to the
+    // immediate path instead of TimeZoneCampaignScheduler.
+    if ($scheduleModeValue === TimeZoneCampaignScheduler::SCHEDULE_MODE_SUBSCRIBER_TIMEZONE) {
+      $this->updateOption($newsletter, NewsletterOptionFieldEntity::NAME_IS_SCHEDULED, '1');
+      return;
+    }
+
+    // Switching back to website time must re-derive isScheduled from scheduledAt,
+    // otherwise a payload without the scheduled_at key would leave isScheduled
+    // stuck at '1' with no datetime and sending would take the scheduled path.
+    if ($scheduleModeValue === TimeZoneCampaignScheduler::SCHEDULE_MODE_WEBSITE_TIME) {
+      $scheduledAt = $newsletter->getOptionValue(NewsletterOptionFieldEntity::NAME_SCHEDULED_AT);
+      $this->updateOption(
+        $newsletter,
+        NewsletterOptionFieldEntity::NAME_IS_SCHEDULED,
+        $scheduledAt !== null && $scheduledAt !== '' ? '1' : '0'
+      );
+    }
+  }
+
+  private function updateScheduledLocalOption(NewsletterEntity $newsletter, string $optionName, $value, string $format, string $errorMessage): void {
+    if ($value !== null && $value !== '') {
+      $parsed = is_string($value) ? \DateTimeImmutable::createFromFormat("!{$format}", $value) : false;
+      if (!$parsed || $parsed->format($format) !== $value) {
+        throw new UnexpectedValueException($errorMessage);
+      }
+    }
+
+    $this->updateOption($newsletter, $optionName, $value);
+  }
+
+  private function updateScheduledAtOption($newsletter, $scheduledAtValue): void {
+    // Validate and convert the scheduled_at value from site-local time to UTC
+    if ($scheduledAtValue !== null && $scheduledAtValue !== '') {
+      try {
+        $scheduledAtValue = $this->toUtcOptionValue($scheduledAtValue);
+      } catch (\Exception $e) {
+        throw new UnexpectedValueException('Invalid scheduled_at format. Expected a valid datetime string.');
+      }
+    }
+
+    $this->updateOption($newsletter, NewsletterOptionFieldEntity::NAME_SCHEDULED_AT, $scheduledAtValue);
+
+    // Also update the isScheduled option
+    $this->updateOption(
+      $newsletter,
+      NewsletterOptionFieldEntity::NAME_IS_SCHEDULED,
+      $scheduledAtValue !== null && $scheduledAtValue !== '' ? '1' : '0'
+    );
+  }
+
+  /**
+   * Converts a site-local (or explicitly offset) datetime string, as emitted by the
+   * block editor's DateTimePicker, into the UTC string format used for storage.
+   * A date that does not exist, such as 31 February, is reported by the parser as a
+   * warning rather than an error, and would otherwise be stored as the day it rolls
+   * over to.
+   */
+  private function toUtcOptionValue(string $value): string {
+    $date = new \DateTimeImmutable($value, $this->wp->wpTimezone());
+
+    $parseResult = \DateTimeImmutable::getLastErrors();
+    if (is_array($parseResult) && ($parseResult['warning_count'] > 0 || $parseResult['error_count'] > 0)) {
+      throw new \InvalidArgumentException('The date does not exist.');
+    }
+
+    return $date->setTimezone(new \DateTimeZone('UTC'))->format('Y-m-d H:i:s');
+  }
+
+  /**
+   * Converts a UTC datetime string, as stored in the scheduledAt option, into the
+   * site-local T-form expected by the block editor's DateTimePicker. Falls back to
+   * the raw stored value if it cannot be parsed, since older/legacy rows may contain
+   * non-standard strings (e.g. relative dates) that were never validated on write.
+   */
+  private function toSiteLocal($value) {
+    if ($value === null || $value === '') {
+      return $value;
+    }
+
+    try {
+      $date = new \DateTimeImmutable($value, new \DateTimeZone('UTC'));
+      return $date->setTimezone($this->wp->wpTimezone())->format('Y-m-d\TH:i:s');
+    } catch (\Exception $e) {
+      return $value;
+    }
+  }
+
+  /**
+   * @param array $segmentIds Array of segment IDs
+   */
+  private function updateSegments($newsletter, array $segmentIds): void {
+    // Normalize segment IDs to integers for consistent strict comparison
+    $segmentIds = array_map('intval', $segmentIds);
+
+    // Remove existing segments that are not in the new list
+    $existingSegments = $newsletter->getNewsletterSegments();
+    foreach ($existingSegments as $newsletterSegment) {
+      $segment = $newsletterSegment->getSegment();
+      if (!$segment || !in_array($segment->getId(), $segmentIds, true)) {
+        $this->entityManager->remove($newsletterSegment);
+      }
+    }
+
+    // Add new segments
+    foreach ($segmentIds as $segmentId) {
+      $segmentIdInt = (int)$segmentId;
+      $segment = $this->entityManager->getReference(SegmentEntity::class, $segmentIdInt);
+      if (!$segment) {
+        continue;
+      }
+
+      // Check if the newsletter-segment relationship already exists
+      $existingRelation = $this->newsletterSegmentRepository->findOneBy([
+        'newsletter' => $newsletter,
+        'segment' => $segment,
+      ]);
+
+      if (!$existingRelation) {
+        $newsletterSegment = new NewsletterSegmentEntity($newsletter, $segment);
+        $this->entityManager->persist($newsletterSegment);
+      }
+    }
+    $this->entityManager->flush();
+  }
+
+  public function trashEmail(\WP_Post $wpPost) {
+    $newsletter = $this->newsletterRepository->findOneBy(['wpPost' => $wpPost->ID]);
+    if (!$newsletter) {
+      throw new NotFoundException('Newsletter was not found');
+    }
+    if ($newsletter->getWpPostId() !== $wpPost->ID) {
+      throw new UnexpectedValueException('Newsletter ID does not match the post ID');
+    }
+    $this->newsletterRepository->bulkTrash([$newsletter->getId()]);
+  }
+
+  public function getEmailDataSchema(): array {
+    return Builder::object([
+      'id' => Builder::integer()->nullable(),
+      'type' => Builder::string(),
+      'subject' => Builder::string(),
+      'preheader' => Builder::string(),
+      'sender_name' => Builder::string(),
+      'sender_address' => Builder::string(),
+      'reply_to_name' => Builder::string(),
+      'reply_to_address' => Builder::string(),
+      'preview_url' => Builder::string(),
+      'deleted_at' => Builder::string()->nullable(),
+      'scheduled_at' => Builder::string()->nullable(),
+      'schedule_mode' => Builder::string()->nullable(),
+      'scheduled_local_date' => Builder::string()->nullable(),
+      'scheduled_local_time' => Builder::string()->nullable(),
+      'utm_campaign' => Builder::string(),
+      'segment_ids' => Builder::array(),
+      'is_automation_newsletter' => Builder::boolean(),
+      'share_url' => Builder::string(),
+      'share_visibility' => Builder::string(),
+      'effective_share_visibility' => Builder::string(),
+      'can_share' => Builder::boolean(),
+      'show_in_archive' => Builder::boolean(),
+    ])->toArray();
+  }
+}

@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: primeos
+      POSTGRES_PASSWORD: change_me_strong_password
+      POSTGRES_DB: primeosdb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  api:
+    image: ghcr.io/PrimeOsHub/primeos-api:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - NODE_ENV=production
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.primeos-api.rule=Host(`api.primeodontologia.com.br`)"
+      - "traefik.http.routers.primeos-api.entrypoints=websecure"
+      - "traefik.http.routers.primeos-api.tls=true"
+      - "traefik.http.services.primeos-api.loadbalancer.server.port=3000"
+      - "traefik.docker.network=traefik"
+
+  frontend:
+    image: ghcr.io/PrimeOsHub/primeos-frontend:latest
+    restart: unless-stopped
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.primeos.rule=Host(`primeos.primeodontologia.com.br`)"
+      - "traefik.http.routers.primeos.entrypoints=websecure"
+      - "traefik.http.routers.primeos.tls=true"
+      - "traefik.http.services.primeos.loadbalancer.server.port=80"
+      - "traefik.docker.network=traefik"
+
+volumes:
+  db-data:
+
+networks:
+  traefik:
+    external: true

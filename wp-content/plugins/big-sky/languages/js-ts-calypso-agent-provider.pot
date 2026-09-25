@@ -1,0 +1,475 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: src/abilities/add-pages/index.ts:17
+msgid "Add Pages"
+msgstr ""
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:169
+msgid "Failed to create pages:"
+msgstr ""
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:65
+msgid "Invalid pages. Must provide an array of page objects."
+msgstr ""
+
+#: src/abilities/apply-block-edits/index.ts:15
+msgid "Apply Block Edits"
+msgstr ""
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1372
+msgid "The requested changes were already applied."
+msgstr ""
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1381
+msgid ""
+"I was not able to make the changes you requested. Either I don't have the "
+"capability to do so or I didn't understand your request. You can ask me to "
+"try again or ask me to do something else."
+msgstr ""
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1422
+msgid "I have completed the edits."
+msgstr ""
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1464
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: src/abilities/capture-canvas/index.ts:16
+msgid "Capture Canvas"
+msgstr ""
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:47
+msgid "I couldn't get a picture of the canvas just now."
+msgstr ""
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:61
+msgid ""
+"Here is the whole page, top to bottom. It is scaled down to fit, so body "
+"text will not be legible — read it for colour, type scale, spacing and "
+"section rhythm, and take an ordinary picture of a specific area when "
+"wording or fine detail matters. Photographs are shown as flat placeholder "
+"boxes at their real size."
+msgstr ""
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:73
+#. %d: number of blocks framed in the screenshot.
+msgid ""
+"Here is the canvas around %d block(s). Photographs are shown as flat "
+"placeholder boxes at their real size, so treat any grey rectangle as an "
+"image that is present, not as a missing one."
+msgstr ""
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:74
+msgid ""
+"Here is the visible area of the canvas. Photographs are shown as flat "
+"placeholder boxes at their real size, so treat any grey rectangle as an "
+"image that is present, not as a missing one."
+msgstr ""
+
+#: src/abilities/client-assistants/index.ts:27
+msgid "Execute Client Assistant"
+msgstr ""
+
+#: src/abilities/client-assistants/index.ts:29
+msgid ""
+"Always use this if the user asks for something that requires a client-side "
+"assistant. Available assistants:"
+msgstr ""
+
+#: src/abilities/client-assistants/index.ts:89
+msgid "Assistant completed successfully"
+msgstr ""
+
+#: src/abilities/client-assistants/run-assistant.ts:182
+msgid ""
+"Sorry, I've encountered an error. Please try again or let me know if you "
+"need help with something else."
+msgstr ""
+
+#: src/abilities/client-assistants/run-assistant.ts:189
+msgid "No response from assistant"
+msgstr ""
+
+#: src/abilities/edit-entity-record/index.ts:15
+msgid "Manage Entity Records"
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:180
+#. %s: comma-separated list of navigation item identifiers that could not be resolved.
+msgid ""
+"Navigation items not found: %s. These are not in the menu or in the current "
+"page structure, so there is nothing to reorder them from — they are most "
+"likely from an earlier turn, or the header is not part of the page "
+"currently open in the editor. Read the page structure again and use the "
+"clientIds it returns, or identify each item by its url or label instead. "
+"This reorder was not applied."
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:490
+msgid "No"
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:493
+msgid "Proceed"
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:499
+msgid "I changed my mind"
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:541
+msgid "Yes"
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:580
+msgid "Awaiting user confirmation before making this change."
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:592
+msgid "Updated the entity records."
+msgstr ""
+
+#: src/abilities/editor-navigate/index.ts:15
+msgid "Navigate"
+msgstr ""
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:22
+msgid ""
+"Invalid editor path. Page navigation requires /page/{numeric-id}. Look up "
+"the page ID first."
+msgstr ""
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:23
+msgid ""
+"Invalid editor path. look up the numeric id from <site_pages>, then retry "
+"navigation with the numeric editor_path."
+msgstr ""
+
+#: src/abilities/open-help-center.ts:142
+msgid "Show Help Center chat button"
+msgstr ""
+
+#: src/abilities/open-help-center.ts:200
+msgid "Get help"
+msgstr ""
+
+#: src/abilities/restore-checkpoint/index.ts:17
+msgid "Restore Checkpoint"
+msgstr ""
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:39
+msgid "I could not restore the checkpoint because no checkpoint ID was provided."
+msgstr ""
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:49
+msgid "I could not find a checkpoint for that ID."
+msgstr ""
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:94
+msgid ""
+"I did not restore that checkpoint because it may replace or remove too much "
+"current content."
+msgstr ""
+
+#: src/abilities/set-styles/index.ts:18
+msgid "Set Styles"
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:17
+msgid "Invalid arguments. Provide at least one of: color, font, or button."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:24
+msgid "Invalid color format. Color must be a string (variation title)."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:31
+msgid "Invalid font format. Font must be a string (variation title)."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:38
+msgid "Invalid button format. Button must be a string (variation title)."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:62
+msgid "Styles updated successfully."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:65
+msgid "Updated:"
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:76
+msgid "Failed to update styles. The style variation may be invalid."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:82
+msgid "Failed to update styles:"
+msgstr ""
+
+#: src/abilities/show-component/index.ts:21
+msgid "Show Component"
+msgstr ""
+
+#: src/abilities/show-component/show-component.tsx:175
+msgid "Choose from the options I provided."
+msgstr ""
+
+#: src/abilities/show-component/show-component.tsx:214
+#: src/abilities/site-logo/set-site-logo.ts:70
+msgid "There was an error with this request. Please try again."
+msgstr ""
+
+#: src/abilities/site-logo/index.ts:15
+msgid "Set Site Logo"
+msgstr ""
+
+#: src/abilities/site-logo/set-site-logo.ts:58
+msgid "Logo set successfully"
+msgstr ""
+
+#: src/abilities/site-logo/set-site-logo.ts:71
+msgid "There was an error with this request."
+msgstr ""
+
+#: src/abilities/stream-page-design/index.ts:21
+msgid "Stream Page Design"
+msgstr ""
+
+#: src/abilities/stream-page-design/index.ts:22
+msgid "The generated page content has been staged in the editor for review."
+msgstr ""
+
+#: src/abilities/stream-page-design/index.ts:23
+msgid ""
+"The editor is still loading. Try the page design again once the page is "
+"editable."
+msgstr ""
+
+#: src/abilities/update-theme/index.ts:15
+msgid "Update Theme"
+msgstr ""
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:22
+msgid "Failed to make the theme update. Please try again."
+msgstr ""
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:29
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr ""
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:40
+msgid "Invalid settings format. Settings must be an object."
+msgstr ""
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:51
+msgid "Invalid styles format. Styles must be an object."
+msgstr ""
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:86
+msgid "Theme updated successfully"
+msgstr ""
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:54
+msgid "Your site is ready! Please click around and check it out."
+msgstr ""
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:55
+msgid "Are there any changes you would like me to make?"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:107
+#. %s is the number of posts. Eg: '10'
+msgid ""
+"Stop inheriting default query settings and change the current number of "
+"posts displayed per page from %s to:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:110
+#. %s is the number of posts. Eg: '10'
+msgid "Currently this query is displaying %s posts per page, change it to:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:117
+msgid "Order posts"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:122
+msgid "oldest to newest"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:123
+msgid "newest to oldest"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:128
+#. %s is the order. Eg: 'newest to oldest'
+msgid "Stop inheriting default query settings and order posts from %s"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:131
+#. %s is the order. Eg: 'newest to oldest'
+msgid "By updating the query, order posts from %s"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:33
+msgid "Choose new fonts"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:34
+msgid "Show me new fonts for my site"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:37
+msgid "Customize colors"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:38
+msgid "Show me color palettes for my site that are:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:41
+msgid "Change page layout"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:42
+msgid "Show me different layouts for this page"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:45
+msgid "Add new page"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:46
+msgid "Create a new page on my site for"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:49
+msgid "Edit link"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:52
+#. %s is the button text
+msgid "Change the %s button link to:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:55
+msgid "Swap columns"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:56
+msgid "Reverse the order of these columns"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:60
+msgid "Add column"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:61
+msgid "Add another column to the end of these"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:65
+msgid "Translate content"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:66
+msgid "Translate this to:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:70
+msgid "Change tone"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:71
+msgid "Change the tone of this text to be more:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:75
+msgid "Check grammar"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:76
+msgid "Check the grammar of this text"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:80
+msgid "Generate image"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:81
+msgid "Generate an image of:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:85
+msgid "Edit image"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:86
+msgid "Edit the image to:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:90
+msgid "Remove background"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:91
+msgid "Remove the background from this image"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:95
+msgid "What else can you do?"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:96
+msgid "Tell me all the ways you can help design or edit my site"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:99
+msgid "Change number of posts"
+msgstr ""
+
+#: src/components/open-help-center-button.tsx:20
+msgid "Open Help Center"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:25
+msgid "unit"
+msgid_plural "units"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/product-card/ProductCard.tsx:51
+msgid "Loading…"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:53
+msgid "Error: Could not render product card"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:56
+msgid "Error: Product name is required"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:84
+msgid "Service"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:87
+msgid "Product"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:90
+msgid "Edit"
+msgstr ""
+
+#: src/easy-mode/annotations/prompt.ts:82
+#. %d: number of annotations.
+msgid "%d annotation submitted"
+msgid_plural "%d annotations submitted"
+msgstr[0] ""
+msgstr[1] ""

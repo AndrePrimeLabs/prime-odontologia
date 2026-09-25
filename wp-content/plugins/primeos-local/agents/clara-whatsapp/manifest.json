@@ -1,0 +1,19 @@
+{
+  "name": "clara-whatsapp",
+  "display_name": "Clara WhatsApp Agent",
+  "version": "0.1.0",
+  "description": "Clara agent that interfaces with WhatsApp (scaffold)",
+  "bodyparts": [
+    "interface",
+    "perception",
+    "memory",
+    "knowledge",
+    "reasoning",
+    "planning",
+    "executor",
+    "safety",
+    "telemetry",
+    "ops"
+  ],
+  "entry": "index.js"
+}

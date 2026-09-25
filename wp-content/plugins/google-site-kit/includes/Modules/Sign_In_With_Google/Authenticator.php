@@ -1,0 +1,534 @@
+<?php
+/**
+ * Class Google\Site_Kit\Modules\Sign_In_With_Google\Authenticator
+ *
+ * @package   Google\Site_Kit\Modules\Sign_In_With_Google
+ * @copyright 2024 Google LLC
+ * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @link      https://sitekit.withgoogle.com
+ */
+
+namespace Google\Site_Kit\Modules\Sign_In_With_Google;
+
+use Google\Site_Kit\Core\Storage\User_Options;
+use Google\Site_Kit\Core\Util\Input;
+use Google\Site_Kit\Modules\Sign_In_With_Google;
+use WP_Error;
+use WP_User;
+
+/**
+ * The authenticator class that processes SiwG callback requests to authenticate users.
+ *
+ * @since 1.141.0
+ * @access private
+ * @ignore
+ */
+class Authenticator implements Authenticator_Interface {
+
+	/**
+	 * Cookie name to store the redirect URL before the user signs in with Google.
+	 */
+	const COOKIE_REDIRECT_TO = 'googlesitekit_auth_redirect_to';
+
+	/**
+	 * Cookie name to store the nonce passed to Google Identity Services.
+	 *
+	 * The module's script generates a random value before initializing the
+	 * library, stores it here, and passes it to Google, which embeds it as the
+	 * `nonce` claim of the signed ID token it returns. Comparing the claim with
+	 * this cookie establishes that the token was issued for a sign-in this
+	 * browser started.
+	 */
+	const COOKIE_NONCE = 'googlesitekit_auth_nonce';
+
+	/**
+	 * Lifetime of the nonce cookie, in seconds.
+	 *
+	 * Long enough for a user to choose an account and complete any Google
+	 * sign-in prompts, and short enough to limit how long an unused value
+	 * remains valid.
+	 */
+	const NONCE_TTL = 900;
+
+	/**
+	 * Error codes.
+	 */
+	const ERROR_INVALID_REQUEST    = 'googlesitekit_auth_invalid_request';
+	const ERROR_SIGNIN_FAILED      = 'googlesitekit_auth_failed';
+	const ERROR_TWO_FACTOR_ENABLED = 'googlesitekit_auth_two_factor_enabled';
+
+	/**
+	 * User meta key marking users created via Sign in with Google.
+	 *
+	 * @note This option is prefixed differently so that it will persist across disconnect/reset.
+	 */
+	const CREATED_BY_META_KEY = 'googlesitekitpersistent_created_by';
+
+	/**
+	 * Nonce action used by the existing-user link flow.
+	 *
+	 * @since 1.182.0
+	 */
+	const CONNECT_EXISTING_USER_NONCE_ACTION = 'googlesitekit_connect_existing_user';
+
+	/**
+	 * User options instance.
+	 *
+	 * @since 1.141.0
+	 * @since 1.182.0 Made `protected` so subclasses can reuse it.
+	 * @var User_Options
+	 */
+	protected $user_options;
+
+	/**
+	 * Profile reader instance.
+	 *
+	 * @since 1.141.0
+	 * @since 1.182.0 Made `protected` so subclasses can reuse it.
+	 * @var Profile_Reader_Interface
+	 */
+	protected $profile_reader;
+
+	/**
+	 * Constructor.
+	 *
+	 * @since 1.141.0
+	 *
+	 * @param User_Options             $user_options User options instance.
+	 * @param Profile_Reader_Interface $profile_reader Profile reader instance.
+	 */
+	public function __construct( User_Options $user_options, Profile_Reader_Interface $profile_reader ) {
+		$this->user_options   = $user_options;
+		$this->profile_reader = $profile_reader;
+	}
+
+	/**
+	 * Authenticates the user using the provided input data.
+	 *
+	 * @since 1.141.0
+	 *
+	 * @param Input $input Input instance.
+	 * @return string Redirect URL.
+	 */
+	public function authenticate_user( Input $input ) {
+		$credential = $input->filter( INPUT_POST, 'credential' );
+
+		// Read and clear the nonce before anything else, so a given value can
+		// only ever be used for one sign-in attempt.
+		$expected_nonce = $this->consume_nonce_cookie( $input );
+
+		$user    = null;
+		$payload = $this->profile_reader->get_profile_data( $credential );
+		if ( ! is_wp_error( $payload ) ) {
+			if ( ! $this->nonce_matches( $expected_nonce, $payload ) ) {
+				return $this->get_error_redirect_url( self::ERROR_INVALID_REQUEST );
+			}
+
+			$user = $this->find_user( $payload );
+			if ( null === $user ) {
+				// We haven't found the user using their Google user id and email. Thus we need to create
+				// a new user. But if the registration is closed, we need to return an error to identify
+				// that the sign in process failed.
+				if ( ! $this->is_registration_open() ) {
+					return $this->get_error_redirect_url( self::ERROR_SIGNIN_FAILED );
+				}
+
+				$user = $this->create_user( $payload );
+			}
+		}
+
+		// Redirect to the error page if the user is not found.
+		if ( is_wp_error( $user ) ) {
+			return $this->get_error_redirect_url( $user->get_error_code() );
+		} elseif ( ! $user instanceof WP_User ) {
+			return $this->get_error_redirect_url( self::ERROR_INVALID_REQUEST );
+		}
+
+		// Sign in the user.
+		$err = $this->sign_in_user( $user );
+		if ( is_wp_error( $err ) ) {
+			return $this->get_error_redirect_url( $err->get_error_code() );
+		}
+
+		return $this->get_redirect_url( $user, $input );
+	}
+
+	/**
+	 * Gets the redirect URL for the error page.
+	 *
+	 * @since 1.145.0
+	 *
+	 * @param string $code Error code.
+	 * @return string Redirect URL.
+	 */
+	protected function get_error_redirect_url( $code ) {
+		return add_query_arg( 'error', $code, wp_login_url() );
+	}
+
+	/**
+	 * Gets the redirect URL after the user signs in with Google.
+	 *
+	 * @since 1.145.0
+	 *
+	 * @param WP_User $user User object.
+	 * @param Input   $input Input instance.
+	 * @return string Redirect URL.
+	 */
+	protected function get_redirect_url( $user, $input ) {
+		// Use the admin dashboard URL as the redirect URL by default.
+		$redirect_to = admin_url();
+
+		// If we have the redirect URL in the cookie, use it as the main redirect_to URL.
+		$cookie_redirect_to = $this->get_cookie_redirect( $input );
+		if ( ! empty( $cookie_redirect_to ) ) {
+			$redirect_to = $cookie_redirect_to;
+		}
+
+		// Redirect to HTTPS if user wants SSL.
+		if ( get_user_option( 'use_ssl', $user->ID ) && str_contains( $redirect_to, 'wp-admin' ) ) {
+			$redirect_to = preg_replace( '|^http://|', 'https://', $redirect_to );
+		}
+
+		/** This filter is documented in wp-login.php. */
+		$redirect_to = apply_filters( 'login_redirect', $redirect_to, $redirect_to, $user );
+
+		if ( ( empty( $redirect_to ) || 'wp-admin/' === $redirect_to || admin_url() === $redirect_to ) ) {
+			// If the user doesn't belong to a blog, send them to user admin. If the user can't edit posts, send them to their profile.
+			if ( is_multisite() && ! get_active_blog_for_user( $user->ID ) && ! is_super_admin( $user->ID ) ) {
+				$redirect_to = user_admin_url();
+			} elseif ( is_multisite() && ! $user->has_cap( 'read' ) ) {
+				$redirect_to = get_dashboard_url( $user->ID );
+			} elseif ( ! $user->has_cap( 'edit_posts' ) ) {
+				$redirect_to = $user->has_cap( 'read' ) ? admin_url( 'profile.php' ) : home_url();
+			}
+		}
+
+		return $redirect_to;
+	}
+
+	/**
+	 * Signs in the user.
+	 *
+	 * @since 1.145.0
+	 * @since 1.185.0 Skips the Two-Factor plugin's login challenge for this request.
+	 *
+	 * @param WP_User $user User object.
+	 * @return WP_Error|null WP_Error if an error occurred, null otherwise.
+	 */
+	protected function sign_in_user( $user ) {
+		// Redirect to the error page if the user is not a member of the current blog in multisite.
+		if ( is_multisite() ) {
+			$blog_id = get_current_blog_id();
+			if ( ! is_user_member_of_blog( $user->ID, $blog_id ) ) {
+				if ( $this->is_registration_open() ) {
+					add_user_to_blog( $blog_id, $user->ID, $this->get_default_role() );
+				} else {
+					return new WP_Error( self::ERROR_INVALID_REQUEST );
+				}
+			}
+		}
+
+		// Set the user to be the current user.
+		wp_set_current_user( $user->ID, $user->user_login );
+
+		// Google already checked the second factor, so skip the Two-Factor
+		// challenge for this login. Setting this user's primary provider to
+		// empty turns the challenge off for this user only and keeps their
+		// saved settings. Don't empty the enabled providers instead: the
+		// plugin turns email codes back on when that list is empty.
+		add_filter(
+			'two_factor_primary_provider_for_user',
+			fn ( $provider, $user_id ) => $user_id === $user->ID ? '' : $provider,
+			10,
+			2
+		);
+
+		// Set the authentication cookies and trigger the wp_login action.
+		wp_set_auth_cookie( $user->ID );
+		/** This filter is documented in wp-login.php */
+		do_action( 'wp_login', $user->user_login, $user );
+
+		return null;
+	}
+
+	/**
+	 * Finds an existing user using the Google user ID and email.
+	 *
+	 * @since 1.145.0
+	 * @since 1.185.0 Returns a WP_Error when the email-matched user uses two-factor authentication and isn't connected to the Google account.
+	 *
+	 * @param array $payload Google auth payload.
+	 * @return WP_User|WP_Error|null User object when found, WP_Error when the matched user has to connect their Google account first, null otherwise.
+	 */
+	protected function find_user( $payload ) {
+		// Check if there are any existing WordPress users connected to this Google account.
+		// The user ID is used as the unique identifier because users can change the email on their Google account.
+		$google_user_hashed_id = $this->get_hashed_google_user_id( $payload );
+		$users                 = get_users(
+			array(
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+				'meta_key'   => $this->user_options->get_meta_key( Hashed_User_ID::OPTION ),
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+				'meta_value' => $google_user_hashed_id,
+				'number'     => 1,
+			)
+		);
+
+		if ( ! empty( $users ) ) {
+			return $users[0];
+		}
+
+		// Find an existing user that matches the email and link to their Google account by store their user ID in user meta.
+		$user = get_user_by( 'email', $payload['email'] );
+		if ( ! $user ) {
+			return null;
+		}
+
+		// Connecting the accounts here would let a user with two-factor
+		// authentication sign in without their challenge. They connect from
+		// their profile page instead, where they sign in first.
+		if ( $this->user_has_two_factor_enabled( $user->ID ) ) {
+			return new WP_Error( self::ERROR_TWO_FACTOR_ENABLED );
+		}
+
+		$user_options = clone $this->user_options;
+		$user_options->switch_user( $user->ID );
+		$user_options->set( Hashed_User_ID::OPTION, $google_user_hashed_id );
+
+		return $user;
+	}
+
+	/**
+	 * Create a new user using the Google auth payload.
+	 *
+	 * @since 1.145.0
+	 *
+	 * @param array $payload Google auth payload.
+	 * @return WP_User|WP_Error User object if found or created, WP_Error otherwise.
+	 */
+	protected function create_user( $payload ) {
+		$google_user_hashed_id = $this->get_hashed_google_user_id( $payload );
+
+		// Get the default role for new users.
+		$default_role = $this->get_default_role();
+
+		// Create a new user.
+		// User meta is persisted after wp_insert_user because its meta_input parameter requires WordPress 5.9 and the plugin floor is 5.2.
+		$user_id = wp_insert_user(
+			array(
+				'user_pass'    => wp_generate_password( 64 ),
+				'user_login'   => $payload['email'],
+				'user_email'   => $payload['email'],
+				'display_name' => $payload['name'],
+				'first_name'   => $payload['given_name'],
+				'last_name'    => $payload['family_name'],
+				'role'         => $default_role,
+			)
+		);
+
+		if ( is_wp_error( $user_id ) ) {
+			return new WP_Error( self::ERROR_SIGNIN_FAILED );
+		}
+
+		$user_options = clone $this->user_options;
+		$user_options->switch_user( $user_id );
+		$user_options->set( Hashed_User_ID::OPTION, $google_user_hashed_id );
+		$user_options->set( self::CREATED_BY_META_KEY, Sign_In_With_Google::MODULE_SLUG );
+
+		// Add the user to the current site if it is a multisite.
+		if ( is_multisite() ) {
+			add_user_to_blog( get_current_blog_id(), $user_id, $default_role );
+		}
+
+		// Send the new user notification.
+		wp_send_new_user_notifications( $user_id );
+
+		return get_user_by( 'id', $user_id );
+	}
+
+	/**
+	 * Checks whether the given user has two-factor authentication enabled.
+	 *
+	 * Returns false when the optional Two-Factor plugin isn't active.
+	 *
+	 * @since 1.185.0
+	 *
+	 * @param int $user_id User ID.
+	 * @return bool True when the user has two-factor authentication enabled, false otherwise.
+	 */
+	protected function user_has_two_factor_enabled( $user_id ) {
+		return class_exists( 'Two_Factor_Core' ) && \Two_Factor_Core::is_user_using_two_factor( $user_id );
+	}
+
+	/**
+	 * Gets the hashed Google user ID from the provided payload.
+	 *
+	 * @since 1.145.0
+	 * @since 1.182.0 Made `protected` so subclasses can reuse it.
+	 *
+	 * @param array $payload Google auth payload.
+	 * @return string Hashed Google user ID.
+	 */
+	protected function get_hashed_google_user_id( $payload ) {
+		return md5( $payload['sub'] );
+	}
+
+	/**
+	 * Checks if the registration is open.
+	 *
+	 * Checked here rather than in `WooCommerce_Authenticator`, because the
+	 * `integration=woocommerce` POST value is only ever sent from the
+	 * WooCommerce-hosted login page: the WordPress login page and One Tap
+	 * there use this base class even when WooCommerce is active, so
+	 * WooCommerce's own account-creation settings have to be checked here
+	 * too for that flow to open registration.
+	 *
+	 * @since 1.145.0
+	 * @since 1.186.0 Also opens registration through WooCommerce's own
+	 *                account-creation settings, when WooCommerce is active.
+	 *
+	 * @return bool True if registration is open, false otherwise.
+	 */
+	protected function is_registration_open() {
+		return $this->is_wordpress_registration_open() || $this->woocommerce_allows_registration();
+	}
+
+	/**
+	 * Gets the default role for new users.
+	 *
+	 * WordPress's own "Anyone can register" setting takes precedence: when it
+	 * is open, the WordPress default role applies regardless of WooCommerce.
+	 * WooCommerce's `customer` role is only used as a fallback when WordPress
+	 * registration is closed but WooCommerce's own registration is open.
+	 *
+	 * @since 1.141.0
+	 * @since 1.145.0 Updated the function visibility to protected.
+	 * @since 1.186.0 Returns WooCommerce's `customer` role as a fallback when
+	 *                only WooCommerce's own registration setting is open.
+	 *
+	 * @return string Default role.
+	 */
+	protected function get_default_role() {
+		if ( ! $this->is_wordpress_registration_open() && $this->woocommerce_allows_registration() ) {
+			return 'customer';
+		}
+
+		$default_role = get_option( 'default_role' );
+		if ( empty( $default_role ) ) {
+			$default_role = 'subscriber';
+		}
+
+		return $default_role;
+	}
+
+	/**
+	 * Checks if WordPress's own "Anyone can register" setting is open.
+	 *
+	 * @since 1.186.0
+	 *
+	 * @return bool True if registration is open, false otherwise.
+	 */
+	private function is_wordpress_registration_open() {
+		// No need to check the multisite settings because it is already
+		// incorporated in the following users_can_register check.
+		// See: https://github.com/WordPress/WordPress/blob/505b7c55f5363d51e7e28d512ce7dcb2d5f45894/wp-includes/ms-default-filters.php#L20.
+		return (bool) get_option( 'users_can_register' );
+	}
+
+	/**
+	 * Checks if WooCommerce's own account-creation settings allow
+	 * registration, when WooCommerce is active.
+	 *
+	 * Named distinctly from `WooCommerce_Authenticator::is_woocommerce_registration_open()`
+	 * (the static method this defers to) rather than sharing its name: on
+	 * PHP 7.4, a private instance method here with the exact same name as
+	 * that public static method on the subclass triggers a fatal
+	 * error, even though private methods aren't supposed to
+	 * participate in override compatibility checks.
+	 *
+	 * @since 1.186.0
+	 *
+	 * @return bool True if WooCommerce is active and registration is open through it, false otherwise.
+	 */
+	private function woocommerce_allows_registration() {
+		return class_exists( 'WooCommerce' ) && WooCommerce_Authenticator::is_woocommerce_registration_open();
+	}
+
+	/**
+	 * Gets the path for the redirect cookie.
+	 *
+	 * @since 1.141.0
+	 *
+	 * @return string Cookie path.
+	 */
+	public static function get_cookie_path() {
+		return dirname( wp_parse_url( wp_login_url(), PHP_URL_PATH ) );
+	}
+
+	/**
+	 * Gets the redirect URL from the cookie and clears the cookie.
+	 *
+	 * @since 1.146.0
+	 *
+	 * @param Input $input Input instance.
+	 * @return string Redirect URL.
+	 */
+	protected function get_cookie_redirect( $input ) {
+		$cookie_redirect_to = $input->filter( INPUT_COOKIE, self::COOKIE_REDIRECT_TO );
+		if ( ! empty( $cookie_redirect_to ) && ! headers_sent() ) {
+			// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.cookies_setcookie
+			setcookie( self::COOKIE_REDIRECT_TO, '', time() - 3600, self::get_cookie_path(), COOKIE_DOMAIN );
+		}
+
+		return $cookie_redirect_to;
+	}
+
+	/**
+	 * Reads the nonce cookie and asks the browser to drop it.
+	 *
+	 * Clearing happens here rather than after a successful sign-in, so an
+	 * abandoned attempt does not leave the value sitting in the browser.
+	 *
+	 * Note this is not single-use enforcement: only the browser is asked to
+	 * forget the value, and nothing is recorded server side. The cookie also
+	 * carries no secrecy, since the same value travels in the token as a
+	 * readable claim. What the pair establishes is that the request came from
+	 * a context able to set a cookie on this site.
+	 *
+	 * @since 1.188.0.t
+	 *
+	 * @param Input $input Input instance.
+	 * @return string Nonce from the cookie, or an empty string when not set.
+	 */
+	protected function consume_nonce_cookie( Input $input ) {
+		$nonce = $input->filter( INPUT_COOKIE, self::COOKIE_NONCE );
+
+		if ( ! empty( $nonce ) && ! headers_sent() ) {
+			// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.cookies_setcookie
+			setcookie( self::COOKIE_NONCE, '', time() - 3600, self::get_cookie_path(), COOKIE_DOMAIN );
+		}
+
+		return is_string( $nonce ) ? $nonce : '';
+	}
+
+	/**
+	 * Checks the nonce claim of the Google auth payload against the expected value.
+	 *
+	 * Both must be present. A token carrying no `nonce` claim was not issued
+	 * for a sign-in started here, so an absent claim is a mismatch rather than
+	 * a check which does not apply.
+	 *
+	 * @since 1.188.0.t
+	 *
+	 * @param string $expected_nonce Nonce read from the cookie.
+	 * @param array  $payload        Google auth payload.
+	 * @return bool TRUE when the nonce matches, FALSE otherwise.
+	 */
+	protected function nonce_matches( $expected_nonce, $payload ) {
+		if ( empty( $expected_nonce ) || empty( $payload['nonce'] ) ) {
+			return false;
+		}
+
+		return hash_equals( $expected_nonce, (string) $payload['nonce'] );
+	}
+}

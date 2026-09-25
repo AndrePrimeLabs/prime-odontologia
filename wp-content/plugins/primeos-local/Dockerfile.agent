@@ -1,0 +1,40 @@
+# Dockerfile for Clara Agent (Jetson / aarch64)
+# Builds llama.cpp then installs python bindings and exposes a simple FastAPI
+# Use build-arg USE_CUDA=1 to attempt CUDA-enabled build (host must provide CUDA libraries)
+
+FROM ubuntu:22.04
+ARG USE_CUDA=0
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Minimal toolchain
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+     build-essential cmake git python3 python3-pip python3-venv wget ca-certificates libopenblas-dev libgomp1 \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install pip + basic python deps
+RUN python3 -m pip install --upgrade pip setuptools wheel
+
+# Build llama.cpp from source (supports CUDA if available)
+WORKDIR /opt
+RUN git clone --depth 1 https://github.com/ggerganov/llama.cpp.git /opt/llama.cpp
+WORKDIR /opt/llama.cpp
+
+# Build (will build CPU by default; for CUDA set USE_CUDA=1 at build time)
+RUN if [ "${USE_CUDA}" = "1" ]; then \
+      make clean && make -j$(nproc) CUDA=1; \
+    else \
+      make clean && make -j$(nproc); \
+    fi
+
+# Install python bindings (llama-cpp-python) which will compile against /opt/llama.cpp
+RUN python3 -m pip install --no-cache-dir llama-cpp-python fastapi uvicorn[standard]
+
+# Copy agent server code
+WORKDIR /app
+COPY agent-server/ /app/
+
+EXPOSE 5000
+
+# Default command: run FastAPI agent server
+CMD ["python3", "/app/app.py"]

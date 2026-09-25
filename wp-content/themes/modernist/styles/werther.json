@@ -1,0 +1,105 @@
+{
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#ffff99",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#0d2f73",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#0b265b",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#0b265be6",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#fafafa",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				},
+				{
+					"color": "#0b265b0d",
+					"name": "Quaternary",
+					"slug": "quaternary"
+				}
+			]
+		},
+		"typography": {
+			"fontSizes": [
+				{
+					"fluid": false,
+					"name": "Small",
+					"size": "0.9rem",
+					"slug": "small"
+				},
+				{
+					"fluid": {
+						"max": "1rem",
+						"min": "0.9rem"
+					},
+					"name": "Medium",
+					"size": "1rem",
+					"slug": "medium"
+				},
+				{
+					"fluid": {
+						"max": "1.15rem",
+						"min": "1rem"
+					},
+					"name": "Large",
+					"size": "1.25rem",
+					"slug": "large"
+				},
+				{
+					"fluid": {
+						"max": "2.65rem",
+						"min": "2.15rem"
+					},
+					"name": "Extra Large",
+					"size": "2.65rem",
+					"slug": "x-large"
+				},
+				{
+					"fluid": {
+						"max": "5rem",
+						"min": "2.25rem"
+					},
+					"name": "Double Extra Large",
+					"size": "5rem",
+					"slug": "xx-large"
+				}
+			]
+		}
+	},
+	"styles": {
+		"blocks": {
+			"core/image": {
+				"filter": {
+					"duotone": "unset"
+				}
+			},
+			"core/post-featured-image": {
+				"filter": {
+					"duotone": "unset"
+				}
+			}
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--literata)",
+			"fontStyle": "normal",
+			"fontWeight": "400"
+		}
+	},
+	"version": 3,
+	"title": "Werther"
+}

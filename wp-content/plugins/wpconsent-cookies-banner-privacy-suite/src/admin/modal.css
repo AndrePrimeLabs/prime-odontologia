@@ -1,0 +1,70 @@
+.wpconsent-modal {
+	display: none;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9000;
+	overflow-y: scroll;
+}
+
+.wpconsent-modal-inner {
+	background-color: #fff;
+	width: 780px;
+	margin: 50px auto;
+}
+
+.wpconsent-modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #F3F4F5;
+	padding: 20px;
+
+	h2 {
+		margin: 0;
+	}
+}
+
+.wpconsent-modal-content {
+	padding: 20px;
+
+
+	.wpconsent-input-textarea {
+		width: 100%;
+		min-height: 150px;
+	}
+
+	.wpconsent-input-text {
+		width: 424px;
+	}
+}
+
+.wpconsent-modal-close {
+	color: #646970;
+
+	svg path {
+		fill: #646970;
+	}
+}
+
+/* Fix for geolocation groups modal - remove min-width values to prevent overflow */
+.wpconsent-modal-inner .wpconsent-button-row {
+	.wpconsent-button-label-column {
+		min-width: unset;
+	}
+
+	.wpconsent-button-text-column {
+		min-width: unset;
+
+		input[type="text"] {
+			width: 100%;
+		}
+	}
+
+	.wpconsent-button-enabled-column {
+		min-width: unset;
+	}
+}

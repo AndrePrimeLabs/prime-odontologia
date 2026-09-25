@@ -1,0 +1,74 @@
+<?php declare(strict_types = 1);
+
+namespace MailPoet\EmailEditor\Integrations\MailPoet\Patterns\Library;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\EmailEditor\Integrations\MailPoet\EmailEditor;
+use MailPoet\EmailEditor\Integrations\MailPoet\Patterns\Pattern;
+
+/**
+ * Newsletter email pattern for regular communications.
+ */
+class NewsletterPattern extends Pattern {
+  protected $name = 'newsletter-content';
+  protected $block_types = ['core/post-content']; // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+  protected $template_types = ['email-template']; // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+  protected $categories = ['newsletter'];
+  protected $post_types = [EmailEditor::MAILPOET_EMAIL_POST_TYPE]; // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+
+  /**
+   * Get pattern content.
+   *
+   * @return string Pattern HTML content.
+   */
+  protected function get_content(): string { // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+    return '
+    <!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|40","left":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+    <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+      <!-- wp:heading {"level":1} -->
+      <h1 class="wp-block-heading">' . __('Weekly Newsletter', 'mailpoet') . '</h1>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph -->
+      <p>' . __('Welcome to our weekly newsletter! Stay updated with the latest trends in hair care, styling tips, and exclusive offers.', 'mailpoet') . '</p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:image {"sizeSlug":"full"} -->
+      <figure class="wp-block-image size-full"><img src="' . esc_url($this->cdnAssetUrl->generateCdnUrl('email-editor/newsletter.jpg')) . '" alt="' . esc_attr__('Newsletter image', 'mailpoet') . '"/></figure>
+      <!-- /wp:image -->
+
+      <!-- wp:paragraph -->
+      <p>' . __('This week, we explore new products that enhance shine and promote healthy hair growth. Don‘t miss out on our exclusive offers tailored just for you!', 'mailpoet') . '</p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:heading {"level":2} -->
+      <h2 class="wp-block-heading">' . __('Summer trends', 'mailpoet') . '</h2>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph -->
+      <p>' . __('Discover the latest in skincare with our innovative formulas that hydrate and rejuvenate. Join us for special discounts available for a limited time!', 'mailpoet') . '</p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:paragraph -->
+      <p>' . __('Unveil a fresh approach to wellness with our cutting-edge supplements designed to boost energy and support your immune system. Take advantage of our introductory pricing!', 'mailpoet') . '</p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+      <div class="wp-block-buttons">
+      <!-- wp:button {"style":{"typography":{"fontSize":"16px"},"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10","left":"var:preset|spacing|20","right":"var:preset|spacing|20"}}}} -->
+      <div class="wp-block-button"><a class="wp-block-button__link wp-element-button has-custom-font-size" style="font-size:16px;padding-top:var(--wp--preset--spacing--10);padding-bottom:var(--wp--preset--spacing--10);padding-left:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20)" href="[mailpoet/site-homepage-url]">' . __('Visit our store', 'mailpoet') . '</a></div>
+      <!-- /wp:button -->
+      </div>
+      <!-- /wp:buttons -->
+    </div>
+    <!-- /wp:group -->
+    ';
+  }
+
+  protected function get_title(): string { // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+    /* translators: Name of a content pattern used as starting content of an email */
+    return __('Newsletter', 'mailpoet');
+  }
+}

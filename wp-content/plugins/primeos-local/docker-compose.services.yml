@@ -1,0 +1,351 @@
+version: '3.8'
+
+services:
+  # ============================================================================
+  # TRAEFIK API GATEWAY (Reverse Proxy for all 9 BMC Microservices)
+  # ============================================================================
+  gateway:
+    image: traefik:v3
+    container_name: primeos-gateway
+    restart: unless-stopped
+    ports:
+      - "80:80"       # Web entrypoint
+      - "${PRIMEOS_API_PORT:-5001}:5000"   # PrimeOS Client API entrypoint (port 5001 avoids macOS AirPlay collision)
+      - "8080:8080"   # Traefik Dashboard: http://localhost:8080
+    volumes:
+      - ./gateway/traefik.yml:/etc/traefik/traefik.yml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - primeos-mesh
+
+  # ============================================================================
+  # NATS MESSAGE BROKER (Event Mesh for Microservices)
+  # ============================================================================
+  nats:
+    image: nats:2.10-alpine
+    container_name: primeos-nats
+    restart: unless-stopped
+    ports:
+      - "4222:4222"
+      - "8222:8222" # Management / monitoring dashboard
+    networks:
+      - primeos-mesh
+
+  # ============================================================================
+  # POSTGRESQL (Multi-Tenant RLS Database for Microservices)
+  # ============================================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: primeos-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: primeos
+      POSTGRES_PASSWORD: primeos_secret
+      POSTGRES_DB: primeos_app
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - primeos-mesh
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U primeos -d primeos_app"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ============================================================================
+  # 1. CRM-X (Port 4001) - Customer Relationship Management
+  # ============================================================================
+  crm-x:
+    build:
+      context: ./services/crm-x
+    container_name: primeos-crm-x
+    restart: unless-stopped
+    environment:
+      PORT: 4001
+      DATABASE_URL: postgres://primeos_app:primeos_secret@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    ports:
+      - "4001:4001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.crmx.rule=PathPrefix(`/api/customers`) || PathPrefix(`/api/interactions`) || PathPrefix(`/api/tickets`)"
+      - "traefik.http.routers.crmx.entrypoints=web,api"
+      - "traefik.http.services.crmx.loadbalancer.server.port=4001"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4001/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ============================================================================
+  # 2. CHAN-X (Port 4002) - Channels & Paid Campaigns
+  # ============================================================================
+  chan-x:
+    build:
+      context: ./services/chan-x
+    container_name: primeos-chan-x
+    restart: unless-stopped
+    environment:
+      PORT: 4002
+      DATABASE_URL: postgres://primeos_app:primeos_secret@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    ports:
+      - "4002:4002"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.chanx.rule=PathPrefix(`/api/channels`) || PathPrefix(`/api/campaigns`)"
+      - "traefik.http.routers.chanx.entrypoints=web,api"
+      - "traefik.http.services.chanx.loadbalancer.server.port=4002"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4002/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ============================================================================
+  # 3. SEG-X (Port 4003) - Customer Segments & Personas
+  # ============================================================================
+  seg-x:
+    build:
+      context: ./services/seg-x
+    container_name: primeos-seg-x
+    restart: unless-stopped
+    environment:
+      PORT: 4003
+      DATABASE_URL: postgres://primeos_app:primeos_secret@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    ports:
+      - "4003:4003"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.segx.rule=PathPrefix(`/api/segments`) || PathPrefix(`/api/personas`)"
+      - "traefik.http.routers.segx.entrypoints=web,api"
+      - "traefik.http.services.segx.loadbalancer.server.port=4003"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4003/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ============================================================================
+  # 4. REV-X (Port 4004) - Revenue Streams, Products & Transactions
+  # ============================================================================
+  rev-x:
+    build:
+      context: ./services/rev-x
+    container_name: primeos-rev-x
+    restart: unless-stopped
+    environment:
+      PORT: 4004
+      DATABASE_URL: postgres://primeos_app:primeos_secret@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    ports:
+      - "4004:4004"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.revx.rule=PathPrefix(`/api/products`) || PathPrefix(`/api/transactions`)"
+      - "traefik.http.routers.revx.entrypoints=web,api"
+      - "traefik.http.services.revx.loadbalancer.server.port=4004"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4004/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ============================================================================
+  # 5. ACT-X (Port 4005) - Key Activities & SOPs
+  # ============================================================================
+  act-x:
+    build:
+      context: ./services/act-x
+    container_name: primeos-act-x
+    restart: unless-stopped
+    environment:
+      PORT: 4005
+      DATABASE_URL: postgres://primeos_app:primeos_secret@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    ports:
+      - "4005:4005"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.actx.rule=PathPrefix(`/api/activities`) || PathPrefix(`/api/sops`)"
+      - "traefik.http.routers.actx.entrypoints=web,api"
+      - "traefik.http.services.actx.loadbalancer.server.port=4005"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4005/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ============================================================================
+  # 6. VALUE-X (Port 4006) - Value Propositions & Solution Fit
+  # ============================================================================
+  value-x:
+    build:
+      context: ./services/value-x
+    container_name: primeos-value-x
+    restart: unless-stopped
+    environment:
+      PORT: 4006
+      DATABASE_URL: postgres://primeos_app:primeos_secret@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    ports:
+      - "4006:4006"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.valuex.rule=PathPrefix(`/api/propositions`)"
+      - "traefik.http.routers.valuex.entrypoints=web,api"
+      - "traefik.http.services.valuex.loadbalancer.server.port=4006"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4006/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ============================================================================
+  # 7. PART-X (Port 4007) - Key Partners & Supplier Contracts
+  # ============================================================================
+  part-x:
+    build:
+      context: ./services/part-x
+    container_name: primeos-part-x
+    restart: unless-stopped
+    environment:
+      PORT: 4007
+      DATABASE_URL: postgres://primeos_app:primeos_secret@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    ports:
+      - "4007:4007"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.partx.rule=PathPrefix(`/api/partners`)"
+      - "traefik.http.routers.partx.entrypoints=web,api"
+      - "traefik.http.services.partx.loadbalancer.server.port=4007"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4007/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ============================================================================
+  # 8. RES-X (Port 4008) - Key Resources & Asset Management
+  # ============================================================================
+  res-x:
+    build:
+      context: ./services/res-x
+    container_name: primeos-res-x
+    restart: unless-stopped
+    environment:
+      PORT: 4008
+      DATABASE_URL: postgres://primeos_app:primeos_secret@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    ports:
+      - "4008:4008"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.resx.rule=PathPrefix(`/api/resources`)"
+      - "traefik.http.routers.resx.entrypoints=web,api"
+      - "traefik.http.services.resx.loadbalancer.server.port=4008"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4008/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ============================================================================
+  # 9. COST-X (Port 4009) - Cost Structure, Expenses & Budgets
+  # ============================================================================
+  cost-x:
+    build:
+      context: ./services/cost-x
+    container_name: primeos-cost-x
+    restart: unless-stopped
+    environment:
+      PORT: 4009
+      DATABASE_URL: postgres://primeos_app:primeos_secret@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    ports:
+      - "4009:4009"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.costx.rule=PathPrefix(`/api/expenses`) || PathPrefix(`/api/budgets`)"
+      - "traefik.http.routers.costx.entrypoints=web,api"
+      - "traefik.http.services.costx.loadbalancer.server.port=4009"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:4009/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+networks:
+  primeos-mesh:
+    name: primeos-mesh
+    driver: bridge
+
+volumes:
+  postgres-data:

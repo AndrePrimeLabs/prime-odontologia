@@ -1,0 +1,217 @@
+<?php
+
+namespace EA11y\Modules\Remediation\Classes;
+
+use DOMDocument;
+use DOMElement;
+use DOMXPath;
+
+class Remediation_Base {
+	public static string $type = 'remediation';
+
+	public DOMDocument $dom;
+	/**
+	 * Use frontend remediation flag
+	 *
+	 * @var boolean
+	 */
+	public bool $use_frontend = false;
+	/**
+	 * @var mixed
+	 */
+	public array $data;
+
+	public function get_type(): string {
+		return static::$type;
+	}
+
+	/**
+	 * Check if the element exists
+	 *
+	 * @return boolean
+	 */
+	public function exists(): bool {
+		return $this->get_element_by_xpath( $this->data['xpath'] ) instanceof DOMElement;
+	}
+
+	/**
+	 * Check if the element exists using XPath with a snippet-based fallback.
+	 *
+	 * @return boolean
+	 */
+	public function exists_with_fallback(): bool {
+		return $this->get_element_by_xpath_with_snippet_fallback(
+			$this->data['xpath'] ?? null,
+			$this->data['find'] ?? null
+		) instanceof DOMElement;
+	}
+
+	/**
+	 * get_element_by_xpath
+	 * @param $xpath
+	 *
+	 * @return \DOMElement|\DOMNameSpaceNode|\DOMNode|null
+	 */
+	public function get_element_by_xpath( $query ) {
+		$xpath = new DOMXPath( $this->dom );
+		$elements = $xpath->query( $query );
+
+		if ( $elements->length > 0 ) {
+			return $elements->item( 0 );
+		}
+
+		return null;
+	}
+
+	/**
+	 * Get an element by XPath and verify it contains the given snippet.
+	 * If not, fall back to searching by the snippet itself.
+	 *
+	 * @param string|null      $xpath
+	 * @param string|null      $snippet
+	 * @return DOMElement|null
+	 */
+	public function get_element_by_xpath_with_snippet_fallback( ?string $xpath, ?string $snippet ): ?DOMElement {
+		$element = $xpath ? $this->get_element_by_xpath( $xpath ) : null;
+
+		// Without a snippet we can't validate or fall back, so return whatever XPath found.
+		if ( null === $snippet || '' === $snippet ) {
+			return $element instanceof DOMElement ? $element : null;
+		}
+
+		// If XPath found an element but its outer HTML doesn't contain the snippet, discard it.
+		if ( $element instanceof DOMElement && ! $this->element_contains_snippet( $element, $snippet ) ) {
+			$element = null;
+		}
+
+		// Fallback to snippet-based search.
+		if ( ! $element instanceof DOMElement ) {
+			$element = $this->get_element_by_snippet( $snippet );
+		}
+
+		return $element;
+	}
+
+	/**
+	 * Check if a DOMElement contains a given snippet of HTML.
+	 *
+	 * @param DOMElement $element
+	 * @param string     $snippet
+	 * @return bool
+	 */
+	public function element_contains_snippet( DOMElement $element, string $snippet ): bool {
+		$outer_html = $this->dom->saveHTML( $element );
+
+		return stripos( $outer_html, $snippet ) !== false;
+	}
+
+	/**
+	 * Find an element in a DOMDocument by matching its tag, ID, and/or class from a snippet.
+	 *
+	 * @param string      $snippet
+	 * @return DOMElement|null
+	 */
+	public function get_element_by_snippet( string $snippet ): ?DOMElement {
+		$temp = new DOMDocument();
+		libxml_use_internal_errors( true );
+		$temp->loadHTML( $snippet, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+		libxml_clear_errors();
+
+		$parsed = $temp->documentElement;
+		if ( ! $parsed ) {
+			return null;
+		}
+
+		$tag   = strtolower( $parsed->tagName );
+		$id    = $parsed->getAttribute( 'id' );
+		$class = trim( $parsed->getAttribute( 'class' ) );
+
+		$query      = '//' . $tag;
+		$conditions = [];
+
+		if ( $id ) {
+			$conditions[] = "@id='{$id}'";
+		}
+
+		if ( $class ) {
+			$classes = preg_split( '/\s+/', $class );
+			foreach ( $classes as $c ) {
+				$conditions[] = sprintf(
+					"contains(concat(' ', normalize-space(@class), ' '), ' %s ')",
+					$c
+				);
+			}
+		}
+
+		if ( $conditions ) {
+			$query .= '[' . implode( ' and ', $conditions ) . ']';
+			return $this->get_element_by_xpath( $query );
+		}
+
+		// No id/class to disambiguate (common for dynamically generated markup,
+		// e.g. inline SVGs rendered by animation libraries). Scan every element
+		// with a matching tag instead of blindly grabbing the first one in the document.
+		return $this->find_best_matching_element_by_tag( $tag, $snippet );
+	}
+
+	/**
+	 * Among all elements with the given tag, find the one whose outer HTML actually
+	 * contains the snippet. Falls back to the first element with that tag if none
+	 * match, preserving previous best-effort behavior.
+	 *
+	 * @param string $tag
+	 * @param string $snippet
+	 * @return DOMElement|null
+	 */
+	public function find_best_matching_element_by_tag( string $tag, string $snippet ): ?DOMElement {
+		$xpath = new DOMXPath( $this->dom );
+		$candidates = $xpath->query( '//' . $tag );
+
+		if ( 0 === $candidates->length ) {
+			return null;
+		}
+
+		foreach ( $candidates as $candidate ) {
+			if ( $candidate instanceof DOMElement && $this->element_contains_snippet( $candidate, $snippet ) ) {
+				return $candidate;
+			}
+		}
+
+		$first = $candidates->item( 0 );
+		return $first instanceof DOMElement ? $first : null;
+	}
+
+
+	public function run() : ?DOMDocument {
+		return $this->dom;
+	}
+
+	/**
+	 * @throws \DOMException
+	 */
+	public function create_element( $data ) : DomElement {
+		$element = $this->dom->createElement( $data['tag'] );
+		if ( isset( $data['attributes'] ) ) {
+			foreach ( $data['attributes'] as $attribute ) {
+				$element->setAttribute( $attribute['name'], $attribute['value'] );
+			}
+		}
+		if ( isset( $data['content'] ) ) {
+			// @phpcs:ignore
+			$element->nodeValue = $data['content'];
+		}
+		return $element;
+	}
+
+	public function __construct( DOMDocument $dom, $data ) {
+		$this->dom = $dom;
+		$this->data = $data;
+		// If it's not styles and the element can't be found by XPath or the snippet fallback,
+		// move the remediation to the Frontend so a later DOM state can pick it up.
+		if ( 'STYLES' !== $this->data['type'] && ! $this->exists_with_fallback() ) {
+			$this->use_frontend = true;
+			return;
+		}
+		$this->run();
+	}
+}

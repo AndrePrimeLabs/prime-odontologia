@@ -1,0 +1,44 @@
+name: PrimeOS Backup
+
+on:
+ workflow_dispatch:
+
+permissions:
+ contents: read
+
+jobs:
+ backup:
+ runs-on: ubuntu-latest
+
+ steps:
+ - name: Install backup tools
+ run: |
+ sudo apt-get update
+ sudo apt-get install -y lftp zip
+
+ - name: Download current PrimeOS from Hostinger
+ env:
+ FTP_SERVER: ${{ secrets.FTP_SERVER }}
+ FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+ FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+ run: |
+ TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+ BACKUP_DIR="backup/primeos-$TIMESTAMP"
+ mkdir -p "$BACKUP_DIR"
+
+ lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "$FTP_SERVER" <<EOF
+ set ftp:ssl-allow no
+ set net:timeout 30
+ set net:max-retries 2
+ mirror --verbose --only-newer --parallel=2 public_html/primeos/ "$BACKUP_DIR"
+ bye
+EOF
+
+ zip -r "primeos-backup-$TIMESTAMP.zip" "$BACKUP_DIR"
+
+ - name: Upload backup artifact
+ uses: actions/upload-artifact@v4
+ with:
+ name: primeos-backup
+ path: primeos-backup-*.zip
+ retention-days: 14

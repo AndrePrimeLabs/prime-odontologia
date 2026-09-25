@@ -1,0 +1,565 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-20 02:14+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: inc/ajax.php:26
+msgid "close"
+msgstr ""
+
+#: inc/post-type.php:16
+msgctxt "post type general name"
+msgid "Portfolios"
+msgstr ""
+
+#: inc/post-type.php:17
+msgctxt "post type singular name"
+msgid "Portfolio"
+msgstr ""
+
+#: inc/post-type.php:18
+msgctxt "admin menu"
+msgid "Portfolios"
+msgstr ""
+
+#: inc/post-type.php:19
+msgctxt "add new on admin bar"
+msgid "Portfolio"
+msgstr ""
+
+#: inc/post-type.php:20
+msgctxt "portfolio"
+msgid "Add New"
+msgstr ""
+
+#: inc/post-type.php:21
+msgid "Add New Portfolio"
+msgstr ""
+
+#: inc/post-type.php:22
+msgid "New Portfolio"
+msgstr ""
+
+#: inc/post-type.php:23
+msgid "Edit Portfolio"
+msgstr ""
+
+#: inc/post-type.php:24
+msgid "View Portfolio"
+msgstr ""
+
+#: inc/post-type.php:25
+msgid "All Portfolios"
+msgstr ""
+
+#: inc/post-type.php:26
+msgid "Search Portfolios"
+msgstr ""
+
+#: inc/post-type.php:27
+msgid "Parent Portfolios:"
+msgstr ""
+
+#: inc/post-type.php:28
+msgid "No portfolios found."
+msgstr ""
+
+#: inc/post-type.php:29
+msgid "No portfolios found in Trash."
+msgstr ""
+
+#: inc/post-type.php:51
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr ""
+
+#: inc/post-type.php:52
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr ""
+
+#: inc/post-type.php:53
+msgid "Search Categories"
+msgstr ""
+
+#: inc/post-type.php:54
+msgid "Popular Categories"
+msgstr ""
+
+#: inc/post-type.php:55
+msgid "All Categories"
+msgstr ""
+
+#: inc/post-type.php:58
+msgid "Edit Category"
+msgstr ""
+
+#: inc/post-type.php:59
+msgid "Update Category"
+msgstr ""
+
+#: inc/post-type.php:60
+msgid "Add New Category"
+msgstr ""
+
+#: inc/post-type.php:61
+msgid "New Category Name"
+msgstr ""
+
+#: inc/post-type.php:62
+msgid "Separate categories with commas"
+msgstr ""
+
+#: inc/post-type.php:63
+msgid "Add or remove categories"
+msgstr ""
+
+#: inc/post-type.php:64
+msgid "Choose from the most used categories"
+msgstr ""
+
+#: inc/post-type.php:65
+msgid "No categories found."
+msgstr ""
+
+#: inc/post-type.php:66
+msgid "Categories"
+msgstr ""
+
+#: inc/template-tags.php:47
+msgid "OnePress Plus Documentation"
+msgstr ""
+
+#: inc/template-tags.php:57
+#, php-format
+msgid "Copyright %1$s %2$s %3$s"
+msgstr ""
+
+#: inc/template-tags.php:63
+#, php-format
+msgid "%1$s theme by %2$s"
+msgstr ""
+
+#: section-parts/section-clients.php:4
+msgid "Have been featured on"
+msgstr ""
+
+#: section-parts/section-clients.php:32
+msgid "Hostingco"
+msgstr ""
+
+#: section-parts/section-clients.php:40
+msgid "Religion"
+msgstr ""
+
+#: section-parts/section-clients.php:48
+msgid "Viento"
+msgstr ""
+
+#: section-parts/section-clients.php:56
+msgid "Naturefirst"
+msgstr ""
+
+#: section-parts/section-clients.php:64
+msgid "Imagine"
+msgstr ""
+
+#: section-parts/section-cta.php:3
+msgid "Use these ribbons to display calls to action mid-page."
+msgstr ""
+
+#: section-parts/section-cta.php:4
+msgid "Button text"
+msgstr ""
+
+#: section-parts/section-hero.php:2
+msgid "hero"
+msgstr ""
+
+#: section-parts/section-hero.php:110
+msgid "Our Services"
+msgstr ""
+
+#: section-parts/section-hero.php:111
+msgid "#services"
+msgstr ""
+
+#: section-parts/section-hero.php:112
+msgid "Get Started"
+msgstr ""
+
+#: section-parts/section-hero.php:113
+msgid "#contact"
+msgstr ""
+
+#: section-parts/section-map.php:63
+msgid "these steps"
+msgstr ""
+
+#: section-parts/section-map.php:64
+msgid "here"
+msgstr ""
+
+#: section-parts/section-pricing.php:2
+msgid "pricing"
+msgstr ""
+
+#: section-parts/section-pricing.php:3
+msgid "Pricing Table"
+msgstr ""
+
+#: section-parts/section-pricing.php:4
+msgid "Responsive pricing section"
+msgstr ""
+
+#: section-parts/section-pricing.php:33
+msgid "Freelancer"
+msgstr ""
+
+#: section-parts/section-pricing.php:34 section-parts/section-pricing.php:44
+#: section-parts/section-pricing.php:54
+msgid "$"
+msgstr ""
+
+#: section-parts/section-pricing.php:36
+msgid "Perfect for single freelancers who work by themselves"
+msgstr ""
+
+#: section-parts/section-pricing.php:37
+msgid ""
+"Support Forum \n"
+"Free hosting\n"
+" 1 hour of support\n"
+" 40MB of storage space"
+msgstr ""
+
+#: section-parts/section-pricing.php:38 section-parts/section-pricing.php:48
+#: section-parts/section-pricing.php:58 section-parts/section-pricing.php:90
+msgid "Choose Plan"
+msgstr ""
+
+#: section-parts/section-pricing.php:43
+msgid "Small Business"
+msgstr ""
+
+#: section-parts/section-pricing.php:46
+msgid "Suitable for small businesses with up to 5 employees"
+msgstr ""
+
+#: section-parts/section-pricing.php:47
+msgid ""
+"Support Forum \n"
+"Free hosting\n"
+" 10 hour of support\n"
+" 1GB of storage space"
+msgstr ""
+
+#: section-parts/section-pricing.php:53
+msgid "Larger Business"
+msgstr ""
+
+#: section-parts/section-pricing.php:56
+msgid "Great for large businesses with more than 5 employees"
+msgstr ""
+
+#: section-parts/section-pricing.php:57
+msgid ""
+"Support Forum \n"
+"Free hosting\n"
+" Unlimited hours of support\n"
+" Unlimited storage space"
+msgstr ""
+
+#: section-parts/section-projects.php:3
+msgid "Highlight Projects"
+msgstr ""
+
+#: section-parts/section-projects.php:4
+msgid "Some of our works"
+msgstr ""
+
+#: section-parts/section-testimonials.php:2
+msgid "testimonials"
+msgstr ""
+
+#: section-parts/section-testimonials.php:4
+msgid "Testimonials"
+msgstr ""
+
+#: section-parts/section-testimonials.php:5
+msgid "Section subtitle"
+msgstr ""
+
+#: section-parts/section-testimonials.php:33
+msgid "Praesent placerat"
+msgstr ""
+
+#: section-parts/section-testimonials.php:34
+msgid "Alexander Rios"
+msgstr ""
+
+#: section-parts/section-testimonials.php:35
+#: section-parts/section-testimonials.php:47
+msgid "Founder & CEO"
+msgstr ""
+
+#: section-parts/section-testimonials.php:41
+msgid ""
+"Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu "
+"vulputate magna eros eu erat. Aliquam erat volutpat."
+msgstr ""
+
+#: section-parts/section-testimonials.php:45
+msgid "Cras iaculis"
+msgstr ""
+
+#: section-parts/section-testimonials.php:46
+msgid "Alexander Max"
+msgstr ""
+
+#: section-parts/section-testimonials.php:53
+msgid ""
+"Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue eu "
+"vulputate."
+msgstr ""
+
+#: section-parts/section-testimonials.php:57
+msgid "Fusce lobortis"
+msgstr ""
+
+#: section-parts/section-testimonials.php:58
+msgid "Peter Mendez"
+msgstr ""
+
+#: section-parts/section-testimonials.php:59
+msgid "Example Company"
+msgstr ""
+
+#: section-parts/section-testimonials.php:65
+msgid ""
+"Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, "
+"euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo "
+"ullamcorper magna egestas sem."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:24
+msgid "OnePress Plus License"
+msgstr ""
+
+#: inc/auto-update/auto-update.php:63
+msgid "Please enter your License key."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:72
+msgid "License key is active. Expires: Lifetime"
+msgstr ""
+
+#: inc/auto-update/auto-update.php:74
+#, php-format
+msgid "License key is active. Expires %s."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:77
+#, php-format
+msgid "License key is active. Activations: %1$s/%2$s."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:78
+#, php-format
+msgid "Expires %s."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:82
+msgid "Your License is deactivated."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:86
+#, php-format
+msgid "Your License key is expired. Expires %s."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:87
+msgid "This license must be renewed before it can be upgraded."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:87
+msgid "Click here to Renewal"
+msgstr ""
+
+#: inc/auto-update/auto-update.php:89
+#, php-format
+msgid "Your license is limited. Activations: %1$s/%2$s."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:91 inc/auto-update/auto-update.php:109
+msgid "Your License key is invalid."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:98
+msgid "Could not connect to FameThemes server."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:121
+msgid "License Key"
+msgstr ""
+
+#: inc/auto-update/auto-update.php:128
+msgid ""
+"Enter your license key to enable automatic theme updates. Find your license "
+"key at your FameThemes Dashboard, under Licenses section."
+msgstr ""
+
+#: inc/auto-update/auto-update.php:134 inc/auto-update/auto-update.php:140
+msgid "Activate License"
+msgstr ""
+
+#: inc/auto-update/auto-update.php:138
+msgid "Deactivate License"
+msgstr ""
+
+#: inc/typography/typography.php:184
+msgid "Font Family"
+msgstr ""
+
+#: inc/typography/typography.php:185 inc/typography/typography.php:378
+#: inc/typography/typography.php:385 inc/typography/typography.php:392
+#: inc/typography/typography.php:400 inc/typography/typography.php:413
+msgid "Default"
+msgstr ""
+
+#: inc/typography/typography.php:186
+msgid "Font Size (px)"
+msgstr ""
+
+#: inc/typography/typography.php:187
+msgid "Font Weight/Style"
+msgstr ""
+
+#: inc/typography/typography.php:188
+msgid "Line Height (px)"
+msgstr ""
+
+#: inc/typography/typography.php:189
+msgid "Text Decoration"
+msgstr ""
+
+#: inc/typography/typography.php:190
+msgid "Letter Spacing (px)"
+msgstr ""
+
+#: inc/typography/typography.php:191
+msgid "Text Transform"
+msgstr ""
+
+#: inc/typography/typography.php:192
+msgid "Color"
+msgstr ""
+
+#: inc/typography/typography.php:306
+msgid "Thin 100"
+msgstr ""
+
+#: inc/typography/typography.php:307
+msgid "Thin 100 Italic"
+msgstr ""
+
+#: inc/typography/typography.php:309
+msgid "Extra-Light 200 Italic"
+msgstr ""
+
+#: inc/typography/typography.php:311
+msgid "Light 300 Italic"
+msgstr ""
+
+#: inc/typography/typography.php:313
+msgid "Normal 400 Italic"
+msgstr ""
+
+#: inc/typography/typography.php:315
+msgid "Normal Italic"
+msgstr ""
+
+#: inc/typography/typography.php:317
+msgid "Medium 500 Italic"
+msgstr ""
+
+#: inc/typography/typography.php:319
+msgid "Semi-Bold 600 Italic"
+msgstr ""
+
+#: inc/typography/typography.php:320
+msgid "Bold 700"
+msgstr ""
+
+#: inc/typography/typography.php:321
+msgid "Bold 700 Italic"
+msgstr ""
+
+#: inc/typography/typography.php:323
+msgid " Extra-Bold 800 Italic"
+msgstr ""
+
+#: inc/typography/typography.php:324
+msgid "Ultra-Bold 900"
+msgstr ""
+
+#: inc/typography/typography.php:325
+msgid "Ultra-Bold 900 Italic"
+msgstr ""
+
+#: inc/typography/typography.php:401 inc/typography/typography.php:414
+msgid "None"
+msgstr ""
+
+#: inc/typography/typography.php:402
+msgid "Overline"
+msgstr ""
+
+#: inc/typography/typography.php:403
+msgid "Underline"
+msgstr ""
+
+#: inc/typography/typography.php:404
+msgid "Line through"
+msgstr ""
+
+#: inc/typography/typography.php:415
+msgid "Uppercase"
+msgstr ""
+
+#: inc/typography/typography.php:416
+msgid "Lowercase"
+msgstr ""
+
+#: inc/typography/typography.php:417
+msgid "Capitalize"
+msgstr ""
+
+#. Name of the plugin
+msgid "OnePress Plus"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"The OnePress Plus plugin adds powerful premium features to OnePress theme."
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "http://www.famethemes.com/"
+msgstr ""
+
+#. Author of the plugin
+msgid "famethemes"
+msgstr ""

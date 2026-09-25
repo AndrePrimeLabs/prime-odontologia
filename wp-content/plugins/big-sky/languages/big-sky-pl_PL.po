@@ -1,0 +1,1003 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Big Sky\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:25:55+00:00\n"
+"PO-Revision-Date: 2026-09-03 02:55:38+0000\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:74
+msgid "Here is the visible area of the canvas. Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "Oto widoczny obszar płótna. Zdjęcia są wyświetlane jako płaskie podpowiedzi w ich rzeczywistym rozmiarze, więc traktuj każdy szary prostokąt jako obrazek, który jest obecny, a nie jako brakujący."
+
+#. %d: number of blocks framed in the screenshot.
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:73
+msgid "Here is the canvas around %d block(s). Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "Oto płótno wokół %d bloku(ów). Zdjęcia są pokazane jako płaskie podpowiedzi w ich rzeczywistych rozmiarach, więc traktuj każdy szary prostokąt jako obrazek, który jest obecny, a nie jako brakujący."
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:61
+msgid "Here is the whole page, top to bottom. It is scaled down to fit, so body text will not be legible — read it for colour, type scale, spacing and section rhythm, and take an ordinary picture of a specific area when wording or fine detail matters. Photographs are shown as flat placeholder boxes at their real size."
+msgstr "Oto cała strona, od góry do dołu. Została pomniejszona, aby pasowała, więc tekst główny nie będzie czytelny — przeczytaj ją pod kątem kolorów, skali rodzaju, odstępów i rytmu sekcji, a gdy ważne są sformułowania lub drobne szczegóły, zrób zwykłe zdjęcie konkretnego obszaru. Zdjęcia są pokazane jako płaskie podpowiedzi w ich rzeczywistym rozmiarze."
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:47
+msgid "I couldn't get a picture of the canvas just now."
+msgstr "Nie mogłem teraz zrobić zdjęcia płótna."
+
+#: src/abilities/capture-canvas/index.ts:18
+msgid "Takes a picture of the editor canvas as it currently renders, including unsaved changes. Use it to check how the page actually looks when the block data alone cannot answer that — after changing styles, colours, spacing or CSS, or whenever a reported problem is visual. Pass fullPage to see the whole page at once, which is what a theme or global styles change needs checking against. Photographs are replaced by flat placeholder boxes at their real size."
+msgstr "Robi zdjęcie płótna edytora tak, jak jest obecnie renderowane, w tym niezapisane zmiany. Użyj go, aby sprawdzić, jak strona faktycznie wygląda, gdy dane bloku same nie mogą na to odpowiedzieć — po zmianie stylów, kolorów, odstępów lub CSS, lub kiedykolwiek zgłoszony problem jest wizualny. Przekaż fullPage, aby zobaczyć całą stronę naraz, co jest potrzebne do sprawdzenia w przypadku zmiany motywu lub globalnych stylów. Zdjęcia są zastępowane płaskimi polami podpowiedzi w ich rzeczywistym rozmiarze."
+
+#: src/abilities/capture-canvas/index.ts:16
+msgid "Capture Canvas"
+msgstr "Przechwyć płótno"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:55
+msgid "Are there any changes you would like me to make?"
+msgstr "Czy są jakieś zmiany, które chciałbyś, żebym wprowadził?"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:54
+msgid "Your site is ready! Please click around and check it out."
+msgstr "Twoja witryna jest gotowa! Proszę kliknij i sprawdź ją."
+
+#: src/easy-mode/components/app.tsx:439
+msgid "Switching to edit mode so you can watch the new design being built."
+msgstr "Przechodzę w tryb edycji, żebyś mógł zobaczyć, jak powstaje nowy projekt."
+
+#: src/easy-mode/components/topbar.tsx:698
+msgid "Return to WP Admin"
+msgstr "Powrót do WP Admin"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:313
+msgid "Personalize my site copy with my details."
+msgstr "Spersonalizuj tekst mojej witryny swoimi danymi."
+
+#: src/easy-mode/hooks/use-save-controller.ts:121
+msgid "Your changes could not be saved. Your work is still here — try saving again."
+msgstr "Twoje zmiany nie można było zapisać. Twoja praca jest wciąż tutaj — spróbuj zapisać ponownie."
+
+#: src/easy-mode/hooks/use-save-controller.ts:120
+msgid "Some changes could not be saved. Your work is still here — try saving again."
+msgstr "Nie można było zapisać niektórych zmian. Twoja praca jest wciąż tutaj — spróbuj zapisać ponownie."
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:66
+msgid "Save your changes?"
+msgstr "Zapisz swoje zmiany?"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:33
+msgid "You need to save or discard the changes to the current page."
+msgstr "Musisz zapisać lub odrzucić zmiany w obecnęj stronie."
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:32
+msgid "The preview shows your saved site, so unsaved changes won’t appear there."
+msgstr "Podgląd pokazuje twoją zapisaną witrynę, więc niezapisane zmiany nie pojawią się tam."
+
+#: src/easy-mode/components/topbar.tsx:763
+msgid "Save draft"
+msgstr "Zapisz szkic"
+
+#: src/easy-mode/components/topbar.tsx:749
+msgid "Publish"
+msgstr "Publikowanie"
+
+#: src/easy-mode/components/topbar.tsx:713
+msgid "Redo"
+msgstr "Ponów"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Open in a new tab"
+msgstr "Otwórz w nowej karcie"
+
+#: src/easy-mode/components/topbar.tsx:68
+msgid "Mode"
+msgstr "Tryb"
+
+#. %s: selected device, e.g. Desktop.
+#: src/easy-mode/components/topbar.tsx:743
+msgid "Responsive view: %s"
+msgstr "Responsywne zobacz: %s"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Responsive view"
+msgstr "Responsywne zobacz"
+
+#: src/easy-mode/components/topbar.tsx:725
+msgid "Reload preview"
+msgstr "Wczytaj podgląd"
+
+#: src/easy-mode/components/topbar.tsx:696
+msgid "Annotate"
+msgstr "Annotować"
+
+#. %d: number of annotations waiting to be sent.
+#: src/easy-mode/components/topbar.tsx:694
+msgid "Resume annotating, %d pending"
+msgid_plural "Resume annotating, %d pending"
+msgstr[0] "Wznów adnotacje, %d w toku"
+msgstr[1] "Wznów adnotacje, %d oczekujące"
+msgstr[2] "Wznów adnotacje, %d oczekujących"
+
+#: src/easy-mode/components/topbar.tsx:689
+msgid "Chat is unavailable"
+msgstr "Czat jest niedostępny"
+
+#: src/easy-mode/components/topbar.tsx:56
+msgid "Mobile"
+msgstr "Mobilny"
+
+#: src/easy-mode/components/topbar.tsx:55
+msgid "Tablet"
+msgstr "Tablet"
+
+#: src/easy-mode/components/topbar.tsx:54
+msgid "Desktop"
+msgstr "Desktop"
+
+#: src/easy-mode/components/topbar.tsx:50
+msgid "Preview"
+msgstr "Podglądnij"
+
+#: src/easy-mode/components/preview-overlay.tsx:147
+msgid "The site preview could not be loaded."
+msgstr "Podgląd witryny nie można było wczytywać."
+
+#: src/easy-mode/components/page-switcher.tsx:116
+msgid "(no title)"
+msgstr "(brak tytułu)"
+
+#. %s: page title.
+#: src/easy-mode/components/page-switcher.tsx:113
+msgid "%s — Draft"
+msgstr "%s — Szkic"
+
+#. %s: page currently open.
+#: src/easy-mode/components/page-switcher.tsx:99
+msgid "Switch page. Current page: %s"
+msgstr "Przełącz podstronę. Obecna podstrona: %s"
+
+#: src/easy-mode/components/page-switcher.tsx:76
+msgid "Switch page"
+msgstr "Zmień stronę"
+
+#: src/easy-mode/components/app.tsx:301
+msgid "Switching to edit mode so you can see the changes."
+msgstr "Przełączam na tryb edycji, żebyś mógł zobaczyć zmiany."
+
+#: src/easy-mode/components/app.tsx:300
+msgid "Switching to edit mode so you can approve the changes before saving."
+msgstr "Przechodzę do trybu edycji, żebyś mógł zatwierdzić zmiany przed zapisaniem."
+
+#: src/easy-mode/annotations/use-editor-annotations.ts:153
+msgid "Annotations could not be sent — the assistant is unavailable."
+msgstr "Nie można było wysłać adnotacji — asystent jest niedostępny."
+
+#. %d: number of annotations.
+#: src/easy-mode/annotations/prompt.ts:82
+msgid "%d annotation submitted"
+msgid_plural "%d annotations submitted"
+msgstr[0] "%d przesłana adnotacja"
+msgstr[1] "%d przesłane adnotacje"
+msgstr[2] "%d przesłanych adnotacji"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Annotating"
+msgstr "Annotowanie"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Discard annotations"
+msgstr "Odrzuć adnotacje"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Exit annotation mode"
+msgstr "Wyjdź z trybu adnotacji"
+
+#. %d: number of annotations to send.
+#: src/easy-mode/annotations/annotation-topbar.tsx:21
+msgid "Send %d annotation"
+msgid_plural "Send %d annotations"
+msgstr[0] "Wyślij %d adnotację"
+msgstr[1] "Wyślij %d adnotacje"
+msgstr[2] "Wyślij %d adnotacji"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:18
+msgid "Sending…"
+msgstr "Wysyłanie…"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:14
+msgid "Send"
+msgstr "Wyślij"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:566
+msgid "Save annotation"
+msgstr "Zapisz adnotację"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:565
+msgid "Update annotation"
+msgstr "Zaktualizuj adnotację"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Delete annotation"
+msgstr "Usuń adnotację"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Add a comment…"
+msgstr "Dodaj komentarz"
+
+#. %s: label of the block being annotated.
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Annotate %s"
+msgstr "Annotuj %s"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:445
+msgid "Annotate blocks. Use the arrow keys to move between blocks, Enter to comment, and Escape to exit."
+msgstr "Annotuj bloki. Użyj klawiszy strzałek, żeby przechodzić między blokami, wpisz, żeby skomentować, i Escape, żeby wyjść."
+
+#. 1: annotation number, 2: comment text.
+#: src/easy-mode/annotations/annotation-layer.tsx:367
+msgid "Annotation %1$d: %2$s"
+msgstr "Adnotacja %1$d: %2$s"
+
+#. 1: block label, 2: position, 3: total count.
+#: src/easy-mode/annotations/annotation-layer.tsx:341
+msgid "%1$s, block %2$d of %3$d"
+msgstr "%1$s, blok %2$d z %3$d"
+
+#. %s: comma-separated list of navigation item identifiers that could not be
+#. resolved.
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:180
+msgid "Navigation items not found: %s. These are not in the menu or in the current page structure, so there is nothing to reorder them from — they are most likely from an earlier turn, or the header is not part of the page currently open in the editor. Read the page structure again and use the clientIds it returns, or identify each item by its url or label instead. This reorder was not applied."
+msgstr "Nie znaleziono elementów nawigacji: %s. Nie są one w menu ani w strukturze obecnej strony, więc nie ma z czego je uporządkować — najprawdopodobniej pochodzą z wcześniejszej wersji, lub nagłówek nie jest częścią strony aktualnie otwartej w edytorze. Przeczytaj ponownie strukturę strony i użyj identyfikatorów klienta, które zwraca, lub zidentyfikuj każdy element po jego adresie URL lub etykiecie. To uporządkowanie nie zostało zastosowane."
+
+#. Description of the plugin
+#: big-sky.php
+msgid "Your WordPress.com AI agent that helps with site setup, content, design, and more."
+msgstr "Twój agent AI WordPress.com, który pomaga w konfiguracji witryny, treści, designie i nie tylko."
+
+#. Plugin Name of the plugin
+#: big-sky.php
+msgid "WordPress Agent"
+msgstr "Agent WordPress"
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:23
+msgid "Invalid editor path. look up the numeric id from <site_pages>, then retry navigation with the numeric editor_path."
+msgstr "Nieprawidłowa ścieżka edytora. Sprawdź numeryczny identyfikator z <site_pages>, a następnie spróbuj ponownie nawigacji z numeryczną ścieżką edytora."
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:22
+msgid "Invalid editor path. Page navigation requires /page/{numeric-id}. Look up the page ID first."
+msgstr "Nieprawidłowa ścieżka edytora. Nawigacja po stronach wymaga /page/{numeric-id}. Najpierw sprawdź identyfikator strony."
+
+#: src/abilities/editor-navigate/index.ts:17
+msgid "Saves everything and navigates to the specified path in the editor. For page navigation, path must be a numeric editor path like \"/page/123\" or \"page/123\"; full URLs, slugs, \"all-pages\", and paths like \"/visit\" or \"/page/visit\" are invalid. If the user names a page and the current page is not the target, look up the numeric id from <site_pages> first, then navigate with the numeric editor path."
+msgstr "Zapisuje wszystko i przechodzi do określonej ścieżki w edytorze. Aby nawigować po stronach, ścieżka musi być numeryczną ścieżką edytora, taką jak \"/page/123\" lub \"page/123\"; pełne adresy URL, uproszczone nazwy, \"all-pages\" i ścieżki takie jak \"/visit\" lub \"/page/visit\" są nieprawidłowe. Jeśli użytkownik podaje nazwę strony, a obecna strona nie jest celem, najpierw znajdź numeryczny identyfikator z <site_pages>, a następnie przejdź z numeryczną ścieżką edytora."
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:94
+msgid "I did not restore that checkpoint because it may replace or remove too much current content."
+msgstr "Nie przywróciłem tego punktu kontrolnego, ponieważ może on zastąpić lub usuwać zbyt dużo obecnej treści."
+
+#: src/abilities/restore-checkpoint/index.ts:19
+msgid "Restores editor state from a checkpoint associated with a previous mutating tool call. Use for undo/redo requests. Prefer checkpointId values from clientContext.availableCheckpoints whose toolId matches the user intent: block-edit checkpoints for content changes, theme-update checkpoints for style/theme changes, and navigation/entity checkpoints for navigation/entity changes. For undo, use the checkpointId for the most recent relevant non-restore mutating Big Sky tool call. Only use a checkpoint whose toolId is big_sky__restore_checkpoint for explicit redo requests, because those checkpoints represent the state before a prior undo/restore. Pass requestIntentType to describe the user intent: \"undo\" for undo requests, \"redo\" for redo requests, or \"restore\" when restoring a specific checkpoint/version. The checkpoint ID usually starts with \"toolu_\". Do not use the current restore-checkpoint call ID, any id starting with \"call_\", a tool name/id, or calypsoCheckpointId/messageId. If the user reports missing homepage/footer/navigation content, do not rebuild or redesign unless the user explicitly agrees; try a relevant checkpoint, WordPress revisions, or support escalation instead."
+msgstr "Przywraca stan edytora z punktu kontrolnego związanego z poprzednim wywołaniem narzędzia mutującego. Użyj do żądań cofania/ponawiania. Preferuj wartości checkpointId z clientContext.availableCheckpoints, których toolId odpowiada intencji użytkownika: punkty kontrolne bloków edytowania dla zmian treści, punkty kontrolne aktualizacji motywu dla zmian stylu/motywu oraz punkty kontrolne nawigacji/encji dla zmian nawigacji/encji. Do cofania użyj checkpointId dla najnowszego odpowiedniego wywołania narzędzia Big Sky, które nie jest przywracające. Używaj tylko punktu kontrolnego, którego toolId to big_sky__restore_checkpoint dla wyraźnych żądań ponawiania, ponieważ te punkty kontrolne reprezentują stan przed wcześniejszym cofnięciem/przywróceniem. Przekaż requestIntentType, aby opisać intencję użytkownika: \"undo\" dla żądań cofania, \"redo\" dla żądań ponawiania lub \"restore\" podczas przywracania konkretnego punktu kontrolnego/wersji. ID punktu kontrolnego zazwyczaj zaczyna się od \"toolu_\". Nie używaj obecnego ID wywołania punktu kontrolnego przywracania, żadnego ID zaczynającego się od \"call_\", nazwy ID narzędzia ani calypsoCheckpointId/messageId. Jeśli użytkownik zgłasza brak treści na stronie głównej/stopce/nawigacji, nie odbudowuj ani nie projektuj na nowo, chyba że użytkownik wyraźnie się zgodzi; spróbuj odpowiedniego punktu kontrolnego, wersji WordPressa lub eskalacji pomocy technicznej."
+
+#: src/abilities/stream-page-design/index.ts:23
+msgid "The editor is still loading. Try the page design again once the page is editable."
+msgstr "Edytor wciąż się wczytuje. Spróbuj ponownie zaprojektować podstronę, gdy będzie edytowalna."
+
+#: src/abilities/stream-page-design/index.ts:22
+msgid "The generated page content has been staged in the editor for review."
+msgstr "Wygenerowana treść podstrony została umieszczona w edytorze do przeglądu."
+
+#: src/abilities/stream-page-design/index.ts:21
+msgid "Stream Page Design"
+msgstr "Projekt Strony Strumienia"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1372
+msgid "The requested changes were already applied."
+msgstr "Zgłoszone zmiany zostały już zastosowane."
+
+#: src/components/open-help-center-button.tsx:20
+msgid "Open Help Center"
+msgstr "Otwórz Centrum Pomocy"
+
+#: src/abilities/open-help-center.ts:200
+msgid "Get help"
+msgstr "Uzyskaj pomoc"
+
+#: src/abilities/open-help-center.ts:144
+msgid "Show the user a button they can click to open WordPress.com Help Center chat when they ask to talk to a human, contact support, or get help from a person. This ability does not open Help Center automatically."
+msgstr "Pokaż użytkownikowi przycisk, który może kliknąć, aby otworzyć czat Centrum Pomocy WordPress.com, gdy poprosi o rozmowę z człowiekiem, kontakt z pomocą techniczną lub uzyskanie pomocy od osoby. Ta funkcja nie otwiera Centrum Pomocy automatycznie."
+
+#: src/abilities/open-help-center.ts:142
+msgid "Show Help Center chat button"
+msgstr "Pokaż przycisk czatu Centrum Pomocy"
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:49
+msgid "I could not find a checkpoint for that ID."
+msgstr "Nie można było znaleźć punktu kontrolnego dla tego identyfikatora."
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:39
+msgid "I could not restore the checkpoint because no checkpoint ID was provided."
+msgstr "Nie można było przywrócić punktu kontrolnego, ponieważ nie podano identyfikatora punktu kontrolnego."
+
+#: src/abilities/restore-checkpoint/index.ts:17
+msgid "Restore Checkpoint"
+msgstr "Przywróć punkt kontrolny"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:580
+msgid "Awaiting user confirmation before making this change."
+msgstr "Oczekiwanie na potwierdzenie użytkownika przed wprowadzeniem tej zmiany."
+
+#: src/abilities/site-logo/set-site-logo.ts:71
+msgid "There was an error with this request."
+msgstr "Był błąd z tym żądaniem."
+
+#: src/abilities/site-logo/set-site-logo.ts:58
+msgid "Logo set successfully"
+msgstr "Logo ustawione pomyślnie"
+
+#: src/abilities/show-component/show-component.tsx:175
+msgid "Choose from the options I provided."
+msgstr "Wybierz spośród opcji, które podałem."
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:592
+msgid "Updated the entity records."
+msgstr "Zaktualizowano rekordy encji."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:442
+#: src/components/dock/index.js:429
+msgid "New chat"
+msgstr "Nowa rozmowa"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:59
+msgid "How can you help me?"
+msgstr "Jak możesz mi pomóc?"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:53
+msgid "What should I do next?"
+msgstr "Co powinienem zrobić następnie?"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:457
+msgid "Welcome to your new store! I'm your personal AI assistant. How can I help you?"
+msgstr "Witaj w twoim nowym sklepie! Jestem twoim osobistym asystentem AI. Jak mogę ci pomóc?"
+
+#: src/components/product-card/ProductCard.tsx:51
+#: src/components/site-spec-landing/index.js:345
+msgid "Loading…"
+msgstr "Wczytywanie…"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:99
+msgid "Help me to connect PayPal Payments to my store"
+msgstr "Pomóż mi połączyć płatności PayPal z moim sklepem"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:98
+msgid "Connect PayPal Payments to my store"
+msgstr "Połącz płatności PayPal z moim sklepem"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:93
+msgid "Recommend shipping zones and methods for my store"
+msgstr "Zalecane strefy wysyłki i metody dla mojego sklepu"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:92
+msgid "Set up shipping rates"
+msgstr "Ustaw stawki za wysyłkę"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:87
+msgid "Set my product pricing"
+msgstr "Ustaw ceny mojego produktu"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:81
+msgid "Help me to write a product description"
+msgstr "Pomóż mi napisać opis produktu"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:80
+msgid "Write a product description"
+msgstr "Napisz opis produktu"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:75
+msgid "Help me to create a product"
+msgstr "Pomóż mi stworzyć produkt"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:22
+msgid "Failed to make the theme update. Please try again."
+msgstr "Nie udało się zaktualizować motywu. Proszę spróbować ponownie."
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:67
+msgid "Add to post"
+msgstr "Dodaj do wpisu"
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:60
+msgid "Replace selected image"
+msgstr "Zamień wybrany obrazek"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat"
+msgstr "Rozpocznij nową rozmowę"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat to begin"
+msgstr "Zacznij nową rozmowę, aby rozpocząć"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "No past conversations"
+msgstr "Brak wcześniejszych rozmów"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Failed to load conversations. Please try again."
+msgstr "Nie udało się wczytać rozmów. Proszę spróbować ponownie."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:449
+msgid "Past chats"
+msgstr "Przeszłe czaty"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:276
+msgid "Failed to upload images. Please try again."
+msgstr "Nie udało się wczytać obrazków. Proszę spróbować ponownie."
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:37
+msgid "Tell me what you can do for me"
+msgstr "Powiedz mi, co możesz dla mnie zrobić"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:74
+msgid "Create a product"
+msgstr "Utwórz produkt"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:31
+msgid "Show me recent comments"
+msgstr "Pokaż mi ostatnie komentarze"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:30
+msgid "Review comments"
+msgstr "Komentarze do recenzji"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:25
+msgid "Show me my site health status"
+msgstr "Pokaż mi stan witryny"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:24
+msgid "Check site health"
+msgstr "Sprawdź Stan witryny"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:19
+msgid "Help me create a new post"
+msgstr "Pomóż mi stworzyć nowy wpis"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:18
+msgid "Create content"
+msgstr "Utwórz treść"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:13
+msgid "Show me my recent posts"
+msgstr "Pokaż mi moje ostatnie wpisy"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:12
+msgid "Manage posts"
+msgstr "Zarządzaj wpisami"
+
+#: src/ai/hooks/suggestions-data.ts:91
+msgid "Remove the background from this image"
+msgstr "Usuń tło z tego obrazka"
+
+#: src/ai/hooks/suggestions-data.ts:90
+msgid "Remove background"
+msgstr "Usuń tło"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Discard"
+msgstr "Odrzuć"
+
+#: src/easy-mode/components/topbar.tsx:761
+msgid "Saving…"
+msgstr "Zapisywanie…"
+
+#: src/ai/wp-orchestrator/index.tsx:52
+msgid "Unable to authenticate with Jetpack. Please try again."
+msgstr "Nie można uwierzytelnić się za pomocą Jetpack. Proszę spróbować ponownie."
+
+#: src/ai/wp-orchestrator/index.tsx:50
+msgid "Network connection issue. Please check your internet connection and try again."
+msgstr "Problem z połączeniem sieciowym. Sprawdź swoje połączenie internetowe i spróbuj ponownie."
+
+#: src/ai/wp-orchestrator/index.tsx:45
+msgid "Unable to connect to Jetpack. Please ensure Jetpack is active and up to date."
+msgstr "Nie można połączyć się z Jetpack. Upewnij się, że Jetpack jest aktywny i zaktualizowany."
+
+#: src/ai/wp-orchestrator/index.tsx:42
+msgid "You don't have permission to access AI features."
+msgstr "Nie masz uprawnień do dostępu do funkcji AI."
+
+#: src/ai/wp-orchestrator/index.tsx:39
+msgid "Your session expired. Please refresh the page and try again."
+msgstr "Twoja sesja wygasła. Proszę odświeżyć stronę i spróbować ponownie."
+
+#: src/components/product-card/ProductCard.tsx:56
+msgid "Error: Product name is required"
+msgstr "Błąd: Nazwa produktu jest wymagana"
+
+#: src/components/product-card/ProductCard.tsx:87
+msgid "Product"
+msgstr "Produkt"
+
+#: src/components/product-card/ProductCard.tsx:84
+msgid "Service"
+msgstr "Usługa"
+
+#: src/components/product-card/ProductCard.tsx:53
+msgid "Error: Could not render product card"
+msgstr "Błąd: Nie można było wyrenderować karty produktu"
+
+#: src/components/product-card/ProductCard.tsx:25
+msgid "unit"
+msgid_plural "units"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/easy-mode/components/preview-overlay.tsx:155
+#: src/components/index.js:200
+msgid "Retry"
+msgstr "Spróbuj ponownie"
+
+#: src/abilities/set-styles/index.ts:20
+msgid "Apply color palette, font pairing, and button style variations to the WordPress site. Accepts variation titles (e.g., \"Professional\", \"Montserrat + Open Sans\") and applies the complete styling including colors, typography, button styles, and all associated theme variations."
+msgstr "Zastosuj paletę kolorów, krój pisma oraz warianty stylu przycisków do witryny WordPress. Akceptuje tytuły wariantów (np. \"Profesjonalny\", \"Montserrat + Open Sans\") i stosuje pełne stylizacje, w tym kolory, typografię, style przycisków oraz wszystkie powiązane warianty motywu."
+
+#: src/abilities/set-styles/index.ts:18
+msgid "Set Styles"
+msgstr "Ustaw style"
+
+#: src/abilities/add-pages/index.ts:19
+msgid "Creates multiple WordPress pages with generated content from patterns and layouts. Page titles are provided by the backend, and page content is composed from layout blocks. Also updates site navigation."
+msgstr "Tworzy wiele podstron WordPressa z generowaną treścią z wzorców i układów. Tytuły stron są dostarczane przez backend, a treść strony składa się z bloków układu. Również aktualizuje nawigację witryny."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:82
+msgid "Failed to update styles:"
+msgstr "Nie udało się zaktualizować stylów: "
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:76
+msgid "Failed to update styles. The style variation may be invalid."
+msgstr "Nie udało się zaktualizować stylów. Wariant stylu może być nieprawidłowy."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:62
+msgid "Styles updated successfully."
+msgstr "Style zaktualizowane pomyślnie."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:38
+msgid "Invalid button format. Button must be a string (variation title)."
+msgstr "Nieprawidłowy format przycisku. Przycisk musi być ciągiem znaków (tytuł wariantu)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:31
+msgid "Invalid font format. Font must be a string (variation title)."
+msgstr "Nieprawidłowy krój pisma. Krój pisma musi być ciągiem znaków (tytuł wariacji)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:24
+msgid "Invalid color format. Color must be a string (variation title)."
+msgstr "Nieprawidłowy format koloru. Kolor musi być ciągiem znaków (tytuł wariantu)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:17
+msgid "Invalid arguments. Provide at least one of: color, font, or button."
+msgstr "Nieprawidłowe argumenty. Podaj przynajmniej jeden z: kolor, krój pisma lub przycisk."
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:169
+msgid "Failed to create pages:"
+msgstr "Nie udało się utworzyć stron: "
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:65
+msgid "Invalid pages. Must provide an array of page objects."
+msgstr "Nieprawidłowe podstrony. Musisz podać tablicę obiektów podstron."
+
+#: src/abilities/site-logo/index.ts:17
+msgid "Set the site logo"
+msgstr "Ustaw logo witryny"
+
+#: src/abilities/site-logo/index.ts:15
+msgid "Set Site Logo"
+msgstr "Ustaw logo witryny"
+
+#: src/abilities/update-theme/index.ts:17
+msgid "Update WordPress theme settings and styles using theme.json format"
+msgstr "Zaktualizuj ustawienia motywu WordPress i style, używając formatu theme.json"
+
+#: src/abilities/update-theme/index.ts:15
+msgid "Update Theme"
+msgstr "Zaktualizuj motyw"
+
+#: src/abilities/edit-entity-record/index.ts:17
+msgid "Create, edit, or delete WordPress data entity records using the data layer"
+msgstr "Twórz, edytuj lub usuń rekordy encji danych WordPressa za pomocą warstwy danych"
+
+#: src/abilities/edit-entity-record/index.ts:15
+msgid "Manage Entity Records"
+msgstr "Zarządzaj rekordami encji"
+
+#: src/abilities/show-component/index.ts:23
+msgid "Display a component in the UI with specified props"
+msgstr "Wyświetl komponent w interfejsie użytkownika z określonymi właściwościami"
+
+#: src/abilities/show-component/index.ts:21
+msgid "Show Component"
+msgstr "Pokaż komponent"
+
+#: src/abilities/client-assistants/index.ts:29
+msgid "Always use this if the user asks for something that requires a client-side assistant. Available assistants:"
+msgstr "Zawsze używaj tego, jeśli użytkownik poprosi o coś, co wymaga asystenta po stronie klienta. Dostępni asystenci: "
+
+#: src/abilities/client-assistants/index.ts:27
+msgid "Execute Client Assistant"
+msgstr "Wykonaj Asystenta Klienta"
+
+#: src/abilities/apply-block-edits/index.ts:17
+msgid "Applies a collection of block edits to the canvas"
+msgstr "Zastosowuje zbiór edycji bloków do płótna"
+
+#: src/abilities/apply-block-edits/index.ts:15
+msgid "Apply Block Edits"
+msgstr "Zastosuj edycje bloku"
+
+#: src/abilities/editor-navigate/index.ts:15
+msgid "Navigate"
+msgstr "Nawiguj"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:131
+msgid "By updating the query, order posts from %s"
+msgstr "Poprzez zaktualizowanie zapytania, zamów wpisy od %s"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:128
+msgid "Stop inheriting default query settings and order posts from %s"
+msgstr "Przestań dziedziczyć domyślne ustawienia zapytań i porządkuj wpisy z %s"
+
+#: src/ai/hooks/suggestions-data.ts:123
+msgid "newest to oldest"
+msgstr "od najnowszych do najstarszych"
+
+#: src/ai/hooks/suggestions-data.ts:122
+msgid "oldest to newest"
+msgstr "najstarsze do najnowsze"
+
+#: src/ai/hooks/suggestions-data.ts:117
+msgid "Order posts"
+msgstr "Zamów wpisy"
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:110
+msgid "Currently this query is displaying %s posts per page, change it to:"
+msgstr "Obecnie to zapytanie wyświetla %s wpisów na stronie, zmień to na:"
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:107
+msgid "Stop inheriting default query settings and change the current number of posts displayed per page from %s to:"
+msgstr "Przestań dziedziczyć domyślne ustawienia zapytań i zmień obecny liczba wpisów wyświetlanych na podstronie z %s na:"
+
+#: src/ai/hooks/suggestions-data.ts:99
+msgid "Change number of posts"
+msgstr "Zmień liczbę wpisów"
+
+#: src/ai/hooks/suggestions-data.ts:96
+msgid "Tell me all the ways you can help design or edit my site"
+msgstr "Powiedz mi, w jaki sposób możesz pomóc w zaprojektowaniu lub edytowaniu mojej witryny"
+
+#: src/ai/hooks/suggestions-data.ts:95
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:36
+msgid "What else can you do?"
+msgstr "Co jeszcze możesz zrobić?"
+
+#: src/ai/hooks/suggestions-data.ts:86
+msgid "Edit the image to:"
+msgstr "Edytuj obrazek do: "
+
+#: src/ai/hooks/suggestions-data.ts:85
+msgid "Edit image"
+msgstr "Edytuj obrazek"
+
+#: src/ai/hooks/suggestions-data.ts:81
+msgid "Generate an image of:"
+msgstr "Wygeneruj obrazek: "
+
+#: src/ai/hooks/suggestions-data.ts:76
+msgid "Check the grammar of this text"
+msgstr "Sprawdź gramatykę tego tekstu"
+
+#: src/ai/hooks/suggestions-data.ts:75
+msgid "Check grammar"
+msgstr "Sprawdź gramatykę"
+
+#: src/ai/hooks/suggestions-data.ts:71
+msgid "Change the tone of this text to be more:"
+msgstr "Zmień ton tego tekstu, żeby był bardziej: "
+
+#: src/ai/hooks/suggestions-data.ts:66
+msgid "Translate this to:"
+msgstr "Przetłumacz to na: "
+
+#: src/ai/hooks/suggestions-data.ts:65
+msgid "Translate content"
+msgstr "Przetłumacz treść"
+
+#: src/ai/hooks/suggestions-data.ts:61
+msgid "Add another column to the end of these"
+msgstr "Dodaj jeszcze jedną kolumnę na końcu tych"
+
+#: src/ai/hooks/suggestions-data.ts:60
+msgid "Add column"
+msgstr "Dodaj kolumnę"
+
+#: src/ai/hooks/suggestions-data.ts:56
+msgid "Reverse the order of these columns"
+msgstr "Odwróć kolejność tych kolumn"
+
+#: src/ai/hooks/suggestions-data.ts:55
+msgid "Swap columns"
+msgstr "Zamień kolumny"
+
+#. %s is the button text
+#: src/ai/hooks/suggestions-data.ts:52
+msgid "Change the %s button link to:"
+msgstr "Zmień odnośnik przycisku %s na: "
+
+#: src/ai/hooks/suggestions-data.ts:46
+msgid "Create a new page on my site for"
+msgstr "Utwórz nową stronę na mojej witrynie dla "
+
+#: src/ai/hooks/suggestions-data.ts:45
+msgid "Add new page"
+msgstr "Dodaj nową stronę"
+
+#: src/ai/hooks/suggestions-data.ts:42
+msgid "Show me different layouts for this page"
+msgstr "Pokaż mi różne układy dla tej podstrony"
+
+#: src/ai/hooks/suggestions-data.ts:41
+msgid "Change page layout"
+msgstr "Zmień układ strony"
+
+#: src/ai/hooks/suggestions-data.ts:38
+msgid "Show me color palettes for my site that are:"
+msgstr "Pokaż mi palety kolorów dla mojej witryny, które są: "
+
+#: src/ai/hooks/suggestions-data.ts:37
+msgid "Customize colors"
+msgstr "Dostosuj kolory"
+
+#: src/ai/hooks/suggestions-data.ts:34
+msgid "Show me new fonts for my site"
+msgstr "Pokaż mi nowe kroje pisma dla mojej witryny"
+
+#: src/ai/hooks/suggestions-data.ts:33
+msgid "Choose new fonts"
+msgstr "Wybierz nowe kroje pisma"
+
+#: big-sky.php:349
+msgid "AI-powered site building and navigation abilities."
+msgstr "Funkcje budowania witryny i nawigacji zasilane sztuczną inteligencją."
+
+#: src/components/product-card/ProductCard.tsx:90
+#: src/easy-mode/components/topbar.tsx:51
+msgid "Edit"
+msgstr "Edytuj"
+
+#: src/hooks/use-dock-state.ts:138
+#: src/components/dock/index.js:440
+msgid "Pop out sidebar"
+msgstr "Wyskakujący panel boczny"
+
+#: src/hooks/use-dock-state.ts:132
+#: src/components/dock/index.js:460
+msgid "Move to sidebar"
+msgstr "Przenieś do panelu bocznego"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:548
+msgid "Got a different request? Ask away."
+msgstr "Masz inne pytanie? Śmiało pytaj."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:542
+msgid "Howdy! How can I help you today?"
+msgstr "Cześć! Jak mogę ci dzisiaj pomóc?"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:65
+msgid "Updated:"
+msgstr "Zaktualizowano:"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:86
+msgid "Theme updated successfully"
+msgstr "Motyw został zaktualizowany."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:51
+msgid "Invalid styles format. Styles must be an object."
+msgstr "Nieprawidłowy format stylów. Style muszą być obiektem."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:40
+msgid "Invalid settings format. Settings must be an object."
+msgstr "Nieprawidłowy format ustawień. Ustawienia muszą być obiektem."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:29
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "Nieprawidłowe argumenty. Podaj albo ustawienia, albo style, aby zaktualizować motyw."
+
+#: big-sky.php:1652
+#: big-sky.php:1653
+msgid "AI Editor"
+msgstr "Edytor AI"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:493
+msgid "Proceed"
+msgstr "Kontynuuj"
+
+#: src/ai/hooks/suggestions-data.ts:49
+msgid "Edit link"
+msgstr "Edytuj odnośnik"
+
+#: src/abilities/show-component/show-component.tsx:214
+#: src/abilities/site-logo/set-site-logo.ts:70
+msgid "There was an error with this request. Please try again."
+msgstr "Zgłoszono błąd w tej prośbie. Proszę spróbować ponownie."
+
+#: src/abilities/client-assistants/run-assistant.ts:189
+msgid "No response from assistant"
+msgstr "Brak odpowiedzi od asystenta"
+
+#: src/abilities/client-assistants/index.ts:89
+msgid "Assistant completed successfully"
+msgstr "Pomocnik zakończony pomyślnie"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1464
+msgid "Something went wrong. Please try again."
+msgstr "Coś poszło nie tak. Proszę spróbować ponownie."
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1422
+msgid "I have completed the edits."
+msgstr "Zakończyłem edycje."
+
+#. translators: %s is the theme name.
+#: big-sky.php:625
+msgid "The current theme (%s) is a block theme."
+msgstr "Obecny motyw (%s) to motyw blokowy."
+
+#: big-sky.php:618
+msgid "The current theme is not a block theme. Big Sky requires a block theme to be active."
+msgstr "Obecny motyw nie jest motywem blokowym. Big Sky wymaga, aby motyw blokowy był aktywny."
+
+#: src/abilities/client-assistants/run-assistant.ts:182
+msgid "Sorry, I've encountered an error. Please try again or let me know if you need help with something else."
+msgstr "Przepraszam, napotkałem błąd. Proszę spróbować ponownie lub daj mi znać, jeśli potrzebujesz pomocy w czymś innym."
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:499
+msgid "I changed my mind"
+msgstr "Zmieniłem zdanie"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1381
+msgid "I was not able to make the changes you requested. Either I don't have the capability to do so or I didn't understand your request. You can ask me to try again or ask me to do something else."
+msgstr "Nie byłem w stanie wprowadzić zmian, o które prosiłeś. Albo nie mam możliwości, żeby to zrobić, albo nie zrozumiałem twojej prośby. Możesz poprosić mnie, żebym spróbował znowu, albo poprosić mnie, żebym zrobił coś innego."
+
+#: src/easy-mode/components/preview-overlay.tsx:158
+msgid "Site preview"
+msgstr "Podgląd na żywo"
+
+#: src/ai/hooks/suggestions-data.ts:80
+msgid "Generate image"
+msgstr "Generuj obrazek"
+
+#: src/easy-mode/components/page-switcher.tsx:49
+#: src/components/mosaic.js:633
+#: src/components/mosaic.js:675
+msgid "Pages"
+msgstr "Strony"
+
+#: src/easy-mode/components/page-switcher.tsx:34
+msgid "Home"
+msgstr "Strona główna"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:490
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:22
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:30
+msgid "No"
+msgstr "Nie"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:541
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:16
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:24
+msgid "Yes"
+msgstr "Tak"
+
+#: src/abilities/add-pages/index.ts:17
+msgid "Add Pages"
+msgstr "Dodaj podstrony"
+
+#: src/ai/hooks/suggestions-data.ts:70
+msgid "Change tone"
+msgstr "Zmień ton"
+
+#: src/easy-mode/components/topbar.tsx:710
+msgid "Undo"
+msgstr "Cofnij"
+
+#: src/easy-mode/components/topbar.tsx:763
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Save"
+msgstr "Zapisz"
+
+#: big-sky.php:707
+msgid "These checks passed:"
+msgstr "Te kontrole przeszły:"
+
+#: big-sky.php:693
+msgid "Big Sky detected the following issues with your site:"
+msgstr "Big Sky wykrył następujące problemy z twoją witryną:"
+
+#. translators: $d is the number of performance issues found.
+#: big-sky.php:692
+msgid "Big Sky is affected by %d issue"
+msgid_plural "Big Sky is affected by %d issues"
+msgstr[0] "Big Sky ma wpływ na %d problem"
+msgstr[1] "Big Sky ma wpływ na %d problemy"
+msgstr[2] "Big Sky ma wpływ na %d problemów"
+
+#: big-sky.php:682
+msgid "Mapbox API key is set."
+msgstr "Klucz API Mapbox jest ustawiony."
+
+#: big-sky.php:677
+msgid "Mapbox API key is not set. Big Sky requires a Mapbox API key to be set."
+msgstr "Klucz API Mapbox nie jest ustawiony. Big Sky wymaga ustawienia klucza API Mapbox."
+
+#: big-sky.php:669
+msgid "Jetpack is connected to an admin."
+msgstr "Jetpack jest połączony z administratorem."
+
+#: big-sky.php:664
+msgid "Jetpack does not have a connected admin. Big Sky requires Jetpack to be connected to an admin."
+msgstr "Jetpack nie ma podłączonego administratora. Big Sky wymaga, aby Jetpack był podłączony do administratora."
+
+#: big-sky.php:655
+msgid "Jetpack is connected."
+msgstr "Jetpack jest połączony."
+
+#: big-sky.php:650
+msgid "Jetpack is not connected. Big Sky requires Jetpack to be connected."
+msgstr "Jetpack nie jest połączony. Big Sky wymaga, aby Jetpack był połączony."
+
+#: big-sky.php:639
+msgid "Jetpack is installed."
+msgstr "Jetpack jest zainstalowany."
+
+#: big-sky.php:634
+msgid "Jetpack is not installed. Big Sky requires Jetpack to be installed and active."
+msgstr "Jetpack nie jest zainstalowany. Big Sky wymaga, aby Jetpack był zainstalowany i aktywny."
+
+#: big-sky.php:608
+msgid "Big Sky did not find any known issues with your site."
+msgstr "Big Sky nie znalazł żadnych znanych problemów z twoją witryną."
+
+#: big-sky.php:600
+msgid "Big Sky Checks"
+msgstr "Big Sky Checks"
+
+#: big-sky.php:575
+#: big-sky.php:576
+msgid "Big Sky checks"
+msgstr "Big Sky checks"
+
+#: big-sky.php:406
+msgid "AI Features"
+msgstr "Funkcje AI"
+
+#: big-sky.php:398
+msgid "Enable AI-powered site building experience"
+msgstr "Włącz doświadczenie budowania witryny z wykorzystaniem AI"
+
+#. Author of the plugin
+#: big-sky.php
+msgid "Automattic, Inc."
+msgstr "Automattic, Inc."
+
+#: big-sky.php:348
+#: big-sky.php:603
+msgid "Big Sky"
+msgstr "Big Sky"

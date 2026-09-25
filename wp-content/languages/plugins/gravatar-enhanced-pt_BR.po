@@ -1,0 +1,497 @@
+# Translation of Plugins - Gravatar Enhanced &#8211; Avatars, Profiles, and Privacy - Stable (latest release) in Portuguese (Brazil)
+# This file is distributed under the same license as the Plugins - Gravatar Enhanced &#8211; Avatars, Profiles, and Privacy - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-03-23 19:55:36+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: pt_BR\n"
+"Project-Id-Version: Plugins - Gravatar Enhanced &#8211; Avatars, Profiles, and Privacy - Stable (latest release)\n"
+
+#: classes/shared/class-hovercards-i18n.php:30
+msgid "Claim your free profile."
+msgstr "Tenha um perfil gratuito."
+
+#: classes/shared/class-hovercards-i18n.php:29
+msgid "Is this you?"
+msgstr "É você?"
+
+#: classes/shared/class-hovercards-i18n.php:28
+msgid "Internal Server Error."
+msgstr "Erro interno do servidor."
+
+#: classes/shared/class-hovercards-i18n.php:27
+msgid "Too Many Requests."
+msgstr "Excesso de solicitações."
+
+#: classes/shared/class-hovercards-i18n.php:26
+msgid "Gravatar not found."
+msgstr "Gravatar não encontrado."
+
+#: classes/shared/class-hovercards-i18n.php:24
+msgid "Calendar"
+msgstr "Calendário"
+
+#: classes/shared/class-hovercards-i18n.php:23
+msgid "Contact Form"
+msgstr "Formulário de contato"
+
+#: classes/shared/class-hovercards-i18n.php:22
+msgid "Cell Phone"
+msgstr "Telefone celular"
+
+#: classes/shared/class-hovercards-i18n.php:21
+msgid "Work Phone"
+msgstr "Telefone comercial"
+
+#: classes/shared/class-hovercards-i18n.php:20
+msgid "Home Phone"
+msgstr "Telefone residencial"
+
+#: classes/shared/class-hovercards-i18n.php:19
+msgid "Email"
+msgstr "E-mail"
+
+#: classes/shared/class-hovercards-i18n.php:18
+msgid "Send money"
+msgstr "Enviar dinheiro"
+
+#: classes/shared/class-hovercards-i18n.php:17
+msgid "Contact"
+msgstr "Contato"
+
+#: classes/shared/class-hovercards-i18n.php:16
+msgid "Edit your profile →"
+msgstr "Edite seu perfil &rarr;"
+
+#: classes/quick-editor/class-quick-editor.php:312
+#: classes/quick-editor/class-quick-editor.php:314
+msgid "This site uses Gravatar for managing avatars and profiles."
+msgstr "Este site usa o Gravatar para gerenciar avatares e perfis."
+
+#: classes/quick-editor/class-quick-editor.php:309
+msgid "Profile failed"
+msgstr "Falha no perfil"
+
+#: classes/quick-editor/class-quick-editor.php:238
+msgid "Contact Info"
+msgstr "Informações de contato"
+
+#: classes/quick-editor/class-quick-editor.php:236
+msgid "About Yourself"
+msgstr "Sobre você"
+
+#: classes/quick-editor/class-quick-editor.php:152
+msgid "Edit your Gravatar card"
+msgstr "Editar cartão do Gravatar"
+
+#: classes/quick-editor/class-quick-editor.php:151
+msgid "Your Gravatar card is shown in comments and profile blocks. Gravatar profiles travel with you across millions of sites, showing your photo, bio, and links - your digital business card."
+msgstr "Seu cartão do Gravatar é exibido em comentários e blocos de perfil. Seu perfil no Gravatar acompanha você em milhões de sites, exibindo sua foto, bio e links. Ele é seu cartão de visita digital."
+
+#: classes/quick-editor/class-quick-editor.php:150
+msgid "Gravatar Card"
+msgstr "Cartão do Gravatar"
+
+#. translators: URL
+#: classes/quick-editor/class-quick-editor.php:126
+msgid "Let people know where they can find you online. <a href=\"%s\">Edit your verified accounts.</a>"
+msgstr "Indique às pessoas onde elas podem encontrar você online. <a href=\"%s\">Edite suas contas verificadas.</a>"
+
+#: classes/quick-editor/class-quick-editor.php:123
+msgid "Verified Services"
+msgstr "Serviços verificados"
+
+#. translators: URL
+#: classes/quick-editor/class-quick-editor.php:45
+msgid "Gravatar powers your profile image - a globally recognized avatar. <a href=\"%s\">Edit your Gravatar</a>."
+msgstr "O Gravatar é a tecnologia por trás da imagem do seu perfil, um avatar reconhecido globalmente. <a href=\"%s\">Edite seu Gravatar.</a>"
+
+#: classes/options/class-discussions.php:278
+msgid "Show Gravatar in the comment form."
+msgstr "Mostre o Gravatar no formulário de comentários."
+
+#: classes/options/class-discussions.php:276
+msgid "Show Gravatar in the comment form (disabled due to Jetpack comments being used, or an incompatible theme)."
+msgstr "Mostre o Gravatar no formulário de comentários (desativado devido ao uso dos comentários do Jetpack ou a um tema incompatível)."
+
+#: classes/options/class-discussions.php:103
+msgid "Gravatar Comments"
+msgstr "Comentários no Gravatar"
+
+#: classes/comments/class-comments.php:178
+msgid "Gravatar profile"
+msgstr "Perfil do Gravatar"
+
+#: build/block/editor-blocks/group/block.json
+msgctxt "block title"
+msgid "Group"
+msgstr "Grupo"
+
+#: build/block/block.json
+msgctxt "block keyword"
+msgid "user information"
+msgstr "informações do usuário"
+
+#: build/block/block.json
+msgctxt "block keyword"
+msgid "author information"
+msgstr "informações do autor"
+
+#. translators: %d: Pattern number.
+#: classes/patterns/class-patterns.php:93
+msgid "Grid layout #%d for displaying Gravatar profiles."
+msgstr "Layout de grade %d para exibir perfis no Gravatar."
+
+#. translators: %d: Pattern number.
+#: classes/patterns/class-patterns.php:91
+msgid "Gravatar profiles, grid layout #%d"
+msgstr "Perfis no Gravatar, layout de grade %d"
+
+#: classes/patterns/class-patterns.php:65
+msgid "A curated collection of block patterns to showcase Gravatar profiles."
+msgstr "Uma coleção de padrões de bloco selecionados para exibir perfis no Gravatar."
+
+#: classes/patterns/class-patterns.php:64
+msgid "Gravatar"
+msgstr "Gravatar"
+
+#: classes/avatar/class-avatar.php:55
+msgid "Blank (Default)"
+msgstr "Em branco (padrão)"
+
+#: classes/avatar/class-avatar.php:49
+msgid "Color (Generated, beta)"
+msgstr "Cor (gerada, beta)"
+
+#: classes/avatar/class-avatar.php:48
+msgid "Initials (Generated, beta)"
+msgstr "Iniciais (geradas, beta)"
+
+#: build/block/editor-blocks/paragraph/block.json
+msgctxt "block description"
+msgid "The Paragraph block for the Gravatar block."
+msgstr "O bloco de parágrafo para o bloco do Gravatar."
+
+#: build/block/editor-blocks/paragraph/block.json
+msgctxt "block title"
+msgid "Paragraph"
+msgstr "Parágrafo"
+
+#: build/block/editor-blocks/name/block.json
+msgctxt "block description"
+msgid "The Name block for the Gravatar block."
+msgstr "O bloco de nome para o bloco do Gravatar."
+
+#: build/block/editor-blocks/name/block.json
+msgctxt "block title"
+msgid "Name"
+msgstr "Nome"
+
+#: build/block/editor-blocks/link/block.json
+msgctxt "block description"
+msgid "The Link block for the Gravatar block."
+msgstr "O bloco de link para o bloco do Gravatar."
+
+#: build/block/editor-blocks/link/block.json
+msgctxt "block title"
+msgid "Link"
+msgstr "Link"
+
+#: build/block/editor-blocks/image/block.json
+msgctxt "block description"
+msgid "The Image block for the Gravatar block."
+msgstr "O bloco de imagem para o bloco do Gravatar."
+
+#: build/block/editor-blocks/image/block.json
+msgctxt "block title"
+msgid "Image"
+msgstr "Imagem"
+
+#: build/block/editor-blocks/group/block.json
+msgctxt "block description"
+msgid "The Group block for the Gravatar block."
+msgstr "O bloco de grupo para o bloco do Gravatar."
+
+#: classes/quick-editor/class-quick-editor.php:228
+#: classes/quick-editor/class-quick-editor.php:237 build/block-name.js:1
+msgid "Name"
+msgstr "Nome"
+
+#: classes/shared/class-hovercards-i18n.php:15 build/block-view.js:1
+#: build/block.js:1
+msgid "View profile →"
+msgstr "Visualizar perfil &rarr;"
+
+#: classes/shared/class-hovercards-i18n.php:25 build/block-view.js:1
+#: build/block.js:1
+msgid "Sorry, we are unable to load this Gravatar profile."
+msgstr "Não foi possível carregar este perfil no Gravatar."
+
+#: classes/woocommerce/class-my-account.php:120
+msgid "Change avatar"
+msgstr "Mudar avatar"
+
+#: build/block/block.json
+msgctxt "block keyword"
+msgid "card"
+msgstr "cartão"
+
+#: build/block/block.json
+msgctxt "block keyword"
+msgid "avatar"
+msgstr "avatar"
+
+#: build/block/block.json
+msgctxt "block keyword"
+msgid "user"
+msgstr "usuário"
+
+#: build/block/block.json
+msgctxt "block keyword"
+msgid "author"
+msgstr "autor"
+
+#: build/block/block.json
+msgctxt "block keyword"
+msgid "profile"
+msgstr "perfil"
+
+#: build/block/block.json
+msgctxt "block keyword"
+msgid "gravatar"
+msgstr "gravatar"
+
+#: build/block/block.json
+msgctxt "block description"
+msgid "Display user information directly from Gravatar Public Profiles."
+msgstr "Exiba informações do usuário diretamente dos perfis públicos no Gravatar."
+
+#: build/block/block.json
+msgctxt "block title"
+msgid "Gravatar Profile"
+msgstr "Perfil no Gravatar"
+
+#: classes/quick-editor/class-quick-editor.php:313
+msgid "Profile name"
+msgstr "Nome do perfil"
+
+#: classes/quick-editor/class-quick-editor.php:311
+msgid "Your name"
+msgstr "Seu nome"
+
+#: classes/quick-editor/class-quick-editor.php:310
+msgid "There was an error loading this profile. Please try again later."
+msgstr "Ocorreu um erro ao carregar este perfil. Tente novamente mais tarde."
+
+#: classes/quick-editor/class-quick-editor.php:308
+msgid "View profile"
+msgstr "Visualizar perfil"
+
+#: classes/quick-editor/class-quick-editor.php:307
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+#: classes/quick-editor/class-quick-editor.php:306
+msgid "Claim your free profile"
+msgstr "Crie seu perfil gratuito"
+
+#: classes/options/class-migrate.php:67
+msgid ""
+"Hi COMMENTER_NAME!\n"
+"\n"
+"Thanks for your comment on \"POST_NAME\"!\n"
+"\n"
+"I noticed that you didn't have your own picture or profile next to your comment. Why not set one up using Gravatar? Click the link below to get started:\n"
+"\n"
+"GRAVATAR_URL\n"
+"\n"
+"*What's a Gravatar?*\n"
+"\n"
+"Your Gravatar (a Globally Recognized Avatar) is an image that follows you from site to site appearing beside your name when you do things like comment or post on a blog. Avatars help identify your posts on blogs and web forums, so why not on any site?\n"
+"\n"
+"Thanks for visiting and come back soon!\n"
+"\n"
+"-- The Team @ SITE_NAME"
+msgstr ""
+"Olá, COMMENTER_NAME!\n"
+"\n"
+"Agradeço pelo seu comentário em \"POST_NAME\"!\n"
+"\n"
+"Notei que você não tinha uma foto ou perfil próprio ao lado do seu comentário. Por que não usar o Gravatar na configuração? Clique no link abaixo para começar:\n"
+"\n"
+"GRAVATAR_URL\n"
+"\n"
+"*O que é um Gravatar?*\n"
+"\n"
+"O Gravatar (um avatar reconhecido globalmente) é uma imagem que aparece em todo site em que você realiza ações como comentar ou publicar no blog. Avatares ajudam a identificar seus posts em blogs e fóruns da web, então por que não em um site?\n"
+"\n"
+"Valeu pela visita e volte logo!\n"
+"\n"
+"— Equipe do SITE_NAME"
+
+#: classes/options/class-discussions.php:241
+msgid "You can find details about this on the <a href=\"https://support.gravatar.com/gravatar-enhanced-wordpress-plugin/\">support page</a>."
+msgstr "Você encontra detalhes sobre isso na <a href=\"https://support.gravatar.com/gravatar-enhanced-wordpress-plugin/\">página de suporte</a>."
+
+#: classes/options/class-discussions.php:239
+msgid "Help us make Gravatar better by allowing us to collect anonymous usage tracking of the features used."
+msgstr "Ajude-nos a aprimorar o Gravatar: permita o rastreamento de uso anônimo das funcionalidades usadas."
+
+#: classes/options/class-discussions.php:221
+msgid "Avatar proxy failed to create cache directory. Please check your server configuration."
+msgstr "O proxy do avatar não conseguiu criar o diretório de cache. Verifique a configuração do servidor."
+
+#: classes/options/class-discussions.php:214
+msgid "Flush cache"
+msgstr "Liberar cache"
+
+#: classes/options/class-discussions.php:207
+msgid "Proxy with unique URLs"
+msgstr "Criar proxy com URLs únicas"
+
+#: classes/options/class-discussions.php:204
+msgid "Proxy and mirror Gravatar URLs"
+msgstr "Criar proxy e espelhar URLs do Gravatar"
+
+#: classes/options/class-discussions.php:201
+msgid "Do not proxy avatars"
+msgstr "Não usar avatares de proxy"
+
+#: classes/options/class-discussions.php:197
+msgid "Proxy avatars locally. This may be needed for sites with privacy concerns, although it could affect performance and disables hovercards."
+msgstr "Avatares de proxy localmente. Isso pode ser necessário para sites preocupados com a privacidade, embora possa afetar o desempenho e desativar cartões flutuantes."
+
+#. translators: %d: number of entries
+#: classes/options/class-discussions.php:194
+msgid "The proxy cache contains %d entry."
+msgid_plural "The proxy cache contains %d entries."
+msgstr[0] "O armazenamento de proxy em cache contém %d uma entrada."
+msgstr[1] "O armazenamento de proxy em cache contém %d entradas."
+
+#: classes/options/class-discussions.php:174
+msgid "Use these placeholders: <code>COMMENTER_NAME</code>, <code>COMMENTER_EMAIL</code>, <code>COMMENTER_URL</code>, <code>SITE_URL</code>, <code>POST_NAME</code>, and <code>GRAVATAR_URL</code>."
+msgstr "Use estes espaços reservados: <code>COMMENTER_NAME</code>, <code>COMMENTER_EMAIL</code>, <code>COMMENTER_URL</code>, <code>SITE_URL</code>, <code>POST_NAME</code> e <code>GRAVATAR_URL</code>."
+
+#: classes/options/class-discussions.php:161
+msgid "Customize the invitation message:"
+msgstr "Personalize a mensagem do convite:"
+
+#: classes/options/class-discussions.php:157
+msgid "Send a nice email to commenters without a Gravatar, inviting them to sign up for one!"
+msgstr "Envie um e-mail legal para os comentaristas que não têm Gravatar, convidando-os a se inscrever para ter um!"
+
+#: classes/options/class-discussions.php:137
+msgid "You can find details about these options on the <a href=\"https://support.gravatar.com/gravatar-enhanced-wordpress-plugin/\">support page</a>."
+msgstr "Você encontra detalhes sobre essas opções na <a href=\"https://support.gravatar.com/gravatar-enhanced-wordpress-plugin/\">página de suporte</a>."
+
+#: classes/options/class-discussions.php:133
+msgid "Use the user name as an image alt tag"
+msgstr "Usar o nome de usuário como uma tag alternativa de imagem"
+
+#: classes/options/class-discussions.php:125
+msgid "Force default avatar to be used instead of allowing custom user avatars"
+msgstr "Forçar o uso do avatar padrão em vez de permitir avatares personalizados para o usuário"
+
+#: classes/options/class-discussions.php:93
+msgid "Anonymous Analytics"
+msgstr "Análises anônimas"
+
+#: classes/options/class-discussions.php:83
+msgid "Avatar Proxy"
+msgstr "Proxy de avatar"
+
+#: classes/options/class-discussions.php:73
+msgid "Invitation"
+msgstr "Convite"
+
+#: classes/options/class-discussions.php:63
+msgid "Avatar Options"
+msgstr "Opções de avatar"
+
+#: classes/hovercards/class-hovercards.php:71
+msgid "Gravatar Hovercards are now enabled by default. <strong>Once enabled this setting will disappear.</strong>"
+msgstr "Os cartões flutuantes do Gravatar agora estão ativados por padrão. <strong>Uma vez ativada, essa configuração desaparecerá.</strong>"
+
+#: classes/hovercards/class-hovercards.php:70
+msgid "Enable Gravatar Hovercards"
+msgstr "Ativar cartões flutuantes do Gravatar"
+
+#: classes/hovercards/class-hovercards.php:64
+msgid "Hovercards"
+msgstr "Cartões flutuantes"
+
+#: classes/email/class-email.php:208
+msgid "Sign up now: "
+msgstr "Inscreva-se agora: "
+
+#. translators: %s: site name
+#: classes/email/class-email.php:199
+msgid "[%s] Gravatar invitation"
+msgstr "[%s] Convite do Gravatar"
+
+#: classes/email/class-email-preferences.php:61
+msgid ""
+"Hi COMMENTER_NAME,\n"
+"\n"
+"Thanks for your comment on \"POST_NAME\"!\n"
+"\n"
+"I noticed that you didn't have your own picture or profile next to your comment. Setting it up on Gravatar is quick and easy — just click below:\n"
+"\n"
+"GRAVATAR_URL\n"
+"\n"
+"* What’s Gravatar? *\n"
+"\n"
+"It's a free profile and avatar image used on thousands of sites. With one setup, you're good to go across the web!\n"
+"\n"
+"Hope to see you back on SITE_NAME soon.\n"
+"\n"
+"-- SITE_NAME"
+msgstr ""
+"Olá, COMMENTER_NAME,\n"
+"\n"
+"Agradeço pelo seu comentário em \"POST_NAME\"!\n"
+"\n"
+"Notei que você não tinha uma foto ou perfil próprio ao lado do seu comentário. Configurar isso no Gravatar é rápido e fácil. Basta clicar abaixo:\n"
+"\n"
+"GRAVATAR_URL\n"
+"\n"
+"* O que é um Gravatar? *\n"
+"\n"
+"É um perfil gratuito e uma imagem de avatar usados em milhares de sites. Com uma configuração, você pode cruzar a Web!\n"
+"\n"
+"Espero ver você de novo no SITE_NAME em breve.\n"
+"\n"
+"-- SITE_NAME"
+
+#. translators: %s: user name
+#: classes/avatar/class-avatar.php:83
+msgid "%s's avatar"
+msgstr "Avatar de %s"
+
+#: classes/avatar/class-avatar-id.php:94
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#. Author of the plugin
+#: gravatar-enhanced.php
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Description of the plugin
+#: gravatar-enhanced.php
+msgid "Enhanced functionality for Gravatar-ifying your WordPress site. Once you've enabled the plugin, go to the \"Avatars\" section on the <a href=\"options-discussion.php\">Discussion Settings page</a> to get started."
+msgstr "Funcionalidade aprimorada para dar um toque de Gravatar no seu site do WordPress. Depois de ativar o plugin, vá para a seção \"Avatares\" na página <a href=\"options-discussion.php\">Configurações de discussão</a> para começar."
+
+#. Plugin URI of the plugin
+#: gravatar-enhanced.php
+msgid "https://wordpress.org/extend/plugins/gravatar-enhanced/"
+msgstr "https://wordpress.org/extend/plugins/gravatar-enhanced/"
+
+#. Plugin Name of the plugin
+#: gravatar-enhanced.php
+msgid "Gravatar Enhanced"
+msgstr "Gravatar Enhanced"

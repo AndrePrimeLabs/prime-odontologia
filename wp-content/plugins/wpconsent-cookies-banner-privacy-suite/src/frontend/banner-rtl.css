@@ -1,0 +1,65 @@
+/**
+ * RTL (Right-to-Left) specific styles for WPConsent banner.
+ * These styles provide additional RTL support beyond what's automatically generated.
+ *
+ * Note: Most RTL conversions are handled automatically by webpack-rtl-plugin during the build process.
+ * This file contains manual overrides for complex components that need specific RTL adjustments.
+ */
+
+/* RTL-specific adjustments for accordion arrows. */
+[dir="rtl"] .wpconsent-preferences-accordion-arrow {
+	transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+}
+
+[dir="rtl"] .wpconsent-preferences-accordion-item.active > .wpconsent-preferences-accordion-header .wpconsent-preferences-accordion-arrow {
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+/* Ensure checkbox toggle animation works correctly in RTL. */
+[dir="rtl"] .wpconsent-preferences-checkbox-toggle input:checked + .wpconsent-preferences-checkbox-toggle-slider:before {
+	transform: translateX(-16px);
+}
+
+/* RTL adjustment for the powered-by logo. */
+[dir="rtl"] .wpconsent-powered-by a svg {
+	margin-right: 5px;
+	margin-left: 0;
+}
+
+/* RTL adjustments for language picker (Pro feature). */
+[dir="rtl"] .wpconsent-language-picker {
+	left: auto;
+	right: 5px;
+}
+
+[dir="rtl"] .wpconsent-banner-long .wpconsent-language-picker {
+	right: auto;
+	left: 50px;
+}
+
+[dir="rtl"] .wpconsent-language-dropdown {
+	left: auto;
+	right: 0;
+}
+
+[dir="rtl"] .wpconsent-banner-long .wpconsent-language-dropdown {
+	right: auto;
+	left: 0;
+}
+
+[dir="rtl"] .wpconsent-language-item {
+	text-align: right;
+}
+
+[dir="rtl"] .wpconsent-has-language-switcher.wpconsent-banner-long .wpconsent-banner {
+	padding-right: 24px;
+	padding-left: 60px;
+}
+
+[dir="rtl"] .wpconsent-has-language-switcher.wpconsent-banner-long .wpconsent-banner {
+	@media (max-width: 767px) {
+		padding-left: 20px;
+	}
+}

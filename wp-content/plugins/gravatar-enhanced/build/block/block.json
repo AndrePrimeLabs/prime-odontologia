@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gravatar/block",
+  "version": "0.5.0",
+  "title": "Gravatar Profile",
+  "description": "Display user information directly from Gravatar Public Profiles.",
+  "category": "widgets",
+  "keywords": [
+    "gravatar",
+    "avatar",
+    "profile",
+    "card",
+    "author",
+    "author information",
+    "user",
+    "user information"
+  ],
+  "attributes": {
+    "layout": {
+      "type": "string",
+      "default": "default"
+    },
+    "avatarUrlSizeParam": {
+      "type": "number",
+      "default": 0
+    },
+    "placeholderProfile": {
+      "type": "object",
+      "default": {
+        "display_name": "Display Name",
+        "job_title": "Job Title",
+        "company": "Company",
+        "location": "Location",
+        "description": "Welcome to Gravatar!"
+      }
+    },
+    "isChildBlockClickable": {
+      "type": "boolean",
+      "default": true
+    },
+    "userType": {
+      "type": "string",
+      "default": "author"
+    },
+    "userEmail": {
+      "type": "string",
+      "default": ""
+    },
+    "deletedElements": {
+      "type": "object",
+      "default": {}
+    }
+  },
+  "usesContext": [
+    "postType",
+    "postId"
+  ],
+  "supports": {
+    "html": false,
+    "color": {
+      "text": true,
+      "background": true,
+      "gradients": true
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true
+    },
+    "shadow": true,
+    "spacing": {
+      "margin": true
+    }
+  },
+  "textdomain": "gravatar-enhanced",
+  "render": "file:./render.php",
+  "editorScript": "file:../block.js",
+  "editorStyle": "file:../block.css",
+  "viewScript": "file:../block-view.js",
+  "viewStyle": "file:../block-view.css"
+}

@@ -1,0 +1,594 @@
+/* ============================================
+   Banner Analytics
+   Tokens live in admin/variables.css.
+   ============================================ */
+
+/* Small uppercase label, used above counters and bars. The location table
+   declares the same look on its own th, further down. */
+.wpconsent-analytics-stat-label,
+.wpconsent-analytics-eyebrow {
+	font-size: var(--wpconsent-font-size-xs);
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	color: var(--wpconsent-text-color-light-bg);
+}
+
+/* .wpconsent-metabox-content drops its own bottom padding and lets the last
+   child supply it, the way .wpconsent-metabox-form-row does. The report blocks
+   need the same. Scoped to metaboxes so the dashboard widget, whose box already
+   pads all four sides, is left alone. */
+.wpconsent-metabox-content {
+	> .wpconsent-analytics-state,
+	> .wpconsent-funnel,
+	> .wpconsent-analytics-table,
+	> .wpconsent-analytics-stats:last-child,
+	> .wpconsent-coverage-row:last-child {
+		margin-bottom: var(--wpconsent-space-v);
+	}
+}
+
+/* Range bar above the report. */
+.wpconsent-analytics-rangebar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+
+	/* Without an explicit width the select collapses in this flex row and the
+	   dropdown wraps a character per line. */
+	.choices {
+		width: 170px;
+		flex-shrink: 0;
+		margin-bottom: 0;
+	}
+
+	.choices__inner {
+		min-height: 0;
+		padding: 9px 52px 9px 14px;
+		font-size: var(--wpconsent-font-size-s);
+	}
+
+	.choices__list--single {
+		padding: 0;
+	}
+
+	/* The caret sits in its own bordered square on the right. */
+	.choices[data-type*='select-one']::before {
+		content: '';
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		bottom: 1px;
+		width: 38px;
+		border-left: 1px solid var(--wpconsent-border-color);
+		pointer-events: none;
+	}
+
+	.choices[data-type*='select-one']::after {
+		right: 18px;
+	}
+
+	/* Choices reserves 100px on the right of every option for its "Press to
+	   select" hint and breaks words anywhere. At this width that leaves ~58px of
+	   text, so the labels wrap one character per line. The hint is carried by
+	   data-select-text, which the reserving rule is keyed on. */
+	.choices__list--dropdown .choices__item--selectable[data-select-text] {
+		padding-right: 10px;
+		white-space: nowrap;
+		word-break: normal;
+
+		&::after {
+			display: none;
+		}
+	}
+}
+
+.wpconsent-analytics-range-summary {
+	margin: 0;
+	font-size: var(--wpconsent-font-size-s);
+	color: var(--wpconsent-text-color-paragraph);
+}
+
+/* Counters. */
+.wpconsent-analytics-stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px 40px;
+}
+
+.wpconsent-analytics-stat {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 120px;
+}
+
+.wpconsent-analytics-stat-value {
+	font-size: var(--wpconsent-font-size-xxl);
+	font-weight: 600;
+	line-height: 1.2;
+	color: var(--wpconsent-text-color-heading);
+	font-variant-numeric: tabular-nums;
+}
+
+.wpconsent-analytics-stat-value-green {
+	color: var(--wpconsent-color-green);
+}
+
+.wpconsent-analytics-stat-value-red {
+	color: var(--wpconsent-color-red);
+}
+
+/* A counter whose value is a state pill rather than a number. */
+.wpconsent-analytics-stat-value-pill {
+	align-self: flex-start;
+	padding: 3px 12px;
+	border-radius: 12px;
+	background: #E7F6EC;
+	font-size: var(--wpconsent-font-size-s);
+	color: var(--wpconsent-color-green);
+}
+
+.wpconsent-analytics-stats-empty {
+	opacity: 0.5;
+}
+
+.wpconsent-analytics-eyebrow {
+	margin: 32px 0 12px;
+}
+
+/* Stacked funnel bar. */
+.wpconsent-funnel-bar {
+	display: flex;
+	gap: 2px;
+	height: 16px;
+	border-radius: 4px;
+	overflow: hidden;
+	background: var(--wpconsent-background-light);
+}
+
+.wpconsent-funnel-segment {
+	display: block;
+	min-width: 0;
+}
+
+.wpconsent-funnel-segment-accept {
+	background: var(--wpconsent-analytics-accept);
+}
+
+.wpconsent-funnel-segment-essential {
+	background: var(--wpconsent-analytics-essential);
+}
+
+.wpconsent-funnel-segment-custom {
+	background: var(--wpconsent-analytics-custom);
+}
+
+.wpconsent-funnel-segment-ignored {
+	background: var(--wpconsent-analytics-ignored);
+}
+
+.wpconsent-funnel-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px 32px;
+	margin-top: 20px;
+}
+
+.wpconsent-funnel-legend-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: var(--wpconsent-font-size-s);
+	white-space: nowrap;
+}
+
+.wpconsent-funnel-dot {
+	display: block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+.wpconsent-funnel-legend-label {
+	font-weight: 600;
+	color: var(--wpconsent-text-color-heading);
+}
+
+.wpconsent-funnel-legend-value {
+	color: var(--wpconsent-text-color-paragraph);
+}
+
+.wpconsent-funnel-compact {
+	.wpconsent-funnel-bar {
+		height: 10px;
+	}
+
+	.wpconsent-funnel-legend {
+		gap: 8px 20px;
+		margin-top: 12px;
+	}
+
+	.wpconsent-funnel-legend-item {
+		font-size: var(--wpconsent-font-size-xs);
+	}
+}
+
+/* Acceptance rate trend. */
+.wpconsent-trend {
+	position: relative;
+
+	svg {
+		display: block;
+		width: 100%;
+		height: 120px;
+	}
+}
+
+.wpconsent-trend-max,
+.wpconsent-trend-edit-label {
+	position: absolute;
+	top: 0;
+	font-size: var(--wpconsent-font-size-xs);
+	color: var(--wpconsent-text-color-light-bg);
+}
+
+.wpconsent-trend-max {
+	left: 0;
+}
+
+.wpconsent-trend-edit-label {
+	transform: translateX(-50%);
+	white-space: nowrap;
+}
+
+.wpconsent-trend-area {
+	fill: var(--wpconsent-background-highlight);
+}
+
+.wpconsent-trend-line {
+	fill: none;
+	stroke: var(--wpconsent-color-primary);
+	stroke-width: 2;
+}
+
+.wpconsent-trend-marker {
+	stroke: var(--wpconsent-border-color);
+	stroke-width: 1;
+	stroke-dasharray: 3 3;
+}
+
+/* Hover layer: one column per plotted day. */
+.wpconsent-trend-hotspots {
+	position: absolute;
+	inset: 0;
+}
+
+.wpconsent-trend-hotspot {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: var(--wpconsent-trend-column, 4%);
+	transform: translateX(-50%);
+
+	i {
+		position: absolute;
+		left: 50%;
+		width: 8px;
+		height: 8px;
+		margin: -4px 0 0 -4px;
+		border-radius: 50%;
+		background: var(--wpconsent-color-primary);
+		border: 2px solid var(--wpconsent-background-white);
+		box-sizing: content-box;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	&:hover {
+		i {
+			opacity: 1;
+		}
+
+		.wpconsent-trend-tooltip {
+			display: block;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 50%;
+			width: 1px;
+			background: var(--wpconsent-border-color);
+		}
+	}
+}
+
+/* Hidden with display, not opacity: an invisible box near the chart edge
+   would still widen the page's scrollable area. */
+.wpconsent-trend-tooltip {
+	display: none;
+	position: absolute;
+	top: 6px;
+	left: 50%;
+	padding: 4px 8px;
+	border-radius: 4px;
+	background: var(--wpconsent-text-color-heading);
+	color: var(--wpconsent-background-white);
+	font-size: var(--wpconsent-font-size-xs);
+	line-height: 1.4;
+	white-space: nowrap;
+	pointer-events: none;
+	z-index: 5;
+}
+
+/* Right-half points open leftward instead. */
+.wpconsent-trend-hotspot-end .wpconsent-trend-tooltip {
+	left: auto;
+	right: 50%;
+}
+
+.wpconsent-trend-axis {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid var(--wpconsent-border-color);
+	font-size: var(--wpconsent-font-size-xs);
+	color: var(--wpconsent-text-color-paragraph);
+}
+
+.wpconsent-trend-axis + .wpconsent-analytics-stats {
+	margin-top: 20px;
+}
+
+/* Measurement coverage. */
+.wpconsent-coverage-legend {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px 24px;
+	font-size: var(--wpconsent-font-size-xs);
+	color: var(--wpconsent-text-color-paragraph);
+
+	> span {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+}
+
+.wpconsent-coverage-legend-total {
+	margin-left: auto;
+}
+
+.wpconsent-coverage-key {
+	display: block;
+	width: 18px;
+	height: 10px;
+	border-radius: 2px;
+}
+
+.wpconsent-coverage-key-measured {
+	background: var(--wpconsent-analytics-accept);
+}
+
+.wpconsent-coverage-key-blind {
+	border: 1px solid var(--wpconsent-border-color);
+	background: var(--wpconsent-analytics-hatch);
+}
+
+.wpconsent-coverage-row {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 16px 0;
+	border-top: 1px solid var(--wpconsent-border-color);
+}
+
+.wpconsent-coverage-label {
+	width: 260px;
+	flex-shrink: 0;
+}
+
+.wpconsent-coverage-name {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: var(--wpconsent-font-size-s);
+	font-weight: 600;
+	color: var(--wpconsent-text-color-heading);
+}
+
+.wpconsent-coverage-description {
+	display: block;
+	margin-top: 4px;
+	font-size: var(--wpconsent-font-size-xs);
+	color: var(--wpconsent-text-color-paragraph);
+}
+
+.wpconsent-coverage-track {
+	flex: 1;
+	height: 14px;
+	min-width: 60px;
+	overflow: hidden;
+	border: 1px solid var(--wpconsent-border-color);
+	border-radius: 2px;
+	background: var(--wpconsent-analytics-hatch);
+}
+
+.wpconsent-coverage-fill {
+	display: block;
+	height: 100%;
+	background: var(--wpconsent-analytics-accept);
+}
+
+.wpconsent-coverage-fill-required {
+	background: var(--wpconsent-analytics-required);
+}
+
+.wpconsent-coverage-value {
+	width: 140px;
+	flex-shrink: 0;
+	text-align: right;
+	font-size: var(--wpconsent-font-size-s);
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+	color: var(--wpconsent-text-color-heading);
+
+	span {
+		font-weight: 400;
+		color: var(--wpconsent-text-color-paragraph);
+	}
+}
+
+/* Location group table. */
+.wpconsent-analytics-table {
+	width: 100%;
+	border-collapse: collapse;
+
+	th,
+	td {
+		padding: 12px 0;
+		border-bottom: 1px solid var(--wpconsent-border-color);
+		font-size: var(--wpconsent-font-size-s);
+		text-align: left;
+		color: var(--wpconsent-text-color-heading);
+	}
+
+	th {
+		font-size: var(--wpconsent-font-size-xs);
+		font-weight: 600;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		color: var(--wpconsent-text-color-light-bg);
+	}
+
+	tr:last-child td {
+		border-bottom: 0;
+	}
+
+	.wpconsent-align-right {
+		text-align: right;
+		font-variant-numeric: tabular-nums;
+	}
+}
+
+/* Off / empty states. */
+.wpconsent-analytics-state {
+	h3 {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin: 0;
+		font-size: var(--wpconsent-font-size-l);
+		color: var(--wpconsent-text-color-heading);
+	}
+
+	p {
+		max-width: 670px;
+		margin: 14px 0 0;
+		font-size: var(--wpconsent-font-size-s);
+		line-height: 1.6;
+		color: var(--wpconsent-text-color-paragraph);
+	}
+
+	.wpconsent-analytics-stats {
+		margin-top: 28px;
+	}
+
+	.wpconsent-button {
+		margin-top: 24px;
+	}
+}
+
+.wpconsent-analytics-state-actions {
+	display: flex;
+	gap: 14px;
+}
+
+/* Neutral status pill, also used for the "Always On" coverage marker. */
+.wpconsent-analytics-pill,
+.wpconsent-coverage-pill {
+	padding: 3px 10px;
+	border-radius: 12px;
+	background: var(--wpconsent-background-light);
+	font-size: var(--wpconsent-font-size-xs);
+	font-weight: 600;
+	color: var(--wpconsent-text-color-light-bg);
+	white-space: nowrap;
+}
+
+.wpconsent-analytics-pill-active {
+	background: #E7F6EC;
+	color: var(--wpconsent-color-green);
+}
+
+/* The blurred Pro preview needs a positioning context for the upsell box. */
+.wpconsent-analytics-upsell-area {
+	position: relative;
+}
+
+/* Lite blurs the whole report, so a centered box would land far down the
+   page; pin it near the top instead. */
+.wpconsent-analytics-upsell-area-lite > .wpconsent-upsell-box {
+	top: 140px;
+	transform: translateX(-50%);
+}
+
+/* Settings tab. */
+.wpconsent-analytics-roles {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	label {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: var(--wpconsent-font-size-s);
+		color: var(--wpconsent-text-color-heading);
+	}
+}
+
+/* Dashboard widget. */
+.wpconsent-analytics-widget {
+	.wpconsent-analytics-stat-value {
+		font-size: var(--wpconsent-font-size-xl);
+	}
+
+	.wpconsent-funnel {
+		margin-top: 24px;
+	}
+}
+
+.wpconsent-analytics-widget-heading {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 12px;
+}
+
+.wpconsent-analytics-widget-title {
+	font-size: var(--wpconsent-font-size-m);
+	font-weight: 600;
+	color: var(--wpconsent-text-color-heading);
+}
+
+@media (max-width: 782px) {
+	.wpconsent-coverage-row {
+		flex-wrap: wrap;
+	}
+
+	.wpconsent-coverage-label,
+	.wpconsent-coverage-value {
+		width: 100%;
+		text-align: left;
+	}
+}

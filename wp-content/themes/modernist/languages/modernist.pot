@@ -1,0 +1,104 @@
+# Copyright (C) 2026 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Modernist 1.0.4\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/modernist\n"
+"POT-Creation-Date: 2026-07-26 04:25:38+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: patterns/404.php:28
+msgid "Oops... page not found."
+msgstr ""
+
+#. Translators: 1. is a 'br' HTML element
+#: patterns/404.php:35
+msgid ""
+"It looks like nothing was found at this location.%1$sMaybe try a search?"
+msgstr ""
+
+#: patterns/archive.php:39 patterns/index.php:39 patterns/search.php:41
+msgid "↗"
+msgstr ""
+
+#: patterns/archive.php:62 patterns/index.php:58 patterns/search.php:64
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: patterns/author-cta.php:20
+msgid ""
+"Though thoughtful, bold, and always curious, Emma's blog is a space for "
+"those who love exploring and questioning."
+msgstr ""
+
+#. Translators: 1. is the start of a 'a' HTML element, 2. is the end of a 'a'
+#. HTML element
+#: patterns/author-cta.php:25
+msgid "%1$sThe Author%2$s"
+msgstr ""
+
+#. Translators: 1. is the start of a 'a' HTML element, 2. is the end of a 'a'
+#. HTML element
+#: patterns/footer.php:11
+msgid "Designed with %1$sWordPress%2$s."
+msgstr ""
+
+#. Translators: 1. is the start of a 'a' HTML element, 2. is the end of a 'a'
+#. HTML element
+#: patterns/header.php:12
+msgid "%1$sM%2$s"
+msgstr ""
+
+#: patterns/home.php:20
+msgid ""
+"Culture moves fast, but understanding takes time. Modernist is where art, "
+"identity, and ideas converge—examining how we shape the world and how it "
+"shapes us. Thoughtful, bold, and always curious, this is a space for those "
+"who love to question and explore."
+msgstr ""
+
+#: patterns/home.php:102
+msgid "+"
+msgstr ""
+
+#: patterns/home.php:106
+msgid "Blog."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+#: wp-content/themes/pub/modernist/style.css
+msgid "Modernist"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+#: wp-content/themes/pub/modernist/style.css
+msgid "https://themeshaper.com/modernist/"
+msgstr ""
+
+#. Description of the plugin/theme
+#: wp-content/themes/pub/modernist/style.css
+msgid ""
+"Modernist is a refined WordPress theme for writers, critics, and cultural "
+"thinkers who value structure, clarity, and bold design. With its asymmetric "
+"layouts and typographic confidence, Modernist offers a clean yet expressive "
+"space for long-form essays, media critique, and personal reflections. "
+"Modernist is ideal for blogs, digital publications, and personal writing "
+"portfolios where tone and aesthetics align with sharp thinking."
+msgstr ""
+
+#. Author of the plugin/theme
+#: wp-content/themes/pub/modernist/style.css
+msgid "Automattic"
+msgstr ""
+
+#. Author URI of the plugin/theme
+#: wp-content/themes/pub/modernist/style.css
+msgid "https://automattic.com"
+msgstr ""

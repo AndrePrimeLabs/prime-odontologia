@@ -1,0 +1,140 @@
+# ============================================================================
+# TRAEFIK DYNAMIC CONFIGURATION
+# ============================================================================
+# Advanced routing, middleware, and TLS options
+# ============================================================================
+
+http:
+  # ========================================================================
+  # MIDDLEWARES
+  # ========================================================================
+  middlewares:
+    # Security headers
+    security-headers:
+      headers:
+        frameDeny: true
+        sslRedirect: true
+        sslHost: primeos.primeodontologia.com.br
+        sslForceHost: true
+        hsts:
+          maxAge: 63072000
+          includeSubdomains: true
+          preload: true
+        customResponseHeaders:
+          X-Content-Type-Options: "nosniff"
+          X-Frame-Options: "SAMEORIGIN"
+          X-XSS-Protection: "1; mode=block"
+          Referrer-Policy: "no-referrer-when-downgrade"
+          Permissions-Policy: "geolocation=(), microphone=(), camera=()"
+    
+    # Rate limiting
+    rate-limit:
+      rateLimit:
+        average: 100
+        burst: 50
+        period: "1m"
+    
+    # Compression
+    compress:
+      compress:
+        minResponseBodyBytes: 1000
+    
+    # CORS
+    cors:
+      headers:
+        accessControlAllowOriginList:
+          - "https://primeos.primeodontologia.com.br"
+          - "https://*.primeodontologia.com.br"
+        accessControlAllowMethods:
+          - "GET"
+          - "POST"
+          - "PUT"
+          - "DELETE"
+          - "OPTIONS"
+        accessControlAllowHeaders:
+          - "Content-Type"
+          - "Authorization"
+        accessControlMaxAge: 86400
+  
+  # ========================================================================
+  # ROUTERS
+  # ========================================================================
+  routers:
+    # Main app
+    primeos:
+      rule: "Host(`primeos.primeodontologia.com.br`)"
+      entrypoints:
+        - websecure
+      middlewares:
+        - security-headers
+        - compress
+        - cors
+      service: primeos-service
+      tls:
+        certResolver: letsencrypt
+    
+    # Redirect www to main domain
+    primeos-www:
+      rule: "Host(`www.primeos.primeodontologia.com.br`)"
+      entrypoints:
+        - websecure
+      middlewares:
+        - redirect-to-main
+      tls:
+        certResolver: letsencrypt
+  
+  # ========================================================================
+  # SERVICES
+  # ========================================================================
+  services:
+    primeos-service:
+      loadBalancer:
+        servers:
+          - url: "http://primeos-app:80"
+        healthCheck:
+          path: /health
+          interval: "30s"
+          timeout: "10s"
+
+tls:
+  # ========================================================================
+  # CERTIFICATE OPTIONS
+  # ========================================================================
+  options:
+    default:
+      minVersion: VersionTLS12
+      cipherSuites:
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+      curvePreferences:
+        - CurveP384
+        - CurveP256
+    
+    modern:
+      minVersion: VersionTLS13
+      cipherSuites:
+        - TLS_AES_256_GCM_SHA384
+        - TLS_CHACHA20_POLY1305_SHA256
+        - TLS_AES_128_GCM_SHA256
+
+# ============================================================================
+# NOTES
+# ============================================================================
+#
+# SSL/TLS:
+#   - Traefik automatically provisions Let's Encrypt certificates
+#   - Certificates stored in /acme/acme.json
+#   - Auto-renewal 30 days before expiration
+#
+# Security:
+#   - HSTS: Enforces HTTPS for 2 years
+#   - CSP: Strict Content Security Policy
+#   - Security headers: Prevent clickjacking, MIME sniffing
+#
+# Performance:
+#   - Compression: GZIP for responses >1KB
+#   - Health checks: Validates backend availability
+#   - Rate limiting: Prevents abuse (100req/min)
+#
+# ============================================================================

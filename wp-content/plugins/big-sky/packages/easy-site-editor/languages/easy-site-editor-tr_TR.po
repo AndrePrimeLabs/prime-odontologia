@@ -1,0 +1,586 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Easy Site Editor\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:26:00+00:00\n"
+"PO-Revision-Date: 2026-05-25 10:56:14+0000\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/components/DebugPanel.tsx:77
+msgid "Tracks Dashboard"
+msgstr "İzleme Pano"
+
+#: src/components/DebugPanel.tsx:74
+msgid "Errors Dashboard"
+msgstr "Hatalar Pano"
+
+#: includes/class-easy-site-editor.php:155
+#: includes/class-easy-site-editor.php:156
+msgid "AI Editor"
+msgstr "Yapay Zeka Düzenleyici"
+
+#: src/hooks/useAgentFeedbackAction.ts:395
+msgid "Tell us more"
+msgstr "Bize Daha Fazla anlat"
+
+#: src/hooks/useAgentFeedbackAction.ts:381
+msgid "Bad response"
+msgstr "Kötü yanıt"
+
+#: src/hooks/useAgentFeedbackAction.ts:371
+msgid "Good response"
+msgstr "İyi yanıt"
+
+#: src/components/AgentFeedbackPopover.tsx:96
+msgid "Feedback could not be sent. Please try again."
+msgstr "Besleme gönderilemedi. Lütfen tekrar deneyin."
+
+#: src/components/AgentFeedbackPopover.tsx:206
+msgid "Send feedback"
+msgstr "Geri Bildirim Gönder"
+
+#: src/components/AgentFeedbackPopover.tsx:205
+msgid "Sending…"
+msgstr "Gönderiliyor..."
+
+#: src/components/AgentFeedbackPopover.tsx:197
+msgid "Cancel"
+msgstr "İptal Et"
+
+#: src/components/AgentFeedbackPopover.tsx:167
+msgid "What did you expect instead?"
+msgstr "Onun yerine ne bekliyordun?"
+
+#: src/components/AgentFeedbackPopover.tsx:154
+msgid "Add any details that would help us improve this response."
+msgstr "Bu yanıtı geliştirmemize yardımcı olacak herhangi bir detayı ekleyin."
+
+#: src/components/AgentFeedbackPopover.tsx:148
+msgid "What went wrong?"
+msgstr "Ne yanlış gitti?"
+
+#: src/hooks/useClientAbilityBridge.ts:40
+msgid "The current preview is not editable. It may be a dynamic front page. Tell the user to open a different page and try again."
+msgstr "Mevcut önizleme düzenlenemez. Bu dinamik bir ana sayfa olabilir. Kullanıcıya farklı bir sayfa açmasını ve tekrar denemesini söyle."
+
+#: src/components/AppTopBar.tsx:84
+msgid "WordPress Admin"
+msgstr "WordPress Yönetici"
+
+#: src/components/AnnouncementBar.tsx:52
+msgid "Dismiss announcement"
+msgstr "İlanı kapat"
+
+#: src/components/AnnouncementBar.tsx:41
+msgid "Switch to the full Site Editor instead."
+msgstr "Bunun yerine tam Site Düzenleyici'ye geç."
+
+#: src/components/AnnouncementBar.tsx:29
+msgid "You're using the new experimental Easy Site Editor."
+msgstr "Yeni deneysel Kolay Site Düzenleyici'yi kullanıyorsun."
+
+#: src/components/AppTopBar.tsx:383
+msgid "Publish"
+msgstr "Yayımla"
+
+#: src/components/AppTopBar.tsx:348
+msgid "Launch your site"
+msgstr "Sitenizi yayınlayın"
+
+#: src/components/AppTopBar.tsx:261
+msgid "Redo"
+msgstr "Yinele"
+
+#: src/components/AppTopBar.tsx:257
+msgid "Undo"
+msgstr "Geri al"
+
+#. 1: control label, 2: keyboard shortcut.
+#: src/components/AppTopBar.tsx:252
+msgid "%1$s (%2$s)"
+msgstr "%1$s (%2$s)"
+
+#: src/components/AppTopBar.tsx:218
+msgid "Discard"
+msgstr "Sil"
+
+#: src/components/DebugPanel.tsx:71
+msgid "No active session yet."
+msgstr "Henüz aktif bir oturum yok."
+
+#: src/components/DebugPanel.tsx:68
+msgid "Langfuse trace"
+msgstr "Langfuse iz"
+
+#: src/components/DebugPanel.tsx:61
+msgid "Debug"
+msgstr "Hata ayıklama"
+
+#: includes/class-easy-site-editor.php:997
+msgid "Assets have not been built yet. Run pnpm build in the plugin directory, then reload this page."
+msgstr "Varlıklar henüz oluşturulmadı. Eklenti dizininde pnpm build komutunu çalıştır, sonra bu sayfayı yenile."
+
+#. Author of the plugin
+#: easy-site-editor.php
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Description of the plugin
+#: easy-site-editor.php
+msgid "Split-pane AI site editor with chat on the left and a live frontend preview on the right."
+msgstr "Sol tarafta sohbet ve sağ tarafta canlı önizleme ile bölünmüş panel AI site düzenleyici."
+
+#: src/lib/unsaved-changes-warning.ts:3
+msgid "You have unsaved changes. If you leave before saving, your changes will be lost."
+msgstr "Kaydedilmemiş değişiklikleriniz var. Kaydetmeden çıkarsanız, değişiklikleriniz kaybolacak."
+
+#: src/lib/editor-bridge.ts:19
+msgid "The editor is still loading. Try the request again once the page is editable."
+msgstr "Düzenleyici hala yükleniyor. Sayfa düzenlenebilir hale geldiğinde isteği tekrar dene."
+
+#: src/hooks/useUpdateTheme.ts:311
+msgid "The requested theme update has been staged in the editor."
+msgstr "İstenen tema güncellemesi düzenleyicide sahnelendi."
+
+#: src/hooks/useUpdateTheme.ts:258
+msgid "Global styles are still loading. Try the theme update again in a moment."
+msgstr "Genel stiller hala yükleniyor. Birazdan tema güncellemesini tekrar deneyin."
+
+#: src/hooks/useUpdateTheme.ts:236
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "Bağımsız değişkenler geçersiz. Temayı güncellemek için ayarlar veya stiller sağlayın."
+
+#: src/hooks/useUpdateTheme.ts:220
+msgid "Invalid styles format. Styles must be an object."
+msgstr "Geçersiz stiller biçimi. Stiller bir nesne olmalıdır."
+
+#: src/hooks/useUpdateTheme.ts:201
+msgid "Invalid settings format. Settings must be an object."
+msgstr "Geçersiz ayarlar biçimi. Ayarlar bir nesne olmalıdır."
+
+#: src/hooks/useSuggestions.ts:35
+msgid "Create a new page on my site"
+msgstr "Siteimde yeni bir sayfa oluştur"
+
+#: src/hooks/useSuggestions.ts:34
+msgid "Add new page"
+msgstr "Yeni sayfa ekle"
+
+#: src/hooks/useSuggestions.ts:27
+msgid "Suggest a new font family for my site that is:"
+msgstr "Siteim için yeni bir yazı tipi ailesi öner:"
+
+#: src/hooks/useSuggestions.ts:26
+msgid "Choose new fonts"
+msgstr "Yeni yazı tipleri seç"
+
+#: src/hooks/useSuggestions.ts:19
+msgid "Suggest a different layout for this page"
+msgstr "Bu sayfa için farklı bir düzen öner"
+
+#: src/hooks/useSuggestions.ts:18
+msgid "Change page layout"
+msgstr "Sayfa düzenini değiştir"
+
+#: src/hooks/useSuggestions.ts:11
+msgid "Suggest a new color palette for my site that is:"
+msgstr "Siteim için yeni bir renk paleti öner: "
+
+#: src/hooks/useSuggestions.ts:10
+msgid "Customize colors"
+msgstr "Renkleri özelleştir"
+
+#: src/hooks/usePreviewPages.ts:57
+msgid "Home"
+msgstr "Başlangıç"
+
+#: src/hooks/usePreviewPages.ts:130
+msgid "Unable to load pages."
+msgstr "Sayfaları yüklemek mümkün değil."
+
+#: src/hooks/useGlobalStylesVariation.ts:73
+msgid "Global styles are still loading. Try the selection again in a moment."
+msgstr "Genel stiller hala yükleniyor. Birazdan seçimi tekrar deneyin."
+
+#. %s is the requested page path.
+#: src/hooks/useEditorNavigate.ts:59
+msgid "Successfully navigated to: %s"
+msgstr "Başarıyla gidildi: %s"
+
+#. %s is the requested page path.
+#: src/hooks/useEditorNavigate.ts:40
+msgid "The current page has unsaved changes, so navigation to %s was canceled. If this was requested after creating a page, the page has already been created. Tell the user to save or discard their current changes, then open the page from the page picker."
+msgstr "Mevcut sayfada kaydedilmemiş değişiklikler var, bu yüzden %s'ye gezinme iptal edildi. Eğer bu, bir sayfa oluşturduktan sonra istendiyse, sayfa zaten oluşturulmuş. Kullanıcıya mevcut değişikliklerini kaydetmesini veya iptal etmesini söyle, sonra sayfayı sayfa seçicisinden aç."
+
+#: src/hooks/useEditorNavigate.ts:28
+msgid "Invalid path provided. Path must be a non-empty string."
+msgstr "Geçersiz yol sağlandı. Yol, boş olmayan bir dize olmalı."
+
+#: src/hooks/useEasySiteAgentChat.ts:110
+msgid "Jetpack token context is unavailable."
+msgstr "Jetpack token bağlamı mevcut değil."
+
+#: src/hooks/useClientAbilityBridge.ts:141
+msgid "Failed to display picker."
+msgstr "Picker'ı görüntülemekte başarısız olundu."
+
+#: src/hooks/useClientAbilityBridge.ts:128
+msgid "Picker displayed successfully."
+msgstr "Seçici başarıyla görüntülendi."
+
+#. %s: component type
+#: src/hooks/useClientAbilityBridge.ts:95
+msgid "Unsupported component type: %s"
+msgstr "Desteklenmeyen bileşen türü: %s"
+
+#: src/components/SelectedPreviewBlock.tsx:38
+msgid "Clear selected block"
+msgstr "Seçili bloğu temizle"
+
+#. %s: selected block title.
+#: src/components/SelectedPreviewBlock.tsx:24
+msgid "Selected block: %s"
+msgstr "Seçilen blok: %s"
+
+#: src/components/PreviewPane.tsx:501
+msgid "Site frontend preview"
+msgstr "Site önizleme"
+
+#: src/components/PreviewPane.tsx:493
+msgid "Preview loaded"
+msgstr "Önizleme yüklendi"
+
+#: src/components/PreviewPane.tsx:492
+msgid "Loading preview…"
+msgstr "Önizleme yükleniyor…"
+
+#: src/components/PreviewPane.tsx:465
+msgid "Site preview panel"
+msgstr "Site önizleme paneli"
+
+#: src/components/PreviewPane.tsx:464
+msgid "Site editor panel"
+msgstr "Site düzenleyici paneli"
+
+#: src/components/PreviewPageSwitcher.tsx:122
+msgid "Preview Site"
+msgstr "Önizleme Site"
+
+#: src/components/PreviewPageSwitcher.tsx:121
+msgid "Refresh"
+msgstr "Yenile"
+
+#. %s: page path, e.g. "/about"
+#: src/components/PreviewPageSwitcher.tsx:117
+msgid "%s – draft"
+msgstr "%s – taslak"
+
+#: src/components/PreviewPageSwitcher.tsx:215
+msgid "Loading pages…"
+msgstr "Sayfalar yükleniyor…"
+
+#: src/components/PreviewPageSwitcher.tsx:211
+msgid "Site pages"
+msgstr "Site sayfaları"
+
+#: src/components/PreviewPageSwitcher.tsx:158
+msgid "Draft"
+msgstr "Taslak"
+
+#: src/components/PreviewDeviceSwitcher.tsx:89
+msgid "Preview size"
+msgstr "Önizleme boyutu"
+
+#: src/components/PreviewDeviceSwitcher.tsx:65
+msgid "Device Preview"
+msgstr "Aygıt Önizleme"
+
+#: src/components/PreviewDeviceSwitcher.tsx:53
+msgid "Mobile preview"
+msgstr "Mobil önizleme"
+
+#: src/components/PreviewDeviceSwitcher.tsx:52
+msgid "Mobile"
+msgstr "Mobil"
+
+#: src/components/PreviewDeviceSwitcher.tsx:47
+msgid "Tablet preview"
+msgstr "Tablet önizleme"
+
+#: src/components/PreviewDeviceSwitcher.tsx:46
+msgid "Tablet"
+msgstr "Tablet"
+
+#: src/components/PreviewDeviceSwitcher.tsx:41
+msgid "Desktop preview"
+msgstr "Masaüstü önizleme"
+
+#: src/components/PreviewDeviceSwitcher.tsx:40
+msgid "Desktop"
+msgstr "Masaüstü"
+
+#. %d is the pattern layout number.
+#: src/components/PatternPicker.tsx:55
+msgid "Layout %d"
+msgstr "Düzen %d"
+
+#: src/components/PatternPicker.tsx:252
+#: src/components/StyleVariationPicker.tsx:457
+msgid "Next"
+msgstr "Sonraki"
+
+#. %1$d is the current page, %2$d is the total page count.
+#: src/components/PatternPicker.tsx:244
+#: src/components/StyleVariationPicker.tsx:449
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
+
+#: src/components/PatternPicker.tsx:231
+#: src/components/StyleVariationPicker.tsx:436
+msgid "Previous"
+msgstr "Önceki"
+
+#. %s is the pattern layout title.
+#: src/components/PatternPicker.tsx:208
+msgid "Select %s"
+msgstr "Seç %s"
+
+#: src/components/PatternPicker.tsx:175
+#: src/components/StyleVariationPicker.tsx:396
+msgid "The selection could not be staged. Please try again."
+msgstr "Seçim sahnelenemedi. Lütfen tekrar deneyin."
+
+#: src/components/PatternPicker.tsx:157
+#: src/components/StyleVariationPicker.tsx:380
+msgid "The editor is still loading. Try again in a moment."
+msgstr "Düzenleyici hala yükleniyor. Birazdan tekrar deneyin."
+
+#: src/components/PatternPicker.tsx:136
+#: src/components/StyleVariationPicker.tsx:359
+msgid "There was a problem retrieving options. Please try again."
+msgstr "Seçenekler alınırken bir sorun yaşandı. Lütfen tekrar deneyin."
+
+#: src/components/EditorWorkspace.tsx:90
+msgid "Resize chat panel"
+msgstr "Sohbet panelini yeniden boyutlandır"
+
+#: src/lib/content-editor/block-edits.ts:196
+msgid "Insertions must include block data with a block name."
+msgstr "Eklemeler, bir blok adıyla birlikte blok verilerini içermelidir."
+
+#: src/lib/content-editor/block-edits.ts:182
+msgid "Updates must include the clientId of the block to update."
+msgstr " Güncellemeler, güncellenecek blokun clientId'sini içermelidir."
+
+#. %s is a block type name, such as core/paragraph.
+#: src/lib/content-editor/block-edits.ts:159
+msgid "Block type \"%s\" is not available."
+msgstr "Blok türü \"%s\" mevcut değil."
+
+#: src/lib/content-editor/block-edits.ts:151
+msgid "Block data must include a block name."
+msgstr "Blok verisi bir blok adı içermelidir."
+
+#: src/lib/content-editor/block-edits.ts:102
+msgid "Global styles are still loading. Try the block edit again in a moment."
+msgstr "Genel stiller hala yükleniyor. Birazdan blok düzenlemeyi tekrar deneyin."
+
+#: src/lib/content-editor/block-edits.ts:69
+msgid "Apply block edits needs at least one update, insert, delete, or summary."
+msgstr "Blok düzenlemeleri uygulamak için en az bir güncelleme, ekleme, silme veya özet gerekir."
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:334
+msgid "The requested block edits have been staged in the editor."
+msgstr "İstenen blok düzenlemeleri düzenleyicide sahnelendi."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:305
+msgid "Block \"%s\" was not found for deletion."
+msgstr "Blok \"%s\" silinmek için bulunamadı."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:292
+msgid "Could not map client ID \"%s\" for deletion."
+msgstr "Silme için istemci kimliği \"%s\" eşleştirilemedi."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:231
+msgid "Block \"%s\" was not found for update."
+msgstr "Blok \"%s\" güncelleme için bulunamadı."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:216
+msgid "Could not map client ID \"%s\" for update."
+msgstr "Update için istemci kimliği \"%s\" eşleştirilemedi."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:152
+msgid "Parent block \"%s\" was not found for insertion."
+msgstr "Üst blok \"%s\" ekleme için bulunamadı."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:136
+msgid "Could not map parent client ID \"%s\" for insertion."
+msgstr "Eklemek için \"%s\" ana müşteri kimliğini eşleştiremedim."
+
+#: src/components/PreviewPane.tsx:527
+#: src/components/content-editor/ContentEditorLoading.tsx:16
+msgid "Loading editor…"
+msgstr "Yükleniyor düzenleyici…"
+
+#: src/components/content-editor/ContentEditorError.tsx:6
+msgid "Failed to load template."
+msgstr "Şablon yüklenemedi."
+
+#: src/components/ChatPanel.tsx:57
+msgid "Ask for changes"
+msgstr "Değişiklik iste"
+
+#: src/components/ApplyPatternLayoutBridge.tsx:28
+#: src/lib/content-editor/block-edits.ts:265
+msgid "Cannot create a block without a name."
+msgstr "Bir isim olmadan blok oluşturulamıyor."
+
+#: src/components/ApplyPatternLayoutBridge.tsx:239
+msgid "The selected pattern layout has been staged in the editor."
+msgstr "Seçilen desen yerleşimi düzenleyicide sahnelendi."
+
+#: src/components/ApplyPatternLayoutBridge.tsx:184
+msgid "Cannot stage a pattern layout without blocks."
+msgstr "Blok olmadan bir desen düzeni sahneleyemezsiniz."
+
+#: src/components/AppTopBar.tsx:85
+msgid "Start a new conversation"
+msgstr "Yeni bir sohbet başlat"
+
+#: src/components/AppTopBar.tsx:382
+msgid "Publishing…"
+msgstr "Yayımlanıyor…"
+
+#: src/components/AppTopBar.tsx:365
+#: src/components/PreviewPane.tsx:569
+msgid "Saving…"
+msgstr "Kaydediliyor…"
+
+#: src/components/AppTopBar.tsx:352
+msgid "Save"
+msgstr "Kaydet"
+
+#: src/components/AppTopBar.tsx:351
+msgid "Save draft"
+msgstr "Taslağı kaydet"
+
+#: src/components/AppTopBar.tsx:208
+msgid "Keep editing"
+msgstr "Düzenlemeye devam et"
+
+#: src/components/AppTopBar.tsx:202
+msgid "Unsaved changes"
+msgstr "Kaydedilmemiş değişiklikler"
+
+#: src/components/AppTopBar.tsx:196
+msgid "Edit"
+msgstr "Düzenle"
+
+#: src/components/AppTopBar.tsx:193
+msgid "Edit mode"
+msgstr "Düzenleme modu"
+
+#: src/components/AppTopBar.tsx:189
+msgid "Preview"
+msgstr "Ön izleme"
+
+#: src/components/AppTopBar.tsx:186
+msgid "Preview mode"
+msgstr "Önizleme modu"
+
+#: src/components/AppTopBar.tsx:164
+msgid "Editor mode"
+msgstr "Düzenleyici modu"
+
+#: src/abilities/update-theme.ts:99
+msgid "Use this for site-wide theme.json settings or styles. After it succeeds, tell the user the theme update is staged in the editor and ready to review/save, not live or published."
+msgstr "Bunu site genelindeki theme.json ayarları veya stilleri için kullan. Başarılı olduktan sonra, kullanıcıya tema güncellemesinin düzenleyicide hazır olduğunu, gözden geçirilmek/saklanmak için beklemede olduğunu, canlı veya yayımlanmış olmadığını söyle."
+
+#: src/abilities/update-theme.ts:70
+msgid "Stages WordPress theme settings and styles using theme.json format."
+msgstr "tema.json formatını kullanarak Aşamalar WordPress tema ayarlarını ve stillerini."
+
+#: src/abilities/update-theme.ts:68
+msgid "Update theme"
+msgstr "tema güncelle"
+
+#: src/abilities/update-theme.ts:33
+msgid "The editor is still loading. Try the theme update again once the page is editable."
+msgstr "Düzenleyici hala yükleniyor. Sayfa düzenlenebilir hale geldiğinde tema güncellemesini tekrar dene."
+
+#: src/abilities/show-component.ts:79
+msgid "Displays a font, color, or pattern picker in the Easy Site Editor chat."
+msgstr "Easy Site Editor sohbetinde bir yazı tipi, renk veya desen seçici görüntüler."
+
+#: src/abilities/show-component.ts:77
+msgid "Show picker"
+msgstr "Seçici göster"
+
+#: src/abilities/show-component.ts:42
+msgid "The picker UI is still loading. Try the request again in a moment."
+msgstr "Seçici arayüzü hâlâ yükleniyor. Birazdan isteği tekrar dene."
+
+#: src/abilities/show-component.ts:110
+msgid "Use this to show staged global font, color, or pattern choices. The user must select an option and save before changes are live."
+msgstr "Bunu sahnelenmiş küresel yazı tipi, renk veya desen seçeneklerini göstermek için kullanın. Kullanıcı bir seçenek seçmeli ve değişiklikler canlı olmadan önce kaydetmelidir."
+
+#: src/abilities/editor-navigate.ts:82
+msgid "Use this when the user asks to navigate, go to, open, view, or switch to a site page. If you call this after creating a new page, page creation is already complete before this tool runs. If navigation is canceled because the current page has unsaved changes, do not continue or retry page creation; tell the user the page exists and they need to save or discard their current changes before opening it."
+msgstr "Bunu kullanıcı gezinme, gitme, açma, görme veya bir site sayfasına geçme istediğinde kullan. Yeni bir sayfa oluşturduktan sonra bunu çağırırsan, bu araç çalışmadan önce sayfa oluşturma zaten tamamlanmış olur. Eğer mevcut sayfada kaydedilmemiş değişiklikler olduğu için gezinme iptal edilirse, sayfa oluşturma işlemini devam ettirme veya yeniden deneme; kullanıcıya sayfanın mevcut olduğunu ve açmadan önce mevcut değişikliklerini kaydetmesi veya iptal etmesi gerektiğini söyle."
+
+#: src/abilities/editor-navigate.ts:60
+msgid "Navigates the Easy Site Editor preview to a specific site page or to the pages list."
+msgstr "Kolay Site Düzenleyici önizlemesini belirli bir site sayfasına veya sayfalar listesine yönlendirir."
+
+#: src/abilities/editor-navigate.ts:58
+msgid "Navigate"
+msgstr "Şuraya gidin:"
+
+#: src/abilities/editor-navigate.ts:30
+msgid "Editor navigation is still loading. Try navigating again in a moment."
+msgstr "Düzenleyici gezinmesi hala yükleniyor. Birazdan tekrar gezinmeyi deneyin."
+
+#: src/abilities/apply-block-edits.ts:93
+msgid "Stages block updates, insertions, and deletions in the client-side editor for review before saving."
+msgstr "İşlemleri blok güncellemeleri, eklemeleri ve silmeleri, kaydetmeden önce gözden geçirmek için istemci tarafındaki düzenleyicide aşamalara ayırır."
+
+#: src/abilities/apply-block-edits.ts:91
+msgid "Apply block edits"
+msgstr "Blok düzenlemelerini uygula"
+
+#: src/abilities/apply-block-edits.ts:81
+#: src/abilities/editor-navigate.ts:48
+#: src/abilities/show-component.ts:67
+#: src/abilities/update-theme.ts:58
+msgid "Abilities for staging edits in the Easy Site Editor."
+msgstr "Easy Site Düzenleyici'de düzenleme sahneleme yetenekleri."
+
+#. Plugin Name of the plugin
+#: src/abilities/apply-block-edits.ts:80
+#: src/abilities/editor-navigate.ts:47
+#: src/abilities/show-component.ts:66
+#: src/abilities/update-theme.ts:57
+#: easy-site-editor.php
+msgid "Easy Site Editor"
+msgstr "Kolay Site Düzenleyici"
+
+#: src/abilities/apply-block-edits.ts:56
+msgid "The editor is still loading. Try the block edit again once the page is editable."
+msgstr "Düzenleyici hala yükleniyor. Sayfa düzenlenebilir hale geldiğinde blok düzenlemeyi tekrar dene."
+
+#: src/abilities/apply-block-edits.ts:134
+msgid "Use this for current-page content and layout edits. After it succeeds, tell the user the edits are staged in the editor and ready to review/save, not live or published."
+msgstr "Bunu mevcut sayfa içeriği ve düzeni düzenlemeleri için kullan. Başarılı olduktan sonra, kullanıcıya düzenlemelerin düzenleyicide sahnelendiğini ve gözden geçirmek/kaydetmek için hazır olduğunu, canlı veya yayımlanmış olmadığını söyle."

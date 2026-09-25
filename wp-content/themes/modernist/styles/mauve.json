@@ -1,0 +1,59 @@
+{
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#f6cfe9",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#540d3b",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#4d0c35",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#4b0c3459",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#f4c8e5",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				},
+				{
+					"color": "#4b0c340d",
+					"name": "Quaternary",
+					"slug": "quaternary"
+				}
+			]
+		}
+	},
+	"styles": {
+		"blocks": {
+			"core/image": {
+				"filter": {
+					"duotone": "var(--wp--preset--duotone--mauve)"
+				}
+			},
+			"core/post-featured-image": {
+				"filter": {
+					"duotone": "var(--wp--preset--duotone--mauve)"
+				}
+			}
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--inter)",
+			"fontStyle": "normal",
+			"fontWeight": "400"
+		}
+	},
+	"version": 3,
+	"title": "Mauve"
+}

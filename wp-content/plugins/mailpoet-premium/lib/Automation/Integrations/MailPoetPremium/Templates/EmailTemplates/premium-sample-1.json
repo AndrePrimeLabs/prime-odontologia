@@ -1,0 +1,178 @@
+{
+  "name": "Premium Welcome Email 1",
+  "thumbnail_data": "",
+  "body": {
+    "content": {
+      "type": "container",
+      "columnLayout": false,
+      "orientation": "vertical",
+      "image": {
+        "src": null,
+        "display": "scale"
+      },
+      "styles": {
+        "block": {
+          "backgroundColor": "transparent"
+        }
+      },
+      "blocks": [
+        {
+          "type": "container",
+          "columnLayout": false,
+          "orientation": "horizontal",
+          "image": {
+            "src": null,
+            "display": "scale"
+          },
+          "styles": {
+            "block": {
+              "backgroundColor": "#f2f2f2"
+            }
+          },
+          "blocks": [
+            {
+              "type": "container",
+              "columnLayout": false,
+              "orientation": "vertical",
+              "image": {
+                "src": null,
+                "display": "scale"
+              },
+              "styles": {
+                "block": {
+                  "backgroundColor": "transparent"
+                }
+              },
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": "<a href=\"[link:newsletter_view_in_browser_url]\">View this in your browser.</a>",
+                  "styles": {
+                    "block": {
+                      "backgroundColor": "transparent"
+                    },
+                    "text": {
+                      "fontColor": "#222222",
+                      "fontFamily": "Arial",
+                      "fontSize": "12px",
+                      "textAlign": "center"
+                    },
+                    "link": {
+                      "fontColor": "#6cb7d4",
+                      "textDecoration": "underline"
+                    }
+                  }
+                },
+                {
+                  "type": "image",
+                  "link": "",
+                  "src": "https://ps.w.org/mailpoet/assets/icon-256x256.png",
+                  "alt": "MailPoet Premium Logo",
+                  "fullWidth": false,
+                  "width": "110px",
+                  "height": "auto",
+                  "styles": {
+                    "block": {
+                      "textAlign": "center"
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "<h1 style=\"text-align: center;\">Welcome to our Premium Newsletter!</h1>\n<p style=\"text-align: center;\">We're thrilled to have you join our community.</p>",
+                  "styles": {
+                    "block": {
+                      "backgroundColor": "transparent"
+                    },
+                    "text": {
+                      "fontColor": "#000000",
+                      "fontFamily": "Arial",
+                      "fontSize": "16px",
+                      "textAlign": "left"
+                    },
+                    "link": {
+                      "fontColor": "#2ea1cd",
+                      "textDecoration": "underline"
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "<p>Dear [subscriber:firstname | default:valued subscriber],</p>\n<p>Thank you for subscribing to our premium newsletter. We're delighted to welcome you to our community of engaged readers.</p>\n<p>As a premium subscriber, you'll receive exclusive content, early access to new features, and special offers that aren't available to our regular subscribers.</p>\n<p>This is the first in a series of welcome emails designed to help you get the most out of your subscription.</p>",
+                  "styles": {
+                    "block": {
+                      "backgroundColor": "transparent"
+                    },
+                    "text": {
+                      "fontColor": "#000000",
+                      "fontFamily": "Arial",
+                      "fontSize": "14px",
+                      "textAlign": "left"
+                    },
+                    "link": {
+                      "fontColor": "#2ea1cd",
+                      "textDecoration": "underline"
+                    }
+                  }
+                },
+                {
+                  "type": "button",
+                  "text": "Explore Our Website",
+                  "url": "[link:site_url]",
+                  "styles": {
+                    "block": {
+                      "backgroundColor": "transparent",
+                      "borderColor": "#0074a2",
+                      "borderWidth": "1px",
+                      "borderRadius": "5px",
+                      "borderStyle": "solid",
+                      "width": "200px",
+                      "lineHeight": "40px",
+                      "fontColor": "#ffffff",
+                      "fontFamily": "Arial",
+                      "fontSize": "16px",
+                      "fontWeight": "normal",
+                      "textAlign": "center",
+                      "backgroundColor": "#0074a2"
+                    }
+                  }
+                },
+                {
+                  "type": "divider",
+                  "styles": {
+                    "block": {
+                      "backgroundColor": "transparent",
+                      "padding": "13px",
+                      "borderStyle": "solid",
+                      "borderWidth": "1px",
+                      "borderColor": "#aaaaaa"
+                    }
+                  }
+                },
+                {
+                  "type": "footer",
+                  "text": "<p><a href=\"[link:subscription_unsubscribe_url]\">Unsubscribe</a> | <a href=\"[link:subscription_manage_url]\">Manage subscription</a><br />Add your postal address here!</p>",
+                  "styles": {
+                    "block": {
+                      "backgroundColor": "transparent"
+                    },
+                    "text": {
+                      "fontColor": "#222222",
+                      "fontFamily": "Arial",
+                      "fontSize": "12px",
+                      "textAlign": "center"
+                    },
+                    "link": {
+                      "fontColor": "#6cb7d4",
+                      "textDecoration": "underline"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

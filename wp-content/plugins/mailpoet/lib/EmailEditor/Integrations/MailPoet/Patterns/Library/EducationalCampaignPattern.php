@@ -1,0 +1,147 @@
+<?php declare(strict_types = 1);
+
+namespace MailPoet\EmailEditor\Integrations\MailPoet\Patterns\Library;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\EmailEditor\Integrations\MailPoet\EmailEditor;
+use MailPoet\EmailEditor\Integrations\MailPoet\Patterns\Pattern;
+
+/**
+ * Educational campaign email pattern.
+ */
+class EducationalCampaignPattern extends Pattern {
+  protected $name = 'educational-campaign';
+  protected $block_types = ['core/post-content']; // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+  protected $template_types = ['email-template']; // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+  protected $categories = ['educational-campaign'];
+  protected $post_types = [EmailEditor::MAILPOET_EMAIL_POST_TYPE]; // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+
+  /**
+   * Get pattern content.
+   *
+   * @return string Pattern HTML content.
+   */
+  protected function get_content(): string { // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+    return '
+    <!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|40","left":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+    <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+      <!-- wp:heading {"level":1} -->
+      <h1 class="wp-block-heading">' .
+      /* translators: %s: Site title personalization tag */
+      sprintf(__('How to Get the Most from %s', 'mailpoet'), '<!--[mailpoet/site-title]-->') . '</h1>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph {"style":{"typography":{"fontSize":"16px"}}} -->
+      <p style="font-size:16px">' .
+      /* translators: %s: Site title personalization tag */
+      sprintf(__('Our latest guide walks you through tips to make the most from %s.', 'mailpoet'), '<!--[mailpoet/site-title]-->') . '</p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:heading -->
+      <h2 class="wp-block-heading">' . __('How it works', 'mailpoet') . '</h2>
+      <!-- /wp:heading -->
+
+      <!-- wp:columns -->
+      <div class="wp-block-columns">
+      <!-- wp:column {"style":{"spacing":{"padding":{"right":"0","left":"0"}}}} -->
+      <div class="wp-block-column" style="padding-right:0;padding-left:0">
+      <!-- wp:image {"sizeSlug":"full"} -->
+      <figure class="wp-block-image size-full"><img src="' . esc_url($this->cdnAssetUrl->generateCdnUrl('email-editor/educational-step-1.jpg')) . '" alt="' . esc_attr__('Step 1 image', 'mailpoet') . '"/></figure>
+      <!-- /wp:image -->
+      </div>
+      <!-- /wp:column -->
+
+      <!-- wp:column {"style":{"spacing":{"padding":{"right":"0","left":"var:preset|spacing|30"}}}} -->
+      <div class="wp-block-column" style="padding-right:0;padding-left:var(--wp--preset--spacing--30)">
+      <!-- wp:heading {"level":3} -->
+      <h3 class="wp-block-heading">' . __('Step 1', 'mailpoet') . '</h3>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph -->
+      <p><em>' .
+      /* translators: Placeholder text that merchants replace with their own content. */
+      __('Brief description', 'mailpoet') . '</em></p>
+      <!-- /wp:paragraph -->
+      </div>
+      <!-- /wp:column -->
+      </div>
+      <!-- /wp:columns -->
+
+      <!-- wp:spacer {"height":"30px"} -->
+      <div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+      <!-- /wp:spacer -->
+
+      <!-- wp:columns -->
+      <div class="wp-block-columns">
+      <!-- wp:column {"style":{"spacing":{"padding":{"right":"var:preset|spacing|30","left":"0"}}}} -->
+      <div class="wp-block-column" style="padding-right:var(--wp--preset--spacing--30);padding-left:0">
+      <!-- wp:heading {"level":3} -->
+      <h3 class="wp-block-heading">' . __('Step 2', 'mailpoet') . '</h3>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph -->
+      <p><em>' .
+      /* translators: Placeholder text that merchants replace with their own content. */
+      __('Brief description', 'mailpoet') . '</em></p>
+      <!-- /wp:paragraph -->
+      </div>
+      <!-- /wp:column -->
+
+      <!-- wp:column {"style":{"spacing":{"padding":{"right":"0","left":"0"}}}} -->
+      <div class="wp-block-column" style="padding-right:0;padding-left:0">
+      <!-- wp:image {"sizeSlug":"full"} -->
+      <figure class="wp-block-image size-full"><img src="' . esc_url($this->cdnAssetUrl->generateCdnUrl('email-editor/educational-step-2.jpg')) . '" alt="' . esc_attr__('Step 2 image', 'mailpoet') . '"/></figure>
+      <!-- /wp:image -->
+      </div>
+      <!-- /wp:column -->
+      </div>
+      <!-- /wp:columns -->
+
+      <!-- wp:spacer {"height":"30px"} -->
+      <div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+      <!-- /wp:spacer -->
+
+      <!-- wp:columns -->
+      <div class="wp-block-columns">
+      <!-- wp:column {"style":{"spacing":{"padding":{"right":"0","left":"0"}}}} -->
+      <div class="wp-block-column" style="padding-right:0;padding-left:0">
+      <!-- wp:image {"sizeSlug":"full"} -->
+      <figure class="wp-block-image size-full"><img src="' . esc_url($this->cdnAssetUrl->generateCdnUrl('email-editor/educational-step-3.jpg')) . '" alt="' . esc_attr__('Step 3 image', 'mailpoet') . '"/></figure>
+      <!-- /wp:image -->
+      </div>
+      <!-- /wp:column -->
+
+      <!-- wp:column {"style":{"spacing":{"padding":{"right":"0","left":"var:preset|spacing|30"}}}} -->
+      <div class="wp-block-column" style="padding-right:0;padding-left:var(--wp--preset--spacing--30)"><!-- wp:heading {"level":3} -->
+      <h3 class="wp-block-heading">' . __('Step 3', 'mailpoet') . '</h3>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph -->
+      <p><em>' .
+      /* translators: Placeholder text that merchants replace with their own content. */
+      __('Brief description', 'mailpoet') . '</em></p>
+      <!-- /wp:paragraph -->
+      </div>
+      <!-- /wp:column -->
+      </div>
+      <!-- /wp:columns -->
+
+      <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+      <div class="wp-block-buttons">
+      <!-- wp:button {"style":{"typography":{"fontSize":"16px"},"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10","left":"var:preset|spacing|20","right":"var:preset|spacing|20"}}}} -->
+      <div class="wp-block-button"><a class="wp-block-button__link wp-element-button has-custom-font-size" style="font-size:16px;padding-top:var(--wp--preset--spacing--10);padding-bottom:var(--wp--preset--spacing--10);padding-left:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20)" href="[mailpoet/site-homepage-url]">' . __('Read the guide', 'mailpoet') . '</a></div>
+      <!-- /wp:button -->
+      </div>
+      <!-- /wp:buttons -->
+    </div>
+    <!-- /wp:group -->
+    ';
+  }
+
+  protected function get_title(): string { // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+    /* translators: Name of a content pattern used as starting content of an email */
+    return __('Educational Campaign', 'mailpoet');
+  }
+}

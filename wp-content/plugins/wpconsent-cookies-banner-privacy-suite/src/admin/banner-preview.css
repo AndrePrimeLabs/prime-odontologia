@@ -1,0 +1,50 @@
+.wpconsent-banner-holder {
+	display: none;
+
+	&.wpconsent-banner-preview-visible {
+		display: block;
+	}
+}
+
+:host(.wpconsent-preview-mode) {
+	position: relative;
+	padding: 0;
+
+	.wpconsent-banner-holder {
+		display: block;
+		position: relative;
+		min-height: 385px;
+		zoom: 0.5;
+		background: #f0f0f0;
+		z-index: 10;
+
+		&.wpconsent-banner-floating {
+			zoom: 0.6;
+			min-height: 320px;
+		}
+
+		.wpconsent-banner {
+			position: absolute;
+		}
+	}
+
+	.wpconsent-banner-holder {
+		position: relative;
+	}
+}
+
+.wpconsent-preview-close-button {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	background: #444;
+	color: white;
+	border: none;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	line-height: 1;
+	cursor: pointer;
+	z-index: 999999;
+}

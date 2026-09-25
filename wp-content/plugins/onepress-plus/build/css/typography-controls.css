@@ -1,0 +1,296 @@
+/* ===========================================================================
+ * OnePress Plus typography Customizer control
+ * ===========================================================================
+ *
+ * Tom Select overrides — make the font-family picker visually match the
+ * sibling native <select> widgets (font-style, text-decoration,
+ * text-transform). Scoped to `.customize-control-typography` so other
+ * Tom Select instances elsewhere on the admin (e.g. WooCommerce) aren't
+ * affected.
+ *
+ * Reference: WP Core admin form controls — border #8c8f94, radius 4px,
+ * focus ring #2271b1.
+ * --------------------------------------------------------------------------- */
+
+.customize-control-typography ul .customize-control-title {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.customize-control-typography li.has-unit .unit-value {
+	width: 49%;
+	float: left;
+	margin: 0;
+}
+
+.customize-control-typography li.has-unit .unit {
+	float: right;
+	width: 49%;
+	margin: 0;
+}
+
+.customize-control-typography li.typography-half.first,
+.customize-control-typography li.clr {
+	clear: both;
+}
+
+.customize-control-typography optgroup.lv-2 {
+	padding-left: 30px;
+}
+
+.customize-control-typography .typography-wrap:after,
+.customize-control-typography li.has-unit:after {
+	clear: both;
+	content: " ";
+	display: block;
+}
+
+/* -------------------------------------------------------------------------
+ * Tom Select trigger — match native <select> appearance
+ * ------------------------------------------------------------------------- */
+
+.customize-control-typography .ts-wrapper {
+	margin: 0;
+}
+
+/*
+ * Mirror the EXACT rules WP Core applies to a native <select> in the
+ * Customizer. Values traced directly from:
+ *   wp-admin/css/forms.css         — base form-element + .wp-core-ui select
+ *   wp-admin/css/customize-controls.css — Customizer-specific width override
+ *
+ * The Customizer container has the .wp-core-ui class, so .wp-core-ui select
+ * rules apply (min-height 40px, native arrow SVG, theme-color focus).
+ *
+ * Source-of-truth values copied verbatim:
+ *   border:          1px solid #949494           (forms.css)
+ *   border-radius:   2px                         (forms.css)
+ *   background:      #fff                        (forms.css)
+ *   color:           #1e1e1e                     (forms.css)
+ *   box-shadow:      0 0 0 transparent           (forms.css)
+ *   padding:         0 24px 0 12px               (forms.css select)
+ *   line-height:     2.71428571                  (forms.css select; ~38px)
+ *   min-height:      40px                        (forms.css select)
+ *   font-size:       14px                        (inherited from input)
+ *   appearance:      none                        (.wp-core-ui select)
+ *   background-image: WP chevron-down 20x20 fill=#1e1e1e   (.wp-core-ui select)
+ *   background-position: right 8px top 55%       (.wp-core-ui select)
+ *   background-size: 16px 16px                   (.wp-core-ui select)
+ *   cursor:          pointer                     (.wp-core-ui select)
+ *   vertical-align:  middle                      (.wp-core-ui select)
+ *   width:           100%                        (customize-controls.css .customize-control select)
+ *
+ * Hover / focus also copied verbatim from .wp-core-ui select:hover/:focus.
+ */
+.customize-control-typography .ts-wrapper.single .ts-control {
+	box-sizing: border-box;
+
+	/* Base form-element (forms.css) */
+	color: #1e1e1e;
+	background-color: #fff;
+	border: 1px solid #949494;
+	border-radius: 2px;
+	box-shadow: 0 0 0 transparent;
+
+	/* Select-specific (forms.css select + .wp-core-ui select + customize-controls.css) */
+	width: 100%;
+	margin: 0 1px;
+	padding: 0 24px 0 12px;
+	min-height: 40px;
+	font-size: 14px;
+	line-height: 2.71428571;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+
+	/* The Dashicons arrow-down-alt2 SVG — identical bytes to .wp-core-ui select */
+	background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%231e1e1e%22%2F%3E%3C%2Fsvg%3E");
+	background-repeat: no-repeat;
+	background-position: right 8px top 55%;
+	background-size: 16px 16px;
+}
+
+/* Hover — copied from .wp-core-ui select:hover */
+.customize-control-typography .ts-wrapper.single .ts-control:hover {
+	color: #1e1e1e;
+	border-color: #1e1e1e;
+}
+
+/* Focus — copied from .wp-core-ui select:focus */
+.customize-control-typography .ts-wrapper.single.input-active .ts-control,
+.customize-control-typography .ts-wrapper.focus .ts-control {
+	border-color: var(--wp-admin-theme-color, #2271b1);
+	color: #1e1e1e;
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 1.5px) var(--wp-admin-theme-color, #2271b1);
+	outline: 2px solid transparent;
+}
+
+/* Tom Select draws an extra CSS-triangle caret; suppress it so the only
+ * arrow on the trigger is our WP-matching background SVG. */
+.customize-control-typography .ts-wrapper.single .ts-control::after,
+.customize-control-typography .ts-wrapper.single .ts-control::before {
+	display: none !important;
+}
+
+/* The inline input inside the trigger is unused when dropdown_input plugin
+ * is active. Collapse it to zero size so it doesn't push the trigger taller
+ * than a native <select>. */
+.customize-control-typography .ts-wrapper.single .ts-control > input {
+	width: 0 !important;
+	height: 0 !important;
+	min-height: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: 0 !important;
+	background: transparent !important;
+	pointer-events: none;
+	opacity: 0;
+	position: absolute;
+}
+
+/* The .item is the chosen option rendered inside the trigger; match the
+ * trigger's exact line-height so the label sits at the same vertical
+ * position as a native <select>'s rendered option. */
+.customize-control-typography .ts-wrapper.single .ts-control .item {
+	color: #1e1e1e;
+	font-size: 14px;
+	line-height: 2.71428571;
+	vertical-align: middle;
+}
+
+/* Plain-input cursor (overrides Tom Select's text-cursor default). The
+ * trigger is button-like and matches the native <select>'s pointer. */
+.customize-control-typography .ts-wrapper.single .ts-control,
+.customize-control-typography .ts-wrapper.single .ts-control * {
+	cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------
+ * Tom Select dropdown — match the trigger's frame, host the search input
+ * ------------------------------------------------------------------------- */
+
+.customize-control-typography .ts-dropdown {
+	margin-top: 4px;
+	border: 1px solid #8c8f94;
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+	font-size: 14px;
+	color: #2c3338;
+}
+
+.customize-control-typography .ts-dropdown .dropdown-input-wrap {
+	padding: 8px;
+	background: #f6f7f7;
+	border-bottom: 1px solid #c3c4c7;
+	border-radius: 4px 4px 0 0;
+}
+
+.customize-control-typography .ts-dropdown .dropdown-input {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 4px 8px;
+	background: #fff;
+	border: 1px solid #8c8f94;
+	border-radius: 4px;
+	font-size: 13px;
+	line-height: 1.4;
+	color: #2c3338;
+	box-shadow: none;
+}
+
+.customize-control-typography .ts-dropdown .dropdown-input:focus {
+	border-color: var(--wp-admin-theme-color, #2271b1);
+	box-shadow: 0 0 0 1px var(--wp-admin-theme-color, #2271b1);
+	outline: 0;
+}
+
+.customize-control-typography .ts-dropdown .optgroup-header {
+	padding: 6px 8px;
+	background: #f0f0f1;
+	color: #1d2327;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: .03em;
+	/* No border-top — the background-color shift is enough visual separation. */
+}
+
+/* Options inside a group are indented so the group hierarchy reads
+ * visually. 20px ≈ 1ch + the group-header's left padding (8px) + a 4px
+ * tick, which lines the option text up flush under (group label letter
+ * height) without clipping into the active-state background. */
+.customize-control-typography .ts-dropdown .optgroup .option {
+	padding-left: 20px;
+}
+
+.customize-control-typography .ts-dropdown .option {
+	padding: 6px 8px;
+	color: #2c3338;
+	cursor: pointer;
+}
+
+/* Hover + keyboard-focus state on options. Uses the WP admin theme color
+ * so the dropdown matches whatever color scheme the user picked in
+ * `Users → Profile → Admin Color Scheme` (Blue, Red, Sunrise, etc.).
+ * Fallback #2271b1 is WP's default ("Modern" / "Default" scheme). */
+.customize-control-typography .ts-dropdown .option:hover,
+.customize-control-typography .ts-dropdown .active {
+	background: var(--wp-admin-theme-color, #2271b1);
+	color: #fff;
+}
+
+.customize-control-typography .ts-dropdown .option.disabled,
+.customize-control-typography .ts-dropdown .option[disabled] {
+	color: #8c8f94;
+	cursor: not-allowed;
+	font-style: italic;
+}
+
+.customize-control-typography .ts-dropdown .no-results {
+	padding: 8px;
+	color: #8c8f94;
+	font-style: italic;
+}
+
+/* -------------------------------------------------------------------------
+ * Clear button (X) — sit inside the trigger, comfortably left of the
+ * native arrow.
+ *
+ * Layout math (trigger is 40px tall, has 1px border each side):
+ *   - Native arrow: 16px wide, anchored right 8px → occupies the band
+ *     between right 8px and right 24px (from inner-edge).
+ *   - Clear button: 18px wide circular hit area, placed at right 36px →
+ *     occupies the band between right 36px and right 54px, leaving a
+ *     ~12px gap from the arrow.
+ *   - Trigger needs padding-right ≥ 60px when the clear button is visible
+ *     so the selected label never collides with the X. Set on the
+ *     `has-items` modifier (Tom Select adds this class on selection).
+ * ------------------------------------------------------------------------- */
+
+.customize-control-typography .ts-wrapper.has-items.single .ts-control {
+	padding-right: 64px;
+}
+
+.customize-control-typography .ts-wrapper.single .clear-button {
+	right: 36px;
+	width: 22px;
+	height: 22px;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, .06);
+	color: #50575e;
+	opacity: .9;
+	transition: background-color .15s ease, color .15s ease, opacity .15s ease;
+}
+
+.customize-control-typography .ts-wrapper.single .clear-button:hover,
+.customize-control-typography .ts-wrapper.single .clear-button:focus {
+	background: rgba(214, 54, 56, .12);
+	color: #d63638;
+	opacity: 1;
+}

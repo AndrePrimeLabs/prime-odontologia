@@ -1,0 +1,1424 @@
+# Copyright (C) 2026 Automattic, Inc.
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress Agent 7.9.10\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/big-sky-plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T16:34:26+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: big-sky\n"
+
+#: src/abilities/add-pages/index.ts:17
+msgid "Add Pages"
+msgstr ""
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:169
+msgid "Failed to create pages:"
+msgstr ""
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:65
+msgid "Invalid pages. Must provide an array of page objects."
+msgstr ""
+
+#: src/abilities/apply-block-edits/index.ts:15
+msgid "Apply Block Edits"
+msgstr ""
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1372
+msgid "The requested changes were already applied."
+msgstr ""
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1381
+msgid "I was not able to make the changes you requested. Either I don't have the capability to do so or I didn't understand your request. You can ask me to try again or ask me to do something else."
+msgstr ""
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1422
+msgid "I have completed the edits."
+msgstr ""
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1464
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: src/abilities/capture-canvas/index.ts:16
+msgid "Capture Canvas"
+msgstr ""
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:47
+msgid "I couldn't get a picture of the canvas just now."
+msgstr ""
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:61
+msgid "Here is the whole page, top to bottom. It is scaled down to fit, so body text will not be legible — read it for colour, type scale, spacing and section rhythm, and take an ordinary picture of a specific area when wording or fine detail matters. Photographs are shown as flat placeholder boxes at their real size."
+msgstr ""
+
+#. %d: number of blocks framed in the screenshot.
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:73
+msgid "Here is the canvas around %d block(s). Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr ""
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:74
+msgid "Here is the visible area of the canvas. Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr ""
+
+#: src/abilities/client-assistants/index.ts:27
+msgid "Execute Client Assistant"
+msgstr ""
+
+#: src/abilities/client-assistants/index.ts:29
+msgid "Always use this if the user asks for something that requires a client-side assistant. Available assistants:"
+msgstr ""
+
+#: src/abilities/client-assistants/index.ts:89
+msgid "Assistant completed successfully"
+msgstr ""
+
+#: src/abilities/client-assistants/run-assistant.ts:182
+msgid "Sorry, I've encountered an error. Please try again or let me know if you need help with something else."
+msgstr ""
+
+#: src/abilities/client-assistants/run-assistant.ts:189
+msgid "No response from assistant"
+msgstr ""
+
+#: src/abilities/edit-entity-record/index.ts:15
+msgid "Manage Entity Records"
+msgstr ""
+
+#. %s: comma-separated list of navigation item identifiers that could not be resolved.
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:180
+msgid "Navigation items not found: %s. These are not in the menu or in the current page structure, so there is nothing to reorder them from — they are most likely from an earlier turn, or the header is not part of the page currently open in the editor. Read the page structure again and use the clientIds it returns, or identify each item by its url or label instead. This reorder was not applied."
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:490
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:22
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:30
+msgid "No"
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:493
+msgid "Proceed"
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:499
+msgid "I changed my mind"
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:541
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:16
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:24
+msgid "Yes"
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:580
+msgid "Awaiting user confirmation before making this change."
+msgstr ""
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:592
+msgid "Updated the entity records."
+msgstr ""
+
+#: src/abilities/editor-navigate/index.ts:15
+msgid "Navigate"
+msgstr ""
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:22
+msgid "Invalid editor path. Page navigation requires /page/{numeric-id}. Look up the page ID first."
+msgstr ""
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:23
+msgid "Invalid editor path. look up the numeric id from <site_pages>, then retry navigation with the numeric editor_path."
+msgstr ""
+
+#: src/abilities/open-help-center.ts:142
+msgid "Show Help Center chat button"
+msgstr ""
+
+#: src/abilities/open-help-center.ts:200
+msgid "Get help"
+msgstr ""
+
+#: src/abilities/restore-checkpoint/index.ts:17
+msgid "Restore Checkpoint"
+msgstr ""
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:39
+msgid "I could not restore the checkpoint because no checkpoint ID was provided."
+msgstr ""
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:49
+msgid "I could not find a checkpoint for that ID."
+msgstr ""
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:94
+msgid "I did not restore that checkpoint because it may replace or remove too much current content."
+msgstr ""
+
+#: src/abilities/set-styles/index.ts:18
+msgid "Set Styles"
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:17
+msgid "Invalid arguments. Provide at least one of: color, font, or button."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:24
+msgid "Invalid color format. Color must be a string (variation title)."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:31
+msgid "Invalid font format. Font must be a string (variation title)."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:38
+msgid "Invalid button format. Button must be a string (variation title)."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:62
+msgid "Styles updated successfully."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:65
+msgid "Updated:"
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:76
+msgid "Failed to update styles. The style variation may be invalid."
+msgstr ""
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:82
+msgid "Failed to update styles:"
+msgstr ""
+
+#: src/abilities/show-component/index.ts:21
+msgid "Show Component"
+msgstr ""
+
+#: src/abilities/show-component/show-component.tsx:175
+msgid "Choose from the options I provided."
+msgstr ""
+
+#: src/abilities/show-component/show-component.tsx:214
+#: src/abilities/site-logo/set-site-logo.ts:70
+msgid "There was an error with this request. Please try again."
+msgstr ""
+
+#: src/abilities/site-logo/index.ts:15
+msgid "Set Site Logo"
+msgstr ""
+
+#: src/abilities/site-logo/set-site-logo.ts:58
+msgid "Logo set successfully"
+msgstr ""
+
+#: src/abilities/site-logo/set-site-logo.ts:71
+msgid "There was an error with this request."
+msgstr ""
+
+#: src/abilities/stream-page-design/index.ts:21
+msgid "Stream Page Design"
+msgstr ""
+
+#: src/abilities/stream-page-design/index.ts:22
+msgid "The generated page content has been staged in the editor for review."
+msgstr ""
+
+#: src/abilities/stream-page-design/index.ts:23
+msgid "The editor is still loading. Try the page design again once the page is editable."
+msgstr ""
+
+#: src/abilities/update-theme/index.ts:15
+msgid "Update Theme"
+msgstr ""
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:22
+msgid "Failed to make the theme update. Please try again."
+msgstr ""
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:29
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr ""
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:40
+msgid "Invalid settings format. Settings must be an object."
+msgstr ""
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:51
+msgid "Invalid styles format. Styles must be an object."
+msgstr ""
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:86
+msgid "Theme updated successfully"
+msgstr ""
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:54
+msgid "Your site is ready! Please click around and check it out."
+msgstr ""
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:55
+msgid "Are there any changes you would like me to make?"
+msgstr ""
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:107
+msgid "Stop inheriting default query settings and change the current number of posts displayed per page from %s to:"
+msgstr ""
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:110
+msgid "Currently this query is displaying %s posts per page, change it to:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:117
+msgid "Order posts"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:122
+msgid "oldest to newest"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:123
+msgid "newest to oldest"
+msgstr ""
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:128
+msgid "Stop inheriting default query settings and order posts from %s"
+msgstr ""
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:131
+msgid "By updating the query, order posts from %s"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:33
+msgid "Choose new fonts"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:34
+msgid "Show me new fonts for my site"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:37
+msgid "Customize colors"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:38
+msgid "Show me color palettes for my site that are:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:41
+msgid "Change page layout"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:42
+msgid "Show me different layouts for this page"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:45
+msgid "Add new page"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:46
+msgid "Create a new page on my site for"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:49
+msgid "Edit link"
+msgstr ""
+
+#. %s is the button text
+#: src/ai/hooks/suggestions-data.ts:52
+msgid "Change the %s button link to:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:55
+msgid "Swap columns"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:56
+msgid "Reverse the order of these columns"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:60
+msgid "Add column"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:61
+msgid "Add another column to the end of these"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:65
+msgid "Translate content"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:66
+msgid "Translate this to:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:70
+msgid "Change tone"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:71
+msgid "Change the tone of this text to be more:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:75
+msgid "Check grammar"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:76
+msgid "Check the grammar of this text"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:80
+msgid "Generate image"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:81
+msgid "Generate an image of:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:85
+msgid "Edit image"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:86
+msgid "Edit the image to:"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:90
+msgid "Remove background"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:91
+msgid "Remove the background from this image"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:95
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:36
+msgid "What else can you do?"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:96
+msgid "Tell me all the ways you can help design or edit my site"
+msgstr ""
+
+#: src/ai/hooks/suggestions-data.ts:99
+msgid "Change number of posts"
+msgstr ""
+
+#: src/components/open-help-center-button.tsx:20
+msgid "Open Help Center"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:25
+msgid "unit"
+msgid_plural "units"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/product-card/ProductCard.tsx:51
+#: src/components/site-spec-landing/index.js:345
+msgid "Loading…"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:53
+msgid "Error: Could not render product card"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:56
+msgid "Error: Product name is required"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:84
+msgid "Service"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:87
+msgid "Product"
+msgstr ""
+
+#: src/components/product-card/ProductCard.tsx:90
+#: src/easy-mode/components/topbar.tsx:51
+msgid "Edit"
+msgstr ""
+
+#. %d: number of annotations.
+#: src/easy-mode/annotations/prompt.ts:82
+msgid "%d annotation submitted"
+msgid_plural "%d annotations submitted"
+msgstr[0] ""
+msgstr[1] ""
+
+#. 1: block label, 2: position, 3: total count.
+#: src/easy-mode/annotations/annotation-layer.tsx:341
+msgid "%1$s, block %2$d of %3$d"
+msgstr ""
+
+#. 1: annotation number, 2: comment text.
+#: src/easy-mode/annotations/annotation-layer.tsx:367
+msgid "Annotation %1$d: %2$s"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:445
+msgid "Annotate blocks. Use the arrow keys to move between blocks, Enter to comment, and Escape to exit."
+msgstr ""
+
+#. %s: label of the block being annotated.
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Annotate %s"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Add a comment…"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Delete annotation"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:565
+msgid "Update annotation"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:566
+msgid "Save annotation"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:14
+msgid "Send"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:18
+msgid "Sending…"
+msgstr ""
+
+#. %d: number of annotations to send.
+#: src/easy-mode/annotations/annotation-topbar.tsx:21
+msgid "Send %d annotation"
+msgid_plural "Send %d annotations"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Exit annotation mode"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Discard annotations"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Annotating"
+msgstr ""
+
+#: src/easy-mode/annotations/use-editor-annotations.ts:153
+msgid "Annotations could not be sent — the assistant is unavailable."
+msgstr ""
+
+#: src/easy-mode/components/app.tsx:300
+msgid "Switching to edit mode so you can approve the changes before saving."
+msgstr ""
+
+#: src/easy-mode/components/app.tsx:301
+msgid "Switching to edit mode so you can see the changes."
+msgstr ""
+
+#: src/easy-mode/components/app.tsx:439
+msgid "Switching to edit mode so you can watch the new design being built."
+msgstr ""
+
+#. %s: page title.
+#: src/easy-mode/components/page-switcher.tsx:113
+msgid "%s — Draft"
+msgstr ""
+
+#: src/easy-mode/components/page-switcher.tsx:116
+msgid "(no title)"
+msgstr ""
+
+#: src/easy-mode/components/page-switcher.tsx:34
+msgid "Home"
+msgstr ""
+
+#: src/easy-mode/components/page-switcher.tsx:49
+#: src/components/mosaic.js:633
+#: src/components/mosaic.js:675
+msgid "Pages"
+msgstr ""
+
+#: src/easy-mode/components/page-switcher.tsx:76
+msgid "Switch page"
+msgstr ""
+
+#. %s: page currently open.
+#: src/easy-mode/components/page-switcher.tsx:99
+msgid "Switch page. Current page: %s"
+msgstr ""
+
+#: src/easy-mode/components/preview-overlay.tsx:147
+msgid "The site preview could not be loaded."
+msgstr ""
+
+#: src/easy-mode/components/preview-overlay.tsx:155
+#: src/components/index.js:200
+msgid "Retry"
+msgstr ""
+
+#: src/easy-mode/components/preview-overlay.tsx:158
+msgid "Site preview"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:50
+msgid "Preview"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:54
+msgid "Desktop"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:55
+msgid "Tablet"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:56
+msgid "Mobile"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:68
+msgid "Mode"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:689
+msgid "Chat is unavailable"
+msgstr ""
+
+#. %d: number of annotations waiting to be sent.
+#: src/easy-mode/components/topbar.tsx:694
+msgid "Resume annotating, %d pending"
+msgid_plural "Resume annotating, %d pending"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/easy-mode/components/topbar.tsx:696
+msgid "Annotate"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:698
+msgid "Return to WP Admin"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:710
+msgid "Undo"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:713
+msgid "Redo"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:725
+msgid "Reload preview"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Open in a new tab"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Responsive view"
+msgstr ""
+
+#. %s: selected device, e.g. Desktop.
+#: src/easy-mode/components/topbar.tsx:743
+msgid "Responsive view: %s"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:749
+msgid "Publish"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:761
+msgid "Saving…"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:763
+msgid "Save draft"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:763
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Save"
+msgstr ""
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:32
+msgid "The preview shows your saved site, so unsaved changes won’t appear there."
+msgstr ""
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:33
+msgid "You need to save or discard the changes to the current page."
+msgstr ""
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:66
+msgid "Save your changes?"
+msgstr ""
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Discard"
+msgstr ""
+
+#: src/easy-mode/hooks/use-save-controller.ts:120
+msgid "Some changes could not be saved. Your work is still here — try saving again."
+msgstr ""
+
+#: src/easy-mode/hooks/use-save-controller.ts:121
+msgid "Your changes could not be saved. Your work is still here — try saving again."
+msgstr ""
+
+#: src/ai/wp-orchestrator/index.tsx:39
+msgid "Your session expired. Please refresh the page and try again."
+msgstr ""
+
+#: src/ai/wp-orchestrator/index.tsx:42
+msgid "You don't have permission to access AI features."
+msgstr ""
+
+#: src/ai/wp-orchestrator/index.tsx:45
+msgid "Unable to connect to Jetpack. Please ensure Jetpack is active and up to date."
+msgstr ""
+
+#: src/ai/wp-orchestrator/index.tsx:50
+msgid "Network connection issue. Please check your internet connection and try again."
+msgstr ""
+
+#: src/ai/wp-orchestrator/index.tsx:52
+msgid "Unable to authenticate with Jetpack. Please try again."
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:276
+msgid "Failed to upload images. Please try again."
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:313
+msgid "Personalize my site copy with my details."
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:442
+#: src/components/dock/index.js:429
+msgid "New chat"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:449
+msgid "Past chats"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:457
+msgid "Welcome to your new store! I'm your personal AI assistant. How can I help you?"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:542
+msgid "Howdy! How can I help you today?"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:548
+msgid "Got a different request? Ask away."
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Failed to load conversations. Please try again."
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "No past conversations"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat to begin"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:60
+msgid "Replace selected image"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:67
+msgid "Add to post"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:12
+msgid "Manage posts"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:13
+msgid "Show me my recent posts"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:18
+msgid "Create content"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:19
+msgid "Help me create a new post"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:24
+msgid "Check site health"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:25
+msgid "Show me my site health status"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:30
+msgid "Review comments"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:31
+msgid "Show me recent comments"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:37
+msgid "Tell me what you can do for me"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:53
+msgid "What should I do next?"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:59
+msgid "How can you help me?"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:74
+msgid "Create a product"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:75
+msgid "Help me to create a product"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:80
+msgid "Write a product description"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:81
+msgid "Help me to write a product description"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:87
+msgid "Set my product pricing"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:92
+msgid "Set up shipping rates"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:93
+msgid "Recommend shipping zones and methods for my store"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:98
+msgid "Connect PayPal Payments to my store"
+msgstr ""
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:99
+msgid "Help me to connect PayPal Payments to my store"
+msgstr ""
+
+#: src/hooks/use-dock-state.ts:132
+#: src/components/dock/index.js:460
+msgid "Move to sidebar"
+msgstr ""
+
+#: src/hooks/use-dock-state.ts:138
+#: src/components/dock/index.js:440
+msgid "Pop out sidebar"
+msgstr ""
+
+#. Plugin Name of the plugin
+#: big-sky.php
+msgid "WordPress Agent"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: big-sky.php
+msgid "https://wordpress.com/support/ai/wordpress-agent/"
+msgstr ""
+
+#. Description of the plugin
+#: big-sky.php
+msgid "Your WordPress.com AI agent that helps with site setup, content, design, and more."
+msgstr ""
+
+#. Author of the plugin
+#: big-sky.php
+msgid "Automattic, Inc."
+msgstr ""
+
+#. Author URI of the plugin
+#: big-sky.php
+msgid "https://automattic.com/"
+msgstr ""
+
+#: big-sky.php:348
+#: big-sky.php:603
+msgid "Big Sky"
+msgstr ""
+
+#: big-sky.php:349
+msgid "AI-powered site building and navigation abilities."
+msgstr ""
+
+#: big-sky.php:398
+msgid "Enable AI-powered site building experience"
+msgstr ""
+
+#: big-sky.php:406
+msgid "AI Features"
+msgstr ""
+
+#: big-sky.php:575
+#: big-sky.php:576
+msgid "Big Sky checks"
+msgstr ""
+
+#: big-sky.php:600
+msgid "Big Sky Checks"
+msgstr ""
+
+#: big-sky.php:608
+msgid "Big Sky did not find any known issues with your site."
+msgstr ""
+
+#: big-sky.php:618
+msgid "The current theme is not a block theme. Big Sky requires a block theme to be active."
+msgstr ""
+
+#. translators: %s is the theme name.
+#: big-sky.php:625
+#, php-format
+msgid "The current theme (%s) is a block theme."
+msgstr ""
+
+#: big-sky.php:634
+msgid "Jetpack is not installed. Big Sky requires Jetpack to be installed and active."
+msgstr ""
+
+#: big-sky.php:639
+msgid "Jetpack is installed."
+msgstr ""
+
+#: big-sky.php:650
+msgid "Jetpack is not connected. Big Sky requires Jetpack to be connected."
+msgstr ""
+
+#: big-sky.php:655
+msgid "Jetpack is connected."
+msgstr ""
+
+#: big-sky.php:664
+msgid "Jetpack does not have a connected admin. Big Sky requires Jetpack to be connected to an admin."
+msgstr ""
+
+#: big-sky.php:669
+msgid "Jetpack is connected to an admin."
+msgstr ""
+
+#: big-sky.php:677
+msgid "Mapbox API key is not set. Big Sky requires a Mapbox API key to be set."
+msgstr ""
+
+#: big-sky.php:682
+msgid "Mapbox API key is set."
+msgstr ""
+
+#. translators: $d is the number of performance issues found.
+#: big-sky.php:692
+#, php-format
+msgid "Big Sky is affected by %d issue"
+msgid_plural "Big Sky is affected by %d issues"
+msgstr[0] ""
+msgstr[1] ""
+
+#: big-sky.php:693
+msgid "Big Sky detected the following issues with your site:"
+msgstr ""
+
+#: big-sky.php:707
+msgid "These checks passed:"
+msgstr ""
+
+#: big-sky.php:1652
+#: big-sky.php:1653
+msgid "AI Editor"
+msgstr ""
+
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:17
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:25
+msgid "Permanently reset my site"
+msgstr ""
+
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:23
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:31
+msgid "I have changed my mind"
+msgstr ""
+
+#: src/ai/assistants/shared/use-create-tool-callback.js:68
+#: src/ai/assistants/shared/use-create-tool-callback.js:105
+msgid "Failed to validate arguments"
+msgstr ""
+
+#: src/ai/assistants/shared/use-create-tool-callback.js:91
+msgid "I couldn't find the block you mentioned. Describe where it is on the page or select it and try again."
+msgstr ""
+
+#: src/ai/assistants/shared/use-create-tool-callback.js:125
+msgid "I couldn't complete that request. Please try again."
+msgstr ""
+
+#: src/ai/assistants/site-admin/use-site-admin-toolkit.js:40
+msgid "All customizations and pages on your site will be permanently reset. Are you sure you want to start over?"
+msgstr ""
+
+#: src/ai/assistants/site-admin/use-site-admin-toolkit.js:81
+msgid "You need to be in the site editor to start over. Please switch to the [Site Editor](/wp-admin/site-editor.php) and try again."
+msgstr ""
+
+#: src/components/chat/components/completed-plan.js:86
+msgid "Sorry, I wasn't able to restore this checkpoint."
+msgstr ""
+
+#: src/components/chat/components/completed-plan.js:120
+msgid "Restore to this point"
+msgstr ""
+
+#: src/components/chat/components/completed-plan.js:128
+#: src/components/chat/message/message-feedback.js:36
+msgid "Good response"
+msgstr ""
+
+#: src/components/chat/components/completed-plan.js:136
+#: src/components/chat/message/message-feedback.js:44
+msgid "Bad response"
+msgstr ""
+
+#: src/components/chat/components/completed-plan.js:147
+msgid "Zoom in"
+msgstr ""
+
+#: src/components/chat/components/completed-plan.js:148
+msgid "Zoom out"
+msgstr ""
+
+#: src/components/chat/components/feedback-input.js:47
+msgid "Failed to submit feedback. Please try again."
+msgstr ""
+
+#: src/components/chat/components/feedback-input.js:81
+msgid "Feedback submitted successfully!"
+msgstr ""
+
+#: src/components/chat/components/feedback-input.js:106
+msgid "What could be improved? (A12s only)"
+msgstr ""
+
+#: src/components/chat/components/feedback-input.js:113
+msgid "Help us understand what you expected or what went wrong."
+msgstr ""
+
+#: src/components/chat/components/feedback-input.js:126
+msgid "Cancel"
+msgstr ""
+
+#: src/components/chat/components/feedback-input.js:142
+msgid "Submitting…"
+msgstr ""
+
+#: src/components/chat/components/feedback-input.js:143
+msgid "Submit"
+msgstr ""
+
+#: src/components/chat/header/index.js:46
+msgid "More Options"
+msgstr ""
+
+#: src/components/chat/header/index.js:58
+msgid "Back to chat"
+msgstr ""
+
+#: src/components/chat/header/index.js:59
+msgid "View history"
+msgstr ""
+
+#: src/components/chat/header/index.js:68
+msgid "Close"
+msgstr ""
+
+#: src/components/chat/selected-block/index.js:79
+msgid "Clear selection"
+msgstr ""
+
+#: src/components/dock/complete-setup-button.js:127
+msgid "Complete setup"
+msgstr ""
+
+#: src/components/dock/index.js:474
+msgid "Disable dark mode"
+msgstr ""
+
+#: src/components/dock/index.js:475
+msgid "Enable dark mode"
+msgstr ""
+
+#: src/components/index.js:199
+msgid "Start over"
+msgstr ""
+
+#: src/components/index.js:202
+msgid "Something went wrong while building your site."
+msgstr ""
+
+#: src/components/index.js:207
+msgid "Build Error"
+msgstr ""
+
+#: src/components/item-picker/index.js:263
+#: src/components/item-picker/index.js:266
+msgid "Generate another"
+msgstr ""
+
+#: src/components/legacy-css-dialog/index.js:52
+msgid "Older styles may be hiding your change"
+msgstr ""
+
+#: src/components/legacy-css-dialog/index.js:56
+msgid "An earlier version of the editor saved this to your Additional CSS. It can override the fonts you pick."
+msgid_plural "An earlier version of the editor saved these to your Additional CSS. They can override the fonts you pick."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/legacy-css-dialog/index.js:68
+msgid "Custom CSS that would be removed"
+msgstr ""
+
+#: src/components/legacy-css-dialog/index.js:77
+msgid "Check this does not include any CSS you wrote yourself. If not, it is safe to remove it."
+msgstr ""
+
+#: src/components/legacy-css-dialog/index.js:98
+msgid "Edit myself"
+msgstr ""
+
+#: src/components/legacy-css-dialog/index.js:109
+msgid "Remove this style"
+msgid_plural "Remove these styles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/modals/paywall.js:58
+msgid "Launch"
+msgstr ""
+
+#: src/components/modals/paywall.js:146
+msgid "Your Site"
+msgstr ""
+
+#: src/components/modals/paywall.js:166
+msgid "Get full access"
+msgstr ""
+
+#: src/components/modals/paywall.js:167
+msgid "Launch your site"
+msgstr ""
+
+#: src/components/modals/paywall.js:170
+msgid "Upgrade to access all publishing, growth, and support tools."
+msgstr ""
+
+#: src/components/modals/paywall.js:174
+msgid "Choose a plan to go live and share your website. Edit anytime."
+msgstr ""
+
+#: src/components/modals/paywall.js:181
+msgid "Public and shareable instantly"
+msgstr ""
+
+#: src/components/modals/paywall.js:183
+msgid "Free domain for one year"
+msgstr ""
+
+#: src/components/modals/paywall.js:184
+msgid "Unlimited AI edits"
+msgstr ""
+
+#: src/components/modals/paywall.js:185
+msgid "Install plugins"
+msgstr ""
+
+#: src/components/modals/paywall.js:186
+msgid "Expert customer support"
+msgstr ""
+
+#: src/components/modals/paywall.js:227
+msgid "Choose a plan"
+msgstr ""
+
+#: src/components/modals/paywall.js:234
+msgid "Manage sites"
+msgstr ""
+
+#: src/components/mosaic.js:640
+msgid "Close Pages"
+msgstr ""
+
+#: src/components/mosaic.js:686
+msgid "Drafts"
+msgstr ""
+
+#: src/components/next-step-button.js:31
+msgid "Moving to next step"
+msgstr ""
+
+#: src/components/next-step-button.js:41
+msgid "Move to next step"
+msgstr ""
+
+#: src/components/sidebar-manager/index.js:222
+msgid "Open Chat"
+msgstr ""
+
+#: src/components/site-build-progress/index.js:123
+msgid "Generating your site"
+msgstr ""
+
+#. translators: %s: URL for upgrade page
+#: src/components/site-spec-landing/index.js:40
+#, js-format
+msgid "You've run into the limit for AI messages. You can upgrade to have unlimited access or continue editing your site manually. [Upgrade now](%s)"
+msgstr ""
+
+#. translators: %1$s is contact support URL, %2$s is session reference for debugging
+#: src/components/site-spec-landing/index.js:58
+#, js-format
+msgid "Something went wrong. Please try again or [contact support](%1$s) with reference: %2$s"
+msgstr ""
+
+#: src/components/site-spec-landing/index.js:155
+msgid "Whoops! Our AI is having some issues right now. Please try again later."
+msgstr ""
+
+#: src/components/site-spec-landing/index.js:188
+#: src/components/site-spec-landing/index.js:223
+#: src/components/site-spec-landing/index.js:296
+msgid "Failed to start chat interface. Please refresh the page and try again."
+msgstr ""
+
+#: src/components/site-spec-landing/index.js:277
+msgid "Back to sites"
+msgstr ""
+
+#: src/components/site-spec-landing/index.js:281
+msgid "Skip this step"
+msgstr ""
+
+#: src/components/site-spec-landing/index.js:333
+msgid "AI Site Builder Chat Interface"
+msgstr ""
+
+#. translators: %1$s: variation title. %2$s variation description.
+#: src/components/style-variations-container.js:107
+#, js-format
+msgid "%1$s (%2$s)"
+msgstr ""
+
+#: src/components/style-variations-container.js:150
+msgid "Default"
+msgstr ""
+
+#: src/components/variation-picker/index.js:135
+msgid "There was a problem retrieving options. Please try again."
+msgstr ""
+
+#: src/components/variation-picker/index.js:168
+msgid "Previous"
+msgstr ""
+
+#: src/components/variation-picker/index.js:178
+msgid "Next"
+msgstr ""
+
+#: src/hooks/use-blueprint-walkthrough-kickoff.js:31
+msgid "Hello"
+msgstr ""
+
+#: src/hooks/use-build-site.js:55
+msgid "Planning your store"
+msgstr ""
+
+#: src/hooks/use-build-site.js:56
+msgid "Planning your site"
+msgstr ""
+
+#: src/hooks/use-build-site.js:131
+msgid "Something went wrong."
+msgstr ""
+
+#: src/hooks/use-reset-site.js:77
+msgid "You can rebuild your site from here. Either build a new site with the same details, or modify them and then rebuild."
+msgstr ""
+
+#: src/store/actions/assistant.js:233
+msgid "You have used 15 of your 30 free AI requests."
+msgstr ""
+
+#: src/store/actions/chat.js:31
+msgid "AI request quota exceeded. Please try again later."
+msgstr ""
+
+#: src/store/actions/chat.js:39
+msgid "Network error. Please check your connection and try again."
+msgstr ""
+
+#: src/store/actions/chat.js:44
+msgid "Request timed out. Please try again."
+msgstr ""
+
+#: src/store/actions/chat.js:49
+msgid "An error occurred while processing your request."
+msgstr ""
+
+#: src/store/actions/site-build.js:857
+msgid "Creating your store…"
+msgstr ""
+
+#: src/store/actions/site-build.js:858
+msgid "Making it yours…"
+msgstr ""
+
+#: src/store/actions/site-build.js:859
+msgid "Bringing it together…"
+msgstr ""
+
+#: src/store/actions/site-build.js:860
+msgid "Almost ready…"
+msgstr ""
+
+#: src/store/actions/site-build.js:861
+msgid "Fine-tuning your store…"
+msgstr ""
+
+#: src/store/actions/site-build.js:864
+msgid "Cooking up something good…"
+msgstr ""
+
+#: src/store/actions/site-build.js:865
+msgid "Making progress…"
+msgstr ""
+
+#: src/store/actions/site-build.js:866
+msgid "Putting the pieces together…"
+msgstr ""
+
+#: src/store/actions/site-build.js:867
+msgid "Almost there…"
+msgstr ""
+
+#: src/store/actions/site-build.js:868
+msgid "Fine-tuning things…"
+msgstr ""
+
+#: src/store/actions/site-build.js:907
+msgid "Planned your store"
+msgstr ""
+
+#: src/store/actions/site-build.js:908
+msgid "Planned your site"
+msgstr ""
+
+#: src/store/actions/site-build.js:922
+msgid "No layouts were created"
+msgstr ""
+
+#: src/store/actions/site-build.js:933
+msgid "Applied branding"
+msgstr ""
+
+#: src/store/actions/site-build.js:938
+msgid "Created initial layout and pages"
+msgstr ""
+
+#: src/store/actions/site-build.js:971
+msgid "Connected key tools"
+msgstr ""
+
+#: src/store/actions/site-build.js:975
+msgid "Applied images"
+msgstr ""
+
+#: src/store/actions/site-build.js:995
+msgid "Created your store pages"
+msgstr ""
+
+#: src/store/actions/site-build.js:1002
+msgid "Applied button styles"
+msgstr ""
+
+#: src/store/actions/site-build.js:1025
+msgid "Added your items"
+msgstr ""
+
+#: src/store/actions/site-build.js:1032
+msgid "Applied color theme"
+msgstr ""
+
+#: src/store/actions/site-build.js:1059
+msgid "Applied your store design"
+msgstr ""
+
+#: src/store/actions/site-build.js:1065
+msgid "Applied fonts"
+msgstr ""
+
+#: src/store/actions/site-build.js:1277
+msgid "Activated marketing features"
+msgstr ""
+
+#: src/store/actions/site-build.js:1288
+msgid "Store build complete"
+msgstr ""
+
+#: src/store/actions/site-build.js:1292
+msgid "Site build complete"
+msgstr ""
+
+#: src/store/actions/site-build.js:1303
+msgid "Redirecting to store dashboard…"
+msgstr ""
+
+#: src/store/actions/site-build.js:1319
+msgid "Your site is ready! What would you like to do next?"
+msgstr ""
+
+#: src/store/index.js:320
+msgid "Thinking"
+msgstr ""
+
+#: src/utils/constants.js:32
+msgid "Type another request …"
+msgstr ""
+
+#: src/utils/fonts.js:9
+msgid "There are no fonts available."
+msgstr ""

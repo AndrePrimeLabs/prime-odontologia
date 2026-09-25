@@ -1,0 +1,22 @@
+.wpconsent-consent-floating-button {
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+	z-index: 9999;
+	background-color: #0073aa;
+	color: #fff;
+	border: none;
+	padding: 10px;
+	line-height: 8px;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s;
+	display: none;
+}
+
+
+.wpconsent-consent-floating-button img {
+	width: 24px;
+	height: 24px;
+}

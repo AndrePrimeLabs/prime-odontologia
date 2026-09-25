@@ -1,0 +1,234 @@
+version: '3.8'
+
+# ============================================================================
+# PRIMEOS VPS PRODUCTION DEPLOYMENT
+# ============================================================================
+# Domain: primeos.primeodontologia.com.br
+# Platform: Docker + Traefik (SSL/TLS reverse proxy)
+# Deployment: Hostinger VPS or any Linux server
+#
+# Usage:
+#   docker compose -f docker-compose.vps.yml up -d
+#
+# ============================================================================
+
+services:
+  # ============================================================================
+  # TRAEFIK REVERSE PROXY (SSL/TLS, Load Balancing)
+  # ============================================================================
+  traefik:
+    image: traefik:v3.0-alpine
+    container_name: traefik-proxy
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    
+    environment:
+      - TRAEFIK_API_INSECURE=false
+      - TRAEFIK_API_DASHBOARD=true
+      - TRAEFIK_ENTRYPOINTS_WEB_ADDRESS=:80
+      - TRAEFIK_ENTRYPOINTS_WEBSECURE_ADDRESS=:443
+      - TRAEFIK_PROVIDERS_DOCKER=true
+      - TRAEFIK_PROVIDERS_DOCKER_EXPOSEDBYDEFAULT=false
+      - TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_EMAIL=${ACME_EMAIL}
+      - TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_STORAGE=/acme/acme.json
+      - TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_HTTPCHALLENGE=true
+      - TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_HTTPCHALLENGE_ENTRYPOINT=web
+    
+    ports:
+      - "80:80"     # HTTP (redirect to HTTPS)
+      - "443:443"   # HTTPS (main)
+      - "8080:8080" # Dashboard (internal only)
+    
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik-acme:/acme
+      - ./traefik.yml:/traefik.yml:ro
+      - ./config.yml:/config.yml:ro
+    
+    networks:
+      - traefik-net
+    
+    labels:
+      - "traefik.enable=true"
+      # Dashboard (protected, internal access only)
+      - "traefik.http.routers.traefik-dashboard.rule=PathPrefix(`/dashboard`)"
+      - "traefik.http.routers.traefik-dashboard.entrypoints=websecure"
+      - "traefik.http.routers.traefik-dashboard.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.traefik-dashboard.service=api@internal"
+      # Redirect HTTP to HTTPS
+      - "traefik.http.routers.http-redirect.rule=HostRegexp(`{host:.+}`)"
+      - "traefik.http.routers.http-redirect.entrypoints=web"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.http-redirect.middlewares=redirect-to-https"
+    
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  # ============================================================================
+  # PRIMEOS FRONTEND (React + Nginx)
+  # ============================================================================
+  primeos-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: primeos:latest
+    container_name: primeos-app
+    restart: unless-stopped
+    
+    environment:
+      - NODE_ENV=production
+      - VITE_APP_BASE_URL=https://primeos.primeodontologia.com.br
+      - VITE_API_URL=https://primeos.primeodontologia.com.br/api
+    
+    networks:
+      - traefik-net
+      - primeos-internal
+    
+    volumes:
+      - primeos-data:/app/data
+      - primeos-cache:/var/cache/nginx
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "https://localhost/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    labels:
+      - "traefik.enable=true"
+      # Main app routing
+      - "traefik.http.routers.primeos.rule=Host(`primeos.primeodontologia.com.br`)"
+      - "traefik.http.routers.primeos.entrypoints=websecure"
+      - "traefik.http.routers.primeos.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.primeos.service=primeos-service"
+      - "traefik.http.services.primeos-service.loadbalancer.server.port=80"
+      # Security headers middleware
+      - "traefik.http.middlewares.security-headers.headers.frameDeny=true"
+      - "traefik.http.middlewares.security-headers.headers.sslRedirect=true"
+      - "traefik.http.middlewares.security-headers.headers.sslHost=primeos.primeodontologia.com.br"
+      - "traefik.http.middlewares.security-headers.headers.sslForceHost=true"
+      - "traefik.http.middlewares.security-headers.headers.hsts.maxAge=63072000"
+      - "traefik.http.middlewares.security-headers.headers.hsts.includeSubdomains=true"
+      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.X-Content-Type-Options=nosniff"
+      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.X-Frame-Options=SAMEORIGIN"
+      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.X-XSS-Protection=1; mode=block"
+      - "traefik.http.routers.primeos.middlewares=security-headers"
+    
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '1'
+          memory: 1G
+
+  # ============================================================================
+  # OPTIONAL: POSTGRESQL DATABASE (for future backends)
+  # ============================================================================
+  # postgres:
+  #   image: postgres:16-alpine
+  #   container_name: postgres-db
+  #   restart: unless-stopped
+  #   
+  #   environment:
+  #     - POSTGRES_DB=${POSTGRES_DB}
+  #     - POSTGRES_USER=${POSTGRES_USER}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #   
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   
+  #   networks:
+  #     - primeos-internal
+  #   
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+  # ============================================================================
+  # OPTIONAL: REDIS CACHE (for session/performance)
+  # ============================================================================
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: redis-cache
+  #   restart: unless-stopped
+  #   
+  #   volumes:
+  #     - redis-data:/data
+  #   
+  #   networks:
+  #     - primeos-internal
+  #   
+  #   healthcheck:
+  #     test: ["CMD", "redis-cli", "ping"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 3
+  #   
+  #   command: redis-server --appendonly yes
+
+networks:
+  traefik-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
+  
+  primeos-internal:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.0/16
+
+volumes:
+  traefik-acme:
+    driver: local
+  primeos-data:
+    driver: local
+  primeos-cache:
+    driver: local
+  # postgres-data:
+  #   driver: local
+  # redis-data:
+  #   driver: local
+
+# ============================================================================
+# DEPLOYMENT INSTRUCTIONS
+# ============================================================================
+#
+# 1. SSH into VPS:
+#    ssh root@your-vps-ip
+#
+# 2. Navigate to project:
+#    cd /root/primeos-local
+#
+# 3. Create .env.production:
+#    cp .env.example .env.production
+#    # Edit with actual values
+#
+# 4. Create Traefik config:
+#    # See traefik.yml and config.yml files
+#
+# 5. Build and deploy:
+#    docker compose -f docker-compose.vps.yml up --build -d
+#
+# 6. Verify:
+#    docker compose -f docker-compose.vps.yml ps
+#    docker compose -f docker-compose.vps.yml logs -f primeos-app
+#
+# 7. Test HTTPS:
+#    curl -I https://primeos.primeodontologia.com.br
+#
+# 8. Access dashboard (internal):
+#    http://your-vps-ip:8080/dashboard
+#
+# ============================================================================

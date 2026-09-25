@@ -1,0 +1,18 @@
+{
+  "form_preview.js": "form_preview.js",
+  "post_editor_block.js": "post_editor_block.js",
+  "public.min.js": "public.min.js",
+  "public.js": "public.js",
+  "powered-by-mailpoet-block.js": "auto/powered-by-mailpoet-block.js",
+  "powered-by-mailpoet-block.php": "auto/powered-by-mailpoet-block.asset.php",
+  "latest-posts-block.js": "auto/latest-posts-block.js",
+  "latest-posts-block.php": "auto/latest-posts-block.asset.php",
+  "mailpoet.js": "auto/mailpoet.js",
+  "mailpoet.php": "auto/mailpoet.asset.php",
+  "./style-powered-by-mailpoet-block.css": "auto/./style-powered-by-mailpoet-block.css",
+  "./style-latest-posts-block.css": "auto/./style-latest-posts-block.css",
+  "latest-posts/block.json": "auto/latest-posts/block.json",
+  "powered-by-mailpoet/block.json": "auto/powered-by-mailpoet/block.json",
+  "latest-posts-template/block.json": "auto/latest-posts-template/block.json",
+  "latest-posts-post-content/block.json": "auto/latest-posts-post-content/block.json"
+}

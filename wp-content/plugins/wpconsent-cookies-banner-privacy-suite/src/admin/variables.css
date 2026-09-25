@@ -1,0 +1,82 @@
+:root {
+	/**
+	Background
+	 */
+	--wpconsent-background-gray: #F8F8F8;
+	--wpconsent-background-highlight: #F6FAFF;
+	--wpconsent-background-light: #F3F4F5;
+	--wpconsent-background-red: #DF2A35;
+	--wpconsent-background-white: #fff;
+	/**
+	Buttons
+	 */
+	--wpconsent-border-color: #ddd;
+	--wpconsent-button-disabled-bg: #F5F5F5;
+	--wpconsent-button-disabled-border: 1px solid #DDDDDD;
+	--wpconsent-button-disabled-text: #bbb;
+	--wpconsent-button-primary-bg: var(--wpconsent-color-primary);
+	--wpconsent-button-primary-bg-hover: #397EEB;
+	--wpconsent-button-primary-text: #fff;
+	--wpconsent-button-primary-text-hover: #fff;
+	--wpconsent-button-secondary-bg: #F8F8F8;
+	--wpconsent-button-secondary-bg-hover: #fff;
+	--wpconsent-button-secondary-border: 1px solid #DDDDDD;
+	--wpconsent-button-secondary-text: #777;
+	--wpconsent-button-orange-bg: #E06B44;
+	--wpconsent-button-orange-bg-hover: #e17f5e;
+	/**
+	Border
+	 */
+	--wpconsent-button-secondary-text-hover: #454545;
+	/**
+	Colors
+	*/
+	--wpconsent-color-primary: #005AE0;
+	--wpconsent-color-red: #DF2A35;
+	--wpconsent-color-red-darker: #AB2028;
+	--wpconsent-color-green: #39960D;
+	/**
+	Analytics
+	 */
+	--wpconsent-analytics-accept: var(--wpconsent-color-primary);
+	--wpconsent-analytics-essential: #7FA9F2;
+	--wpconsent-analytics-custom: #FFCD2A;
+	--wpconsent-analytics-ignored: #E1E5EC;
+	--wpconsent-analytics-required: #C8CFD4;
+	/* Explicit stops: the "COLOR 0 4px" two-position shorthand gets collapsed on
+	   the way through the build, which drops the stripe entirely. */
+	--wpconsent-analytics-hatch: repeating-linear-gradient(135deg, #C9D0DC 0px, #C9D0DC 4px, transparent 4px, transparent 8px);
+	/**
+	Font sizes
+	 */
+	--wpconsent-font-size-l: 18px;
+	--wpconsent-font-size-m: 16px;
+	--wpconsent-font-size-s: 14px;
+	--wpconsent-font-size-xl: 22px;
+	--wpconsent-font-size-xs: 12px;
+	--wpconsent-font-size-xxl: 24px;
+	/**
+	Inputs
+	 */
+	--wpconsent-input-border: 1px solid #DDD;
+	--wpconsent-input-border-active: #3568B7;
+	--wpconsent-input-text-color: #454545;
+	/**
+	Notices
+	 */
+	--wpconsent-notice-success-bg: #09A347;
+	--wpconsent-notice-success-text: #fff;
+	/**
+	Spacing
+	*/
+	--wpconsent-space-h: 36px;
+	--wpconsent-space-v: 24px;
+	/**
+	Text
+	*/
+	--wpconsent-text-color-heading: #454545;
+	--wpconsent-text-color-highlight: #3568B7;
+	--wpconsent-text-color-light-bg: #848A8A;
+	--wpconsent-text-color-paragraph: #777777;
+	--wpconsent-text-color-placeholder: #bbb;
+}

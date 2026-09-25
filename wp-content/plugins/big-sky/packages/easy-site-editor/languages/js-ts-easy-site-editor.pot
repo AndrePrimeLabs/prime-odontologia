@@ -1,0 +1,763 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: src/abilities/apply-block-edits.ts:60
+msgid ""
+"The editor is still loading. Try the block edit again once the page is "
+"editable."
+msgstr ""
+
+#: src/abilities/edit-entity-record.ts:62
+msgid "The editor is still loading. Try the change again once the page is editable."
+msgstr ""
+
+#: src/abilities/editor-navigate.ts:34
+msgid "Editor navigation is still loading. Try navigating again in a moment."
+msgstr ""
+
+#: src/abilities/restore-checkpoint.ts:30
+msgid ""
+"The editor is still loading. Try undoing the change again once the page is "
+"editable."
+msgstr ""
+
+#: src/abilities/show-component.ts:48
+msgid "The picker UI is still loading. Try the request again in a moment."
+msgstr ""
+
+#: src/abilities/stream-page-design.ts:28
+msgid ""
+"The editor is still loading. Try the page design again once the page is "
+"editable."
+msgstr ""
+
+#: src/abilities/stream-page-design.ts:39
+msgid "The generated page content has been staged in the editor for review."
+msgstr ""
+
+#: src/abilities/update-theme.ts:36
+msgid ""
+"The editor is still loading. Try the theme update again once the page is "
+"editable."
+msgstr ""
+
+#: src/components/AgentFeedbackPopover.tsx:148
+msgid "What went wrong?"
+msgstr ""
+
+#: src/components/AgentFeedbackPopover.tsx:154
+msgid "Add any details that would help us improve this response."
+msgstr ""
+
+#: src/components/AgentFeedbackPopover.tsx:167
+msgid "What did you expect instead?"
+msgstr ""
+
+#: src/components/AgentFeedbackPopover.tsx:197
+msgid "Cancel"
+msgstr ""
+
+#: src/components/AgentFeedbackPopover.tsx:205
+#: src/components/annotations/AnnotationTopBar.tsx:49
+msgid "Sending…"
+msgstr ""
+
+#: src/components/AgentFeedbackPopover.tsx:206
+msgid "Send feedback"
+msgstr ""
+
+#: src/components/AgentFeedbackPopover.tsx:96
+msgid "Feedback could not be sent. Please try again."
+msgstr ""
+
+#: src/components/AnnouncementBar.tsx:29
+msgid "You're using the new experimental Easy Site Editor."
+msgstr ""
+
+#: src/components/AnnouncementBar.tsx:41
+msgid "Switch to the full Site Editor instead."
+msgstr ""
+
+#: src/components/AnnouncementBar.tsx:52
+msgid "Dismiss announcement"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:164
+msgid "Preview"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:165
+msgid "Edit"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:172
+msgid "Editor mode"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:196
+msgid "Preview mode"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:204
+msgid "Edit mode"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:218
+msgid "Exit without saving?"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:221
+msgid "Any unsaved changes will be discarded when you exit."
+msgstr ""
+
+#: src/components/AppTopBar.tsx:235
+msgid "Exit"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:267
+#. 1: control label, 2: keyboard shortcut.
+msgid "%1$s (%2$s)"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:272
+msgid "Undo"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:276
+msgid "Redo"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:339
+msgid "Annotate"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:340
+#: src/components/annotations/AnnotationTopBar.tsx:106
+msgid "Annotating"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:374
+#. %d: number of pending annotations.
+msgid "Resume annotating, %d pending"
+msgid_plural "Resume annotating, %d pending"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/AppTopBar.tsx:492
+msgid "Save draft"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:493
+msgid "Save"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:497
+#: src/components/PreviewPane.tsx:685
+msgid "Saving…"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:539
+msgid "Publishing…"
+msgstr ""
+
+#: src/components/AppTopBar.tsx:540
+msgid "Publish"
+msgstr ""
+
+#: src/components/ApplyPatternLayoutBridge.tsx:184
+msgid "Cannot stage a pattern layout without blocks."
+msgstr ""
+
+#: src/components/ApplyPatternLayoutBridge.tsx:239
+msgid "The selected pattern layout has been staged in the editor."
+msgstr ""
+
+#: src/components/ApplyPatternLayoutBridge.tsx:28
+#: src/lib/content-editor/block-edits.ts:299
+msgid "Cannot create a block without a name."
+msgstr ""
+
+#: src/components/ChatOptionsMenu.tsx:122
+msgid "New chat"
+msgstr ""
+
+#: src/components/ChatOptionsMenu.tsx:140
+msgid "Move right"
+msgstr ""
+
+#: src/components/ChatOptionsMenu.tsx:141
+msgid "Move left"
+msgstr ""
+
+#: src/components/ChatOptionsMenu.tsx:44
+msgid "More options"
+msgstr ""
+
+#: src/components/ChatPanel.tsx:100
+msgid "Loading conversation…"
+msgstr ""
+
+#: src/components/ChatPanel.tsx:105
+msgid "Conversation loaded."
+msgstr ""
+
+#: src/components/ChatPanel.tsx:110
+msgid "Add images"
+msgstr ""
+
+#: src/components/ChatPanel.tsx:149
+msgid "Ask for changes"
+msgstr ""
+
+#: src/components/ChatPanel.tsx:202
+msgid "Uploading image…"
+msgid_plural "Uploading images…"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/DebugPanel.tsx:61
+msgid "Debug"
+msgstr ""
+
+#: src/components/DebugPanel.tsx:68
+msgid "Langfuse trace"
+msgstr ""
+
+#: src/components/DebugPanel.tsx:71
+msgid "No active session yet."
+msgstr ""
+
+#: src/components/DebugPanel.tsx:74
+msgid "Errors Dashboard"
+msgstr ""
+
+#: src/components/DebugPanel.tsx:77
+msgid "Tracks Dashboard"
+msgstr ""
+
+#: src/components/EditorWorkspace.tsx:291
+msgid "Resize chat panel"
+msgstr ""
+
+#: src/components/LegacyCssDialog.tsx:113
+msgid "Edit myself"
+msgstr ""
+
+#: src/components/LegacyCssDialog.tsx:126
+msgid "Remove this style"
+msgid_plural "Remove these styles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/LegacyCssDialog.tsx:66
+msgid "Older styles may be hiding your change"
+msgstr ""
+
+#: src/components/LegacyCssDialog.tsx:72
+msgid ""
+"An earlier version of the editor saved this to your Additional CSS. It can "
+"override the fonts you pick."
+msgid_plural ""
+"An earlier version of the editor saved these to your Additional CSS. They "
+"can override the fonts you pick."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/LegacyCssDialog.tsx:85
+msgid "Custom CSS that would be removed"
+msgstr ""
+
+#: src/components/LegacyCssDialog.tsx:94
+msgid ""
+"Check this does not include any CSS you wrote yourself. If not, it is safe "
+"to remove it."
+msgstr ""
+
+#: src/components/PatternPicker.tsx:136
+#: src/components/StyleVariationPicker.tsx:359
+msgid "There was a problem retrieving options. Please try again."
+msgstr ""
+
+#: src/components/PatternPicker.tsx:157
+#: src/components/StyleVariationPicker.tsx:380
+msgid "The editor is still loading. Try again in a moment."
+msgstr ""
+
+#: src/components/PatternPicker.tsx:175
+#: src/components/StyleVariationPicker.tsx:396
+msgid "The selection could not be staged. Please try again."
+msgstr ""
+
+#: src/components/PatternPicker.tsx:208
+#. %s is the pattern layout title.
+msgid "Select %s"
+msgstr ""
+
+#: src/components/PatternPicker.tsx:231
+#: src/components/StyleVariationPicker.tsx:436
+msgid "Previous"
+msgstr ""
+
+#: src/components/PatternPicker.tsx:244
+#: src/components/StyleVariationPicker.tsx:449
+#. %1$d is the current page, %2$d is the total page count.
+msgid "%1$d/%2$d"
+msgstr ""
+
+#: src/components/PatternPicker.tsx:252
+#: src/components/StyleVariationPicker.tsx:457
+msgid "Next"
+msgstr ""
+
+#: src/components/PatternPicker.tsx:55
+#. %d is the pattern layout number.
+msgid "Layout %d"
+msgstr ""
+
+#: src/components/PreviewDeviceSwitcher.tsx:40
+msgid "Desktop"
+msgstr ""
+
+#: src/components/PreviewDeviceSwitcher.tsx:41
+msgid "Desktop preview"
+msgstr ""
+
+#: src/components/PreviewDeviceSwitcher.tsx:46
+msgid "Tablet"
+msgstr ""
+
+#: src/components/PreviewDeviceSwitcher.tsx:47
+msgid "Tablet preview"
+msgstr ""
+
+#: src/components/PreviewDeviceSwitcher.tsx:52
+msgid "Mobile"
+msgstr ""
+
+#: src/components/PreviewDeviceSwitcher.tsx:53
+msgid "Mobile preview"
+msgstr ""
+
+#: src/components/PreviewDeviceSwitcher.tsx:65
+msgid "Device Preview"
+msgstr ""
+
+#: src/components/PreviewDeviceSwitcher.tsx:89
+msgid "Preview size"
+msgstr ""
+
+#: src/components/PreviewPageSwitcher.tsx:134
+msgid "Draft"
+msgstr ""
+
+#: src/components/PreviewPageSwitcher.tsx:193
+msgid "Site pages"
+msgstr ""
+
+#: src/components/PreviewPageSwitcher.tsx:197
+msgid "Loading pages…"
+msgstr ""
+
+#: src/components/PreviewPageSwitcher.tsx:89
+#. %s: page path, e.g. "/about"
+msgid "%s – draft"
+msgstr ""
+
+#: src/components/PreviewPageSwitcher.tsx:93
+msgid "Refresh"
+msgstr ""
+
+#: src/components/PreviewPageSwitcher.tsx:94
+msgid "Preview Site"
+msgstr ""
+
+#: src/components/PreviewPane.tsx:552
+msgid "Site editor panel"
+msgstr ""
+
+#: src/components/PreviewPane.tsx:553
+msgid "Site preview panel"
+msgstr ""
+
+#: src/components/PreviewPane.tsx:580
+msgid "Loading preview…"
+msgstr ""
+
+#: src/components/PreviewPane.tsx:581
+msgid "Preview loaded"
+msgstr ""
+
+#: src/components/PreviewPane.tsx:589
+msgid "Site frontend preview"
+msgstr ""
+
+#: src/components/PreviewPane.tsx:615
+#: src/components/content-editor/ContentEditorLoading.tsx:16
+msgid "Loading editor…"
+msgstr ""
+
+#: src/components/PreviewPane.tsx:666
+msgid "Assistant is working…"
+msgstr ""
+
+#: src/components/SelectedPreviewBlock.tsx:24
+#. %s: selected block title.
+msgid "Selected block: %s"
+msgstr ""
+
+#: src/components/SelectedPreviewBlock.tsx:38
+msgid "Clear selected block"
+msgstr ""
+
+#: src/components/annotations/AnnotationLayer.tsx:332
+#. 1: block label, 2: position, 3: total count.
+msgid "%1$s, block %2$d of %3$d"
+msgstr ""
+
+#: src/components/annotations/AnnotationLayer.tsx:390
+#. 1: annotation number, 2: comment text.
+msgid "Annotation %1$d: %2$s"
+msgstr ""
+
+#: src/components/annotations/AnnotationLayer.tsx:442
+msgid ""
+"Annotate blocks. Use the arrow keys to move between blocks, Enter to "
+"comment, and Escape to exit."
+msgstr ""
+
+#: src/components/annotations/AnnotationLayer.tsx:639
+#. %s: label of the block being annotated.
+msgid "Annotate %s"
+msgstr ""
+
+#: src/components/annotations/AnnotationLayer.tsx:649
+msgid "Add a comment…"
+msgstr ""
+
+#: src/components/annotations/AnnotationLayer.tsx:662
+msgid "Delete annotation"
+msgstr ""
+
+#: src/components/annotations/AnnotationLayer.tsx:680
+msgid "Update annotation"
+msgstr ""
+
+#: src/components/annotations/AnnotationLayer.tsx:681
+msgid "Save annotation"
+msgstr ""
+
+#: src/components/annotations/AnnotationTopBar.tsx:41
+msgid "Exit annotation mode"
+msgstr ""
+
+#: src/components/annotations/AnnotationTopBar.tsx:42
+msgid "Discard annotations"
+msgstr ""
+
+#: src/components/annotations/AnnotationTopBar.tsx:45
+msgid "Send"
+msgstr ""
+
+#: src/components/annotations/AnnotationTopBar.tsx:52
+#. %d: number of annotations to send.
+msgid "Send %d annotation"
+msgid_plural "Send %d annotations"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/annotations/AnnotationTopBar.tsx:65
+msgid "Annotations"
+msgstr ""
+
+#: src/components/content-editor/CheckpointBridge.tsx:25
+msgid "I could not find that change to undo."
+msgstr ""
+
+#: src/components/content-editor/ContentEditorError.tsx:6
+msgid "Failed to load template."
+msgstr ""
+
+#: src/components/ui/dialog.tsx:71
+msgid "Close"
+msgstr ""
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:276
+#. %s is a compressed client ID.
+msgid "Could not map parent client ID \"%s\" for insertion."
+msgstr ""
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:292
+#. %s is a block client ID.
+msgid "Parent block \"%s\" was not found for insertion."
+msgstr ""
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:418
+#. %s is a compressed client ID.
+msgid "Could not map client ID \"%s\" for update."
+msgstr ""
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:433
+#. %s is a block client ID.
+msgid "Block \"%s\" was not found for update."
+msgstr ""
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:519
+#. %s is a compressed client ID.
+msgid "Could not map client ID \"%s\" for deletion."
+msgstr ""
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:532
+#. %s is a block client ID.
+msgid "Block \"%s\" was not found for deletion."
+msgstr ""
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:596
+msgid "The requested block edits have been staged in the editor."
+msgstr ""
+
+#: src/hooks/useAgentFeedbackAction.ts:371
+msgid "Good response"
+msgstr ""
+
+#: src/hooks/useAgentFeedbackAction.ts:381
+msgid "Bad response"
+msgstr ""
+
+#: src/hooks/useAgentFeedbackAction.ts:395
+msgid "Tell us more"
+msgstr ""
+
+#: src/hooks/useCanvasNavigationAbort.ts:73
+msgid ""
+"You moved to another page, so I stopped what I was doing before it changed "
+"the wrong one. Open the page you want and ask again."
+msgstr ""
+
+#: src/hooks/useClientAbilityBridge.ts:218
+#. %s: component type
+msgid "Unsupported component type: %s"
+msgstr ""
+
+#: src/hooks/useClientAbilityBridge.ts:258
+msgid "Picker displayed successfully."
+msgstr ""
+
+#: src/hooks/useClientAbilityBridge.ts:277
+msgid "Failed to display picker."
+msgstr ""
+
+#: src/hooks/useClientAbilityBridge.ts:65
+msgid ""
+"The current preview is not editable. It may be a dynamic front page. Tell "
+"the user to open a different page and try again."
+msgstr ""
+
+#: src/hooks/useEasySiteAgentChat.ts:166
+msgid "Jetpack token context is unavailable."
+msgstr ""
+
+#: src/hooks/useEasySiteAgentChat.ts:432
+msgid "Failed to upload images. Please try again."
+msgstr ""
+
+#: src/hooks/useEditEntityRecord.ts:100
+msgid ""
+"This action needs confirmation. Ask the user to confirm, then call this "
+"tool again without confirmationMessage."
+msgstr ""
+
+#: src/hooks/useEditEntityRecord.ts:144
+#. %s: underlying error message.
+msgid "Failed to manage entities. Error: %s"
+msgstr ""
+
+#: src/hooks/useEditEntityRecord.ts:365
+msgid "The page you were viewing was deleted. Showing the home page."
+msgstr ""
+
+#: src/hooks/useEditEntityRecord.ts:402
+msgid "Updated the records."
+msgstr ""
+
+#: src/hooks/useEditEntityRecord.ts:405
+#. 1: number of applied changes, 2: number of failed changes.
+msgid "Applied %1$d change(s); %2$d failed."
+msgstr ""
+
+#: src/hooks/useEditEntityRecord.ts:83
+msgid ""
+"Invalid arguments. Provide arrays for addEntities, editEntities, and "
+"deleteEntities."
+msgstr ""
+
+#: src/hooks/useEditorNavigate.ts:121
+#. %s is the requested page path.
+msgid ""
+"Navigation to %s was canceled. Tell the user the page was not opened, and "
+"do not retry."
+msgstr ""
+
+#: src/hooks/useEditorNavigate.ts:137
+#. %s is the requested page path.
+msgid "Successfully navigated to: %s"
+msgstr ""
+
+#: src/hooks/useEditorNavigate.ts:16
+msgid ""
+"Invalid editor path. Page navigation requires /page/{numeric-id}. Look up "
+"the page ID first."
+msgstr ""
+
+#: src/hooks/useEditorNavigate.ts:20
+msgid ""
+"Invalid editor path. look up the numeric id from <site_pages>, then retry "
+"navigation with the numeric editor_path."
+msgstr ""
+
+#: src/hooks/useEditorNavigate.ts:47
+msgid "Invalid path provided. Path must be a non-empty string."
+msgstr ""
+
+#: src/hooks/useEditorNavigate.ts:73
+#. %s is the requested page path.
+msgid ""
+"The current page has unsaved changes, so navigation to %s was canceled. If "
+"this was requested after creating a page, the page has already been "
+"created. Tell the user to save or discard their current changes, then open "
+"the page from the page picker."
+msgstr ""
+
+#: src/hooks/useGlobalStylesVariation.ts:123
+msgid "Global styles are still loading. Try the selection again in a moment."
+msgstr ""
+
+#: src/hooks/usePreviewPages.ts:130
+msgid "Unable to load pages."
+msgstr ""
+
+#: src/hooks/usePreviewPages.ts:57
+msgid "Home"
+msgstr ""
+
+#: src/hooks/useStreamPageDesign.ts:266
+msgid "Page design"
+msgstr ""
+
+#: src/hooks/useSuggestions.ts:10
+msgid "Customize colors"
+msgstr ""
+
+#: src/hooks/useSuggestions.ts:11
+msgid "Suggest a new color palette for my site that is:"
+msgstr ""
+
+#: src/hooks/useSuggestions.ts:18
+msgid "Choose new fonts"
+msgstr ""
+
+#: src/hooks/useSuggestions.ts:19
+msgid "Suggest a new font family for my site that is:"
+msgstr ""
+
+#: src/hooks/useSuggestions.ts:26
+msgid "Add new page"
+msgstr ""
+
+#: src/hooks/useSuggestions.ts:27
+msgid "Create a new page on my site"
+msgstr ""
+
+#: src/hooks/useUpdateTheme.ts:202
+msgid "Invalid settings format. Settings must be an object."
+msgstr ""
+
+#: src/hooks/useUpdateTheme.ts:223
+msgid "Invalid styles format. Styles must be an object."
+msgstr ""
+
+#: src/hooks/useUpdateTheme.ts:249
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr ""
+
+#: src/hooks/useUpdateTheme.ts:268
+msgid ""
+"Custom CSS is not supported by this tool and was ignored, leaving nothing "
+"to update. Express styling as theme.json settings and styles instead."
+msgstr ""
+
+#: src/hooks/useUpdateTheme.ts:292
+msgid "Global styles are still loading. Try the theme update again in a moment."
+msgstr ""
+
+#: src/hooks/useUpdateTheme.ts:347
+msgid ""
+"The requested theme update has been staged in the editor. Custom CSS is not "
+"supported by this tool and was ignored — express styling as theme.json "
+"settings and styles instead."
+msgstr ""
+
+#: src/hooks/useUpdateTheme.ts:351
+msgid "The requested theme update has been staged in the editor."
+msgstr ""
+
+#: src/lib/annotations/prompt.ts:47
+#. %d: number of annotations.
+msgid "%d annotation submitted"
+msgid_plural "%d annotations submitted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/lib/content-editor/block-edits.ts:102
+msgid "Global styles are still loading. Try the block edit again in a moment."
+msgstr ""
+
+#: src/lib/content-editor/block-edits.ts:151
+msgid "Block data must include a block name."
+msgstr ""
+
+#: src/lib/content-editor/block-edits.ts:159
+#. %s is a block type name, such as core/paragraph.
+msgid "Block type \"%s\" is not available."
+msgstr ""
+
+#: src/lib/content-editor/block-edits.ts:182
+msgid "Updates must include the clientId of the block to update."
+msgstr ""
+
+#: src/lib/content-editor/block-edits.ts:196
+msgid "Insertions must include block data with a block name."
+msgstr ""
+
+#: src/lib/content-editor/block-edits.ts:270
+#. %s is a compressed client ID.
+msgid ""
+"Could not resolve existing block \"%s\" referenced while merging inner "
+"blocks."
+msgstr ""
+
+#: src/lib/content-editor/block-edits.ts:69
+msgid "Apply block edits needs at least one update, insert, delete, or summary."
+msgstr ""
+
+#: src/lib/editor-bridge.ts:19
+msgid ""
+"The editor is still loading. Try the request again once the page is "
+"editable."
+msgstr ""
+
+#: src/lib/navigation-edits.ts:164
+msgid "Untitled"
+msgstr ""
+
+#: src/lib/navigation-edits.ts:598
+#. %s: navigation record id.
+msgid "Navigation record not found: %s"
+msgstr ""
+
+#: src/lib/unsaved-changes-warning.ts:3
+msgid ""
+"You have unsaved changes. If you leave before saving, your changes will be "
+"lost."
+msgstr ""

@@ -1,0 +1,280 @@
+
+<style>
+  * { box-sizing: border-box; }
+  .sr-only { position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap }
+  body { margin: 0; padding: 0; }
+  .hub { padding: 1rem 0 2rem; }
+  .top-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:0.5px solid var(--color-border-tertiary); }
+  .brand { display:flex; align-items:center; gap:10px; }
+  .brand-dot { width:10px;height:10px;border-radius:50%;background:#534AB7; }
+  .brand-name { font-size:15px;font-weight:500;color:var(--color-text-primary);letter-spacing:.04em; }
+  .brand-sub { font-size:12px;color:var(--color-text-secondary);margin-left:4px; }
+  .hw-badge { font-size:11px;padding:3px 10px;border-radius:20px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary); }
+
+  .layer-label { font-size:11px;font-weight:500;color:var(--color-text-tertiary);letter-spacing:.08em;text-transform:uppercase;margin:1.5rem 0 .6rem; }
+
+  /* Core layer: 3 cols */
+  .core-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px; }
+
+  /* Modules: 4 cols */
+  .mod-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px; }
+
+  /* Integrations: horizontal scroll row */
+  .int-row { display:flex;gap:10px;flex-wrap:wrap; }
+
+  /* Card base */
+  .card {
+    background:var(--color-background-primary);
+    border:0.5px solid var(--color-border-tertiary);
+    border-radius:var(--border-radius-lg);
+    padding:.85rem 1rem;
+    cursor:pointer;
+    transition:border-color .15s, background .15s;
+    position:relative;
+  }
+  .card:hover { border-color:var(--color-border-secondary); background:var(--color-background-secondary); }
+  .card.active { border-color:#534AB7 !important; background:#EEEDFE; }
+  @media (prefers-color-scheme:dark) { .card.active { background:#26215C; } }
+
+  .card-icon { font-size:18px;margin-bottom:.4rem;color:var(--color-text-secondary); }
+  .card-title { font-size:13px;font-weight:500;color:var(--color-text-primary);margin:0 0 2px; }
+  .card-sub { font-size:11px;color:var(--color-text-secondary);margin:0; }
+  .card-badge { display:inline-block;font-size:10px;padding:2px 7px;border-radius:10px;margin-top:6px; }
+  .badge-green { background:#EAF3DE;color:#3B6D11; }
+  .badge-purple { background:#EEEDFE;color:#3C3489; }
+  .badge-amber { background:#FAEEDA;color:#854F0B; }
+  .badge-blue { background:#E6F1FB;color:#185FA5; }
+  .badge-coral { background:#FAECE7;color:#993C1D; }
+  @media (prefers-color-scheme:dark) {
+    .badge-green { background:#173404;color:#C0DD97; }
+    .badge-purple { background:#26215C;color:#CECBF6; }
+    .badge-amber { background:#412402;color:#FAC775; }
+    .badge-blue { background:#042C53;color:#B5D4F4; }
+    .badge-coral { background:#4A1B0C;color:#F5C4B3; }
+  }
+
+  /* Connector arrows (visual only) */
+  .connector { text-align:center;color:var(--color-text-tertiary);font-size:16px;margin:4px 0; }
+
+  /* Detail panel */
+  .detail-panel {
+    margin-top:1.25rem;
+    border:0.5px solid #534AB7;
+    border-radius:var(--border-radius-lg);
+    background:var(--color-background-secondary);
+    overflow:hidden;
+    transition:all .2s;
+  }
+  .detail-header { display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;border-bottom:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary); }
+  .detail-title { font-size:13px;font-weight:500;color:var(--color-text-primary); }
+  .detail-close { font-size:18px;cursor:pointer;color:var(--color-text-secondary);line-height:1; }
+  .detail-body { padding:1rem; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .detail-item { font-size:12px;color:var(--color-text-secondary);display:flex;align-items:flex-start;gap:6px; }
+  .detail-item i { margin-top:1px;color:#534AB7; }
+  .detail-cta { padding:.75rem 1rem;border-top:0.5px solid var(--color-border-tertiary); }
+  .detail-cta button { font-size:12px;padding:5px 14px;border-radius:20px;border:0.5px solid #534AB7;background:transparent;color:#534AB7;cursor:pointer; }
+  .detail-cta button:hover { background:#EEEDFE; }
+
+  /* Hardware strip */
+  .hw-strip { display:flex;align-items:center;gap:8px;padding:.6rem 1rem;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);font-size:12px;color:var(--color-text-secondary);margin-top:10px; }
+  .hw-strip i { font-size:16px;color:#534AB7; }
+  .hw-chip { background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:2px 8px;font-size:11px;color:var(--color-text-secondary); }
+
+  /* Arch flow */
+  .arch-row { display:flex;align-items:center;gap:8px;margin:6px 0; }
+  .arch-node { flex:1;text-align:center;font-size:11px;padding:5px 0;border-radius:var(--border-radius-md);background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary); }
+  .arch-arrow { font-size:12px;color:var(--color-text-tertiary); }
+</style>
+
+<h2 class="sr-only">PrimeOsHub Management System Pathway — integrated architecture overview</h2>
+<div class="hub">
+  <div class="top-bar">
+    <div class="brand">
+      <div class="brand-dot"></div>
+      <span class="brand-name">PrimeOS<span style="color:#534AB7">Hub</span></span>
+      <span class="brand-sub">Enterprise Digital Lab</span>
+    </div>
+    <span class="hw-badge"><i class="ti ti-cpu" aria-hidden="true" style="font-size:12px;vertical-align:-1px;margin-right:4px"></i>Palit Pandora · NVIDIA JetPack</span>
+  </div>
+
+  <!-- LAYER 1: Foundation -->
+  <div class="layer-label">1 · Foundation layer</div>
+  <div class="core-grid">
+    <div class="card" onclick="showDetail('os','PrimeOS Core','The central operating kernel that orchestrates all modules, handles auth, permissions, and inter-service messaging.','ti-server-2','purple',['Multi-tenant architecture','Role-based access control','Real-time event bus','API gateway (REST + GraphQL)','Audit logging','Edge-ready deployment'])">
+      <div class="card-icon"><i class="ti ti-server-2" aria-hidden="true"></i></div>
+      <p class="card-title">PrimeOS Core</p>
+      <p class="card-sub">Kernel · auth · event bus</p>
+      <span class="card-badge badge-purple">Hub base</span>
+    </div>
+    <div class="card" onclick="showDetail('db','Data Vault','Unified data layer with structured and unstructured stores. Powers all modules with real-time sync and offline support.','ti-database','blue',['PostgreSQL primary store','Redis cache layer','Vector store (AI search)','Event sourcing','Backup + disaster recovery','LGPD / GDPR compliant'])">
+      <div class="card-icon"><i class="ti ti-database" aria-hidden="true"></i></div>
+      <p class="card-title">Data Vault</p>
+      <p class="card-sub">Postgres · Redis · Vector</p>
+      <span class="card-badge badge-blue">Storage</span>
+    </div>
+    <div class="card" onclick="showDetail('ai','AI Engine','Embedded intelligence layer powering smart suggestions, forecasting, anomaly detection and natural language queries.','ti-brain','coral',['Claude AI integration','Predictive analytics','Natural language queries','Anomaly detection','Smart automation','Model fine-tuning pipeline'])">
+      <div class="card-icon"><i class="ti ti-brain" aria-hidden="true"></i></div>
+      <p class="card-title">AI Engine</p>
+      <p class="card-sub">Claude · analytics · NLP</p>
+      <span class="card-badge badge-coral">Intelligence</span>
+    </div>
+  </div>
+
+  <div class="connector">↓ &nbsp; &nbsp; &nbsp; ↓ &nbsp; &nbsp; &nbsp; ↓</div>
+
+  <!-- LAYER 2: Business Modules -->
+  <div class="layer-label">2 · Business modules</div>
+  <div class="mod-grid">
+    <div class="card" onclick="showDetail('fin','Finances','Full financial management: budgeting, forecasting, invoicing, cash flow analysis and automated reporting.','ti-chart-line','green',['Budget planning','Cash flow forecasting','Invoice generation','P&L statements','Tax reporting','Multi-currency'])">
+      <div class="card-icon"><i class="ti ti-chart-line" aria-hidden="true"></i></div>
+      <p class="card-title">Finances</p>
+      <p class="card-sub">Budget · invoicing · P&L</p>
+      <span class="card-badge badge-green">Module</span>
+    </div>
+    <div class="card" onclick="showDetail('mkt','Marketing','Campaign management, lead funnel tracking, content calendar, and performance analytics across all channels.','ti-speakerphone','purple',['Campaign builder','Lead scoring','Content calendar','SEO tracker','Social scheduler','ROI dashboard'])">
+      <div class="card-icon"><i class="ti ti-speakerphone" aria-hidden="true"></i></div>
+      <p class="card-title">Marketing</p>
+      <p class="card-sub">Campaigns · leads · SEO</p>
+      <span class="card-badge badge-purple">Module</span>
+    </div>
+    <div class="card" onclick="showDetail('sales','Sales','Pipeline management, deal tracking, CRM, commission calculation, and sales forecasting powered by AI.','ti-rosette','amber',['Pipeline kanban','Deal scoring','Commission calc','Quote builder','Win/loss analysis','Forecast engine'])">
+      <div class="card-icon"><i class="ti ti-rosette" aria-hidden="true"></i></div>
+      <p class="card-title">Sales</p>
+      <p class="card-sub">Pipeline · CRM · quotes</p>
+      <span class="card-badge badge-amber">Module</span>
+    </div>
+    <div class="card" onclick="showDetail('ops','Operations','End-to-end process management: workflows, task automation, team coordination, and operational KPI tracking.','ti-settings-automation','blue',['Workflow builder','Task automation','Team scheduling','KPI dashboard','Process templates','SLA monitoring'])">
+      <div class="card-icon"><i class="ti ti-settings-automation" aria-hidden="true"></i></div>
+      <p class="card-title">Operations</p>
+      <p class="card-sub">Workflows · tasks · KPIs</p>
+      <span class="card-badge badge-blue">Module</span>
+    </div>
+  </div>
+
+  <!-- BMC Blocks sub-row -->
+  <div class="layer-label" style="margin-top:.75rem">Business model canvas blocks (9)</div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px">
+    <div class="card" style="padding:.6rem .75rem" onclick="sendPrompt('Explain how the Key Activities block works in PrimeOS')">
+      <p class="card-title" style="font-size:11px">Key Activities</p>
+    </div>
+    <div class="card" style="padding:.6rem .75rem" onclick="sendPrompt('Explain how Key Resources block works in PrimeOS')">
+      <p class="card-title" style="font-size:11px">Key Resources</p>
+    </div>
+    <div class="card" style="padding:.6rem .75rem" onclick="sendPrompt('Explain Value Proposition block in PrimeOS')">
+      <p class="card-title" style="font-size:11px">Value Proposition</p>
+    </div>
+    <div class="card" style="padding:.6rem .75rem" onclick="sendPrompt('Explain Customer Relationships in PrimeOS')">
+      <p class="card-title" style="font-size:11px">Customer Relations</p>
+    </div>
+    <div class="card" style="padding:.6rem .75rem" onclick="sendPrompt('Explain Customer Segments in PrimeOS')">
+      <p class="card-title" style="font-size:11px">Customer Segments</p>
+    </div>
+    <div class="card" style="padding:.6rem .75rem" onclick="sendPrompt('Explain Key Partners block in PrimeOS')">
+      <p class="card-title" style="font-size:11px">Key Partners</p>
+    </div>
+    <div class="card" style="padding:.6rem .75rem" onclick="sendPrompt('Explain Channels block in PrimeOS')">
+      <p class="card-title" style="font-size:11px">Channels</p>
+    </div>
+    <div class="card" style="padding:.6rem .75rem" onclick="sendPrompt('Explain Cost Structure in PrimeOS')">
+      <p class="card-title" style="font-size:11px">Cost Structure</p>
+    </div>
+    <div class="card" style="padding:.6rem .75rem" onclick="sendPrompt('Explain Revenue Streams in PrimeOS')">
+      <p class="card-title" style="font-size:11px">Revenue Streams</p>
+    </div>
+  </div>
+
+  <div class="connector">↓</div>
+
+  <!-- LAYER 3: Integrations -->
+  <div class="layer-label">3 · Integration layer</div>
+  <div class="int-row">
+    <div class="card" style="flex:0 0 auto;min-width:110px" onclick="showDetail('gh','GitHub Enterprises','Direct connection to PrimeOsHub Enterprises on GitHub — version control, CI/CD pipelines, code reviews and releases.','ti-brand-github','purple',['Repo management','CI/CD pipelines','Code review flows','Release tagging','Issue tracking','Team permissions'])">
+      <div class="card-icon"><i class="ti ti-brand-github" aria-hidden="true"></i></div>
+      <p class="card-title" style="font-size:12px">GitHub</p>
+      <p class="card-sub" style="font-size:10px">PrimeOsHub Ent.</p>
+    </div>
+    <div class="card" style="flex:0 0 auto;min-width:110px" onclick="showDetail('ntn','Notion','Workspace documentation, knowledge base, and project wikis synchronized with PrimeOS tasks.','ti-notes','blue',['Docs sync','Project wikis','Meeting notes','OKR tracking','Templates','Embed views'])">
+      <div class="card-icon"><i class="ti ti-notes" aria-hidden="true"></i></div>
+      <p class="card-title" style="font-size:12px">Notion</p>
+      <p class="card-sub" style="font-size:10px">Docs · wikis</p>
+    </div>
+    <div class="card" style="flex:0 0 auto;min-width:110px" onclick="showDetail('ntl','Netlify','Deploy and host front-end tools and dashboards from PrimeOsHub with instant previews and edge functions.','ti-cloud-upload','green',['Auto deploy','Edge functions','Form handling','Preview URLs','Analytics','Domain routing'])">
+      <div class="card-icon"><i class="ti ti-cloud-upload" aria-hidden="true"></i></div>
+      <p class="card-title" style="font-size:12px">Netlify</p>
+      <p class="card-sub" style="font-size:10px">Deploy · hosting</p>
+    </div>
+    <div class="card" style="flex:0 0 auto;min-width:110px" onclick="sendPrompt('What other integrations should I add to PrimeOsHub for ERP and payments?')">
+      <div class="card-icon"><i class="ti ti-plug" aria-hidden="true"></i></div>
+      <p class="card-title" style="font-size:12px">ERP / SAP</p>
+      <p class="card-sub" style="font-size:10px">Planned</p>
+      <span class="card-badge badge-amber" style="font-size:9px">Roadmap</span>
+    </div>
+    <div class="card" style="flex:0 0 auto;min-width:110px" onclick="sendPrompt('How should I integrate payments (Stripe, PagSeguro) into PrimeOsHub?')">
+      <div class="card-icon"><i class="ti ti-credit-card" aria-hidden="true"></i></div>
+      <p class="card-title" style="font-size:12px">Payments</p>
+      <p class="card-sub" style="font-size:10px">Stripe · Pag</p>
+      <span class="card-badge badge-amber" style="font-size:9px">Roadmap</span>
+    </div>
+    <div class="card" style="flex:0 0 auto;min-width:110px" onclick="sendPrompt('What communication integrations (Slack, WhatsApp) make sense for PrimeOsHub?')">
+      <div class="card-icon"><i class="ti ti-message-dots" aria-hidden="true"></i></div>
+      <p class="card-title" style="font-size:12px">Comms</p>
+      <p class="card-sub" style="font-size:10px">Slack · WhatsApp</p>
+      <span class="card-badge badge-amber" style="font-size:9px">Roadmap</span>
+    </div>
+  </div>
+
+  <!-- Hardware strip -->
+  <div class="hw-strip" style="margin-top:14px">
+    <i class="ti ti-cpu" aria-hidden="true"></i>
+    <span style="font-weight:500;color:var(--color-text-primary);font-size:12px">Runtime</span>
+    <span class="hw-chip">Palit Pandora Box</span>
+    <span class="hw-chip">NVIDIA JetPack 6</span>
+    <span class="hw-chip">CUDA Edge AI</span>
+    <span class="hw-chip">ARM64 · Ubuntu 22</span>
+    <span style="margin-left:auto;font-size:11px">Scale → Cloud when needed</span>
+  </div>
+
+  <!-- Detail panel -->
+  <div class="detail-panel" id="detail" style="display:none">
+    <div class="detail-header">
+      <span class="detail-title" id="d-title"></span>
+      <span class="detail-close" onclick="closeDetail()">×</span>
+    </div>
+    <div class="detail-body" id="d-body"></div>
+    <div class="detail-cta">
+      <button id="d-btn" onclick="askMore()">↗ Ask Claude about this</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let currentDetail = null;
+
+const items = {};
+function showDetail(id, title, desc, icon, color, features) {
+  items[id] = { title, desc, icon, color, features };
+  currentDetail = id;
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+
+  document.getElementById('d-title').textContent = title;
+  const body = document.getElementById('d-body');
+  body.innerHTML = `<div class="detail-item" style="grid-column:1/-1;font-size:12px;color:var(--color-text-secondary);margin-bottom:4px">${desc}</div>`;
+  features.forEach(f => {
+    body.innerHTML += `<div class="detail-item"><i class="ti ti-check" aria-hidden="true"></i><span>${f}</span></div>`;
+  });
+  document.getElementById('detail').style.display = 'block';
+}
+
+function closeDetail() {
+  document.getElementById('detail').style.display = 'none';
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  currentDetail = null;
+}
+
+function askMore() {
+  if (!currentDetail) return;
+  const { title } = items[currentDetail];
+  sendPrompt('Tell me more about the ' + title + ' component in PrimeOsHub and how to build it');
+}
+</script>

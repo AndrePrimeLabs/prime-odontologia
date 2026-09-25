@@ -1,0 +1,231 @@
+.wpconsent-accordion-item {
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
+	background: #fff;
+}
+
+.wpconsent-accordion-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 15px;
+	cursor: pointer;
+	background-color: #fff;
+	border-bottom: 1px solid transparent;
+}
+
+.wpconsent-accordion-header h3 {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.wpconsent-accordion-toggle {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	color: #787c82;
+}
+
+.wpconsent-accordion-toggle .dashicons {
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+	transition: transform 0.2s ease;
+}
+
+.wpconsent-accordion-item.active .wpconsent-accordion-toggle .dashicons {
+	transform: rotate(180deg);
+}
+
+.wpconsent-accordion-content {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease-out;
+	background: #fff;
+}
+
+.wpconsent-accordion-item.active .wpconsent-accordion-content {
+	border-top: none;
+	max-height: initial;
+}
+
+.wpconsent-accordion {
+	.wpconsent-accordion-item.active .wpconsent-accordion-content {
+		max-height: 0;
+	}
+}
+
+.wpconsent-accordion-item.active .wpconsent-accordion-header {
+	border-bottom: 1px solid #ddd;
+}
+
+/* Add hover state */
+.wpconsent-accordion-header:hover {
+	background-color: #f6f7f7;
+}
+
+.wpconsent-cookie-category-description {
+	padding: 20px;
+}
+
+
+/* Cookie List Styles */
+.wpconsent-cookies-list {
+}
+
+.wpconsent-cookies-manager {
+	.wpconsent-cookie-header,
+	.wpconsent-cookie-item {
+		display: grid;
+		grid-template-columns: 1fr 1fr 3fr 1fr 100px;
+		gap: 15px;
+		padding: 14px;
+		align-items: center;
+		border-bottom: 1px solid #ddd;
+		margin-bottom: 0;
+	}
+
+	.wpconsent-cookie-item {
+		background-color: #F8F8F8;
+
+		&:nth-child(odd) {
+			background-color: #fff;
+		}
+	}
+
+	.wpconsent-cookie-header {
+		font-weight: 500;
+		color: #051F3199;
+		border-top: 1px solid var(--wpconsent-border-color);
+		padding: 12px;
+	}
+
+	.wpconsent-cookie-item:last-child {
+		border-bottom: none;
+	}
+}
+
+.service-actions,
+.cookie-actions {
+	display: flex;
+	gap: 8px;
+	justify-content: flex-end;
+
+	.wpconsent-button-icon {
+		padding: 0;
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: #787c82;
+		margin-right: 20px;
+	}
+
+	.wpconsent-button-icon:hover {
+		svg {
+			path {
+				fill: var(--wpconsent-color-primary);
+			}
+		}
+	}
+
+	.wpconsent-button-icon .dashicons {
+		width: 20px;
+		height: 20px;
+		font-size: 20px;
+	}
+}
+
+.wpconsent-actions-row {
+	padding: 15px;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.wpconsent-button-primary .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+}
+
+/* Description area styling */
+.wpconsent-cookie-category-description {
+	font-size: 14px;
+	line-height: 1.5;
+	color: #051F31CC
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+	.wpconsent-cookie-header,
+	.wpconsent-cookie-item {
+		grid-template-columns: 1fr 1fr 2fr 80px;
+		font-size: 13px;
+		gap: 10px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.wpconsent-cookie-header,
+	.wpconsent-cookie-item {
+		grid-template-columns: 1fr;
+		gap: 8px;
+	}
+
+	.cookie-actions {
+		justify-content: flex-start;
+	}
+}
+
+.service-name {
+	padding: 5px 14px;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.service-desc {
+	padding: 5px 14px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #051F31CC;
+}
+
+.wpconsent-service-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	background-color: #fff;
+	border-bottom: 1px solid transparent;
+	padding: 10px 0;
+}
+
+/* Preferences Panel Section Title */
+.wpconsent-preferences-section-title {
+	margin-top: 20px;
+	margin-bottom: 15px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #23282d;
+}
+
+/* Improve spacing in preferences panel accordion content */
+.wpconsent-preferences-panel-accordion .wpconsent-accordion-item.active .wpconsent-accordion-content {
+	padding: 15px;
+}
+
+/* Improve spacing for form elements inside preferences panel accordion */
+.wpconsent-preferences-panel-accordion .wpconsent-accordion-content .wpconsent-metabox-row {
+	margin-bottom: 20px;
+}
+
+.wpconsent-preferences-panel-accordion .wpconsent-accordion-content .wpconsent-input-text,
+.wpconsent-preferences-panel-accordion .wpconsent-accordion-content .wpconsent-input-textarea {
+	margin-top: 8px;
+	width: 100%;
+}
+
+.wpconsent-preferences-panel-accordion .wpconsent-accordion-content .wpconsent-input-area-description {
+	margin-bottom: 10px;
+}

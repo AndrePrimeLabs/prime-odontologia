@@ -1,0 +1,31 @@
+/* Indicators of pro features used throughout the plugin */
+
+.wpconsent-pro-pill {
+	background: #bbb;
+	color: var(--wpconsent-background-white);
+	text-transform: uppercase;
+	padding: 4px 7px;
+	border-radius: 9px;
+	font-size: 8px;
+	line-height: 1;
+	display: inline-block;
+	vertical-align: text-top;
+}
+
+.wpconsent-form-row-pro {
+	.wpconsent-metabox-form-row-input {
+		opacity: 0.5;
+	}
+}
+
+label[for="wpconsent-consent-logs-auto-delete-lite"] .wpconsent-pro-pill {
+	display: none;
+}
+
+/* PRO indicators for delete log buttons */
+.delete-consent-logs-lite,
+.delete-dnt-logs-lite {
+	.wpconsent-button {
+		opacity: 0.5;
+	}
+}

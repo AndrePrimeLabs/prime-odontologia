@@ -1,0 +1,586 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Easy Site Editor\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:26:00+00:00\n"
+"PO-Revision-Date: 2026-05-25 10:58:43+0000\n"
+"Language: he_IL\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/components/DebugPanel.tsx:77
+msgid "Tracks Dashboard"
+msgstr "לוח בקרה של מסלולים"
+
+#: src/components/DebugPanel.tsx:74
+msgid "Errors Dashboard"
+msgstr "לוח בקרה שגיאות"
+
+#: includes/class-easy-site-editor.php:155
+#: includes/class-easy-site-editor.php:156
+msgid "AI Editor"
+msgstr "עורך בינה מלאכותית"
+
+#: src/hooks/useAgentFeedbackAction.ts:395
+msgid "Tell us more"
+msgstr "תגיד לנו עוד"
+
+#: src/hooks/useAgentFeedbackAction.ts:381
+msgid "Bad response"
+msgstr "תגובה רעה"
+
+#: src/hooks/useAgentFeedbackAction.ts:371
+msgid "Good response"
+msgstr "תגובה טובה"
+
+#: src/components/AgentFeedbackPopover.tsx:96
+msgid "Feedback could not be sent. Please try again."
+msgstr "לא ניתן לשלוח פידבק. אנא נסה שוב."
+
+#: src/components/AgentFeedbackPopover.tsx:206
+msgid "Send feedback"
+msgstr "לשלוח משוב"
+
+#: src/components/AgentFeedbackPopover.tsx:205
+msgid "Sending…"
+msgstr "שולח..."
+
+#: src/components/AgentFeedbackPopover.tsx:197
+msgid "Cancel"
+msgstr "לבטל"
+
+#: src/components/AgentFeedbackPopover.tsx:167
+msgid "What did you expect instead?"
+msgstr "מה ציפית במקום?"
+
+#: src/components/AgentFeedbackPopover.tsx:154
+msgid "Add any details that would help us improve this response."
+msgstr "הוסף כל פרט שיכול לעזור לנו לשפר את התגובה הזו."
+
+#: src/components/AgentFeedbackPopover.tsx:148
+msgid "What went wrong?"
+msgstr "מה השתבש?"
+
+#: src/hooks/useClientAbilityBridge.ts:40
+msgid "The current preview is not editable. It may be a dynamic front page. Tell the user to open a different page and try again."
+msgstr "התצוגה המקדימה הנוכחית לא ניתנת לעריכה. זה יכול להיות עמוד ראשי דינמי. תגיד למשתמש לפתוח עמוד אחר ולנסות שוב."
+
+#: src/components/AppTopBar.tsx:84
+msgid "WordPress Admin"
+msgstr "WordPress מנהל"
+
+#: src/components/AnnouncementBar.tsx:52
+msgid "Dismiss announcement"
+msgstr "בטל הודעה"
+
+#: src/components/AnnouncementBar.tsx:41
+msgid "Switch to the full Site Editor instead."
+msgstr "מעבר לעורך האתר המלא במקום זאת."
+
+#: src/components/AnnouncementBar.tsx:29
+msgid "You're using the new experimental Easy Site Editor."
+msgstr "אתה משתמש בעורך האתר הקל הניסי החדש."
+
+#: src/components/AppTopBar.tsx:383
+msgid "Publish"
+msgstr "פרסום"
+
+#: src/components/AppTopBar.tsx:348
+msgid "Launch your site"
+msgstr "פרסם את האתר שלך"
+
+#: src/components/AppTopBar.tsx:261
+msgid "Redo"
+msgstr "בצע שוב"
+
+#: src/components/AppTopBar.tsx:257
+msgid "Undo"
+msgstr "ביטול פעולה אחרונה"
+
+#. 1: control label, 2: keyboard shortcut.
+#: src/components/AppTopBar.tsx:252
+msgid "%1$s (%2$s)"
+msgstr "%1$s (%2$s)"
+
+#: src/components/AppTopBar.tsx:218
+msgid "Discard"
+msgstr "ביטול"
+
+#: src/components/DebugPanel.tsx:71
+msgid "No active session yet."
+msgstr "עדיין אין סשן פעיל."
+
+#: src/components/DebugPanel.tsx:68
+msgid "Langfuse trace"
+msgstr "עקבות Langfuse"
+
+#: src/components/DebugPanel.tsx:61
+msgid "Debug"
+msgstr "איתור באגים"
+
+#: includes/class-easy-site-editor.php:997
+msgid "Assets have not been built yet. Run pnpm build in the plugin directory, then reload this page."
+msgstr "הנכסים עדיין לא נבנו. הרץ pnpm build בספרייה של התוסף, ואז טען מחדש את העמוד הזה."
+
+#. Author of the plugin
+#: easy-site-editor.php
+msgid "Automattic"
+msgstr "חברת אוטומטיק"
+
+#. Description of the plugin
+#: easy-site-editor.php
+msgid "Split-pane AI site editor with chat on the left and a live frontend preview on the right."
+msgstr "עורך אתר AI עם פאנל מפוצל, עם צ'אט בצד שמאל ותצוגה מקדימה חיה בצד ימין."
+
+#: src/lib/unsaved-changes-warning.ts:3
+msgid "You have unsaved changes. If you leave before saving, your changes will be lost."
+msgstr "יש לך שינויים שלא נשמרו. אם תצא לפני שתשמור, השינויים שלך יאבדו."
+
+#: src/lib/editor-bridge.ts:19
+msgid "The editor is still loading. Try the request again once the page is editable."
+msgstr "העורך עדיין טוען. תנסה את הבקשה שוב ברגע שהעמוד יהיה ניתן לעריכה."
+
+#: src/hooks/useUpdateTheme.ts:311
+msgid "The requested theme update has been staged in the editor."
+msgstr "העדכון המבוקש של התבנית הוכן בעורך."
+
+#: src/hooks/useUpdateTheme.ts:258
+msgid "Global styles are still loading. Try the theme update again in a moment."
+msgstr "סגנונות גלובליים עדיין נטענים. תנסה לעדכן את התבנית שוב בעוד רגע."
+
+#: src/hooks/useUpdateTheme.ts:236
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "ארגומנטים לא תקפים. יש לספק הגדרות או סגנונות כדי לעדכן את התבנית."
+
+#: src/hooks/useUpdateTheme.ts:220
+msgid "Invalid styles format. Styles must be an object."
+msgstr "פורמט סגנונות לא תקף. הסגנונות חייבים להיות אובייקט."
+
+#: src/hooks/useUpdateTheme.ts:201
+msgid "Invalid settings format. Settings must be an object."
+msgstr "פורמט הגדרות לא תקף. ההגדרות חייבות להיות אובייקט."
+
+#: src/hooks/useSuggestions.ts:35
+msgid "Create a new page on my site"
+msgstr "צור עמוד חדש באתר שלי"
+
+#: src/hooks/useSuggestions.ts:34
+msgid "Add new page"
+msgstr "להוסיף עמוד חדש"
+
+#: src/hooks/useSuggestions.ts:27
+msgid "Suggest a new font family for my site that is:"
+msgstr "הצע משפחת גופנים חדשה לאתר שלי שהיא:"
+
+#: src/hooks/useSuggestions.ts:26
+msgid "Choose new fonts"
+msgstr "לבחור גופנים חדשים"
+
+#: src/hooks/useSuggestions.ts:19
+msgid "Suggest a different layout for this page"
+msgstr "הצע עיצוב שונה לעמוד הזה"
+
+#: src/hooks/useSuggestions.ts:18
+msgid "Change page layout"
+msgstr "שינוי הפריסה של העמוד"
+
+#: src/hooks/useSuggestions.ts:11
+msgid "Suggest a new color palette for my site that is:"
+msgstr "הצע פלטת צבעים חדשה לאתר שלי שהיא:"
+
+#: src/hooks/useSuggestions.ts:10
+msgid "Customize colors"
+msgstr "להתאים אישית את הצבעים"
+
+#: src/hooks/usePreviewPages.ts:57
+msgid "Home"
+msgstr "דף הבית"
+
+#: src/hooks/usePreviewPages.ts:130
+msgid "Unable to load pages."
+msgstr "לא מצליח לטעון עמודים."
+
+#: src/hooks/useGlobalStylesVariation.ts:73
+msgid "Global styles are still loading. Try the selection again in a moment."
+msgstr "סגנונות גלובליים עדיין טוענים. תנסה את הבחירה שוב בעוד רגע."
+
+#. %s is the requested page path.
+#: src/hooks/useEditorNavigate.ts:59
+msgid "Successfully navigated to: %s"
+msgstr "ניווט בהצלחה ל: %s"
+
+#. %s is the requested page path.
+#: src/hooks/useEditorNavigate.ts:40
+msgid "The current page has unsaved changes, so navigation to %s was canceled. If this was requested after creating a page, the page has already been created. Tell the user to save or discard their current changes, then open the page from the page picker."
+msgstr "העמוד הנוכחי מכיל שינויים שלא נשמרו, לכן הניווט ל%s בוטל. אם זה התבקש לאחר יצירת עמוד, העמוד כבר נוצר. תגיד למשתמש לשמור או לזרוק את השינויים הנוכחיים שלו, ואז פתח את העמוד מתוך בורר העמודים."
+
+#: src/hooks/useEditorNavigate.ts:28
+msgid "Invalid path provided. Path must be a non-empty string."
+msgstr "נתיב לא תקף שסופק. הנתיב חייב להיות מחרוזת שאינה ריקה."
+
+#: src/hooks/useEasySiteAgentChat.ts:110
+msgid "Jetpack token context is unavailable."
+msgstr "ההקשר של טוקן Jetpack אינו זמין."
+
+#: src/hooks/useClientAbilityBridge.ts:141
+msgid "Failed to display picker."
+msgstr "נכשל בהצגת הבורר."
+
+#: src/hooks/useClientAbilityBridge.ts:128
+msgid "Picker displayed successfully."
+msgstr "המלקט הוצג בהצלחה."
+
+#. %s: component type
+#: src/hooks/useClientAbilityBridge.ts:95
+msgid "Unsupported component type: %s"
+msgstr "סוג רכיב לא נתמך: %s"
+
+#: src/components/SelectedPreviewBlock.tsx:38
+msgid "Clear selected block"
+msgstr "נקה בלוק שנבחר"
+
+#. %s: selected block title.
+#: src/components/SelectedPreviewBlock.tsx:24
+msgid "Selected block: %s"
+msgstr "בלוק שנבחר: %s"
+
+#: src/components/PreviewPane.tsx:501
+msgid "Site frontend preview"
+msgstr "תצוגה מקדימה של אתר"
+
+#: src/components/PreviewPane.tsx:493
+msgid "Preview loaded"
+msgstr "תצוגה מקדימה נטענה"
+
+#: src/components/PreviewPane.tsx:492
+msgid "Loading preview…"
+msgstr "טוען תצוגה מקדימה…"
+
+#: src/components/PreviewPane.tsx:465
+msgid "Site preview panel"
+msgstr "פאנל תצוגה מקדימה של אתר"
+
+#: src/components/PreviewPane.tsx:464
+msgid "Site editor panel"
+msgstr "פאנל עורך האתר"
+
+#: src/components/PreviewPageSwitcher.tsx:122
+msgid "Preview Site"
+msgstr "אתר תצוגה מקדימה"
+
+#: src/components/PreviewPageSwitcher.tsx:121
+msgid "Refresh"
+msgstr "רענן"
+
+#. %s: page path, e.g. "/about"
+#: src/components/PreviewPageSwitcher.tsx:117
+msgid "%s – draft"
+msgstr "%s – טיוטה"
+
+#: src/components/PreviewPageSwitcher.tsx:215
+msgid "Loading pages…"
+msgstr "טוען עמודים…"
+
+#: src/components/PreviewPageSwitcher.tsx:211
+msgid "Site pages"
+msgstr "עמודי אתר"
+
+#: src/components/PreviewPageSwitcher.tsx:158
+msgid "Draft"
+msgstr "טיוטה"
+
+#: src/components/PreviewDeviceSwitcher.tsx:89
+msgid "Preview size"
+msgstr "גודל התצוגה המקדימה"
+
+#: src/components/PreviewDeviceSwitcher.tsx:65
+msgid "Device Preview"
+msgstr "תצוגה מקדימה של המכשיר"
+
+#: src/components/PreviewDeviceSwitcher.tsx:53
+msgid "Mobile preview"
+msgstr "תצוגה מקדימה ניידת"
+
+#: src/components/PreviewDeviceSwitcher.tsx:52
+msgid "Mobile"
+msgstr "מובייל"
+
+#: src/components/PreviewDeviceSwitcher.tsx:47
+msgid "Tablet preview"
+msgstr "תצוגה מקדימה של טאבלט"
+
+#: src/components/PreviewDeviceSwitcher.tsx:46
+msgid "Tablet"
+msgstr "טאבלט"
+
+#: src/components/PreviewDeviceSwitcher.tsx:41
+msgid "Desktop preview"
+msgstr "תצוגה מקדימה של שולחן עבודה"
+
+#: src/components/PreviewDeviceSwitcher.tsx:40
+msgid "Desktop"
+msgstr "דסקטופ"
+
+#. %d is the pattern layout number.
+#: src/components/PatternPicker.tsx:55
+msgid "Layout %d"
+msgstr "פריסת %d"
+
+#: src/components/PatternPicker.tsx:252
+#: src/components/StyleVariationPicker.tsx:457
+msgid "Next"
+msgstr "הבא"
+
+#. %1$d is the current page, %2$d is the total page count.
+#: src/components/PatternPicker.tsx:244
+#: src/components/StyleVariationPicker.tsx:449
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
+
+#: src/components/PatternPicker.tsx:231
+#: src/components/StyleVariationPicker.tsx:436
+msgid "Previous"
+msgstr "הקודם"
+
+#. %s is the pattern layout title.
+#: src/components/PatternPicker.tsx:208
+msgid "Select %s"
+msgstr "בחירת %s"
+
+#: src/components/PatternPicker.tsx:175
+#: src/components/StyleVariationPicker.tsx:396
+msgid "The selection could not be staged. Please try again."
+msgstr "הבחירה לא יכולה להיות מוצגת. בבקשה תנסה שוב."
+
+#: src/components/PatternPicker.tsx:157
+#: src/components/StyleVariationPicker.tsx:380
+msgid "The editor is still loading. Try again in a moment."
+msgstr "העורך עדיין טוען. תנסה שוב בעוד רגע."
+
+#: src/components/PatternPicker.tsx:136
+#: src/components/StyleVariationPicker.tsx:359
+msgid "There was a problem retrieving options. Please try again."
+msgstr "הייתה בעיה בשחזור האפשרויות. יש לנסות שוב."
+
+#: src/components/EditorWorkspace.tsx:90
+msgid "Resize chat panel"
+msgstr "שנה גודל פאנל הצ'אט"
+
+#: src/lib/content-editor/block-edits.ts:196
+msgid "Insertions must include block data with a block name."
+msgstr "הכנסות חייבות לכלול נתוני בלוק עם שם בלוק."
+
+#: src/lib/content-editor/block-edits.ts:182
+msgid "Updates must include the clientId of the block to update."
+msgstr "העדכונים חייבים לכלול את הclientId של הבלוק לעדכון."
+
+#. %s is a block type name, such as core/paragraph.
+#: src/lib/content-editor/block-edits.ts:159
+msgid "Block type \"%s\" is not available."
+msgstr "סוג הבלוק \"%s\" אינו זמין."
+
+#: src/lib/content-editor/block-edits.ts:151
+msgid "Block data must include a block name."
+msgstr "נתוני הבלוק חייבים לכלול שם בלוק."
+
+#: src/lib/content-editor/block-edits.ts:102
+msgid "Global styles are still loading. Try the block edit again in a moment."
+msgstr "סגנונות גלובליים עדיין נטענים. תנסה לערוך את הבלוק שוב בעוד רגע."
+
+#: src/lib/content-editor/block-edits.ts:69
+msgid "Apply block edits needs at least one update, insert, delete, or summary."
+msgstr "החלת עריכות בלוק דורשת לפחות עדכון, הוספה, מחיקה או סיכום."
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:334
+msgid "The requested block edits have been staged in the editor."
+msgstr "השינויים בבלוק שביקשתם הוכנו בעורך."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:305
+msgid "Block \"%s\" was not found for deletion."
+msgstr "בלוק \"%s\" לא נמצא למחיקה."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:292
+msgid "Could not map client ID \"%s\" for deletion."
+msgstr "לא ניתן למפות את מזהה הלקוח \"%s\" למחיקה."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:231
+msgid "Block \"%s\" was not found for update."
+msgstr "בלוק \"%s\" לא נמצא לעדכון."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:216
+msgid "Could not map client ID \"%s\" for update."
+msgstr "לא הצלחנו למפות את מזהה הלקוח \"%s\" לעדכון."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:152
+msgid "Parent block \"%s\" was not found for insertion."
+msgstr "הבלוק ההורי \"%s\" לא נמצא להוספה."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:136
+msgid "Could not map parent client ID \"%s\" for insertion."
+msgstr "לא ניתן למפות את מזהה הלקוח ההורה \"%s\" לצורך הוספה."
+
+#: src/components/PreviewPane.tsx:527
+#: src/components/content-editor/ContentEditorLoading.tsx:16
+msgid "Loading editor…"
+msgstr "טוען עורך…"
+
+#: src/components/content-editor/ContentEditorError.tsx:6
+msgid "Failed to load template."
+msgstr "טעינת תבנית עמוד נכשלה."
+
+#: src/components/ChatPanel.tsx:57
+msgid "Ask for changes"
+msgstr "בקש שינויים"
+
+#: src/components/ApplyPatternLayoutBridge.tsx:28
+#: src/lib/content-editor/block-edits.ts:265
+msgid "Cannot create a block without a name."
+msgstr "לא ניתן ליצור בלוק בלי שם."
+
+#: src/components/ApplyPatternLayoutBridge.tsx:239
+msgid "The selected pattern layout has been staged in the editor."
+msgstr "המקבץ בלוקים שנבחר הוצג בעורך."
+
+#: src/components/ApplyPatternLayoutBridge.tsx:184
+msgid "Cannot stage a pattern layout without blocks."
+msgstr "לא ניתן להציג עיצוב מקבץ בלוקים בלי בלוקים."
+
+#: src/components/AppTopBar.tsx:85
+msgid "Start a new conversation"
+msgstr "התחל שיחה חדשה"
+
+#: src/components/AppTopBar.tsx:382
+msgid "Publishing…"
+msgstr "מפרסם…"
+
+#: src/components/AppTopBar.tsx:365
+#: src/components/PreviewPane.tsx:569
+msgid "Saving…"
+msgstr "שומר..."
+
+#: src/components/AppTopBar.tsx:352
+msgid "Save"
+msgstr "שמור"
+
+#: src/components/AppTopBar.tsx:351
+msgid "Save draft"
+msgstr "לשמור טיוטה"
+
+#: src/components/AppTopBar.tsx:208
+msgid "Keep editing"
+msgstr "המשך עריכה"
+
+#: src/components/AppTopBar.tsx:202
+msgid "Unsaved changes"
+msgstr "שינויים שלא נשמרו"
+
+#: src/components/AppTopBar.tsx:196
+msgid "Edit"
+msgstr "ערוך"
+
+#: src/components/AppTopBar.tsx:193
+msgid "Edit mode"
+msgstr "מצב עריכה"
+
+#: src/components/AppTopBar.tsx:189
+msgid "Preview"
+msgstr "תצוגה מקדימה"
+
+#: src/components/AppTopBar.tsx:186
+msgid "Preview mode"
+msgstr "מצב תצוגה מקדימה"
+
+#: src/components/AppTopBar.tsx:164
+msgid "Editor mode"
+msgstr "מצב עורך"
+
+#: src/abilities/update-theme.ts:99
+msgid "Use this for site-wide theme.json settings or styles. After it succeeds, tell the user the theme update is staged in the editor and ready to review/save, not live or published."
+msgstr "שתמש בזה עבור הגדרות או סגנונות theme.json בכל האתר. אחרי שזה מצליח, תגיד למשתמש שהעדכון של התבנית ממתין בעורך ומוכן לבדוק/לשמור, לא חי או מפורסם."
+
+#: src/abilities/update-theme.ts:70
+msgid "Stages WordPress theme settings and styles using theme.json format."
+msgstr "הגדרות וסגנונות תבנית WordPress של Stages בפורמט theme.json."
+
+#: src/abilities/update-theme.ts:68
+msgid "Update theme"
+msgstr "עדכן תבנית"
+
+#: src/abilities/update-theme.ts:33
+msgid "The editor is still loading. Try the theme update again once the page is editable."
+msgstr "העורך עדיין טוען. תנסה לעדכן את התבנית שוב ברגע שהעמוד יהיה ניתן לעריכה."
+
+#: src/abilities/show-component.ts:79
+msgid "Displays a font, color, or pattern picker in the Easy Site Editor chat."
+msgstr "מציג בוחן גופן, צבע או מקבץ בלוקים בצ'אט של עורך האתר הקל."
+
+#: src/abilities/show-component.ts:77
+msgid "Show picker"
+msgstr "הצג בורר"
+
+#: src/abilities/show-component.ts:42
+msgid "The picker UI is still loading. Try the request again in a moment."
+msgstr "הממשק של הבורר עדיין טוען. תנסה את הבקשה שוב בעוד רגע."
+
+#: src/abilities/show-component.ts:110
+msgid "Use this to show staged global font, color, or pattern choices. The user must select an option and save before changes are live."
+msgstr "שתמש בזה כדי להציג אפשרויות גופן, צבע, או מקבץ בלוקים גלובליים בשלב. המשתמש חייב לבחור אפשרות ולשמור לפני שהשינויים יהיו פעילים."
+
+#: src/abilities/editor-navigate.ts:82
+msgid "Use this when the user asks to navigate, go to, open, view, or switch to a site page. If you call this after creating a new page, page creation is already complete before this tool runs. If navigation is canceled because the current page has unsaved changes, do not continue or retry page creation; tell the user the page exists and they need to save or discard their current changes before opening it."
+msgstr "שתמש בזה כשמשתמש מבקש לניווט, לעבור, לפתוח, להציג, או לעבור לעמוד באתר. אם אתה קורא לזה אחרי שיצרת עמוד חדש, יצירת העמוד כבר הושלמה לפני שהכלי הזה רץ. אם הניווט בוטל כי לעמוד הנוכחי יש שינויים שלא נשמרו, אל תמשיך או תנסה שוב ליצור את העמוד; תגיד למשתמש שהעמוד קיים והם צריכים לשמור או לזרוק את השינויים הנוכחיים שלהם לפני שיפתחו אותו."
+
+#: src/abilities/editor-navigate.ts:60
+msgid "Navigates the Easy Site Editor preview to a specific site page or to the pages list."
+msgstr "מנווט את תצוגה מקדימה של עורך האתר הקל לעמוד ספציפי באתר או לרשימת העמודים."
+
+#: src/abilities/editor-navigate.ts:58
+msgid "Navigate"
+msgstr "לנווט"
+
+#: src/abilities/editor-navigate.ts:30
+msgid "Editor navigation is still loading. Try navigating again in a moment."
+msgstr "ניווט העורך עדיין טוען. תנסה לנווט שוב בעוד רגע."
+
+#: src/abilities/apply-block-edits.ts:93
+msgid "Stages block updates, insertions, and deletions in the client-side editor for review before saving."
+msgstr "עדכונים, הוספות ומחיקות של בלוק שלבים בעורך בצד הלקוח לצורך סקירה לפני שמירה."
+
+#: src/abilities/apply-block-edits.ts:91
+msgid "Apply block edits"
+msgstr "להחיל עריכות בלוק"
+
+#: src/abilities/apply-block-edits.ts:81
+#: src/abilities/editor-navigate.ts:48
+#: src/abilities/show-component.ts:67
+#: src/abilities/update-theme.ts:58
+msgid "Abilities for staging edits in the Easy Site Editor."
+msgstr "יכולות לביצוע עריכות בעורך האתר הקל."
+
+#. Plugin Name of the plugin
+#: src/abilities/apply-block-edits.ts:80
+#: src/abilities/editor-navigate.ts:47
+#: src/abilities/show-component.ts:66
+#: src/abilities/update-theme.ts:57
+#: easy-site-editor.php
+msgid "Easy Site Editor"
+msgstr "עורך אתר קל"
+
+#: src/abilities/apply-block-edits.ts:56
+msgid "The editor is still loading. Try the block edit again once the page is editable."
+msgstr "העורך עדיין טוען. תנסה לערוך את הבלוק שוב ברגע שהעמוד יהיה ניתן לעריכה."
+
+#: src/abilities/apply-block-edits.ts:134
+msgid "Use this for current-page content and layout edits. After it succeeds, tell the user the edits are staged in the editor and ready to review/save, not live or published."
+msgstr "שתמש בזה לעריכות תוכן ועיצוב של העמוד הנוכחי. אחרי שזה מצליח, תגיד למשתמש שהעריכות ממתינות בעורך ומוכנות לסקירה/שמירה, לא חיות או פורסמו."

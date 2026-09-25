@@ -1,0 +1,120 @@
+# ============================================================================
+# DOCKERFILE.DEV - LOCAL DEVELOPMENT
+# ============================================================================
+# Purpose: Fast rebuild with hot reload for local development
+# Base: Node (not nginx) for running Vite dev server
+# Usage:
+#   docker build -f Dockerfile.dev -t primeos:dev .
+#   docker run -p 5173:5173 primeos:dev
+#
+# Features:
+#   - Fast incremental rebuilds
+#   - Hot Module Replacement (HMR)
+#   - Direct access to dev server
+#   - Volume mounts for live code editing
+# ============================================================================
+
+FROM node:26-alpine
+
+# Metadata
+LABEL maintainer="PrimeOS Team"
+LABEL description="PrimeOS Development Container"
+LABEL stage="dev"
+
+# ============================================================================
+# ENVIRONMENT
+# ============================================================================
+ENV NODE_ENV=development
+ENV NODE_OPTIONS="--max-old-space-size=2048"
+
+# ============================================================================
+# WORKDIR
+# ============================================================================
+WORKDIR /app
+
+# ============================================================================
+# DEPENDENCIES
+# ============================================================================
+# Install dev tools
+RUN apk add --no-cache \
+    curl \
+    git \
+    bash \
+    dumb-init \
+    build-base \
+    python3
+
+# ============================================================================
+# NPM DEPENDENCIES
+# ============================================================================
+# Copy package files
+COPY package*.json ./
+
+# Install all dependencies (including devDependencies)
+RUN npm ci --legacy-peer-deps
+
+# ============================================================================
+# SOURCE CODE
+# ============================================================================
+# Copy source code
+COPY . .
+
+# ============================================================================
+# ENTRYPOINT
+# ============================================================================
+ENTRYPOINT ["/sbin/dumb-init", "--"]
+
+# ============================================================================
+# STARTUP COMMAND
+# ============================================================================
+# Start Vite dev server with HMR
+CMD ["npm", "run", "dev"]
+
+# ============================================================================
+# EXPOSE PORTS
+# ============================================================================
+# Vite dev server (HTTP)
+EXPOSE 5173
+
+# Vite HMR WebSocket
+EXPOSE 24678
+
+# ============================================================================
+# VOLUMES (for docker run)
+# ============================================================================
+# Uncomment to mount source code for hot reload
+# VOLUME ["/app/src", "/app/public"]
+
+# ============================================================================
+# HEALTHCHECK
+# ============================================================================
+HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=3 \
+  CMD curl -f http://localhost:5173 || exit 1
+
+# ============================================================================
+# USAGE EXAMPLES
+# ============================================================================
+#
+# Build:
+#   docker build -f Dockerfile.dev -t primeos:dev .
+#
+# Run (interactive):
+#   docker run -it -p 5173:5173 -v $(pwd)/src:/app/src primeos:dev
+#
+# Run in Docker Compose:
+#   Use Dockerfile.dev in docker-compose.dev.yml:
+#   services:
+#     primeos-dev:
+#       build:
+#         context: .
+#         dockerfile: Dockerfile.dev
+#       ports:
+#         - "5173:5173"
+#       volumes:
+#         - ./src:/app/src
+#         - ./public:/app/public
+#       environment:
+#         - VITE_LOCAL_MODE=true
+#         - VITE_SUPABASE_URL=http://supabase:54321
+#
+# ============================================================================

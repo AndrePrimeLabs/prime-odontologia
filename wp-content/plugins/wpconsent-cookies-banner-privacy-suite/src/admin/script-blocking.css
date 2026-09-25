@@ -1,0 +1,19 @@
+.wpconsent-metabox-form-row-input.disabled .description {
+	opacity: 0.5;
+}   
+
+.wpconsent-metabox-form-row-input.disabled .wpconsent-checkbox-toggle {
+    cursor: not-allowed;
+    pointer-events: none;
+	opacity: 0.5;
+}
+
+.description {
+	& + .wpconsent-help-tooltip {
+		padding-top: 12px;
+		margin-left: 10px;
+		position: absolute;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}

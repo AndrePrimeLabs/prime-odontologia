@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrimeOsHub — Módulo Marketplace</title>
+<style>
+/* ---------------------------------------------------------------
+   Theme tokens — fallbacks so this renders correctly standalone
+   (nginx on Palit Pandora / Jetson Orin NX), not just inside
+   the Claude artifact runtime. Matches primeos_full_ecosystem.html.
+--------------------------------------------------------------- */
+:root{
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f6f6f8;
+  --color-text-primary:#17171a;
+  --color-text-secondary:#63636c;
+  --color-text-tertiary:#95959d;
+  --color-border-primary:#c7c7cf;
+  --color-border-secondary:#dadae0;
+  --color-border-tertiary:#e9e9ee;
+  --border-radius-lg:14px;
+  --border-radius-md:9px;
+  --brand:#534AB7;
+  --brand-tint:#EEEDFE;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-background-primary:#151517;
+    --color-background-secondary:#1d1d20;
+    --color-text-primary:#f2f2f4;
+    --color-text-secondary:#a5a5ad;
+    --color-text-tertiary:#77777f;
+    --color-border-primary:#3a3a40;
+    --color-border-secondary:#2c2c31;
+    --color-border-tertiary:#26262b;
+    --brand:#8B84E8;
+    --brand-tint:#26215C;
+  }
+}
+* { box-sizing:border-box; }
+html,body{ margin:0; padding:0; background:var(--color-background-primary); }
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--color-text-primary);
+}
+.wrap{ max-width:1180px; margin:0 auto; padding:1.25rem 1.5rem 3rem; }
+
+/* Topbar */
+.topbar{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.6rem;
+  padding-bottom:.9rem; border-bottom:0.5px solid var(--color-border-tertiary); margin-bottom:1.25rem; }
+.logo{ display:flex; align-items:center; gap:9px; }
+.logo-ring{ width:30px; height:30px; border-radius:50%; border:2px solid var(--brand); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.logo-dot{ width:11px; height:11px; border-radius:50%; background:var(--brand); }
+.logo-name{ font-size:16px; font-weight:600; color:var(--color-text-primary); }
+.logo-name span{ color:var(--brand); }
+.logo-sub{ font-weight:400; font-size:12px; color:var(--color-text-secondary); margin-left:6px; }
+.hw-pill{ font-size:11px; padding:4px 11px; border-radius:20px; background:var(--color-background-secondary);
+  border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary); display:flex; align-items:center; gap:6px; white-space:nowrap; }
+.hw-dot{ width:6px; height:6px; border-radius:50%; background:#1D9E75; flex-shrink:0; }
+
+/* Filters */
+.filters{ display:flex; flex-direction:column; gap:.65rem; margin-bottom:1.1rem; }
+.search-row{ display:flex; gap:.5rem; }
+.search-input{ flex:1; font-size:13px; padding:9px 13px; border-radius:var(--border-radius-md);
+  border:0.5px solid var(--color-border-secondary); background:var(--color-background-secondary);
+  color:var(--color-text-primary); outline:none; }
+.search-input:focus{ border-color:var(--brand); }
+.clear-btn{ font-size:12px; padding:8px 13px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary);
+  background:transparent; color:var(--color-text-secondary); cursor:pointer; white-space:nowrap; }
+.clear-btn:hover{ border-color:var(--color-border-primary); color:var(--color-text-primary); }
+.filter-group{ display:flex; flex-direction:column; gap:5px; }
+.filter-label{ font-size:10px; font-weight:600; letter-spacing:.08em; color:var(--color-text-tertiary); text-transform:uppercase; }
+.chip-row{ display:flex; flex-wrap:wrap; gap:6px; }
+.chip{ font-size:11.5px; padding:5px 11px; border-radius:20px; border:0.5px solid var(--color-border-tertiary);
+  background:var(--color-background-primary); color:var(--color-text-secondary); cursor:pointer; user-select:none; transition:border-color .12s, background .12s, color .12s; }
+.chip:hover{ border-color:var(--color-border-primary); }
+.chip.active{ background:var(--brand); border-color:var(--brand); color:#fff; }
+
+/* Results */
+.results-row{ display:flex; align-items:center; justify-content:space-between; margin:.9rem 0 .7rem; }
+.results-count{ font-size:11.5px; color:var(--color-text-tertiary); }
+
+/* Grid */
+.grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+@media (max-width:860px){ .grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .grid{ grid-template-columns:1fr; } .topbar{ flex-direction:column; align-items:flex-start; } }
+
+.mcard{ background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg); padding:.85rem .95rem; cursor:pointer; transition:border-color .15s, background .15s, transform .1s; }
+.mcard:hover{ border-color:var(--color-border-primary); background:var(--color-background-secondary); }
+.mcard:active{ transform:scale(0.99); }
+.mcard-head{ display:flex; align-items:center; gap:9px; margin-bottom:6px; }
+.mcard-icon{ width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+  font-size:12px; font-weight:700; flex-shrink:0; }
+.mcard-name{ font-size:13.5px; font-weight:600; color:var(--color-text-primary); margin:0 0 1px; }
+.mcard-dept{ font-size:10.5px; color:var(--color-text-tertiary); margin:0; }
+.mcard-desc{ font-size:11.5px; color:var(--color-text-secondary); line-height:1.45; margin:0 0 8px; }
+.mcard-tags{ display:flex; flex-wrap:wrap; gap:4px; margin-bottom:8px; }
+.tag{ font-size:9.5px; padding:2px 7px; border-radius:6px; background:var(--color-background-secondary);
+  border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary); }
+.mcard-foot{ display:flex; align-items:center; justify-content:space-between; padding-top:7px; border-top:0.5px solid var(--color-border-tertiary); }
+.mcard-price{ font-size:12.5px; font-weight:600; color:var(--color-text-primary); }
+.mcard-price small{ font-weight:400; font-size:10px; color:var(--color-text-tertiary); }
+.tier-badge{ font-size:9.5px; padding:2.5px 8px; border-radius:10px; font-weight:600; }
+
+/* tier colors */
+.t-starter{ background:#F1EFE8; color:#444441; }
+.t-growth{ background:#E1F5EE; color:#085041; }
+.t-pro{ background:#E6F1FB; color:#0C447C; }
+.t-enterprise{ background:#FAEEDA; color:#633806; }
+.t-whitelabel{ background:#EEEDFE; color:#3C3489; }
+@media (prefers-color-scheme:dark){
+  .t-starter{ background:#2C2C2A; color:#D3D1C7; }
+  .t-growth{ background:#04342C; color:#9FE1CB; }
+  .t-pro{ background:#042C53; color:#B5D4F4; }
+  .t-enterprise{ background:#412402; color:#FAC775; }
+  .t-whitelabel{ background:#26215C; color:#CECBF6; }
+}
+
+.empty{ text-align:center; padding:3rem 1rem; color:var(--color-text-tertiary); font-size:13px; }
+
+/* Detail modal */
+.overlay{ position:fixed; inset:0; background:rgba(0,0,0,.35); display:none; align-items:flex-start; justify-content:center;
+  padding:5vh 1rem; z-index:50; overflow-y:auto; }
+.overlay.show{ display:flex; }
+.modal{ background:var(--color-background-primary); border:0.5px solid var(--color-border-primary);
+  border-radius:var(--border-radius-lg); max-width:520px; width:100%; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,.18); }
+.modal-head{ display:flex; align-items:center; justify-content:space-between; padding:.9rem 1.1rem; border-bottom:0.5px solid var(--color-border-tertiary); }
+.modal-title-row{ display:flex; align-items:center; gap:10px; }
+.modal-icon{ width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; }
+.modal-title{ font-size:14.5px; font-weight:600; color:var(--color-text-primary); }
+.modal-dept{ font-size:11px; color:var(--color-text-tertiary); }
+.modal-close{ font-size:20px; cursor:pointer; color:var(--color-text-secondary); line-height:1; padding:0 4px; background:none; border:none; }
+.modal-body{ padding:1rem 1.1rem; }
+.modal-desc{ font-size:12.5px; color:var(--color-text-secondary); line-height:1.55; margin:0 0 .9rem; }
+.modal-section-label{ font-size:10px; font-weight:600; letter-spacing:.08em; color:var(--color-text-tertiary); text-transform:uppercase; margin:0 0 .4rem; }
+.feat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:1rem; }
+.feat{ font-size:11.5px; color:var(--color-text-secondary); display:flex; align-items:flex-start; gap:6px; }
+.feat::before{ content:"✓"; color:var(--brand); font-weight:700; flex-shrink:0; }
+.modal-tags{ display:flex; flex-wrap:wrap; gap:5px; margin-bottom:1rem; }
+.modal-foot{ display:flex; align-items:center; justify-content:space-between; padding:.85rem 1.1rem; border-top:0.5px solid var(--color-border-tertiary); }
+.modal-price{ font-size:15px; font-weight:700; color:var(--color-text-primary); }
+.modal-price small{ font-weight:400; font-size:11px; color:var(--color-text-tertiary); }
+.cta-btn{ font-size:12px; padding:7px 16px; border-radius:20px; border:0.5px solid var(--brand); background:var(--brand); color:#fff; cursor:pointer; font-weight:500; }
+.cta-btn:hover{ opacity:.9; }
+
+/* BMC strip */
+.bmc-strip{ margin-top:2rem; }
+.section-label{ font-size:10px; font-weight:600; letter-spacing:.08em; color:var(--color-text-tertiary); text-transform:uppercase; margin:0 0 .6rem; }
+.bmc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+@media (max-width:700px){ .bmc-grid{ grid-template-columns:repeat(2,1fr); } }
+.bmc-cell{ background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-md);
+  padding:.55rem .7rem; cursor:pointer; }
+.bmc-cell:hover{ border-color:var(--color-border-primary); }
+.bmc-cell.active{ border-color:var(--brand); }
+.bmc-name{ font-size:11.5px; font-weight:600; color:var(--color-text-primary); margin:0 0 1px; }
+.bmc-count{ font-size:10px; color:var(--color-text-tertiary); margin:0; }
+
+.footnote{ margin-top:1.6rem; font-size:10.5px; color:var(--color-text-tertiary); text-align:center; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-ring"><div class="logo-dot"></div></div>
+      <span class="logo-name">PrimeOS<span>Hub</span><span class="logo-sub">Module Marketplace</span></span>
+    </div>
+    <div class="hw-pill"><span class="hw-dot"></span>Palit Pandora · NVIDIA JetPack 6 · local instance</div>
+  </div>
+
+  <div class="filters">
+    <div class="search-row">
+      <input class="search-input" id="search" type="text" placeholder="Buscar módulos... (ex: financeiro, WhatsApp, clínica)">
+      <button class="clear-btn" id="clearBtn">Limpar filtros</button>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-label">Vertical de mercado</span>
+      <div class="chip-row" id="verticalChips"></div>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-label">Plano / tier</span>
+      <div class="chip-row" id="tierChips"></div>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-label">Bloco do Business Model Canvas</span>
+      <div class="chip-row" id="bmcChips"></div>
+    </div>
+  </div>
+
+  <div class="results-row">
+    <span class="results-count" id="resultsCount"></span>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="emptyState" style="display:none">Nenhum módulo encontrado com esses filtros.</div>
+
+  <div class="bmc-strip">
+    <p class="section-label">Cobertura dos 9 blocos do Business Model Canvas</p>
+    <div class="bmc-grid" id="bmcStrip"></div>
+  </div>
+
+  <p class="footnote">
+    Catálogo estático · pronto para integração com PrimeOS Core / Supabase.<br>
+    Troque MODULES abaixo por uma chamada de API para dados ao vivo.
+  </p>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title-row">
+        <div class="modal-icon" id="mIcon"></div>
+        <div>
+          <div class="modal-title" id="mTitle"></div>
+          <div class="modal-dept" id="mDept"></div>
+        </div>
+      </div>
+      <button class="modal-close" id="mClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc" id="mDesc"></p>
+      <p class="modal-section-label">Recursos incluídos</p>
+      <div class="feat-grid" id="mFeats"></div>
+      <p class="modal-section-label">Verticais atendidas</p>
+      <div class="modal-tags" id="mVerticals"></div>
+      <p class="modal-section-label">Blocos BMC suportados</p>
+      <div class="modal-tags" id="mBmc"></div>
+    </div>
+    <div class="modal-foot">
+      <div class="modal-price" id="mPrice"></div>
+      <button class="cta-btn" id="mCta">Adicionar ao pacote</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------------------------------------------------------------
+   DATA LAYER — replace this array with a fetch() to PrimeOS Core /
+   Supabase once integrated. Shape is API-ready as-is.
+--------------------------------------------------------------- */
+const TIERS = [
+  { id:'starter',     label:'Starter',     cls:'t-starter',     rank:1 },
+  { id:'growth',       label:'Growth',      cls:'t-growth',       rank:2 },
+  { id:'pro',          label:'Pro',         cls:'t-pro',          rank:3 },
+  { id:'enterprise',   label:'Enterprise',  cls:'t-enterprise',   rank:4 },
+  { id:'whitelabel',   label:'White-Label', cls:'t-whitelabel',   rank:5 },
+];
+
+const VERTICALS = ['Todas','Retail','Health','Education','Logistics','Financial Services','Hospitality','Manufacturing','Services','Technology','Construction','Agriculture'];
+
+const BMC_BLOCKS = [
+  { id:'kp',   name:'Key Partners' },
+  { id:'kact', name:'Key Activities' },
+  { id:'kres', name:'Key Resources' },
+  { id:'vp',   name:'Value Proposition' },
+  { id:'cr',   name:'Customer Relationships' },
+  { id:'ch',   name:'Channels' },
+  { id:'cseg', name:'Customer Segments' },
+  { id:'cs',   name:'Cost Structure' },
+  { id:'rs',   name:'Revenue Streams' },
+];
+
+const MODULES = [
+  { id:'fin-core', name:'Finance Core', dept:'Finances', icon:'FC', color:'#27500A', bg:'#EAF3DE',
+    verticals:['Todas'], tier:'starter', bmc:['cs','rs'], price:297,
+    desc:'Gestão financeira completa com previsão por IA — orçamento, fluxo de caixa, faturamento e DRE, com compliance fiscal BR.',
+    features:['Planejamento orçamentário','Previsão de fluxo de caixa','Faturamento automático','DRE e P&L','Compliance fiscal BR','Alertas de gastos por IA'] },
+
+  { id:'mkt-hub', name:'Marketing Hub', dept:'Marketing', icon:'MK', color:'#3C3489', bg:'#EEEDFE',
+    verticals:['Todas'], tier:'growth', bmc:['ch','cr'], price:397,
+    desc:'Gestão de campanhas multicanal, funil de leads, calendário de conteúdo, SEO e agendador social com análise de ROI.',
+    features:['Construtor de campanhas','CRM com lead scoring','Calendário de conteúdo','Rastreador SEO','Agendador social','Painel de ROI'] },
+
+  { id:'sales-pipe', name:'Sales Pipeline', dept:'Sales', icon:'SP', color:'#633806', bg:'#FAEEDA',
+    verticals:['Todas'], tier:'growth', bmc:['rs','cr'], price:397,
+    desc:'Pipeline com IA, rastreamento de negócios, construtor de orçamentos, cálculo de comissão e previsão de win/loss.',
+    features:['Kanban de pipeline','Pontuação de negócios por IA','Construtor de orçamentos','Motor de comissões','Análise win/loss','Painel de previsão'] },
+
+  { id:'ops-suite', name:'Operations Suite', dept:'Operations', icon:'OP', color:'#085041', bg:'#E1F5EE',
+    verticals:['Todas'], tier:'starter', bmc:['kact'], price:297,
+    desc:'Automação de processos, escalas de equipe, KPIs, monitoramento de SLA e templates de workflow para qualquer vertical.',
+    features:['Construtor de workflows','Automação de tarefas','Escala de equipe','Painel de KPIs','Monitoramento de SLA','Templates de processo'] },
+
+  { id:'clara-agent', name:'Clara — WhatsApp Agent', dept:'AI Agents', icon:'CL', color:'#3C3489', bg:'#EEEDFE',
+    verticals:['Todas'], tier:'pro', bmc:['ch','cr'], price:897,
+    desc:'Assistente virtual da PrimeOsHub via WhatsApp. Onboarding, suporte, vendas e agendamento 24/7, construída sobre OpenClaw + NemoClaw.',
+    features:['WhatsApp Business API','Respostas com NLP','Captura de leads no CRM','Agendamento automático','Multilíngue PT/EN/ES','Escalonamento humano'] },
+
+  { id:'luzia-agent', name:'Luzia — Governance Agent', dept:'AI Agents', icon:'LZ', color:'#085041', bg:'#E1F5EE',
+    verticals:['Todas'], tier:'enterprise', bmc:['kact','kp'], price:1497,
+    desc:'Agente interno de governança do sistema. Monitora saúde do sistema, aplica políticas e gera relatórios de auditoria dentro do sandbox NemoClaw.',
+    features:['Monitoramento de saúde do sistema','Motor de políticas','Relatórios de compliance','Detecção de anomalias','Orquestração entre módulos','Painel de governança'] },
+
+  { id:'health-records', name:'Prontuário Clínico', dept:'Health Vertical', icon:'PC', color:'#712B13', bg:'#FAECE7',
+    verticals:['Health'], tier:'starter', bmc:['vp'], price:347,
+    desc:'Prontuário eletrônico completo para clínicas — histórico do paciente, evolução, prescrições e imagens integradas.',
+    features:['Histórico do paciente','Evolução clínica','Prescrição digital','Anexo de exames/imagens','Assinatura digital','Exportação LGPD-compliant'] },
+
+  { id:'clinical-sched', name:'Clinical Scheduling', dept:'Health Vertical', icon:'CS', color:'#712B13', bg:'#FAECE7',
+    verticals:['Health'], tier:'starter', bmc:['kact'], price:247,
+    desc:'Agenda clínica com confirmação automática, lista de espera inteligente e sincronização com Clara para lembretes via WhatsApp.',
+    features:['Agenda multi-profissional','Confirmação automática','Lista de espera inteligente','Lembretes via WhatsApp','Bloqueio de horários','Relatório de ocupação'] },
+
+  { id:'school-mgmt', name:'School Management', dept:'Education Vertical', icon:'SM', color:'#0C447C', bg:'#E6F1FB',
+    verticals:['Education'], tier:'starter', bmc:['vp'], price:297,
+    desc:'Gestão escolar — matrícula, notas, frequência, comunicação com responsáveis e portal do aluno.',
+    features:['Matrícula digital','Diário de classe','Boletim e frequência','Portal do responsável','Comunicados em massa','Financeiro escolar'] },
+
+  { id:'fleet-tracker', name:'Fleet & Logistics Tracker', dept:'Logistics Vertical', icon:'FL', color:'#444441', bg:'#F1EFE8',
+    verticals:['Logistics'], tier:'growth', bmc:['kact','kres'], price:447,
+    desc:'Rastreamento de frota em tempo real, roteirização inteligente, manutenção preventiva e custo por rota.',
+    features:['Rastreamento em tempo real','Roteirização por IA','Manutenção preventiva','Custo por rota','Gestão de motoristas','Alertas de desvio'] },
+
+  { id:'fintech-compliance', name:'Fintech Compliance', dept:'Financial Services Vertical', icon:'FT', color:'#0C447C', bg:'#E6F1FB',
+    verticals:['Financial Services'], tier:'pro', bmc:['cs','kp'], price:897,
+    desc:'Motor de compliance regulatório para instituições financeiras — KYC, AML, relatórios ao Bacen e trilha de auditoria.',
+    features:['Verificação KYC','Monitoramento AML','Relatórios regulatórios','Trilha de auditoria','Gestão de risco','Integração com parceiros'] },
+
+  { id:'retail-pos', name:'Retail POS & Inventory', dept:'Retail Vertical', icon:'RP', color:'#444441', bg:'#F1EFE8',
+    verticals:['Retail'], tier:'starter', bmc:['kres','ch'], price:297,
+    desc:'PDV integrado com controle de estoque multi-loja, e-commerce e sincronização em tempo real.',
+    features:['PDV omnichannel','Estoque multi-loja','Sincronização com e-commerce','Curva ABC de produtos','Emissão fiscal','Alertas de reposição'] },
+
+  { id:'hospitality-booking', name:'Hospitality Booking Engine', dept:'Hospitality Vertical', icon:'HB', color:'#085041', bg:'#E1F5EE',
+    verticals:['Hospitality'], tier:'growth', bmc:['ch'], price:397,
+    desc:'Motor de reservas para hotéis e restaurantes, com gestão de disponibilidade, overbooking controlado e canais OTA.',
+    features:['Motor de reservas próprio','Gestão de disponibilidade','Integração com OTAs','Check-in digital','Overbooking controlado','Relatório de ocupação'] },
+
+  { id:'manufacturing-mes', name:'Manufacturing MES', dept:'Manufacturing Vertical', icon:'MF', color:'#633806', bg:'#FAEEDA',
+    verticals:['Manufacturing'], tier:'pro', bmc:['kact'], price:797,
+    desc:'Sistema de execução de manufatura — ordens de produção, controle de chão de fábrica e rastreabilidade de lote.',
+    features:['Ordens de produção','Apontamento de chão de fábrica','Rastreabilidade de lote','OEE em tempo real','Controle de qualidade','Integração com ERP'] },
+
+  { id:'analytics-bi', name:'Analytics & BI', dept:'Cross-Module', icon:'AB', color:'#3C3489', bg:'#EEEDFE',
+    verticals:['Todas'], tier:'whitelabel', bmc:['kres','vp','cseg'], price:1997,
+    desc:'Camada de business intelligence unificada sobre todos os módulos — dashboards white-label, segmentação de clientes e insights por IA.',
+    features:['Dashboards white-label','Segment builder','Biblioteca de personas','Modelo de lifetime value','Insights por IA','Exportação para BI externo'] },
+];
+
+/* ---------------------------------------------------------------
+   STATE + RENDER
+--------------------------------------------------------------- */
+let state = { search:'', vertical:'Todas', tier:null, bmc:null };
+
+function tierMeta(id){ return TIERS.find(t => t.id === id); }
+function bmcMeta(id){ return BMC_BLOCKS.find(b => b.id === id); }
+function fmtBRL(v){ return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0}); }
+
+function buildChips(){
+  const vWrap = document.getElementById('verticalChips');
+  vWrap.innerHTML = VERTICALS.map(v =>
+    `<span class="chip ${state.vertical===v?'active':''}" data-vertical="${v}">${v}</span>`).join('');
+
+  const tWrap = document.getElementById('tierChips');
+  tWrap.innerHTML = `<span class="chip ${!state.tier?'active':''}" data-tier="">Todos</span>` +
+    TIERS.map(t => `<span class="chip ${state.tier===t.id?'active':''}" data-tier="${t.id}">${t.label}</span>`).join('');
+
+  const bWrap = document.getElementById('bmcChips');
+  bWrap.innerHTML = `<span class="chip ${!state.bmc?'active':''}" data-bmc="">Todos</span>` +
+    BMC_BLOCKS.map(b => `<span class="chip ${state.bmc===b.id?'active':''}" data-bmc="${b.id}">${b.name}</span>`).join('');
+
+  vWrap.querySelectorAll('.chip').forEach(c => c.onclick = () => { state.vertical = c.dataset.vertical; render(); });
+  tWrap.querySelectorAll('.chip').forEach(c => c.onclick = () => { state.tier = c.dataset.tier || null; render(); });
+  bWrap.querySelectorAll('.chip').forEach(c => c.onclick = () => { state.bmc = c.dataset.bmc || null; render(); });
+}
+
+function matches(m){
+  const q = state.search.trim().toLowerCase();
+  if (q && !(m.name.toLowerCase().includes(q) || m.desc.toLowerCase().includes(q) || m.dept.toLowerCase().includes(q))) return false;
+  if (state.vertical !== 'Todas' && !(m.verticals.includes('Todas') || m.verticals.includes(state.vertical))) return false;
+  if (state.tier && tierMeta(m.tier).rank > tierMeta(state.tier).rank) return false;
+  if (state.bmc && !m.bmc.includes(state.bmc)) return false;
+  return true;
+}
+
+function render(){
+  buildChips();
+  const list = MODULES.filter(matches);
+  document.getElementById('resultsCount').textContent = `${list.length} de ${MODULES.length} módulos`;
+
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('emptyState');
+  if (!list.length){ grid.innerHTML=''; empty.style.display='block'; }
+  else{
+    empty.style.display='none';
+    grid.innerHTML = list.map(m => {
+      const t = tierMeta(m.tier);
+      return `<div class="mcard" data-id="${m.id}">
+        <div class="mcard-head">
+          <div class="mcard-icon" style="background:${m.bg};color:${m.color}">${m.icon}</div>
+          <div><p class="mcard-name">${m.name}</p><p class="mcard-dept">${m.dept}</p></div>
+        </div>
+        <p class="mcard-desc">${m.desc}</p>
+        <div class="mcard-tags">${m.verticals.slice(0,3).map(v=>`<span class="tag">${v}</span>`).join('')}</div>
+        <div class="mcard-foot">
+          <span class="mcard-price">${fmtBRL(m.price)}<small>/mês</small></span>
+          <span class="tier-badge ${t.cls}">${t.label}</span>
+        </div>
+      </div>`;
+    }).join('');
+    grid.querySelectorAll('.mcard').forEach(c => c.onclick = () => openModal(c.dataset.id));
+  }
+
+  renderBmcStrip();
+}
+
+function renderBmcStrip(){
+  const strip = document.getElementById('bmcStrip');
+  strip.innerHTML = BMC_BLOCKS.map(b => {
+    const count = MODULES.filter(m => m.bmc.includes(b.id)).length;
+    return `<div class="bmc-cell ${state.bmc===b.id?'active':''}" data-bmc="${b.id}">
+      <p class="bmc-name">${b.name}</p><p class="bmc-count">${count} módulo${count===1?'':'s'}</p>
+    </div>`;
+  }).join('');
+  strip.querySelectorAll('.bmc-cell').forEach(c => c.onclick = () => {
+    state.bmc = state.bmc === c.dataset.bmc ? null : c.dataset.bmc;
+    render();
+  });
+}
+
+/* Modal */
+function openModal(id){
+  const m = MODULES.find(x => x.id === id);
+  if (!m) return;
+  const t = tierMeta(m.tier);
+  document.getElementById('mIcon').style.background = m.bg;
+  document.getElementById('mIcon').style.color = m.color;
+  document.getElementById('mIcon').textContent = m.icon;
+  document.getElementById('mTitle').textContent = m.name;
+  document.getElementById('mDept').textContent = m.dept;
+  document.getElementById('mDesc').textContent = m.desc;
+  document.getElementById('mFeats').innerHTML = m.features.map(f => `<div class="feat">${f}</div>`).join('');
+  document.getElementById('mVerticals').innerHTML = m.verticals.map(v => `<span class="tag">${v}</span>`).join('');
+  document.getElementById('mBmc').innerHTML = m.bmc.map(id => `<span class="tag">${bmcMeta(id).name}</span>`).join('');
+  document.getElementById('mPrice').innerHTML = `${fmtBRL(m.price)}<small>/mês · ${t.label}</small>`;
+  document.getElementById('overlay').classList.add('show');
+}
+function closeModal(){ document.getElementById('overlay').classList.remove('show'); }
+
+document.getElementById('mClose').onclick = closeModal;
+document.getElementById('overlay').onclick = e => { if (e.target.id === 'overlay') closeModal(); };
+document.getElementById('search').oninput = e => { state.search = e.target.value; render(); };
+document.getElementById('clearBtn').onclick = () => { state = { search:'', vertical:'Todas', tier:null, bmc:null }; document.getElementById('search').value=''; render(); };
+
+render();
+</script>
+</body>
+</html>

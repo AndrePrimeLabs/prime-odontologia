@@ -1,0 +1,54 @@
+{
+  "admin": [
+    "lib-elementor-elementor-one-assets-a0820159.js",
+    "lib-elementor-elementor-one-assets-2afd9cda.js",
+    "lib-elementor-ui-9a338c71.js",
+    "lib-elementor-ui-72a2e8f2.js",
+    "lib-elementor-ui-a7301f0a.js",
+    "lib-elementor-ui-f8ab54a8.js",
+    "lib-elementor-ui-684ff3dc.js",
+    "lib-elementor-ui-c665d094.js",
+    "lib-elementor-ui-88d104fc.js",
+    "lib-elementor-ui-923dea70.js",
+    "lib-elementor-ui-3dc09658.js",
+    "lib-elementor-ui-814f19b1.js",
+    "lib-elementor-ui-99b192b6.js",
+    "lib-elementor-ui-3662744a.js",
+    "lib-elementor-icons.js",
+    "lib-mui-utils.js",
+    "lib-react-property.js",
+    "lib-domhandler.js",
+    "lib-popperjs-core.js",
+    "866.js",
+    "5641.js",
+    "admin.js"
+  ],
+  "scanner": [
+    "scanner.js"
+  ],
+  "remediation-module": [
+    "lib-postcss.js",
+    "remediation-module.js"
+  ],
+  "ea11y-scanner-wizard": [
+    "ea11y-scanner-wizard.js"
+  ],
+  "ea11y-scanner-admin": [
+    "ea11y-scanner-admin.js"
+  ],
+  "fonts": [
+    "fonts.js"
+  ],
+  "skip-link": [
+    "skip-link.js"
+  ],
+  "gutenberg-custom-link": [
+    "gutenberg-custom-link.js"
+  ],
+  "deactivation-ally": [
+    "deactivation-ally.js"
+  ],
+  "reviews": [
+    "reviews.js"
+  ]
+}

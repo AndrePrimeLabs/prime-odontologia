@@ -1,0 +1,98 @@
+<?php
+
+// phpcs:disable Generic.Commenting.DocComment.MissingShort
+/** @noinspection PhpIllegalPsrClassPathInspection */
+/** @noinspection AutoloadingIssuesInspection */
+// phpcs:enable Generic.Commenting.DocComment.MissingShort
+
+namespace WPForms\Integrations\AI;
+
+use WPForms\Integrations\IntegrationInterface;
+use WPForms\Integrations\AI\Admin\Ajax\Chat\Chat as ChatAjax;
+use WPForms\Integrations\AI\Admin\Ajax\Choices as ChoicesAjax;
+use WPForms\Integrations\AI\Admin\Ajax\Forms as FormsAjax;
+use WPForms\Integrations\AI\Admin\Builder\Enqueues;
+use WPForms\Integrations\AI\Admin\Builder\FieldOption;
+use WPForms\Integrations\AI\Admin\Builder\FormEditor as FormEditorBuilder;
+use WPForms\Integrations\AI\Admin\Builder\Forms as FormsEnqueues;
+use WPForms\Integrations\AI\Admin\Ajax\FormEditor as FormEditorAjax;
+use WPForms\Integrations\AI\Admin\Chat\Chat as ChatPage;
+use WPForms\Integrations\AI\Admin\Pages\Templates as TemplatesPage;
+use WPForms\Integrations\AI\Admin\PrivacyPolicy;
+
+/**
+ * Integration of the AI features.
+ *
+ * @since 1.9.1
+ */
+class AI implements IntegrationInterface {
+
+	/**
+	 * Determine whether the integration is allowed to load.
+	 *
+	 * @since 1.9.1
+	 *
+	 * @return bool
+	 */
+	public function allow_load(): bool {
+
+		// Always load the Settings class to register the toggle.
+		if ( wpforms_is_admin_page( 'settings', 'misc' ) ) {
+			( new Admin\Settings() )->init();
+		}
+
+		return ! Helpers::is_disabled();
+	}
+
+	/**
+	 * Load the integration classes.
+	 *
+	 * @since 1.9.1
+	 *
+	 * @noinspection ReturnTypeCanBeDeclaredInspection
+	 */
+	public function load() {
+
+		// The suggested text is registered only while the AI features are enabled, matching
+		// plugin-deactivation semantics: text already copied into a policy is unaffected.
+		if ( is_admin() ) {
+			( new PrivacyPolicy() )->init();
+		}
+
+		if ( wpforms_is_admin_page( 'builder' ) ) {
+			( new Enqueues() )->init();
+			( new FieldOption() )->init();
+			( new FormsEnqueues() )->init();
+			( new FormEditorBuilder() )->init();
+		}
+
+		if ( wpforms_is_admin_page( 'templates' ) ) {
+			( new TemplatesPage() )->init();
+		}
+
+		// Chat::init() registers default-scope/surface filter callbacks. The singleton registries
+		// auto-init on first access from the AJAX handler, so Chat must also run on AJAX requests
+		// to attach those callbacks before the handler triggers the boot.
+		if ( wpforms_is_admin_page() || wpforms_is_admin_ajax() ) {
+			( new ChatPage() )->init();
+		}
+
+		if ( wpforms_is_admin_ajax() ) {
+			$this->load_ajax_classes();
+		}
+	}
+
+	/**
+	 * Load AJAX classes.
+	 *
+	 * @since 1.9.1
+	 */
+	protected function load_ajax_classes(): void {
+
+		( new FieldOption() )->init();
+		( new ChoicesAjax() )->init();
+		( new FormsAjax() )->init();
+		( new FormEditorAjax() )->init();
+		( new ChatAjax() )->init();
+	}
+}

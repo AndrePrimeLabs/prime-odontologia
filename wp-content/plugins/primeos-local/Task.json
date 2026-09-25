@@ -1,0 +1,2 @@
+import { createEntity } from './primeos';
+export const Task = createEntity('tasks');

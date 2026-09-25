@@ -1,0 +1,993 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Big Sky\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:25:55+00:00\n"
+"PO-Revision-Date: 2026-09-03 02:57:51+0000\n"
+"Language: th\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:74
+msgid "Here is the visible area of the canvas. Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "นี่คือพื้นที่ที่มองเห็นได้ของผ้าใบ รูปถ่ายจะแสดงเป็นกล่องแทนที่แบนราบในขนาดจริง ดังนั้นให้ถือว่าร rectangles สีเทาเป็นรูปที่มีอยู่ ไม่ใช่รูปที่ขาดหายไป"
+
+#. %d: number of blocks framed in the screenshot.
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:73
+msgid "Here is the canvas around %d block(s). Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "นี่คือผืนผ้าใบรอบๆ %d บล็อก รูปถ่ายจะแสดงเป็นกล่องแทนที่เรียบที่ขนาดจริง ดังนั้นให้ถือว่ากล่องสี่เหลี่ยมสีเทาเป็นรูปที่มีอยู่ ไม่ใช่รูปที่ขาดหายไป"
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:61
+msgid "Here is the whole page, top to bottom. It is scaled down to fit, so body text will not be legible — read it for colour, type scale, spacing and section rhythm, and take an ordinary picture of a specific area when wording or fine detail matters. Photographs are shown as flat placeholder boxes at their real size."
+msgstr "นี่คือหน้าทั้งหมด ตั้งแต่บนสุดจนถึงล่างสุด มันถูกย่อขนาดเพื่อให้พอดี ดังนั้นข้อความในเนื้อหาจะอ่านไม่ออก — อ่านเพื่อดูสี, ขนาดประเภท, การจัดระเบียบ และจังหวะของส่วนต่างๆ และถ่ายภาพธรรมดาของพื้นที่เฉพาะเมื่อคำพูดหรือรายละเอียดเล็กๆ สำคัญ ภาพถ่ายจะแสดงเป็นกล่องแทนที่เรียบในขนาดจริงของมัน"
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:47
+msgid "I couldn't get a picture of the canvas just now."
+msgstr "เมื่อกี้ฉันถ่ายรูปผ้าใบไม่ได้เลย"
+
+#: src/abilities/capture-canvas/index.ts:18
+msgid "Takes a picture of the editor canvas as it currently renders, including unsaved changes. Use it to check how the page actually looks when the block data alone cannot answer that — after changing styles, colours, spacing or CSS, or whenever a reported problem is visual. Pass fullPage to see the whole page at once, which is what a theme or global styles change needs checking against. Photographs are replaced by flat placeholder boxes at their real size."
+msgstr "ถ่ายภาพของผืนผ้าใบตัวแก้ไขตามที่มันแสดงอยู่ในขณะนี้ รวมถึงการเปลี่ยนแปลงที่ยังไม่ได้บันทึก ใช้มันเพื่อตรวจสอบว่าหน้าจริงๆ ดูเป็นยังไงเมื่อข้อมูลบล็อกเพียงอย่างเดียวไม่สามารถตอบได้ — หลังจากเปลี่ยนสไตล์ สี ระยะห่าง หรือ CSS หรือเมื่อใดก็ตามที่ปัญหาที่รายงานเป็นปัญหาทางสายตา ส่ง fullPage เพื่อดูทั้งหน้าในครั้งเดียว ซึ่งเป็นสิ่งที่ธีมหรือการเปลี่ยนแปลงสไตล์ทั่วไปร้องขอให้ตรวจสอบ ภาพถ่ายจะถูกแทนที่ด้วยกล่องตัวแทนแบบแบนในขนาดจริงของมัน"
+
+#: src/abilities/capture-canvas/index.ts:16
+msgid "Capture Canvas"
+msgstr "จับภาพผ้าใบ"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:55
+msgid "Are there any changes you would like me to make?"
+msgstr "มีการเปลี่ยนแปลงอะไรที่คุณอยากให้ฉันทำไหม?"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:54
+msgid "Your site is ready! Please click around and check it out."
+msgstr "เว็บของคุณพร้อมแล้ว! โปรดกดดูรอบๆ และตรวจสอบมัน."
+
+#: src/easy-mode/components/app.tsx:439
+msgid "Switching to edit mode so you can watch the new design being built."
+msgstr "เปลี่ยนเป็นโหมดแก้ไขเพื่อให้คุณสามารถดูการสร้างดีไซน์ใหม่ได้"
+
+#: src/easy-mode/components/topbar.tsx:698
+msgid "Return to WP Admin"
+msgstr "กลับไปที่ผู้ควบคุม WP"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:313
+msgid "Personalize my site copy with my details."
+msgstr "ปรับแต่งคัดลอกเว็บของฉันด้วยรายละเอียดของฉัน"
+
+#: src/easy-mode/hooks/use-save-controller.ts:121
+msgid "Your changes could not be saved. Your work is still here — try saving again."
+msgstr "ไม่สามารถบันทึกการเปลี่ยนแปลงของคุณได้ งานของคุณยังอยู่ที่นี่ — ลองบันทึกอีกครั้ง."
+
+#: src/easy-mode/hooks/use-save-controller.ts:120
+msgid "Some changes could not be saved. Your work is still here — try saving again."
+msgstr "ไม่สามารถบันทึกการเปลี่ยนแปลงบางอย่างได้ งานของคุณยังอยู่ที่นี่ — ลองบันทึกอีกครั้ง."
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:66
+msgid "Save your changes?"
+msgstr "บันทึกการเปลี่ยนแปลงของคุณไหม?"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:33
+msgid "You need to save or discard the changes to the current page."
+msgstr "คุณต้องบันทึกหรือทิ้งการเปลี่ยนแปลงในหน้านี้"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:32
+msgid "The preview shows your saved site, so unsaved changes won’t appear there."
+msgstr "ตัวอย่างจะแสดงเว็บที่คุณบันทึกไว้ ดังนั้นการเปลี่ยนแปลงที่ยังไม่ได้บันทึกจะไม่ปรากฏที่นั่น."
+
+#: src/easy-mode/components/topbar.tsx:763
+msgid "Save draft"
+msgstr "บันทึกฉบับร่าง"
+
+#: src/easy-mode/components/topbar.tsx:749
+msgid "Publish"
+msgstr "เผยแพร่"
+
+#: src/easy-mode/components/topbar.tsx:713
+msgid "Redo"
+msgstr "กลับไปทำใหม่"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Open in a new tab"
+msgstr "เปิดในแท็บใหม่"
+
+#: src/easy-mode/components/topbar.tsx:68
+msgid "Mode"
+msgstr "โหมด"
+
+#. %s: selected device, e.g. Desktop.
+#: src/easy-mode/components/topbar.tsx:743
+msgid "Responsive view: %s"
+msgstr "การดูเรสปอนซิฟ: %s"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Responsive view"
+msgstr "การดูเรสปอนซิฟ"
+
+#: src/easy-mode/components/topbar.tsx:725
+msgid "Reload preview"
+msgstr "โหลดตัวอย่างใหม่"
+
+#: src/easy-mode/components/topbar.tsx:696
+msgid "Annotate"
+msgstr "ทำเครื่องหมาย"
+
+#. %d: number of annotations waiting to be sent.
+#: src/easy-mode/components/topbar.tsx:694
+msgid "Resume annotating, %d pending"
+msgid_plural "Resume annotating, %d pending"
+msgstr[0] "เริ่มการทำเครื่องหมายใหม่, %d รอตรวจสอบ"
+
+#: src/easy-mode/components/topbar.tsx:689
+msgid "Chat is unavailable"
+msgstr "แชทไม่พร้อมใช้งาน"
+
+#: src/easy-mode/components/topbar.tsx:56
+msgid "Mobile"
+msgstr "มือถือ"
+
+#: src/easy-mode/components/topbar.tsx:55
+msgid "Tablet"
+msgstr "แท็บเล็ต"
+
+#: src/easy-mode/components/topbar.tsx:54
+msgid "Desktop"
+msgstr "เดสก์ท็อป"
+
+#: src/easy-mode/components/topbar.tsx:50
+msgid "Preview"
+msgstr "ตัวอย่าง"
+
+#: src/easy-mode/components/preview-overlay.tsx:147
+msgid "The site preview could not be loaded."
+msgstr "ไม่สามารถโหลดตัวอย่างเว็บได้"
+
+#: src/easy-mode/components/page-switcher.tsx:116
+msgid "(no title)"
+msgstr "(ไม่มีชื่อ)"
+
+#. %s: page title.
+#: src/easy-mode/components/page-switcher.tsx:113
+msgid "%s — Draft"
+msgstr "%s — ฉบับร่าง"
+
+#. %s: page currently open.
+#: src/easy-mode/components/page-switcher.tsx:99
+msgid "Switch page. Current page: %s"
+msgstr "เปลี่ยนหน้า. หน้าปัจจุบัน: %s"
+
+#: src/easy-mode/components/page-switcher.tsx:76
+msgid "Switch page"
+msgstr "เปลี่ยนหน้า"
+
+#: src/easy-mode/components/app.tsx:301
+msgid "Switching to edit mode so you can see the changes."
+msgstr "เปลี่ยนเป็นโหมดแก้ไขเพื่อให้คุณเห็นการเปลี่ยนแปลง"
+
+#: src/easy-mode/components/app.tsx:300
+msgid "Switching to edit mode so you can approve the changes before saving."
+msgstr "เปลี่ยนเป็นโหมดแก้ไขเพื่อให้คุณสามารถอนุมัติการเปลี่ยนแปลงก่อนที่จะบันทึก"
+
+#: src/easy-mode/annotations/use-editor-annotations.ts:153
+msgid "Annotations could not be sent — the assistant is unavailable."
+msgstr "ไม่สามารถส่งคำอธิบายได้ — ผู้ช่วยไม่พร้อมใช้งาน."
+
+#. %d: number of annotations.
+#: src/easy-mode/annotations/prompt.ts:82
+msgid "%d annotation submitted"
+msgid_plural "%d annotations submitted"
+msgstr[0] "ส่งคำอธิบาย %d รายการ"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Annotating"
+msgstr "การทำหมายเหตุ"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Discard annotations"
+msgstr "ทิ้งคำอธิบาย"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Exit annotation mode"
+msgstr "ออกจากโหมดการแ annotat"
+
+#. %d: number of annotations to send.
+#: src/easy-mode/annotations/annotation-topbar.tsx:21
+msgid "Send %d annotation"
+msgid_plural "Send %d annotations"
+msgstr[0] "ส่ง %d คำอธิบาย"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:18
+msgid "Sending…"
+msgstr "กำลังส่ง…"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:14
+msgid "Send"
+msgstr "ส่ง"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:566
+msgid "Save annotation"
+msgstr "บันทึกหมายเหตุ"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:565
+msgid "Update annotation"
+msgstr "อัปเดตคำอธิบาย"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Delete annotation"
+msgstr "ลบหมายเหตุ"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Add a comment…"
+msgstr "เพิ่มความเห็น…"
+
+#. %s: label of the block being annotated.
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Annotate %s"
+msgstr "เพิ่มหมายเหตุ %s"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:445
+msgid "Annotate blocks. Use the arrow keys to move between blocks, Enter to comment, and Escape to exit."
+msgstr "ทำเครื่องหมายบล็อก ใช้ปุ่มลูกศรเพื่อย้ายระหว่างบล็อก, Enter เพื่อแสดงความเห็น, และ Escape เพื่อออก"
+
+#. 1: annotation number, 2: comment text.
+#: src/easy-mode/annotations/annotation-layer.tsx:367
+msgid "Annotation %1$d: %2$s"
+msgstr "หมายเหตุ %1$d: %2$s"
+
+#. 1: block label, 2: position, 3: total count.
+#: src/easy-mode/annotations/annotation-layer.tsx:341
+msgid "%1$s, block %2$d of %3$d"
+msgstr "%1$s, บล็อก %2$d ของ %3$d"
+
+#. %s: comma-separated list of navigation item identifiers that could not be
+#. resolved.
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:180
+msgid "Navigation items not found: %s. These are not in the menu or in the current page structure, so there is nothing to reorder them from — they are most likely from an earlier turn, or the header is not part of the page currently open in the editor. Read the page structure again and use the clientIds it returns, or identify each item by its url or label instead. This reorder was not applied."
+msgstr "ไม่พบรายการนำทาง: %s. รายการเหล่านี้ไม่มีในเมนูหรือในโครงสร้างหน้าปัจจุบัน ดังนั้นจึงไม่มีอะไรให้จัดเรียงใหม่ — พวกมันน่าจะมาจากการเปลี่ยนแปลงก่อนหน้านี้ หรือส่วนหัวไม่เป็นส่วนหนึ่งของหน้าที่เปิดอยู่ในตัวแก้ไข. อ่านโครงสร้างหน้าอีกครั้งและใช้ clientIds ที่มันส่งกลับมา หรือระบุแต่ละรายการโดยใช้ URL หรือป้ายชื่อแทน. การจัดเรียงใหม่นี้ไม่ได้ถูกนำไปใช้."
+
+#. Description of the plugin
+#: big-sky.php
+msgid "Your WordPress.com AI agent that helps with site setup, content, design, and more."
+msgstr "ตัวแทน AI ของคุณจาก WordPress.com ที่ช่วยในการตั้งค่าเว็บ, เนื้อหา, การออกแบบ, และอื่นๆ"
+
+#. Plugin Name of the plugin
+#: big-sky.php
+msgid "WordPress Agent"
+msgstr "เอเจนต์เวิร์ดเพรส"
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:23
+msgid "Invalid editor path. look up the numeric id from <site_pages>, then retry navigation with the numeric editor_path."
+msgstr "เส้นทางตัวแก้ไขไม่ถูกต้อง มองหา ID ตัวเลขจาก <site_pages> แล้วลองนำทางอีกครั้งด้วย editor_path ตัวเลข."
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:22
+msgid "Invalid editor path. Page navigation requires /page/{numeric-id}. Look up the page ID first."
+msgstr "เส้นทางตัวแก้ไขไม่ถูกต้อง. การนำทางหน้า ต้องการ /page/{numeric-id}. ดู ID หน้า ก่อนนะ."
+
+#: src/abilities/editor-navigate/index.ts:17
+msgid "Saves everything and navigates to the specified path in the editor. For page navigation, path must be a numeric editor path like \"/page/123\" or \"page/123\"; full URLs, slugs, \"all-pages\", and paths like \"/visit\" or \"/page/visit\" are invalid. If the user names a page and the current page is not the target, look up the numeric id from <site_pages> first, then navigate with the numeric editor path."
+msgstr "บันทึกทุกอย่างและนำทางไปยังเส้นทางที่ระบุในตัวแก้ไข สำหรับการนำทางหน้า เส้นทางต้องเป็นเส้นทางตัวแก้ไขที่เป็นตัวเลข เช่น \"/page/123\" หรือ \"page/123\"; URL เต็ม, slug, \"all-pages\", และเส้นทางเช่น \"/visit\" หรือ \"/page/visit\" ถือว่าไม่ถูกต้อง หากผู้ใช้ตั้งชื่อหน้าและหน้าปัจจุบันไม่ใช่เป้าหมาย ให้ค้นหา ID ตัวเลขจาก <site_pages> ก่อน แล้วจึงนำทางด้วยเส้นทางตัวแก้ไขที่เป็นตัวเลข."
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:94
+msgid "I did not restore that checkpoint because it may replace or remove too much current content."
+msgstr "ฉันไม่ได้กู้คืนจุดตรวจนั้นเพราะมันอาจจะแทนที่หรือลบออกเนื้อหาปัจจุบันมากเกินไป"
+
+#: src/abilities/restore-checkpoint/index.ts:19
+msgid "Restores editor state from a checkpoint associated with a previous mutating tool call. Use for undo/redo requests. Prefer checkpointId values from clientContext.availableCheckpoints whose toolId matches the user intent: block-edit checkpoints for content changes, theme-update checkpoints for style/theme changes, and navigation/entity checkpoints for navigation/entity changes. For undo, use the checkpointId for the most recent relevant non-restore mutating Big Sky tool call. Only use a checkpoint whose toolId is big_sky__restore_checkpoint for explicit redo requests, because those checkpoints represent the state before a prior undo/restore. Pass requestIntentType to describe the user intent: \"undo\" for undo requests, \"redo\" for redo requests, or \"restore\" when restoring a specific checkpoint/version. The checkpoint ID usually starts with \"toolu_\". Do not use the current restore-checkpoint call ID, any id starting with \"call_\", a tool name/id, or calypsoCheckpointId/messageId. If the user reports missing homepage/footer/navigation content, do not rebuild or redesign unless the user explicitly agrees; try a relevant checkpoint, WordPress revisions, or support escalation instead."
+msgstr "กู้คืนสถานะตัวแก้ไขจากจุดตรวจสอบที่เกี่ยวข้องกับการเรียกเครื่องมือที่เปลี่ยนแปลงก่อนหน้า ใช้สำหรับร้องขอการย้อนกลับ/ทำซ้ำ ควรใช้ค่า checkpointId จาก clientContext.availableCheckpoints ที่ toolId ตรงกับเจตนาของผู้ใช้: บล็อก-แก้ไขจุดตรวจสอบสำหรับการเปลี่ยนแปลงเนื้อหา, ธีม-อัปเดตจุดตรวจสอบสำหรับการเปลี่ยนแปลงสไตล์/ธีม, และนำทาง/เอนทิตีจุดตรวจสอบสำหรับการเปลี่ยนแปลงนำทาง/เอนทิตี สำหรับการย้อนกลับ ให้ใช้ checkpointId สำหรับการเรียกเครื่องมือ Big Sky ที่ไม่กู้คืนล่าสุดที่เกี่ยวข้องเท่านั้น ใช้จุดตรวจสอบที่มี toolId เป็น big_sky__restore_checkpoint สำหรับการร้องขอทำซ้ำที่ชัดเจน เพราะจุดตรวจสอบเหล่านั้นแสดงถึงสถานะก่อนการย้อนกลับ/กู้คืนก่อนหน้า ส่ง requestIntentType เพื่ออธิบายเจตนาของผู้ใช้: \"ย้อนกลับ\" สำหรับร้องขอย้อนกลับ, \"ทำซ้ำ\" สำหรับร้องขอทำซ้ำ, หรือ \"กู้คืน\" เมื่อกู้คืนจุดตรวจสอบ/รุ่นเฉพาะ ID ของจุดตรวจสอบมักเริ่มต้นด้วย \"toolu_\" อย่าใช้ ID ของการเรียกจุดตรวจสอบกู้คืนปัจจุบัน, ID ใดๆ ที่เริ่มต้นด้วย \"call_\", ชื่อ/ID ของเครื่องมือ, หรือ calypsoCheckpointId/messageId หากผู้ใช้รายงานเนื้อหาหน้าแรก/ส่วนท้าย/นำทางหายไป อย่าสร้างใหม่หรือออกแบบใหม่เว้นแต่ผู้ใช้จะเห็นด้วยอย่างชัดเจน; ลองจุดตรวจสอบที่เกี่ยวข้อง, การแก้ไขของเวิร์ดเพรส, หรือการสนับสนุนการเพิ่มขึ้นแทน"
+
+#: src/abilities/stream-page-design/index.ts:23
+msgid "The editor is still loading. Try the page design again once the page is editable."
+msgstr "ตัวแก้ไขกำลังโหลดอยู่ ยังไงลองออกแบบหน้าอีกครั้งเมื่อหน้าแก้ไขได้แล้ว"
+
+#: src/abilities/stream-page-design/index.ts:22
+msgid "The generated page content has been staged in the editor for review."
+msgstr "เนื้อหาหน้าที่สร้างขึ้นได้ถูกจัดเตรียมในตัวแก้ไขเพื่อการดู."
+
+#: src/abilities/stream-page-design/index.ts:21
+msgid "Stream Page Design"
+msgstr "ออกแบบหน้า Stream"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1372
+msgid "The requested changes were already applied."
+msgstr "การเปลี่ยนแปลงที่ร้องขอได้ถูกนำไปใช้แล้ว"
+
+#: src/components/open-help-center-button.tsx:20
+msgid "Open Help Center"
+msgstr "เปิดศูนย์ช่วยเหลือ"
+
+#: src/abilities/open-help-center.ts:200
+msgid "Get help"
+msgstr "ขอความช่วยเหลือ"
+
+#: src/abilities/open-help-center.ts:144
+msgid "Show the user a button they can click to open WordPress.com Help Center chat when they ask to talk to a human, contact support, or get help from a person. This ability does not open Help Center automatically."
+msgstr "แสดงปุ่มให้ผู้ใช้กดเพื่อเปิดแชทศูนย์ช่วยเหลือ WordPress.com เมื่อพวกเขาขอพูดคุยกับมนุษย์ ติดต่อสนับสนุน หรือขอความช่วยเหลือจากคน การทำงานนี้จะไม่เปิดศูนย์ช่วยเหลือโดยอัตโนมัติ"
+
+#: src/abilities/open-help-center.ts:142
+msgid "Show Help Center chat button"
+msgstr "แสดงปุ่มแชทศูนย์ช่วยเหลือ"
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:49
+msgid "I could not find a checkpoint for that ID."
+msgstr "ฉันไม่สามารถหาจุดตรวจสำหรับ ID นั้นได้"
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:39
+msgid "I could not restore the checkpoint because no checkpoint ID was provided."
+msgstr "ฉันไม่สามารถกู้คืนจุดตรวจสอบได้เพราะไม่มี ID จุดตรวจสอบที่ให้มา"
+
+#: src/abilities/restore-checkpoint/index.ts:17
+msgid "Restore Checkpoint"
+msgstr "กู้คืนจุดตรวจ"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:580
+msgid "Awaiting user confirmation before making this change."
+msgstr "รอการยืนยันจากผู้ใช้ก่อนที่จะทำการเปลี่ยนแปลงนี้."
+
+#: src/abilities/site-logo/set-site-logo.ts:71
+msgid "There was an error with this request."
+msgstr "มีผิดพลาดกับการร้องขอนี้."
+
+#: src/abilities/site-logo/set-site-logo.ts:58
+msgid "Logo set successfully"
+msgstr "ตั้งค่ารูปโลโก้เรียบร้อยแล้ว"
+
+#: src/abilities/show-component/show-component.tsx:175
+msgid "Choose from the options I provided."
+msgstr "เลือกจากตัวเลือกที่ฉันให้ไว้"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:592
+msgid "Updated the entity records."
+msgstr "อัปเดตบันทึกเอนทิตีแล้ว"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:442
+#: src/components/dock/index.js:429
+msgid "New chat"
+msgstr "เริ่มแชทใหม่"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:59
+msgid "How can you help me?"
+msgstr "คุณจะช่วยฉันได้ยังไง?"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:53
+msgid "What should I do next?"
+msgstr "ฉันควรทำอะไรต่อไปดี?"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:457
+msgid "Welcome to your new store! I'm your personal AI assistant. How can I help you?"
+msgstr "ยินดีต้อนรับสู่ร้านใหม่ของคุณ! ฉันคือผู้ช่วย AI ส่วนตัวของคุณ คุณต้องการให้ฉันช่วยอะไร?"
+
+#: src/components/product-card/ProductCard.tsx:51
+#: src/components/site-spec-landing/index.js:345
+msgid "Loading…"
+msgstr "กำลังโหลด"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:99
+msgid "Help me to connect PayPal Payments to my store"
+msgstr "ช่วยฉันเชื่อมต่อการชำระเงิน PayPal กับร้านของฉัน"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:98
+msgid "Connect PayPal Payments to my store"
+msgstr "เชื่อมต่อการชำระเงิน PayPal กับร้านของฉัน"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:93
+msgid "Recommend shipping zones and methods for my store"
+msgstr "แนะนำโซนการจัดส่งและวิธีการสำหรับร้านของฉัน"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:92
+msgid "Set up shipping rates"
+msgstr "ตั้งค่าอัตราค่าจัดส่ง"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:87
+msgid "Set my product pricing"
+msgstr "ตั้งราคาสินค้าของฉัน"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:81
+msgid "Help me to write a product description"
+msgstr "ช่วยฉันเขียนคำอธิบายผลิตภัณฑ์หน่อย"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:80
+msgid "Write a product description"
+msgstr "เขียนคำอธิบายสินค้า"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:75
+msgid "Help me to create a product"
+msgstr "ช่วยฉันสร้างผลิตภัณฑ์หน่อย"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:22
+msgid "Failed to make the theme update. Please try again."
+msgstr "ล้มเหลวในการอัปเดตธีม โปรดลองอีกครั้ง."
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:67
+msgid "Add to post"
+msgstr "เพิ่มลงในเรื่อง"
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:60
+msgid "Replace selected image"
+msgstr "เปลี่ยนรูปที่เลือก"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat"
+msgstr "เริ่มแชทใหม่"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat to begin"
+msgstr "เริ่มแชทใหม่เพื่อเริ่มต้น"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "No past conversations"
+msgstr "ไม่มีการสนทนาในอดีต"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Failed to load conversations. Please try again."
+msgstr "ล้มเหลวในการโหลดการสนทนา โปรดลองอีกครั้ง."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:449
+msgid "Past chats"
+msgstr "แชทที่ผ่านมา"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:276
+msgid "Failed to upload images. Please try again."
+msgstr "อัปโหลดรูปล้มเหลว โปรดลองอีกครั้ง."
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:37
+msgid "Tell me what you can do for me"
+msgstr "บอกฉันหน่อยว่าคุณทำอะไรให้ฉันได้บ้าง"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:74
+msgid "Create a product"
+msgstr "สร้างสินค้าใหม่"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:31
+msgid "Show me recent comments"
+msgstr "แสดงความเห็นล่าสุด"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:30
+msgid "Review comments"
+msgstr "ความเห็นการรีวิว"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:25
+msgid "Show me my site health status"
+msgstr "แสดงสถานะสุขภาพเว็บของฉัน"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:24
+msgid "Check site health"
+msgstr "ตรวจสอบสุขภาพเว็บ"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:19
+msgid "Help me create a new post"
+msgstr "ช่วยฉันสร้างเรื่องใหม่"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:18
+msgid "Create content"
+msgstr "สร้างเนื้อหา"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:13
+msgid "Show me my recent posts"
+msgstr "แสดงเรื่องล่าสุดของฉัน"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:12
+msgid "Manage posts"
+msgstr "จัดการเรื่อง"
+
+#: src/ai/hooks/suggestions-data.ts:91
+msgid "Remove the background from this image"
+msgstr "ลบพื้นหลังออกจากรูปนี้"
+
+#: src/ai/hooks/suggestions-data.ts:90
+msgid "Remove background"
+msgstr "ลบพื้นหลัง"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Discard"
+msgstr "ทิ้ง"
+
+#: src/easy-mode/components/topbar.tsx:761
+msgid "Saving…"
+msgstr "กำลังบันทึก"
+
+#: src/ai/wp-orchestrator/index.tsx:52
+msgid "Unable to authenticate with Jetpack. Please try again."
+msgstr "ไม่สามารถยืนยันตัวตนกับ Jetpack ได้ โปรดลองอีกครั้ง."
+
+#: src/ai/wp-orchestrator/index.tsx:50
+msgid "Network connection issue. Please check your internet connection and try again."
+msgstr "มีปัญหาในการเชื่อมต่อเครือข่าย โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณและลองอีกครั้ง"
+
+#: src/ai/wp-orchestrator/index.tsx:45
+msgid "Unable to connect to Jetpack. Please ensure Jetpack is active and up to date."
+msgstr "ไม่สามารถเชื่อมต่อกับ Jetpack ได้ โปรดตรวจสอบว่า Jetpack เปิดใช้งานและรุ่นล่าสุด"
+
+#: src/ai/wp-orchestrator/index.tsx:42
+msgid "You don't have permission to access AI features."
+msgstr "คุณไม่มีการอนุญาตเข้าถึงคุณสมบัติพิเศษของ AI."
+
+#: src/ai/wp-orchestrator/index.tsx:39
+msgid "Your session expired. Please refresh the page and try again."
+msgstr "เซสชันของคุณหมดอายุ โปรดรีเฟรชหน้าและลองอีกครั้ง."
+
+#: src/components/product-card/ProductCard.tsx:56
+msgid "Error: Product name is required"
+msgstr "ผิดพลาด: ชื่อผลิตภัณฑ์ต้องการ"
+
+#: src/components/product-card/ProductCard.tsx:87
+msgid "Product"
+msgstr "สินค้า"
+
+#: src/components/product-card/ProductCard.tsx:84
+msgid "Service"
+msgstr "บริการ"
+
+#: src/components/product-card/ProductCard.tsx:53
+msgid "Error: Could not render product card"
+msgstr "ผิดพลาด: ไม่สามารถแสดงการ์ดผลิตภัณฑ์ได้"
+
+#: src/components/product-card/ProductCard.tsx:25
+msgid "unit"
+msgid_plural "units"
+msgstr[0] ""
+
+#: src/easy-mode/components/preview-overlay.tsx:155
+#: src/components/index.js:200
+msgid "Retry"
+msgstr "ลองดูใหม่"
+
+#: src/abilities/set-styles/index.ts:20
+msgid "Apply color palette, font pairing, and button style variations to the WordPress site. Accepts variation titles (e.g., \"Professional\", \"Montserrat + Open Sans\") and applies the complete styling including colors, typography, button styles, and all associated theme variations."
+msgstr "ใช้พาเลตสี, การจับคู่แบบอักษร, และรูปแบบปุ่มที่แตกต่างกันกับเว็บเวิร์ดเพรส รับชื่อรูปแบบที่แตกต่าง (เช่น \"มืออาชีพ\", \"Montserrat + Open Sans\") และใช้การจัดสไตล์ทั้งหมดรวมถึงสี, ตัวอักษร, รูปแบบปุ่ม, และธีมที่เกี่ยวข้องทั้งหมด."
+
+#: src/abilities/set-styles/index.ts:18
+msgid "Set Styles"
+msgstr "ตั้งค่า สไตล์"
+
+#: src/abilities/add-pages/index.ts:19
+msgid "Creates multiple WordPress pages with generated content from patterns and layouts. Page titles are provided by the backend, and page content is composed from layout blocks. Also updates site navigation."
+msgstr "สร้างหน้าเวิร์ดเพรสหลายหน้าโดยใช้เนื้อหาที่สร้างจากแพตเทิร์นและเค้าโครง ชื่อหน้าจะถูกจัดเตรียมโดยแบ็คเอนด์ และเนื้อหาของหน้าจะประกอบจากบล็อกเค้าโครง นอกจากนี้ยังอัปเดตนำทางเว็บด้วย"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:82
+msgid "Failed to update styles:"
+msgstr "ล้มเหลวในการอัปเดตสไตล์: "
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:76
+msgid "Failed to update styles. The style variation may be invalid."
+msgstr "ล้มเหลวในการอัปเดตสไตล์ สไตล์ที่แตกต่างอาจใช้งานไม่ได้"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:62
+msgid "Styles updated successfully."
+msgstr "อัปเดตสไตล์เรียบร้อยแล้ว"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:38
+msgid "Invalid button format. Button must be a string (variation title)."
+msgstr "รูปแบบปุ่มไม่ถูกต้อง ปุ่มต้องเป็นสตริง (ชื่อเวอร์ชัน)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:31
+msgid "Invalid font format. Font must be a string (variation title)."
+msgstr "รูปแบบแบบอักษรไม่ถูกต้อง แบบอักษรต้องเป็นสตริง (ชื่อรูปแบบ)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:24
+msgid "Invalid color format. Color must be a string (variation title)."
+msgstr "รูปแบบสีไม่ถูกต้อง สีต้องเป็นสตริง (ชื่อความแปรผัน)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:17
+msgid "Invalid arguments. Provide at least one of: color, font, or button."
+msgstr "อาร์กิวเมนต์ไม่ถูกต้อง ให้ระบุอย่างน้อยหนึ่งใน: สี, แบบอักษร, หรือปุ่ม."
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:169
+msgid "Failed to create pages:"
+msgstr "ล้มเหลวในการสร้างหน้า: "
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:65
+msgid "Invalid pages. Must provide an array of page objects."
+msgstr "หน้าไม่ถูกต้อง ต้องระบุ \"\" ของวัตถุหน้า."
+
+#: src/abilities/site-logo/index.ts:17
+msgid "Set the site logo"
+msgstr "ตั้งค่ารูปโลโก้เว็บ"
+
+#: src/abilities/site-logo/index.ts:15
+msgid "Set Site Logo"
+msgstr "ตั้งค่ารูปโลโก้เว็บ"
+
+#: src/abilities/update-theme/index.ts:17
+msgid "Update WordPress theme settings and styles using theme.json format"
+msgstr "อัปเดตการตั้งค่าธีมเวิร์ดเพรสและสไตล์โดยใช้รูปแบบ theme.json"
+
+#: src/abilities/update-theme/index.ts:15
+msgid "Update Theme"
+msgstr "อัปเดตธีม"
+
+#: src/abilities/edit-entity-record/index.ts:17
+msgid "Create, edit, or delete WordPress data entity records using the data layer"
+msgstr "สร้าง แก้ไข หรือ ลบ ระเบียนเอนทิตีข้อมูลเวิร์ดเพรส โดยใช้เลเยอร์ข้อมูล"
+
+#: src/abilities/edit-entity-record/index.ts:15
+msgid "Manage Entity Records"
+msgstr "จัดการบันทึกเอนทิตี"
+
+#: src/abilities/show-component/index.ts:23
+msgid "Display a component in the UI with specified props"
+msgstr "แสดงคอมโพเนนต์ใน UI ด้วย props ที่กำหนด"
+
+#: src/abilities/show-component/index.ts:21
+msgid "Show Component"
+msgstr "แสดงส่วนประกอบ"
+
+#: src/abilities/client-assistants/index.ts:29
+msgid "Always use this if the user asks for something that requires a client-side assistant. Available assistants:"
+msgstr "ใช้สิ่งนี้เสมอถ้าผู้ใช้ขออะไรที่ต้องการผู้ช่วยด้านไคลเอนต์ ผู้ช่วยที่มีอยู่: "
+
+#: src/abilities/client-assistants/index.ts:27
+msgid "Execute Client Assistant"
+msgstr "ดำเนินการผู้ช่วยลูกค้า"
+
+#: src/abilities/apply-block-edits/index.ts:17
+msgid "Applies a collection of block edits to the canvas"
+msgstr "ใช้การแก้ไขบล็อกหลายรายการกับผืนผ้าใบ"
+
+#: src/abilities/apply-block-edits/index.ts:15
+msgid "Apply Block Edits"
+msgstr "ใช้การแก้ไขบล็อก"
+
+#: src/abilities/editor-navigate/index.ts:15
+msgid "Navigate"
+msgstr "นำทาง"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:131
+msgid "By updating the query, order posts from %s"
+msgstr "โดยการอัปเดตการสืบค้น, ส่งเรื่องจาก %s"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:128
+msgid "Stop inheriting default query settings and order posts from %s"
+msgstr "หยุดการสืบทอดการตั้งค่า query ค่าเริ่มต้นและเรียงเรื่องจาก %s"
+
+#: src/ai/hooks/suggestions-data.ts:123
+msgid "newest to oldest"
+msgstr "ใหม่ที่สุดถึงเก่าแก่ที่สุด"
+
+#: src/ai/hooks/suggestions-data.ts:122
+msgid "oldest to newest"
+msgstr "จากเก่าสุดไปใหม่ที่สุด"
+
+#: src/ai/hooks/suggestions-data.ts:117
+msgid "Order posts"
+msgstr "จัดเรียงเรื่อง"
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:110
+msgid "Currently this query is displaying %s posts per page, change it to:"
+msgstr "ตอนนี้การสืบค้นนี้แสดง %s เรื่องต่อหน้า เปลี่ยนเป็น:"
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:107
+msgid "Stop inheriting default query settings and change the current number of posts displayed per page from %s to:"
+msgstr "หยุดการสืบทอดการตั้งค่า query ค่าเริ่มต้นและเปลี่ยนจำนวนเรื่องที่แสดงต่อหน้าจาก %s เป็น:"
+
+#: src/ai/hooks/suggestions-data.ts:99
+msgid "Change number of posts"
+msgstr "เปลี่ยนจำนวนเรื่อง"
+
+#: src/ai/hooks/suggestions-data.ts:96
+msgid "Tell me all the ways you can help design or edit my site"
+msgstr "บอกฉันทุกวิธีที่คุณสามารถช่วยออกแบบหรือแก้ไขเว็บของฉัน"
+
+#: src/ai/hooks/suggestions-data.ts:95
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:36
+msgid "What else can you do?"
+msgstr "คุณทำอะไรได้อีกบ้าง?"
+
+#: src/ai/hooks/suggestions-data.ts:86
+msgid "Edit the image to:"
+msgstr "แก้ไขรูปเป็น: "
+
+#: src/ai/hooks/suggestions-data.ts:85
+msgid "Edit image"
+msgstr "แก้ไขรูปภาพ"
+
+#: src/ai/hooks/suggestions-data.ts:81
+msgid "Generate an image of:"
+msgstr "สร้างรูปของ: "
+
+#: src/ai/hooks/suggestions-data.ts:76
+msgid "Check the grammar of this text"
+msgstr "ตรวจสอบไวยากรณ์ของข้อความนี้"
+
+#: src/ai/hooks/suggestions-data.ts:75
+msgid "Check grammar"
+msgstr "ตรวจสอบไวยากรณ์"
+
+#: src/ai/hooks/suggestions-data.ts:71
+msgid "Change the tone of this text to be more:"
+msgstr "เปลี่ยนโทนของข้อความนี้ให้เป็น: "
+
+#: src/ai/hooks/suggestions-data.ts:66
+msgid "Translate this to:"
+msgstr "แปลสิ่งนี้เป็น: "
+
+#: src/ai/hooks/suggestions-data.ts:65
+msgid "Translate content"
+msgstr "แปลเนื้อหา"
+
+#: src/ai/hooks/suggestions-data.ts:61
+msgid "Add another column to the end of these"
+msgstr "เพิ่มอีกหนึ่งคอลัมน์ที่ท้ายของพวกนี้"
+
+#: src/ai/hooks/suggestions-data.ts:60
+msgid "Add column"
+msgstr "เพิ่มคอลัมน์"
+
+#: src/ai/hooks/suggestions-data.ts:56
+msgid "Reverse the order of these columns"
+msgstr "กลับลำดับของคอลัมน์เหล่านี้"
+
+#: src/ai/hooks/suggestions-data.ts:55
+msgid "Swap columns"
+msgstr "สลับคอลัมน์"
+
+#. %s is the button text
+#: src/ai/hooks/suggestions-data.ts:52
+msgid "Change the %s button link to:"
+msgstr "เปลี่ยนลิงก์ปุ่ม %s เป็น: "
+
+#: src/ai/hooks/suggestions-data.ts:46
+msgid "Create a new page on my site for"
+msgstr "สร้างหน้าใหม่บนเว็บของฉันสำหรับ "
+
+#: src/ai/hooks/suggestions-data.ts:45
+msgid "Add new page"
+msgstr "เพิ่มหน้าใหม่"
+
+#: src/ai/hooks/suggestions-data.ts:42
+msgid "Show me different layouts for this page"
+msgstr "แสดงเค้าโครงที่แตกต่างกันสำหรับหน้านี้"
+
+#: src/ai/hooks/suggestions-data.ts:41
+msgid "Change page layout"
+msgstr "เปลี่ยนเค้าโครงหน้า"
+
+#: src/ai/hooks/suggestions-data.ts:38
+msgid "Show me color palettes for my site that are:"
+msgstr "แสดงให้ฉันเห็นพาเลตสีสำหรับเว็บของฉันที่เป็น: "
+
+#: src/ai/hooks/suggestions-data.ts:37
+msgid "Customize colors"
+msgstr "ปรับแต่งสี"
+
+#: src/ai/hooks/suggestions-data.ts:34
+msgid "Show me new fonts for my site"
+msgstr "แสดงแบบอักษรใหม่สำหรับเว็บของฉัน"
+
+#: src/ai/hooks/suggestions-data.ts:33
+msgid "Choose new fonts"
+msgstr "เลือกแบบอักษรใหม่"
+
+#: big-sky.php:349
+msgid "AI-powered site building and navigation abilities."
+msgstr "ความสามารถในการสร้างเว็บและนำทางที่ขับเคลื่อนด้วย AI"
+
+#: src/components/product-card/ProductCard.tsx:90
+#: src/easy-mode/components/topbar.tsx:51
+msgid "Edit"
+msgstr "แก้ไข"
+
+#: src/hooks/use-dock-state.ts:138
+#: src/components/dock/index.js:440
+msgid "Pop out sidebar"
+msgstr "ไซด์บาร์ป๊อปอัพ"
+
+#: src/hooks/use-dock-state.ts:132
+#: src/components/dock/index.js:460
+msgid "Move to sidebar"
+msgstr "ย้ายไปที่ไซด์บาร์"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:548
+msgid "Got a different request? Ask away."
+msgstr "มีร้องขอที่แตกต่างออกไป? ถามมาเลย."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:542
+msgid "Howdy! How can I help you today?"
+msgstr "สวัสดี! วันนี้ฉันจะช่วยคุณได้ยังไง?"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:65
+msgid "Updated:"
+msgstr "อัปเดต:"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:86
+msgid "Theme updated successfully"
+msgstr "อัปเดตธีมสำเร็จแล้ว"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:51
+msgid "Invalid styles format. Styles must be an object."
+msgstr "รูปแบบสไตล์ไม่ถูกต้อง สไตล์ต้องเป็นอ็อบเจ็กต์"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:40
+msgid "Invalid settings format. Settings must be an object."
+msgstr "รูปแบบการตั้งค่าไม่ถูกต้อง ตั้งค่าต้องเป็นวัตถุ"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:29
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "อาร์กิวเมนต์ไม่ถูกต้อง ให้ระบุการตั้งค่าหรือสไตล์เพื่ออัปเดตธีม"
+
+#: big-sky.php:1652
+#: big-sky.php:1653
+msgid "AI Editor"
+msgstr "ตัวแก้ไข AI"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:493
+msgid "Proceed"
+msgstr "ดำเนินการ"
+
+#: src/ai/hooks/suggestions-data.ts:49
+msgid "Edit link"
+msgstr "แก้ไขลิงก์"
+
+#: src/abilities/show-component/show-component.tsx:214
+#: src/abilities/site-logo/set-site-logo.ts:70
+msgid "There was an error with this request. Please try again."
+msgstr "มีผิดพลาดกับการร้องขอนี้ โปรดลองอีกครั้ง."
+
+#: src/abilities/client-assistants/run-assistant.ts:189
+msgid "No response from assistant"
+msgstr "ไม่มีการตอบสนองจากผู้ช่วย"
+
+#: src/abilities/client-assistants/index.ts:89
+msgid "Assistant completed successfully"
+msgstr "ผู้ช่วยเสร็จสมบูรณ์แล้ว"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1464
+msgid "Something went wrong. Please try again."
+msgstr "เกิดข้อผิดพลาดบางอย่าง โปรดลองอีกครั้ง."
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1422
+msgid "I have completed the edits."
+msgstr "ฉันได้ทำการแก้ไขเสร็จเรียบร้อยแล้ว"
+
+#. translators: %s is the theme name.
+#: big-sky.php:625
+msgid "The current theme (%s) is a block theme."
+msgstr "ธีมปัจจุบัน (%s) เป็นธีมบล็อก."
+
+#: big-sky.php:618
+msgid "The current theme is not a block theme. Big Sky requires a block theme to be active."
+msgstr "ธีมปัจจุบันไม่ใช่ธีมบล็อก Big Sky ต้องการธีมบล็อกเพื่อเปิดใช้งาน"
+
+#: src/abilities/client-assistants/run-assistant.ts:182
+msgid "Sorry, I've encountered an error. Please try again or let me know if you need help with something else."
+msgstr "ขออภัย, ฉันพบกับผิดพลาด. โปรดลองอีกครั้งหรือบอกฉันถ้าคุณต้องการความช่วยเหลือเกี่ยวกับอย่างอื่น."
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:499
+msgid "I changed my mind"
+msgstr "ฉันเปลี่ยนใจ"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1381
+msgid "I was not able to make the changes you requested. Either I don't have the capability to do so or I didn't understand your request. You can ask me to try again or ask me to do something else."
+msgstr "ฉันไม่สามารถทำการเปลี่ยนแปลงที่คุณร้องขอได้ ไม่ว่าฉันจะไม่มีความสามารถในการทำเช่นนั้นหรือฉันไม่เข้าใจการร้องขอของคุณ คุณสามารถขอให้ฉันลองอีกครั้งหรือขอให้ฉันทำอย่างอื่นได้"
+
+#: src/easy-mode/components/preview-overlay.tsx:158
+msgid "Site preview"
+msgstr "ดูก่อนเว็บ"
+
+#: src/ai/hooks/suggestions-data.ts:80
+msgid "Generate image"
+msgstr "สร้างรูป"
+
+#: src/easy-mode/components/page-switcher.tsx:49
+#: src/components/mosaic.js:633
+#: src/components/mosaic.js:675
+msgid "Pages"
+msgstr "หน้า"
+
+#: src/easy-mode/components/page-switcher.tsx:34
+msgid "Home"
+msgstr "หน้าแรก"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:490
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:22
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:30
+msgid "No"
+msgstr "ไม่"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:541
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:16
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:24
+msgid "Yes"
+msgstr "ใช่"
+
+#: src/abilities/add-pages/index.ts:17
+msgid "Add Pages"
+msgstr "เพิ่มหน้า"
+
+#: src/ai/hooks/suggestions-data.ts:70
+msgid "Change tone"
+msgstr "เปลี่ยนโทน"
+
+#: src/easy-mode/components/topbar.tsx:710
+msgid "Undo"
+msgstr "ยกเลิก"
+
+#: src/easy-mode/components/topbar.tsx:763
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Save"
+msgstr "บันทึก"
+
+#: big-sky.php:707
+msgid "These checks passed:"
+msgstr "การตรวจสอบเหล่านี้ผ่าน:"
+
+#: big-sky.php:693
+msgid "Big Sky detected the following issues with your site:"
+msgstr "Big Sky ตรวจพบปัญหาดังต่อไปนี้กับเว็บของคุณ:"
+
+#. translators: $d is the number of performance issues found.
+#: big-sky.php:692
+msgid "Big Sky is affected by %d issue"
+msgid_plural "Big Sky is affected by %d issues"
+msgstr[0] "Big Sky มีผลกระทบจากปัญหา %d รายการ"
+
+#: big-sky.php:682
+msgid "Mapbox API key is set."
+msgstr "คีย์ API ของ Mapbox ถูกตั้งค่าแล้ว。"
+
+#: big-sky.php:677
+msgid "Mapbox API key is not set. Big Sky requires a Mapbox API key to be set."
+msgstr "ยังไม่ได้ตั้งค่า Mapbox API key. Big Sky ต้องการให้ตั้งค่า Mapbox API key."
+
+#: big-sky.php:669
+msgid "Jetpack is connected to an admin."
+msgstr "Jetpack เชื่อมต่อกับผู้ควบคุม."
+
+#: big-sky.php:664
+msgid "Jetpack does not have a connected admin. Big Sky requires Jetpack to be connected to an admin."
+msgstr "Jetpack ไม่มีผู้ควบคุมที่เชื่อมต่ออยู่ Big Sky ต้องการให้ Jetpack เชื่อมต่อกับผู้ควบคุม"
+
+#: big-sky.php:655
+msgid "Jetpack is connected."
+msgstr "Jetpack เชื่อมต่อแล้ว。"
+
+#: big-sky.php:650
+msgid "Jetpack is not connected. Big Sky requires Jetpack to be connected."
+msgstr "Jetpack ยังไม่ได้เชื่อมต่อ Big Sky ต้องการให้ Jetpack เชื่อมต่อ."
+
+#: big-sky.php:639
+msgid "Jetpack is installed."
+msgstr "Jetpack ถูกติดตั้งแล้ว."
+
+#: big-sky.php:634
+msgid "Jetpack is not installed. Big Sky requires Jetpack to be installed and active."
+msgstr "Jetpack ยังไม่ได้ติดตั้ง. Big Sky ต้องการให้ติดตั้งและเปิดใช้งาน Jetpack."
+
+#: big-sky.php:608
+msgid "Big Sky did not find any known issues with your site."
+msgstr "Big Sky ไม่พบปัญหาที่รู้จักกับเว็บของคุณ."
+
+#: big-sky.php:600
+msgid "Big Sky Checks"
+msgstr "Big Sky Checks"
+
+#: big-sky.php:575
+#: big-sky.php:576
+msgid "Big Sky checks"
+msgstr "เช็ค Big Sky"
+
+#: big-sky.php:406
+msgid "AI Features"
+msgstr "คุณสมบัติพิเศษของ AI"
+
+#: big-sky.php:398
+msgid "Enable AI-powered site building experience"
+msgstr "เปิดใช้งานประสบการณ์การสร้างเว็บที่ข powered by AI"
+
+#. Author of the plugin
+#: big-sky.php
+msgid "Automattic, Inc."
+msgstr "Automattic, Inc."
+
+#: big-sky.php:348
+#: big-sky.php:603
+msgid "Big Sky"
+msgstr "Big Sky"

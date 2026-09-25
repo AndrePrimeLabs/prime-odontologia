@@ -1,0 +1,586 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Easy Site Editor\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:26:00+00:00\n"
+"PO-Revision-Date: 2026-05-25 10:57:30+0000\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/components/DebugPanel.tsx:77
+msgid "Tracks Dashboard"
+msgstr "Painel de Faixas"
+
+#: src/components/DebugPanel.tsx:74
+msgid "Errors Dashboard"
+msgstr "Painel de Erros"
+
+#: includes/class-easy-site-editor.php:155
+#: includes/class-easy-site-editor.php:156
+msgid "AI Editor"
+msgstr "Editor de IA"
+
+#: src/hooks/useAgentFeedbackAction.ts:395
+msgid "Tell us more"
+msgstr "Conte-nos mais"
+
+#: src/hooks/useAgentFeedbackAction.ts:381
+msgid "Bad response"
+msgstr "Resposta ruim"
+
+#: src/hooks/useAgentFeedbackAction.ts:371
+msgid "Good response"
+msgstr "Resposta boa"
+
+#: src/components/AgentFeedbackPopover.tsx:96
+msgid "Feedback could not be sent. Please try again."
+msgstr "Feedback não pôde ser enviado. Por favor, tente novamente."
+
+#: src/components/AgentFeedbackPopover.tsx:206
+msgid "Send feedback"
+msgstr "Enviar feedback"
+
+#: src/components/AgentFeedbackPopover.tsx:205
+msgid "Sending…"
+msgstr "Enviando..."
+
+#: src/components/AgentFeedbackPopover.tsx:197
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/components/AgentFeedbackPopover.tsx:167
+msgid "What did you expect instead?"
+msgstr "O que você esperava em vez disso?"
+
+#: src/components/AgentFeedbackPopover.tsx:154
+msgid "Add any details that would help us improve this response."
+msgstr "Adicione qualquer detalhe que possa nos ajudar a melhorar essa resposta."
+
+#: src/components/AgentFeedbackPopover.tsx:148
+msgid "What went wrong?"
+msgstr "O que deu errado?"
+
+#: src/hooks/useClientAbilityBridge.ts:40
+msgid "The current preview is not editable. It may be a dynamic front page. Tell the user to open a different page and try again."
+msgstr "A visualização atual não é editável. Pode ser uma página inicial dinâmica. Diga ao usuário para abrir uma página diferente e tentar novamente."
+
+#: src/components/AppTopBar.tsx:84
+msgid "WordPress Admin"
+msgstr "Admin do WordPress"
+
+#: src/components/AnnouncementBar.tsx:52
+msgid "Dismiss announcement"
+msgstr "Dispensar anúncio"
+
+#: src/components/AnnouncementBar.tsx:41
+msgid "Switch to the full Site Editor instead."
+msgstr "Troque para o editor de site completo."
+
+#: src/components/AnnouncementBar.tsx:29
+msgid "You're using the new experimental Easy Site Editor."
+msgstr "Você está usando o novo Editor de Site Fácil experimental."
+
+#: src/components/AppTopBar.tsx:383
+msgid "Publish"
+msgstr "Publicar"
+
+#: src/components/AppTopBar.tsx:348
+msgid "Launch your site"
+msgstr "Lance seu site"
+
+#: src/components/AppTopBar.tsx:261
+msgid "Redo"
+msgstr "Refazer"
+
+#: src/components/AppTopBar.tsx:257
+msgid "Undo"
+msgstr "Desfazer"
+
+#. 1: control label, 2: keyboard shortcut.
+#: src/components/AppTopBar.tsx:252
+msgid "%1$s (%2$s)"
+msgstr "%1$s (%2$s)"
+
+#: src/components/AppTopBar.tsx:218
+msgid "Discard"
+msgstr "Descartar"
+
+#: src/components/DebugPanel.tsx:71
+msgid "No active session yet."
+msgstr "Nenhuma sessão ativa ainda."
+
+#: src/components/DebugPanel.tsx:68
+msgid "Langfuse trace"
+msgstr "Rastro do Langfuse"
+
+#: src/components/DebugPanel.tsx:61
+msgid "Debug"
+msgstr "Depuração"
+
+#: includes/class-easy-site-editor.php:997
+msgid "Assets have not been built yet. Run pnpm build in the plugin directory, then reload this page."
+msgstr "Os ativos ainda não foram construídos. Execute pnpm build no diretório do plugin, e depois recarregue esta página."
+
+#. Author of the plugin
+#: easy-site-editor.php
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Description of the plugin
+#: easy-site-editor.php
+msgid "Split-pane AI site editor with chat on the left and a live frontend preview on the right."
+msgstr "Editor de site AI com painel dividido, com chat à esquerda e uma visualização ao vivo do frontend à direita."
+
+#: src/lib/unsaved-changes-warning.ts:3
+msgid "You have unsaved changes. If you leave before saving, your changes will be lost."
+msgstr "Você tem alterações não salvas. Se você sair antes de salvar, suas alterações serão perdidas."
+
+#: src/lib/editor-bridge.ts:19
+msgid "The editor is still loading. Try the request again once the page is editable."
+msgstr "O editor ainda está carregando. Tente a solicitação novamente assim que a página estiver editável."
+
+#: src/hooks/useUpdateTheme.ts:311
+msgid "The requested theme update has been staged in the editor."
+msgstr "A atualização do tema solicitada foi preparada no editor."
+
+#: src/hooks/useUpdateTheme.ts:258
+msgid "Global styles are still loading. Try the theme update again in a moment."
+msgstr "Estilos Globais ainda estão carregando. Tente a atualização do tema novamente em um momento."
+
+#: src/hooks/useUpdateTheme.ts:236
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "Argumentos inválidos. Forneça configurações ou estilos para atualizar o tema."
+
+#: src/hooks/useUpdateTheme.ts:220
+msgid "Invalid styles format. Styles must be an object."
+msgstr "Formato de estilos inválido. Estilos deve ser um objeto."
+
+#: src/hooks/useUpdateTheme.ts:201
+msgid "Invalid settings format. Settings must be an object."
+msgstr "Formato de configurações inválido. Configurações deve ser um objeto."
+
+#: src/hooks/useSuggestions.ts:35
+msgid "Create a new page on my site"
+msgstr "Crie uma nova página no meu site"
+
+#: src/hooks/useSuggestions.ts:34
+msgid "Add new page"
+msgstr "Adicionar nova página"
+
+#: src/hooks/useSuggestions.ts:27
+msgid "Suggest a new font family for my site that is:"
+msgstr "Sugira uma nova família de fontes para meu site que seja:"
+
+#: src/hooks/useSuggestions.ts:26
+msgid "Choose new fonts"
+msgstr "Escolher novas fontes"
+
+#: src/hooks/useSuggestions.ts:19
+msgid "Suggest a different layout for this page"
+msgstr "Sugira um layout diferente para esta página"
+
+#: src/hooks/useSuggestions.ts:18
+msgid "Change page layout"
+msgstr "Mudar layout da página"
+
+#: src/hooks/useSuggestions.ts:11
+msgid "Suggest a new color palette for my site that is:"
+msgstr "Sugira uma nova paleta de cores para meu site que seja:"
+
+#: src/hooks/useSuggestions.ts:10
+msgid "Customize colors"
+msgstr "Personalizar cores"
+
+#: src/hooks/usePreviewPages.ts:57
+msgid "Home"
+msgstr "Inicial"
+
+#: src/hooks/usePreviewPages.ts:130
+msgid "Unable to load pages."
+msgstr "Não foi possível carregar as páginas."
+
+#: src/hooks/useGlobalStylesVariation.ts:73
+msgid "Global styles are still loading. Try the selection again in a moment."
+msgstr "Estilos Globais ainda estão carregando. Tente a seleção novamente em um momento."
+
+#. %s is the requested page path.
+#: src/hooks/useEditorNavigate.ts:59
+msgid "Successfully navigated to: %s"
+msgstr "Navegado com sucesso para: %s"
+
+#. %s is the requested page path.
+#: src/hooks/useEditorNavigate.ts:40
+msgid "The current page has unsaved changes, so navigation to %s was canceled. If this was requested after creating a page, the page has already been created. Tell the user to save or discard their current changes, then open the page from the page picker."
+msgstr "A página atual tem alterações não salvas, então a navegação para %s foi cancelada. Se isso foi solicitado após a criação de uma página, a página já foi criada. Diga ao usuário para salvar ou descartar suas alterações atuais, e então abrir a página a partir do seletor de páginas."
+
+#: src/hooks/useEditorNavigate.ts:28
+msgid "Invalid path provided. Path must be a non-empty string."
+msgstr "Caminho inválido fornecido. O caminho deve ser uma string não vazia."
+
+#: src/hooks/useEasySiteAgentChat.ts:110
+msgid "Jetpack token context is unavailable."
+msgstr "O contexto do token do Jetpack não está disponível."
+
+#: src/hooks/useClientAbilityBridge.ts:141
+msgid "Failed to display picker."
+msgstr "Falha ao exibir o seletor."
+
+#: src/hooks/useClientAbilityBridge.ts:128
+msgid "Picker displayed successfully."
+msgstr "Picker exibido com sucesso."
+
+#. %s: component type
+#: src/hooks/useClientAbilityBridge.ts:95
+msgid "Unsupported component type: %s"
+msgstr "Tipo de componente não suportado: %s"
+
+#: src/components/SelectedPreviewBlock.tsx:38
+msgid "Clear selected block"
+msgstr "Limpar bloco selecionado"
+
+#. %s: selected block title.
+#: src/components/SelectedPreviewBlock.tsx:24
+msgid "Selected block: %s"
+msgstr "Bloco selecionado: %s"
+
+#: src/components/PreviewPane.tsx:501
+msgid "Site frontend preview"
+msgstr "Visualização do frontend do site"
+
+#: src/components/PreviewPane.tsx:493
+msgid "Preview loaded"
+msgstr "Prévia carregada"
+
+#: src/components/PreviewPane.tsx:492
+msgid "Loading preview…"
+msgstr "Carregando visualização…"
+
+#: src/components/PreviewPane.tsx:465
+msgid "Site preview panel"
+msgstr "Painel de visualização do site"
+
+#: src/components/PreviewPane.tsx:464
+msgid "Site editor panel"
+msgstr "Painel do editor do site"
+
+#: src/components/PreviewPageSwitcher.tsx:122
+msgid "Preview Site"
+msgstr "site de prévia"
+
+#: src/components/PreviewPageSwitcher.tsx:121
+msgid "Refresh"
+msgstr "Atualizar"
+
+#. %s: page path, e.g. "/about"
+#: src/components/PreviewPageSwitcher.tsx:117
+msgid "%s – draft"
+msgstr "%s – rascunho"
+
+#: src/components/PreviewPageSwitcher.tsx:215
+msgid "Loading pages…"
+msgstr "Carregando páginas…"
+
+#: src/components/PreviewPageSwitcher.tsx:211
+msgid "Site pages"
+msgstr "Páginas do site"
+
+#: src/components/PreviewPageSwitcher.tsx:158
+msgid "Draft"
+msgstr "Rascunho"
+
+#: src/components/PreviewDeviceSwitcher.tsx:89
+msgid "Preview size"
+msgstr "Tamanho da pré-visualização"
+
+#: src/components/PreviewDeviceSwitcher.tsx:65
+msgid "Device Preview"
+msgstr "Visualização do Dispositivo"
+
+#: src/components/PreviewDeviceSwitcher.tsx:53
+msgid "Mobile preview"
+msgstr "Visualização móvel"
+
+#: src/components/PreviewDeviceSwitcher.tsx:52
+msgid "Mobile"
+msgstr "Dispositivo móvel"
+
+#: src/components/PreviewDeviceSwitcher.tsx:47
+msgid "Tablet preview"
+msgstr "Visualização do tablet"
+
+#: src/components/PreviewDeviceSwitcher.tsx:46
+msgid "Tablet"
+msgstr "Tablet"
+
+#: src/components/PreviewDeviceSwitcher.tsx:41
+msgid "Desktop preview"
+msgstr "Visualização de desktop"
+
+#: src/components/PreviewDeviceSwitcher.tsx:40
+msgid "Desktop"
+msgstr "Computador"
+
+#. %d is the pattern layout number.
+#: src/components/PatternPicker.tsx:55
+msgid "Layout %d"
+msgstr "Layout %d"
+
+#: src/components/PatternPicker.tsx:252
+#: src/components/StyleVariationPicker.tsx:457
+msgid "Next"
+msgstr "Próximo"
+
+#. %1$d is the current page, %2$d is the total page count.
+#: src/components/PatternPicker.tsx:244
+#: src/components/StyleVariationPicker.tsx:449
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
+
+#: src/components/PatternPicker.tsx:231
+#: src/components/StyleVariationPicker.tsx:436
+msgid "Previous"
+msgstr "Anterior"
+
+#. %s is the pattern layout title.
+#: src/components/PatternPicker.tsx:208
+msgid "Select %s"
+msgstr "Selecionar %s"
+
+#: src/components/PatternPicker.tsx:175
+#: src/components/StyleVariationPicker.tsx:396
+msgid "The selection could not be staged. Please try again."
+msgstr "A seleção não pôde ser realizada. Por favor, tente novamente."
+
+#: src/components/PatternPicker.tsx:157
+#: src/components/StyleVariationPicker.tsx:380
+msgid "The editor is still loading. Try again in a moment."
+msgstr "O editor ainda está carregando. Tente novamente em um momento."
+
+#: src/components/PatternPicker.tsx:136
+#: src/components/StyleVariationPicker.tsx:359
+msgid "There was a problem retrieving options. Please try again."
+msgstr "Ocorreu um problema ao recuperar as opções. Tente novamente."
+
+#: src/components/EditorWorkspace.tsx:90
+msgid "Resize chat panel"
+msgstr "Redimensionar painel de chat"
+
+#: src/lib/content-editor/block-edits.ts:196
+msgid "Insertions must include block data with a block name."
+msgstr "As inserções devem incluir dados do bloco com um nome de bloco."
+
+#: src/lib/content-editor/block-edits.ts:182
+msgid "Updates must include the clientId of the block to update."
+msgstr "As atualizações devem incluir o clientId do bloco a ser atualizado."
+
+#. %s is a block type name, such as core/paragraph.
+#: src/lib/content-editor/block-edits.ts:159
+msgid "Block type \"%s\" is not available."
+msgstr "O tipo de bloco \"%s\" não está disponível."
+
+#: src/lib/content-editor/block-edits.ts:151
+msgid "Block data must include a block name."
+msgstr "Os dados do bloco devem incluir um nome do bloco."
+
+#: src/lib/content-editor/block-edits.ts:102
+msgid "Global styles are still loading. Try the block edit again in a moment."
+msgstr "Os estilos globais ainda estão carregando. Tente editar o bloco novamente em um momento."
+
+#: src/lib/content-editor/block-edits.ts:69
+msgid "Apply block edits needs at least one update, insert, delete, or summary."
+msgstr "Aplicar edições de bloco precisa de pelo menos uma atualização, inserção, exclusão ou resumo."
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:334
+msgid "The requested block edits have been staged in the editor."
+msgstr "As edições do bloco solicitadas foram preparadas no editor."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:305
+msgid "Block \"%s\" was not found for deletion."
+msgstr "Bloco \"%s\" não foi encontrado para exclusão."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:292
+msgid "Could not map client ID \"%s\" for deletion."
+msgstr "Não foi possível mapear o ID do cliente \"%s\" para exclusão."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:231
+msgid "Block \"%s\" was not found for update."
+msgstr "Bloco \"%s\" não foi encontrado para atualização."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:216
+msgid "Could not map client ID \"%s\" for update."
+msgstr "Não foi possível mapear o ID do cliente \"%s\" para atualização."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:152
+msgid "Parent block \"%s\" was not found for insertion."
+msgstr "Bloco pai \"%s\" não foi encontrado para inserção."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:136
+msgid "Could not map parent client ID \"%s\" for insertion."
+msgstr "Não foi possível mapear o ID do cliente pai \"%s\" para inserção."
+
+#: src/components/PreviewPane.tsx:527
+#: src/components/content-editor/ContentEditorLoading.tsx:16
+msgid "Loading editor…"
+msgstr "Carregando editor…"
+
+#: src/components/content-editor/ContentEditorError.tsx:6
+msgid "Failed to load template."
+msgstr "Falha ao carregar o modelo."
+
+#: src/components/ChatPanel.tsx:57
+msgid "Ask for changes"
+msgstr "Peça por mudanças"
+
+#: src/components/ApplyPatternLayoutBridge.tsx:28
+#: src/lib/content-editor/block-edits.ts:265
+msgid "Cannot create a block without a name."
+msgstr "Não é possível criar um bloco sem um nome."
+
+#: src/components/ApplyPatternLayoutBridge.tsx:239
+msgid "The selected pattern layout has been staged in the editor."
+msgstr "O layout do padrão selecionado foi preparado no editor."
+
+#: src/components/ApplyPatternLayoutBridge.tsx:184
+msgid "Cannot stage a pattern layout without blocks."
+msgstr "Não é possível criar um layout de padrão sem blocos."
+
+#: src/components/AppTopBar.tsx:85
+msgid "Start a new conversation"
+msgstr "Começar uma nova conversa"
+
+#: src/components/AppTopBar.tsx:382
+msgid "Publishing…"
+msgstr "Publicando…"
+
+#: src/components/AppTopBar.tsx:365
+#: src/components/PreviewPane.tsx:569
+msgid "Saving…"
+msgstr "Salvando..."
+
+#: src/components/AppTopBar.tsx:352
+msgid "Save"
+msgstr "Salvar"
+
+#: src/components/AppTopBar.tsx:351
+msgid "Save draft"
+msgstr "Salvar rascunho"
+
+#: src/components/AppTopBar.tsx:208
+msgid "Keep editing"
+msgstr "Continue editando"
+
+#: src/components/AppTopBar.tsx:202
+msgid "Unsaved changes"
+msgstr "Alterações não salvas"
+
+#: src/components/AppTopBar.tsx:196
+msgid "Edit"
+msgstr "Editar"
+
+#: src/components/AppTopBar.tsx:193
+msgid "Edit mode"
+msgstr "Modo de edição"
+
+#: src/components/AppTopBar.tsx:189
+msgid "Preview"
+msgstr "Prévia"
+
+#: src/components/AppTopBar.tsx:186
+msgid "Preview mode"
+msgstr "Modo de visualização"
+
+#: src/components/AppTopBar.tsx:164
+msgid "Editor mode"
+msgstr "Modo editor"
+
+#: src/abilities/update-theme.ts:99
+msgid "Use this for site-wide theme.json settings or styles. After it succeeds, tell the user the theme update is staged in the editor and ready to review/save, not live or published."
+msgstr "Use isso para configurações ou estilos do theme.json em todo o site. Depois que for bem-sucedido, avise o usuário que a atualização do tema está preparada no editor e pronta para revisar/salvar, não está ao vivo ou publicada."
+
+#: src/abilities/update-theme.ts:70
+msgid "Stages WordPress theme settings and styles using theme.json format."
+msgstr "Configurações e estilos do tema WordPress Stages usando o formato theme.json."
+
+#: src/abilities/update-theme.ts:68
+msgid "Update theme"
+msgstr "Atualizar tema"
+
+#: src/abilities/update-theme.ts:33
+msgid "The editor is still loading. Try the theme update again once the page is editable."
+msgstr "O editor ainda está carregando. Tente a atualização do tema novamente assim que a página estiver editável."
+
+#: src/abilities/show-component.ts:79
+msgid "Displays a font, color, or pattern picker in the Easy Site Editor chat."
+msgstr "Exibe um seletor de fonte, cor ou padrão no chat do Easy Site Editor."
+
+#: src/abilities/show-component.ts:77
+msgid "Show picker"
+msgstr "Mostrar seletor"
+
+#: src/abilities/show-component.ts:42
+msgid "The picker UI is still loading. Try the request again in a moment."
+msgstr "A interface do seletor ainda está carregando. Tente a solicitação novamente em um momento."
+
+#: src/abilities/show-component.ts:110
+msgid "Use this to show staged global font, color, or pattern choices. The user must select an option and save before changes are live."
+msgstr "Use isso para mostrar opções de fonte, cor ou padrão globais em estágio. O usuário deve selecionar uma opção e salvar antes que as mudanças entrem em vigor."
+
+#: src/abilities/editor-navigate.ts:82
+msgid "Use this when the user asks to navigate, go to, open, view, or switch to a site page. If you call this after creating a new page, page creation is already complete before this tool runs. If navigation is canceled because the current page has unsaved changes, do not continue or retry page creation; tell the user the page exists and they need to save or discard their current changes before opening it."
+msgstr "Use isso quando o usuário pedir para navegar, ir para, abrir, visualizar ou mudar para uma página do site. Se você chamar isso depois de criar uma nova página, a criação da página já estará completa antes que essa ferramenta seja executada. Se a navegação for cancelada porque a página atual tem alterações não salvas, não continue ou tente criar a página novamente; diga ao usuário que a página existe e que ele precisa salvar ou descartar as alterações atuais antes de abri-la."
+
+#: src/abilities/editor-navigate.ts:60
+msgid "Navigates the Easy Site Editor preview to a specific site page or to the pages list."
+msgstr "Navega na visualização do editor de site fácil para uma página específica do site ou para a lista de páginas."
+
+#: src/abilities/editor-navigate.ts:58
+msgid "Navigate"
+msgstr "Navegar"
+
+#: src/abilities/editor-navigate.ts:30
+msgid "Editor navigation is still loading. Try navigating again in a moment."
+msgstr "A navegação do editor ainda está carregando. Tente navegar novamente em um momento."
+
+#: src/abilities/apply-block-edits.ts:93
+msgid "Stages block updates, insertions, and deletions in the client-side editor for review before saving."
+msgstr "Atualizações, inserções e exclusões de blocos de estágios no editor do lado do cliente para revisão antes de salvar."
+
+#: src/abilities/apply-block-edits.ts:91
+msgid "Apply block edits"
+msgstr "Aplicar edições de bloco"
+
+#: src/abilities/apply-block-edits.ts:81
+#: src/abilities/editor-navigate.ts:48
+#: src/abilities/show-component.ts:67
+#: src/abilities/update-theme.ts:58
+msgid "Abilities for staging edits in the Easy Site Editor."
+msgstr "Recursos para edições de teste no Easy Site Editor."
+
+#. Plugin Name of the plugin
+#: src/abilities/apply-block-edits.ts:80
+#: src/abilities/editor-navigate.ts:47
+#: src/abilities/show-component.ts:66
+#: src/abilities/update-theme.ts:57
+#: easy-site-editor.php
+msgid "Easy Site Editor"
+msgstr "Editor de site simplificado"
+
+#: src/abilities/apply-block-edits.ts:56
+msgid "The editor is still loading. Try the block edit again once the page is editable."
+msgstr "O editor ainda está carregando. Tente editar o bloco novamente assim que a página estiver editável."
+
+#: src/abilities/apply-block-edits.ts:134
+msgid "Use this for current-page content and layout edits. After it succeeds, tell the user the edits are staged in the editor and ready to review/save, not live or published."
+msgstr "Use isso para edições de conteúdo e layout da página atual. Depois que for bem-sucedido, avise o usuário que as edições estão preparadas no editor e prontas para revisão/salvamento, não estão ao vivo ou publicadas."

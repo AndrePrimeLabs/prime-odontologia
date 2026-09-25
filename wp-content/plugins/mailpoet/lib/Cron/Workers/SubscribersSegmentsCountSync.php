@@ -1,0 +1,90 @@
+<?php declare(strict_types = 1);
+
+namespace MailPoet\Cron\Workers;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\Doctrine\WPDB\Connection;
+use MailPoet\Entities\ScheduledTaskEntity;
+use MailPoet\Entities\SubscriberEntity;
+use MailPoet\Segments\SegmentSubscribersRepository;
+use MailPoet\Subscribers\SegmentsCountRecalculator;
+use MailPoetVendor\Doctrine\ORM\EntityManager;
+
+/**
+ * Populates and reconciles SubscriberEntity::$segmentsCount.
+ *
+ * The first run is the backfill: it sweeps the whole subscribers table by id
+ * range, recomputes segments_count for every row, and then calls
+ * SegmentSubscribersRepository::markSegmentsCountColumnReady() so reads start
+ * trusting the column.
+ *
+ * Every subsequent (weekly) run is the reconcile backstop: it re-sweeps the
+ * table to repair any drift left by a write path that forgot to update the
+ * column. Both phases use the same idempotent recompute, so the value always
+ * converges. Work is chunked and bounded by enforceExecutionLimit() so the
+ * sweep never runs as one long query and never blocks a request.
+ */
+class SubscribersSegmentsCountSync extends SimpleWorker {
+  const TASK_TYPE = 'subscribers_segments_count_sync';
+  const SUPPORT_MULTIPLE_INSTANCES = false;
+
+  /** @var EntityManager */
+  private $entityManager;
+
+  /** @var SegmentsCountRecalculator */
+  private $segmentsCountRecalculator;
+
+  /** @var SegmentSubscribersRepository */
+  private $segmentSubscribersRepository;
+
+  public function __construct(
+    EntityManager $entityManager,
+    SegmentsCountRecalculator $segmentsCountRecalculator,
+    SegmentSubscribersRepository $segmentSubscribersRepository
+  ) {
+    parent::__construct();
+    $this->entityManager = $entityManager;
+    $this->segmentsCountRecalculator = $segmentsCountRecalculator;
+    $this->segmentSubscribersRepository = $segmentSubscribersRepository;
+  }
+
+  public function processTaskStrategy(ScheduledTaskEntity $task, $timer): bool {
+    // The recalculator relies on UPDATE ... LEFT JOIN, which the SQLite
+    // integration in WordPress Playground does not support. Make the task a
+    // no-op there and never flip the backfill flag, so reads stay on the
+    // anti-join fallback instead of trusting an unpopulated column.
+    if (Connection::isSQLite()) {
+      return true;
+    }
+
+    $meta = $task->getMeta();
+    $lastId = isset($meta['last_subscriber_id']) ? (int)$meta['last_subscriber_id'] : 0;
+    $highestId = $this->getHighestSubscriberId();
+
+    while ($lastId < $highestId) {
+      $this->segmentsCountRecalculator->recalculateForIdRange($lastId + 1, $lastId + SegmentsCountRecalculator::BATCH_SIZE);
+      $lastId += SegmentsCountRecalculator::BATCH_SIZE;
+      $task->setMeta(['last_subscriber_id' => $lastId]);
+      $this->scheduledTasksRepository->persist($task);
+      $this->scheduledTasksRepository->flush();
+      $this->cronHelper->enforceExecutionLimit($timer); // throws and reschedules when over the limit
+    }
+
+    // The whole table has been recomputed: reads can trust segments_count now.
+    // The cursor is intentionally left in place: each weekly reconcile run is a
+    // fresh task with empty meta, so it sweeps from id 0 again on its own. And if
+    // markSegmentsCountColumnReady() throws, the retry just re-runs the flag flip
+    // (the while loop is already exhausted) instead of re-sweeping the table.
+    $this->segmentSubscribersRepository->markSegmentsCountColumnReady();
+
+    return true;
+  }
+
+  private function getHighestSubscriberId(): int {
+    $subscribersTable = $this->entityManager->getClassMetadata(SubscriberEntity::class)->getTableName();
+    $result = $this->entityManager->getConnection()->executeQuery("SELECT MAX(id) FROM $subscribersTable LIMIT 1;")->fetchNumeric();
+    return is_array($result) && isset($result[0]) && is_numeric($result[0]) ? (int)$result[0] : 0;
+  }
+}

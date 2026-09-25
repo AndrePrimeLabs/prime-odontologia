@@ -1,0 +1,690 @@
+/* ============================================
+   Dashboard Grid Layout
+   ============================================ */
+.wpconsent-dashboard-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	align-items: start;
+}
+
+.wpconsent-dashboard-grid-col {
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	> .wpconsent-dashboard-box {
+		margin-bottom: 0;
+	}
+}
+
+/* ============================================
+   Dashboard Box Base
+   ============================================ */
+.wpconsent-dashboard-box {
+	background: var(--wpconsent-background-white);
+	border: 1px solid var(--wpconsent-border-color);
+	border-radius: 4px;
+	box-shadow: 0px 2px 2px 0px #E6E9F0;
+	margin-bottom: 20px;
+}
+
+.wpconsent-dashboard-box-title {
+	padding: 20px 24px;
+	border-bottom: 1px solid var(--wpconsent-border-color);
+
+	h2 {
+		margin: 0;
+		font-size: var(--wpconsent-font-size-l);
+		font-weight: 600;
+		color: var(--wpconsent-text-color-heading);
+		line-height: 1.4;
+	}
+}
+
+.wpconsent-dashboard-box-content {
+	padding: 24px;
+
+	p {
+		margin: 0 0 12px;
+		font-size: var(--wpconsent-font-size-s);
+		font-weight: 400;
+		line-height: 1.6;
+		color: var(--wpconsent-text-color-paragraph);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.wpconsent-dashboard-box-actions {
+	padding: 16px 24px;
+	border-top: 1px solid var(--wpconsent-border-color);
+	background: var(--wpconsent-background-gray);
+
+	.wpconsent-button {
+		margin-right: 12px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+/* ============================================
+   Alert Bar
+   ============================================ */
+.wpconsent-alert-bar {
+	margin-bottom: 20px;
+}
+
+.wpconsent-alert-bar-item {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 12px 20px;
+	background: #FFF8E1;
+	border: 1px solid #FFE082;
+	border-left: 4px solid #F0AD4E;
+	border-radius: 4px;
+	margin-bottom: 8px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.wpconsent-alert-bar-message {
+	flex: 1;
+	font-size: var(--wpconsent-font-size-s);
+	color: var(--wpconsent-text-color-heading);
+	font-weight: 500;
+}
+
+.wpconsent-alert-bar-dismiss {
+	background: none;
+	border: none;
+	font-size: 18px;
+	color: var(--wpconsent-text-color-paragraph);
+	cursor: pointer;
+	padding: 0 4px;
+	line-height: 1;
+
+	&:hover {
+		color: var(--wpconsent-text-color-heading);
+	}
+}
+
+.wpconsent-alert-bar-overflow {
+	font-size: var(--wpconsent-font-size-xs);
+	color: var(--wpconsent-text-color-paragraph);
+	padding: 8px 20px;
+	font-style: italic;
+}
+
+.wpconsent-button-small {
+	padding: 4px 12px;
+	font-size: var(--wpconsent-font-size-xs);
+	white-space: nowrap;
+}
+
+/* ============================================
+   Compliance Score Widget
+   ============================================ */
+.wpconsent-score-header {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 24px;
+}
+
+.wpconsent-score-ring {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	flex-shrink: 0;
+	background: conic-gradient(
+		var(--score-color) calc(var(--score-pct) * 1%),
+		var(--wpconsent-background-light) calc(var(--score-pct) * 1%)
+	);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background: var(--wpconsent-background-white);
+	}
+
+	&.wpconsent-score-ring-green {
+		--score-color: var(--wpconsent-color-green);
+	}
+
+	&.wpconsent-score-ring-blue {
+		--score-color: var(--wpconsent-color-primary);
+	}
+
+	&.wpconsent-score-ring-yellow {
+		--score-color: #F0AD4E;
+	}
+
+	&.wpconsent-score-ring-orange {
+		--score-color: #E06B44;
+	}
+}
+
+.wpconsent-score-ring-value {
+	position: relative;
+	z-index: 1;
+	font-size: var(--wpconsent-font-size-l);
+	font-weight: 700;
+	color: var(--wpconsent-text-color-heading);
+}
+
+.wpconsent-score-header-text {
+	flex: 1;
+	min-width: 0;
+}
+
+.wpconsent-score-label {
+	font-size: var(--wpconsent-font-size-s);
+	color: var(--wpconsent-text-color-paragraph);
+	line-height: 1.5;
+	margin: 0;
+}
+
+.wpconsent-score-stats {
+	font-size: var(--wpconsent-font-size-xs);
+	color: var(--wpconsent-text-color-light-bg);
+	margin: 4px 0 0;
+	line-height: 1.5;
+
+	a {
+		color: var(--wpconsent-text-color-light-bg);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--wpconsent-color-primary);
+		}
+	}
+}
+
+.wpconsent-wizard-cta {
+	background: var(--wpconsent-background-gray);
+	border-radius: 8px;
+	padding: 16px 20px;
+	margin-bottom: 20px;
+	text-align: center;
+
+	p {
+		margin: 0 0 12px;
+		font-size: var(--wpconsent-font-size-s);
+		color: var(--wpconsent-text-color-light-bg);
+	}
+}
+
+.wpconsent-score-section-title {
+	font-size: var(--wpconsent-font-size-xs);
+	font-weight: 600;
+	color: var(--wpconsent-text-color-light-bg);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin: 0 0 12px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid var(--wpconsent-border-color);
+
+}
+
+.wpconsent-score-items {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wpconsent-score-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 10px 0;
+	border-bottom: 1px solid var(--wpconsent-border-color);
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.wpconsent-score-item-check {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 1px;
+}
+
+.wpconsent-score-item-earned .wpconsent-score-item-check {
+	color: var(--wpconsent-color-green);
+	font-weight: 700;
+}
+
+.wpconsent-score-item-pending .wpconsent-score-item-check {
+	color: var(--wpconsent-text-color-paragraph);
+}
+
+.wpconsent-score-item-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.wpconsent-score-item-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 8px;
+}
+
+.wpconsent-score-item-label {
+	font-size: var(--wpconsent-font-size-s);
+	font-weight: 600;
+	color: var(--wpconsent-text-color-heading);
+}
+
+.wpconsent-score-item-points {
+	font-size: var(--wpconsent-font-size-xs);
+	color: var(--wpconsent-text-color-paragraph);
+	white-space: nowrap;
+}
+
+.wpconsent-score-item-earned .wpconsent-score-item-points {
+	color: var(--wpconsent-color-green);
+}
+
+.wpconsent-score-item-pending .wpconsent-score-item-points {
+	color: var(--wpconsent-color-primary);
+}
+
+.wpconsent-score-item-detail {
+	display: block;
+	font-size: var(--wpconsent-font-size-xs);
+	color: var(--wpconsent-text-color-paragraph);
+	margin-top: 2px;
+	line-height: 1.5;
+}
+
+.wpconsent-score-item-action {
+	display: inline-block;
+	font-size: var(--wpconsent-font-size-xs);
+	color: var(--wpconsent-color-primary);
+	text-decoration: none;
+	font-weight: 600;
+	margin-top: 4px;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.wpconsent-score-item-actions {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 6px;
+}
+
+.wpconsent-score-action-toggle,
+.wpconsent-score-action-generate-policy,
+.wpconsent-score-action-btn {
+	display: inline-block;
+	padding: 7px 12px;
+	font-size: var(--wpconsent-font-size-xs);
+	font-weight: 600;
+	color: var(--wpconsent-button-primary-text);
+	background: var(--wpconsent-color-primary);
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	white-space: nowrap;
+	text-decoration: none;
+
+	&:hover {
+		background: var(--wpconsent-button-primary-bg-hover);
+		color: var(--wpconsent-button-primary-text);
+		text-decoration: none;
+	}
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+}
+
+.wpconsent-score-item-pro {
+	background: var(--wpconsent-background-highlight);
+	padding: 10px 12px;
+	margin-left: -12px;
+	margin-right: -12px;
+	border-radius: 4px;
+}
+
+/* ============================================
+   Score Earned Toggle
+   ============================================ */
+.wpconsent-score-earned-toggle {
+	margin-top: 16px;
+	padding-top: 12px;
+	border-top: 1px solid var(--wpconsent-border-color);
+}
+
+.wpconsent-score-toggle-btn {
+	background: none;
+	border: none;
+	color: var(--wpconsent-text-color-paragraph);
+	font-size: var(--wpconsent-font-size-xs);
+	cursor: pointer;
+	padding: 0;
+	font-weight: 500;
+
+	&:hover {
+		color: var(--wpconsent-color-primary);
+	}
+
+	&::before {
+		content: '\25B6\00a0';
+		font-size: 9px;
+		display: inline-block;
+		transition: transform 0.2s ease;
+	}
+
+	&.wpconsent-score-toggle-open::before {
+		transform: rotate(90deg);
+	}
+}
+
+/* ============================================
+   Suggestions
+   ============================================ */
+.wpconsent-score-section-suggestions {
+	margin-top: 20px;
+}
+
+.wpconsent-suggestion-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wpconsent-suggestion-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 10px 0;
+	border-bottom: 1px solid var(--wpconsent-border-color);
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.wpconsent-suggestion-icon {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 1px;
+}
+
+.wpconsent-suggestion-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.wpconsent-suggestion-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 8px;
+}
+
+.wpconsent-suggestion-label {
+	font-size: var(--wpconsent-font-size-s);
+	font-weight: 600;
+	color: var(--wpconsent-text-color-heading);
+}
+
+.wpconsent-suggestion-detail {
+	display: block;
+	font-size: var(--wpconsent-font-size-xs);
+	color: var(--wpconsent-text-color-paragraph);
+	margin-top: 2px;
+	line-height: 1.5;
+}
+
+.wpconsent-score-section-dismissed {
+	margin-top: 16px;
+}
+
+.wpconsent-suggestion-dismiss {
+	background: none;
+	border: none;
+	font-size: 16px;
+	color: var(--wpconsent-text-color-paragraph);
+	cursor: pointer;
+	padding: 0 2px;
+	line-height: 1;
+
+	&:hover {
+		color: var(--wpconsent-text-color-heading);
+	}
+}
+
+/* ============================================
+   Banner Preview Widget
+   ============================================ */
+.wpconsent-banner-preview-container {
+	max-height: 300px;
+	overflow: hidden;
+	border-radius: 4px;
+	border: 1px solid var(--wpconsent-border-color);
+}
+
+.wpconsent-banner-preview-faded {
+	opacity: 0.4;
+}
+
+.wpconsent-banner-preview-disabled {
+	font-weight: 600;
+	color: var(--wpconsent-text-color-paragraph);
+}
+
+/* ============================================
+   Blog Feed Widget
+   ============================================ */
+.wpconsent-blog-feed-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wpconsent-blog-feed-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 0;
+	border-bottom: 1px solid var(--wpconsent-border-color);
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	&:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	& .wpconsent-icon {
+		flex-shrink: 0;
+		opacity: 0.5;
+	}
+}
+
+.wpconsent-blog-feed-item-content {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+}
+
+.wpconsent-blog-feed-title {
+	font-size: var(--wpconsent-font-size-s);
+	font-weight: 600;
+	color: var(--wpconsent-text-color-heading);
+	text-decoration: none;
+	line-height: 1.4;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+	&:hover {
+		color: var(--wpconsent-color-primary);
+	}
+}
+
+/* ============================================
+   Documentation Widget
+   ============================================ */
+.wpconsent-docs-section-title {
+	font-size: var(--wpconsent-font-size-xs);
+	font-weight: 600;
+	color: var(--wpconsent-text-color-light-bg);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin: 0 0 12px;
+}
+
+.wpconsent-docs-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wpconsent-docs-item {
+	padding: 8px 0;
+	border-bottom: 1px solid var(--wpconsent-border-color);
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.wpconsent-docs-link {
+	font-size: var(--wpconsent-font-size-s);
+	color: var(--wpconsent-color-primary);
+	text-decoration: none;
+	font-weight: 500;
+
+	&::before {
+		content: '\2192\00a0';
+		color: var(--wpconsent-text-color-paragraph);
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+/* ============================================
+   Pro Upsell Button
+   ============================================ */
+.wpconsent-button-pro {
+	background-color: var(--wpconsent-button-orange-bg);
+	border-color: var(--wpconsent-button-orange-bg);
+	color: var(--wpconsent-button-primary-text);
+
+	&:hover,
+	&:focus {
+		background-color: var(--wpconsent-button-orange-bg-hover);
+		border-color: var(--wpconsent-button-orange-bg-hover);
+		color: var(--wpconsent-button-primary-text);
+	}
+}
+
+/* ============================================
+   Recommended Plugins Widget
+   ============================================ */
+.wpconsent-recommended-plugins-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+}
+
+.wpconsent-recommended-plugin-item {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 14px;
+	border: 1px solid var(--wpconsent-border-color);
+	border-radius: 4px;
+}
+
+.wpconsent-recommended-plugin-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.wpconsent-recommended-plugin-icon {
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+	border-radius: 4px;
+	flex-shrink: 0;
+}
+
+.wpconsent-recommended-plugin-name {
+	font-weight: 600;
+	font-size: var(--wpconsent-font-size-s);
+	color: var(--wpconsent-text-color-heading);
+}
+
+.wpconsent-recommended-plugin-description {
+	font-size: var(--wpconsent-font-size-xs);
+	color: var(--wpconsent-text-color-paragraph);
+	line-height: 1.4;
+}
+
+.wpconsent-recommended-plugin-item .wpconsent-button {
+	align-self: flex-start;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media screen and (max-width: 900px) {
+	.wpconsent-dashboard-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.wpconsent-dashboard-grid-col {
+		gap: 20px;
+	}
+
+	.wpconsent-score-item-pro {
+		margin-left: -8px;
+		margin-right: -8px;
+		padding: 10px 8px;
+	}
+
+	.wpconsent-recommended-plugins-grid {
+		grid-template-columns: 1fr;
+	}
+}

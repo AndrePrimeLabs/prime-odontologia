@@ -1,0 +1,288 @@
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing
+
+namespace MailPoet\Settings;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\Cron\CronTrigger;
+use MailPoet\DI\ContainerWrapper;
+use MailPoet\Subscribers\TrackingConsentController;
+
+class SettingsController {
+
+  const DEFAULT_SENDING_METHOD_GROUP = 'website';
+  const DEFAULT_SENDING_METHOD = 'PHPMail';
+  const DEFAULT_SENDING_FREQUENCY_EMAILS = 25;
+  const DEFAULT_SENDING_FREQUENCY_INTERVAL = 5; // in minutes
+  const DEFAULT_DEACTIVATE_SUBSCRIBER_AFTER_INACTIVE_DAYS = 365;
+  const DEFAULT_SENDING_STATUS_RETENTION_DAYS = '';
+  const DEFAULT_SENDING_QUEUE_BODY_RETENTION_DAYS = 30;
+  const DEFAULT_DELETE_UNCONFIRMED_SUBSCRIBERS_AFTER_DAYS = '';
+  const ALLOWED_DELETE_UNCONFIRMED_SUBSCRIBERS_AFTER_DAYS = ['', '30'];
+  const MANAGE_SUBSCRIPTION_PAGE_STYLE_CLASSIC = 'classic';
+  const MANAGE_SUBSCRIPTION_PAGE_STYLE_MODERN = 'modern';
+
+  private $loaded = false;
+
+  private $settings = [];
+
+  private $defaults = null;
+
+  /** @var SettingsRepository */
+  private $settingsRepository;
+
+  private static $instance;
+
+  public function __construct(
+    SettingsRepository $settingsRepository
+  ) {
+    $this->settingsRepository = $settingsRepository;
+  }
+
+  public function get($key, $default = null) {
+    $this->ensureLoaded();
+    $keyParts = explode('.', $key);
+    $setting = $this->settings;
+    if ($default === null) {
+      $default = $this->getDefaultValue($keyParts);
+    }
+    foreach ($keyParts as $keyPart) {
+      if (is_array($setting) && array_key_exists($keyPart, $setting)) {
+        $setting = $setting[$keyPart];
+      } else {
+        return $default;
+      }
+    }
+    if (is_array($setting) && is_array($default)) {
+      return array_replace_recursive($default, $setting);
+    }
+    if ($key === 'delete_unconfirmed_subscribers_after_days') {
+      return $this->normalizeDeleteUnconfirmedSubscribersAfterDays($setting);
+    }
+    return $setting;
+  }
+
+  public function getAllDefaults() {
+    if ($this->defaults === null) {
+      $this->defaults = [
+        'mta_group' => self::DEFAULT_SENDING_METHOD_GROUP,
+        'mta' => [
+          'method' => self::DEFAULT_SENDING_METHOD,
+          'frequency' => [
+            'emails' => self::DEFAULT_SENDING_FREQUENCY_EMAILS,
+            'interval' => self::DEFAULT_SENDING_FREQUENCY_INTERVAL,
+          ],
+        ],
+        CronTrigger::SETTING_NAME => [
+          'method' => CronTrigger::DEFAULT_METHOD,
+        ],
+        'signup_confirmation' => [
+          'enabled' => true,
+          'use_mailpoet_editor' => true,
+        ],
+        'tracking' => [
+          'level' => TrackingConfig::LEVEL_FULL,
+          'consent' => [
+            'subscriber_choice' => TrackingConsentController::CHOICE_TRACK_ALL,
+          ],
+        ],
+        'subscription' => [
+          'manage_subscription_page_style' => self::MANAGE_SUBSCRIPTION_PAGE_STYLE_MODERN,
+          'unsubscribe_survey' => [
+            'enabled' => true,
+            'allow_other_text' => false,
+          ],
+        ],
+        'analytics' => [
+          'enabled' => false,
+        ],
+        'collect_subscriber_timezones' => [
+          'enabled' => true,
+        ],
+        'display_nps_poll' => true,
+        'deactivate_subscriber_after_inactive_days' => self::DEFAULT_DEACTIVATE_SUBSCRIBER_AFTER_INACTIVE_DAYS,
+        'delete_unconfirmed_subscribers_after_days' => self::DEFAULT_DELETE_UNCONFIRMED_SUBSCRIBERS_AFTER_DAYS,
+        'sending_status_retention_days' => self::DEFAULT_SENDING_STATUS_RETENTION_DAYS,
+        'sending_queue_body_retention_days' => self::DEFAULT_SENDING_QUEUE_BODY_RETENTION_DAYS,
+        'sharing' => [
+          'default_visibility' => 'public',
+        ],
+      ];
+    }
+
+    // Always include subject and body in defaults, using translated versions when available
+    $this->defaults['signup_confirmation']['subject'] = $this->getTranslatedDefaultSubject();
+    $this->defaults['signup_confirmation']['body'] = $this->getTranslatedDefaultBody();
+
+    return $this->defaults;
+  }
+
+  /**
+   * Get translated default subject with fallback
+   *
+   * @return string
+   */
+  private function getTranslatedDefaultSubject(): string {
+    if ($this->isTranslationReady()) {
+      return __('Confirm your subscription to [site:title]', 'mailpoet');
+    }
+    return 'Confirm your subscription to [site:title]';
+  }
+
+  /**
+   * Get translated default body with fallback
+   *
+   * @return string
+   */
+  private function getTranslatedDefaultBody(): string {
+    if ($this->isTranslationReady()) {
+      return __("Hello [subscriber:firstname | default:there],\n\nYou've received this message because you subscribed to [site:title]. Please confirm your subscription to receive emails from us:\n\n[activation_link]Click here to confirm your subscription.[/activation_link] \n\nIf you received this email by mistake, simply delete it. You won't receive any more emails from us unless you confirm your subscription using the link above.\n\nThank you,\n\n<a target=\"_blank\" href=\"[site:homepage_url]\">[site:title]</a>", 'mailpoet');
+    }
+    return "Hello [subscriber:firstname | default:there],\n\nYou've received this message because you subscribed to [site:title]. Please confirm your subscription to receive emails from us:\n\n[activation_link]Click here to confirm your subscription.[/activation_link] \n\nIf you received this email by mistake, simply delete it. You won't receive any more emails from us unless you confirm your subscription using the link above.\n\nThank you,\n\n<a target=\"_blank\" href=\"[site:homepage_url]\">[site:title]</a>";
+  }
+
+  /**
+   * Check if translations are ready to be used
+   *
+   * @return bool
+   */
+  private function isTranslationReady(): bool {
+    if (!function_exists('__')) {
+      return false;
+    }
+
+    // Prefer using is_textdomain_loaded to confirm the 'mailpoet' text domain is present
+    if (function_exists('is_textdomain_loaded')) {
+      return (bool)is_textdomain_loaded('mailpoet');
+    }
+
+    // Fall back to did_action('init') if is_textdomain_loaded is unavailable
+    // Guard did_action() with function_exists to avoid fatals in non-WP contexts
+    if (function_exists('did_action')) {
+      return (bool)did_action('init');
+    }
+
+    return false;
+  }
+
+  /**
+   * Fetches the value from DB and update in cache
+   * This is required for sync settings between parallel processes e.g. cron
+   */
+  public function fetch($key, $default = null) {
+    $keys = explode('.', $key);
+    $mainKey = $keys[0];
+    $this->settings[$mainKey] = $this->fetchValue($mainKey);
+    return $this->get($key, $default);
+  }
+
+  public function getAll() {
+    $this->ensureLoaded();
+    $settings = array_replace_recursive($this->getAllDefaults(), $this->settings);
+    $settings['delete_unconfirmed_subscribers_after_days'] = $this->normalizeDeleteUnconfirmedSubscribersAfterDays($settings['delete_unconfirmed_subscribers_after_days']);
+    return $settings;
+  }
+
+  public function set($key, $value) {
+    $this->ensureLoaded();
+    $keyParts = explode('.', $key);
+    $mainKey = $keyParts[0];
+    $hadKey = array_key_exists($mainKey, $this->settings);
+    $previousValue = $hadKey ? $this->settings[$mainKey] : null;
+    $lastKey = array_pop($keyParts);
+    $setting =& $this->settings;
+    foreach ($keyParts as $keyPart) {
+      $setting =& $setting[$keyPart];
+      if (!is_array($setting)) {
+        $setting = [];
+      }
+    }
+    $setting[$lastKey] = $value;
+    if (!$hadKey || $this->settings[$mainKey] !== $previousValue) {
+      $this->settingsRepository->createOrUpdateByName($mainKey, $this->settings[$mainKey]);
+    }
+  }
+
+  public function delete($key) {
+    $setting = $this->settingsRepository->findOneByName($key);
+    if ($setting) {
+      $this->settingsRepository->remove($setting);
+      $this->settingsRepository->flush();
+    }
+    unset($this->settings[$key]);
+  }
+
+  /**
+   * Returns true if a value is stored in the database for the given key
+   *
+   * @param string $key
+   *
+   * @return bool
+   */
+  public function hasSavedValue(string $key): bool {
+    return $this->get($key, 'unset') !== 'unset';
+  }
+
+  /**
+   * Returns true if the setting value is a truthy boolean. Settings are persisted as
+   * strings, integers, or booleans depending on how they were written, so this helper
+   * normalizes the check across all three representations.
+   */
+  public function isSettingEnabled(string $key): bool {
+    $value = $this->get($key);
+    return $value === true || $value === '1' || $value === 1;
+  }
+
+  private function ensureLoaded() {
+    if ($this->loaded) {
+      return;
+    }
+
+    $this->settings = [];
+    foreach ($this->settingsRepository->findAll() as $setting) {
+      $this->settings[$setting->getName()] = $setting->getValue();
+    }
+    $this->loaded = true;
+  }
+
+  private function getDefaultValue($keys) {
+    $default = $this->getAllDefaults();
+    foreach ($keys as $key) {
+      if (array_key_exists($key, $default)) {
+        $default = $default[$key];
+      } else {
+        return null;
+      }
+    }
+
+    return $default;
+  }
+
+  private function normalizeDeleteUnconfirmedSubscribersAfterDays($value): string {
+    if (in_array($value, self::ALLOWED_DELETE_UNCONFIRMED_SUBSCRIBERS_AFTER_DAYS, true)) {
+      return $value;
+    }
+    return self::DEFAULT_DELETE_UNCONFIRMED_SUBSCRIBERS_AFTER_DAYS;
+  }
+
+  private function fetchValue($key) {
+    $setting = $this->settingsRepository->findOneByName($key);
+    return $setting ? $setting->getValue() : null;
+  }
+
+  public function resetCache() {
+    $this->settings = [];
+    $this->loaded = false;
+  }
+
+  public static function setInstance($instance) {
+    self::$instance = $instance;
+  }
+
+  /** @return SettingsController */
+  public static function getInstance() {
+    if (isset(self::$instance)) return self::$instance;
+    return ContainerWrapper::getInstance()->get(SettingsController::class);
+  }
+}

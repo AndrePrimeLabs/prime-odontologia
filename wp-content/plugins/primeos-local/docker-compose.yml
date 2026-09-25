@@ -1,0 +1,97 @@
+services:
+  # ============================================================================
+  # PRIMEOS FRONTEND
+  # ============================================================================
+  primeos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: primeoshub:latest
+    container_name: primeos-app
+    restart: unless-stopped
+    
+    ports:
+      - "8080:80"
+    
+    environment:
+      - NODE_ENV=production
+      - VITE_PRIMEOS_API_URL=http://primeos-api:5001/api
+    
+    networks:
+      - primeos-net
+    
+    depends_on:
+      primeos-api:
+        condition: service_healthy
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ============================================================================
+  # PRIMEOS BACKEND API
+  # ============================================================================
+  primeos-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: primeos-api:latest
+    container_name: primeos-api-server
+    restart: unless-stopped
+    
+    ports:
+      - "5001:5001"
+    
+    env_file:
+      - .env.production
+    
+    environment:
+      - NODE_ENV=production
+      - PORT=5001
+    
+    networks:
+      - primeos-net
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  primeos-net:
+    driver: bridge

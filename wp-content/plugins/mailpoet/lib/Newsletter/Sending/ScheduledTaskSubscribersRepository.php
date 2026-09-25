@@ -1,0 +1,342 @@
+<?php declare(strict_types = 1);
+
+namespace MailPoet\Newsletter\Sending;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\Doctrine\Repository;
+use MailPoet\Entities\ScheduledTaskEntity;
+use MailPoet\Entities\ScheduledTaskSubscriberEntity;
+use MailPoet\Entities\SubscriberEntity;
+use MailPoet\InvalidStateException;
+use MailPoetVendor\Carbon\Carbon;
+use MailPoetVendor\Doctrine\DBAL\ArrayParameterType;
+use MailPoetVendor\Doctrine\DBAL\ParameterType;
+use MailPoetVendor\Doctrine\ORM\QueryBuilder;
+
+/**
+ * @extends Repository<ScheduledTaskSubscriberEntity>
+ */
+class ScheduledTaskSubscribersRepository extends Repository {
+  protected function getEntityClassName() {
+    return ScheduledTaskSubscriberEntity::class;
+  }
+
+  public function isSubscriberProcessed(ScheduledTaskEntity $task, SubscriberEntity $subscriber): bool {
+    $scheduledTaskSubscriber = $this
+      ->doctrineRepository
+      ->createQueryBuilder('sts')
+      ->andWhere('sts.processed = 1')
+      ->andWhere('sts.task = :task')
+      ->andWhere('sts.subscriber = :subscriber')
+      ->setParameter('subscriber', $subscriber)
+      ->setParameter('task', $task)
+      ->getQuery()
+      ->getOneOrNullResult();
+    return !empty($scheduledTaskSubscriber);
+  }
+
+  public function createOrUpdate(array $data): ?ScheduledTaskSubscriberEntity {
+    if (!isset($data['task_id'], $data['subscriber_id'])) {
+      return null;
+    }
+
+    $taskSubscriber = $this->findOneBy(['task' => $data['task_id'], 'subscriber' => $data['subscriber_id']]);
+    if (!$taskSubscriber) {
+      $task = $this->entityManager->getReference(ScheduledTaskEntity::class, (int)$data['task_id']);
+      $subscriber = $this->entityManager->getReference(SubscriberEntity::class, (int)$data['subscriber_id']);
+      if (!$task || !$subscriber) throw new InvalidStateException('Task or subscriber not found');
+
+      $taskSubscriber = new ScheduledTaskSubscriberEntity($task, $subscriber);
+      $this->persist($taskSubscriber);
+    }
+
+    $processed = $data['processed'] ?? ScheduledTaskSubscriberEntity::STATUS_UNPROCESSED;
+    $failed = $data['failed'] ?? ScheduledTaskSubscriberEntity::FAIL_STATUS_OK;
+
+    $taskSubscriber->setProcessed($processed);
+    $taskSubscriber->setFailed($failed);
+    $this->flush();
+    return $taskSubscriber;
+  }
+
+  public function countSubscriberIdsBatchForTask(int $taskId, int $lastProcessedSubscriberId): int {
+    $queryBuilder = $this->getBaseSubscribersIdsBatchForTaskQuery($taskId, $lastProcessedSubscriberId);
+    $countSubscribers = $queryBuilder
+      ->select('count(sts.subscriber)')
+      ->getQuery()
+      ->getSingleScalarResult();
+
+    return intval($countSubscribers);
+  }
+
+  public function getSubscriberIdsBatchForTask(int $taskId, int $lastProcessedSubscriberId, int $limit): array {
+    $queryBuilder = $this->getBaseSubscribersIdsBatchForTaskQuery($taskId, $lastProcessedSubscriberId);
+    $subscribersIds = $queryBuilder
+      ->select('IDENTITY(sts.subscriber) AS subscriber_id')
+      ->orderBy('sts.subscriber', 'asc')
+      ->setMaxResults($limit)
+      ->getQuery()
+      ->getSingleColumnResult();
+
+    return $subscribersIds;
+  }
+
+  /**
+   * @param int[] $subscriberIds
+   */
+  public function updateProcessedSubscribers(ScheduledTaskEntity $task, array $subscriberIds): void {
+    if ($subscriberIds) {
+      $this->entityManager->createQueryBuilder()
+        ->update(ScheduledTaskSubscriberEntity::class, 'sts')
+        ->set('sts.processed', ScheduledTaskSubscriberEntity::STATUS_PROCESSED)
+        ->where('sts.subscriber IN (:subscriberIds)')
+        ->andWhere('sts.task = :task')
+        ->setParameter('subscriberIds', $subscriberIds, ArrayParameterType::INTEGER)
+        ->setParameter('task', $task)
+        ->getQuery()
+        ->execute();
+
+      // update was done via DQL, make sure the entities are also refreshed in the entity manager
+      $this->refreshAll(function (ScheduledTaskSubscriberEntity $entity) use ($task, $subscriberIds) {
+        return $entity->getTask() === $task && in_array($entity->getSubscriberId(), $subscriberIds, true);
+      });
+    }
+
+    $this->checkCompleted($task);
+  }
+
+  /** @param int[] $subscriberIds */
+  public function addSubscribersByIds(ScheduledTaskEntity $task, array $subscriberIds): int {
+    $subscriberIds = array_values(array_unique(array_filter(array_map('intval', $subscriberIds))));
+    if ($subscriberIds === []) {
+      return 0;
+    }
+
+    $scheduledTaskSubscribersTable = $this->entityManager->getClassMetadata(ScheduledTaskSubscriberEntity::class)->getTableName();
+    $subscribersTable = $this->entityManager->getClassMetadata(SubscriberEntity::class)->getTableName();
+
+    $result = $this->entityManager->getConnection()->executeQuery(
+      "INSERT IGNORE INTO $scheduledTaskSubscribersTable
+       (task_id, subscriber_id, processed)
+       SELECT DISTINCT ? as task_id, subscribers.`id` as subscriber_id, ? as processed
+       FROM $subscribersTable subscribers
+       WHERE subscribers.`deleted_at` IS NULL
+       AND subscribers.`status` = ?
+       AND subscribers.`id` IN (?)",
+      [
+        $task->getId(),
+        ScheduledTaskSubscriberEntity::STATUS_UNPROCESSED,
+        SubscriberEntity::STATUS_SUBSCRIBED,
+        $subscriberIds,
+      ],
+      [
+        ParameterType::INTEGER,
+        ParameterType::INTEGER,
+        ParameterType::STRING,
+        ArrayParameterType::INTEGER,
+      ]
+    );
+
+    return (int)$result->rowCount();
+  }
+
+  /** @param int[] $ids */
+  public function deleteByTaskIds(array $ids): void {
+    $this->entityManager->createQueryBuilder()
+      ->delete(ScheduledTaskSubscriberEntity::class, 'sts')
+      ->where('sts.task IN (:taskIds)')
+      ->setParameter('taskIds', $ids)
+      ->getQuery()
+      ->execute();
+
+    // delete was done via DQL, make sure the entities are also detached from the entity manager
+    $this->detachAll(function (ScheduledTaskSubscriberEntity $entity) use ($ids) {
+      $task = $entity->getTask();
+      return $task && in_array($task->getId(), $ids, true);
+    });
+  }
+
+  public function deleteByScheduledTask(ScheduledTaskEntity $scheduledTask): void {
+    $this->entityManager->createQueryBuilder()
+      ->delete(ScheduledTaskSubscriberEntity::class, 'sts')
+      ->where('sts.task = :task')
+      ->setParameter('task', $scheduledTask)
+      ->getQuery()
+      ->execute();
+
+    // delete was done via DQL, make sure the entities are also detached from the entity manager
+    $this->detachAll(function (ScheduledTaskSubscriberEntity $entity) use ($scheduledTask) {
+      return $entity->getTask() === $scheduledTask;
+    });
+  }
+
+  public function deleteByScheduledTaskAndSubscriberIds(ScheduledTaskEntity $scheduledTask, array $subscriberIds): void {
+    $this->entityManager->createQueryBuilder()
+      ->delete(ScheduledTaskSubscriberEntity::class, 'sts')
+      ->where('sts.task = :task')
+      ->andWhere('sts.subscriber IN (:subscriberIds)')
+      ->setParameter('task', $scheduledTask)
+      ->setParameter('subscriberIds', $subscriberIds, ArrayParameterType::INTEGER)
+      ->getQuery()
+      ->execute();
+
+    // delete was done via DQL, make sure the entities are also detached from the entity manager
+    $this->detachAll(function (ScheduledTaskSubscriberEntity $entity) use ($scheduledTask, $subscriberIds) {
+      return $entity->getTask() === $scheduledTask && in_array($entity->getSubscriberId(), $subscriberIds, true);
+    });
+
+    $this->checkCompleted($scheduledTask);
+  }
+
+  public function setSubscribers(ScheduledTaskEntity $task, array $subscriberIds): void {
+    $this->deleteByScheduledTask($task);
+
+    foreach ($subscriberIds as $subscriberId) {
+      $this->createOrUpdate([
+        'task_id' => $task->getId(),
+        'subscriber_id' => $subscriberId,
+      ]);
+    }
+  }
+
+  public function saveError(ScheduledTaskEntity $scheduledTask, int $subscriberId, string $errorMessage): void {
+    $scheduledTaskSubscriber = $this->findOneBy(['task' => $scheduledTask, 'subscriber' => $subscriberId]);
+
+    if ($scheduledTaskSubscriber instanceof ScheduledTaskSubscriberEntity) {
+      $scheduledTaskSubscriber->setFailed(ScheduledTaskSubscriberEntity::FAIL_STATUS_FAILED);
+      $scheduledTaskSubscriber->setProcessed(ScheduledTaskSubscriberEntity::STATUS_PROCESSED);
+      $scheduledTaskSubscriber->setError($errorMessage);
+      $this->persist($scheduledTaskSubscriber);
+      $this->flush();
+
+      $this->checkCompleted($scheduledTask);
+    }
+  }
+
+  public function countProcessed(ScheduledTaskEntity $scheduledTaskEntity): int {
+    return $this->countBy(['task' => $scheduledTaskEntity, 'processed' => ScheduledTaskSubscriberEntity::STATUS_PROCESSED]);
+  }
+
+  public function countUnprocessed(ScheduledTaskEntity $scheduledTaskEntity): int {
+    return $this->countBy(['task' => $scheduledTaskEntity, 'processed' => ScheduledTaskSubscriberEntity::STATUS_UNPROCESSED]);
+  }
+
+  public function purgeOldTaskSubscribers(int $daysToKeep, int $taskBatchSize, int $rowLimit): int {
+    $stTable = $this->entityManager->getClassMetadata(ScheduledTaskEntity::class)->getTableName();
+    $stsTable = $this->entityManager->getClassMetadata(ScheduledTaskSubscriberEntity::class)->getTableName();
+    $cutoff = Carbon::now()->subDays($daysToKeep)->toDateTimeString();
+
+    $taskIds = $this->entityManager->getConnection()->executeQuery(
+      "SELECT DISTINCT st.`id`
+       FROM `{$stTable}` st
+       INNER JOIN `{$stsTable}` sts ON sts.`task_id` = st.`id`
+       WHERE st.`type` = :type
+         AND st.`status` = :status
+         AND st.`processed_at` < :cutoff
+         AND st.`deleted_at` IS NULL
+       LIMIT :taskBatchSize",
+      [
+        'type' => 'sending',
+        'status' => ScheduledTaskEntity::STATUS_COMPLETED,
+        'cutoff' => $cutoff,
+        'taskBatchSize' => $taskBatchSize,
+      ],
+      [
+        'type' => ParameterType::STRING,
+        'status' => ParameterType::STRING,
+        'cutoff' => ParameterType::STRING,
+        'taskBatchSize' => ParameterType::INTEGER,
+      ]
+    )->fetchFirstColumn();
+
+    if (!$taskIds) {
+      return 0;
+    }
+
+    /** @var int[] $taskIds */
+    $taskIdsList = implode(',', array_map('intval', $taskIds));
+
+    $deleted = $this->entityManager->getConnection()->executeStatement(
+      "DELETE FROM `{$stsTable}`
+       WHERE `task_id` IN ({$taskIdsList})
+       LIMIT :rowLimit",
+      [
+        'rowLimit' => $rowLimit,
+      ],
+      [
+        'rowLimit' => ParameterType::INTEGER,
+      ]
+    );
+
+    return (int)$deleted;
+  }
+
+  public function purgeCompletedBounceTaskSubscribers(int $taskBatchSize, int $rowLimit): int {
+    $stTable = $this->entityManager->getClassMetadata(ScheduledTaskEntity::class)->getTableName();
+    $stsTable = $this->entityManager->getClassMetadata(ScheduledTaskSubscriberEntity::class)->getTableName();
+
+    $taskIds = $this->entityManager->getConnection()->executeQuery(
+      "SELECT DISTINCT st.`id`
+       FROM `{$stTable}` st
+       INNER JOIN `{$stsTable}` sts ON sts.`task_id` = st.`id`
+       WHERE st.`type` = :type
+         AND st.`status` = :status
+         AND st.`deleted_at` IS NULL
+       LIMIT :taskBatchSize",
+      [
+        'type' => 'bounce',
+        'status' => ScheduledTaskEntity::STATUS_COMPLETED,
+        'taskBatchSize' => $taskBatchSize,
+      ],
+      [
+        'type' => ParameterType::STRING,
+        'status' => ParameterType::STRING,
+        'taskBatchSize' => ParameterType::INTEGER,
+      ]
+    )->fetchFirstColumn();
+
+    if (!$taskIds) {
+      return 0;
+    }
+
+    /** @var int[] $taskIds */
+    $taskIdsList = implode(',', array_map('intval', $taskIds));
+
+    $deleted = $this->entityManager->getConnection()->executeStatement(
+      "DELETE FROM `{$stsTable}`
+       WHERE `task_id` IN ({$taskIdsList})
+       LIMIT :rowLimit",
+      [
+        'rowLimit' => $rowLimit,
+      ],
+      [
+        'rowLimit' => ParameterType::INTEGER,
+      ]
+    );
+
+    return (int)$deleted;
+  }
+
+  private function checkCompleted(ScheduledTaskEntity $task): void {
+    $count = $this->countUnprocessed($task);
+    if ($count === 0) {
+      $task->setStatus(ScheduledTaskEntity::STATUS_COMPLETED);
+      $task->setProcessedAt(Carbon::now()->millisecond(0));
+      $this->entityManager->flush();
+    }
+  }
+
+  private function getBaseSubscribersIdsBatchForTaskQuery(int $taskId, int $lastProcessedSubscriberId): QueryBuilder {
+    return $this->entityManager
+      ->createQueryBuilder()
+      ->from(ScheduledTaskSubscriberEntity::class, 'sts')
+      ->andWhere('sts.task = :taskId')
+      ->andWhere('sts.subscriber > :lastProcessedSubscriberId')
+      ->andWhere('sts.processed = :status')
+      ->setParameter('taskId', $taskId)
+      ->setParameter('lastProcessedSubscriberId', $lastProcessedSubscriberId)
+      ->setParameter('status', ScheduledTaskSubscriberEntity::STATUS_UNPROCESSED);
+  }
+}

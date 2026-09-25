@@ -1,0 +1,138 @@
+version: '3.8'
+
+services:
+  # ============================================================================
+  # SUPABASE LOCAL DEVELOPMENT (Postgres + Auth + Storage)
+  # ============================================================================
+  supabase:
+    image: supabase/supabase:latest
+    container_name: primeos-supabase-local
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - JWT_SECRET=${JWT_SECRET:-super-secret-jwt-token-for-local-dev-only}
+      - ANON_KEY=${SUPABASE_ANON_KEY:-local-anon-key-placeholder}
+      - SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY:-local-service-role-key-placeholder}
+      - SITE_URL=http://localhost:3000
+    ports:
+      - "54321:54321"  # REST API
+      - "54322:5432"   # Postgres direct connection
+      - "54323:9000"   # Realtime
+    volumes:
+      - supabase-data:/var/lib/postgresql/data
+      - ./supabase/migrations:/docker-entrypoint-initdb.d
+    networks:
+      - primeos-local
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:54321/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ============================================================================
+  # FIREBASE EMULATOR SUITE (Auth + Firestore + Storage + Functions)
+  # ============================================================================
+  firebase-emulator:
+    image: node:20-alpine
+    container_name: primeos-firebase-local
+    restart: unless-stopped
+    working_dir: /firebase
+    command: >
+      sh -c "npm install -g firebase-tools &&
+             firebase emulators:start --project primeos-local"
+    environment:
+      - PORT=4000
+      - FIREBASE_PROJECT_ID=primeos-local
+    ports:
+      - "4000:4000"   # Firestore Emulator UI
+      - "5001:5001"   # Auth Emulator
+      - "5055:5055"   # Functions Emulator
+      - "8085:8085"   # Storage Emulator
+      - "9099:9099"   # Hub
+    volumes:
+      - ./firebase.json:/firebase/firebase.json
+      - ./functions:/firebase/functions
+    networks:
+      - primeos-local
+    depends_on:
+      - primeos
+
+  # ============================================================================
+  # PRIMEOS FRONTEND + NGINX
+  # ============================================================================
+  primeos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: primeos:local
+    container_name: primeos-app-local
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development
+      - VITE_LOCAL_MODE=true
+      - VITE_SUPABASE_URL=http://supabase:54321
+      - VITE_SUPABASE_PROJECT_ID=${VITE_SUPABASE_PROJECT_ID:-primeos-local}
+      - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY:-local-anon-key-placeholder}
+      - VITE_FIREBASE_PROJECT_ID=${VITE_FIREBASE_PROJECT_ID:-primeos-local}
+      - VITE_APP_BASE_URL=http://localhost:3000
+    ports:
+      - "3000:80"     # Frontend
+      - "5173:5173"   # Vite dev server (if running npm run dev inside container)
+    volumes:
+      - primeos-data:/app/data
+      - ./src:/app/src  # Hot reload in dev
+      - ./public:/app/public
+    networks:
+      - primeos-local
+    depends_on:
+      supabase:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # ============================================================================
+  # OPTIONAL: Redis for caching (if needed)
+  # ============================================================================
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: primeos-redis-local
+  #   restart: unless-stopped
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+  #   networks:
+  #     - primeos-local
+
+  # ============================================================================
+  # OPTIONAL: PostgreSQL Admin (pgAdmin)
+  # ============================================================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: primeos-pgadmin-local
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL=admin@primeos.local
+      PGADMIN_DEFAULT_PASSWORD=admin123
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - primeos-local
+    depends_on:
+      - supabase
+
+networks:
+  primeos-local:
+    driver: bridge
+
+volumes:
+  primeos-data:
+  supabase-data:
+  pgadmin-data:
+  # redis-data:

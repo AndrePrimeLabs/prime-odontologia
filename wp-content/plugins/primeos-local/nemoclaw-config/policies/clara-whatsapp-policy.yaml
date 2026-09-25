@@ -1,0 +1,151 @@
+# NemoClaw Security Policy — Clara WhatsApp Agent
+# Applied to: clara-agent container
+# Enforced by: NemoClaw OpenShell runtime on Palit Pandora / JetPack 6
+# github.com/enterprises/PrimeOsHub / nemoclaw-config
+
+policy:
+  name: clara-whatsapp-policy
+  version: "1.0.0"
+  agent_id: clara
+  description: >
+    Security sandbox policy for Clara, the PrimeOsHub WhatsApp virtual assistant.
+    Enforces data isolation, rate limits, and safe tool execution.
+
+# ── Input validation ─────────────────────────────────────────────────────────
+input_guardrails:
+  max_message_length: 4096
+  blocked_patterns:
+    - pattern: "(?i)(prompt injection|ignore previous|system prompt)"
+      action: BLOCK
+      reason: "Prompt injection attempt detected"
+    - pattern: "(?i)(SELECT.*FROM|DROP TABLE|DELETE FROM|INSERT INTO)"
+      action: BLOCK
+      reason: "SQL injection attempt detected"
+    - pattern: "(?i)(exec|eval|system\(|os\.)"
+      action: BLOCK
+      reason: "Code injection attempt detected"
+  pii_detection:
+    enabled: true
+    fields_to_scan: [text, content]
+    action_on_pii: LOG_AND_MASK   # mask before sending to AI model
+    pii_types: [CPF, CNPJ, credit_card, bank_account]
+
+# ── Tool execution rules ──────────────────────────────────────────────────────
+tool_policies:
+  default_action: ALLOW
+
+  tools:
+    get_org_info:
+      allowed: true
+      require_fields: []
+      rate_limit: { requests: 10, window_seconds: 60 }
+      log_level: DEBUG
+
+    capture_lead:
+      allowed: true
+      require_fields: [name, segment]
+      rate_limit: { requests: 5, window_seconds: 60 }
+      log_level: INFO
+      audit: true
+
+    schedule_demo:
+      allowed: true
+      require_fields: [contact_name, contact_email, preferred_date]
+      rate_limit: { requests: 3, window_seconds: 300 }
+      log_level: INFO
+      audit: true
+
+    get_module_status:
+      allowed: true
+      require_org_id: true              # org_id must match authenticated phone
+      rate_limit: { requests: 20, window_seconds: 60 }
+      cross_tenant_check: true          # CANNOT access other orgs' data
+
+    get_bmc_summary:
+      allowed: true
+      require_org_id: true
+      cross_tenant_check: true
+      rate_limit: { requests: 10, window_seconds: 60 }
+
+    create_support_ticket:
+      allowed: true
+      require_org_id: true
+      require_fields: [org_id, title, description]
+      rate_limit: { requests: 5, window_seconds: 300 }
+      log_level: INFO
+      audit: true
+
+    escalate_to_human:
+      allowed: true
+      require_fields: [reason]
+      rate_limit: { requests: 2, window_seconds: 600 }
+      log_level: INFO
+      audit: true
+      notify: [luzia-agent]             # Luzia is notified on every escalation
+
+    get_pricing_info:
+      allowed: true
+      rate_limit: { requests: 10, window_seconds: 60 }
+      log_level: DEBUG
+
+    # Explicitly block dangerous tools Clara should NEVER call
+    delete_organization:  { allowed: false, reason: "Clara cannot delete organizations" }
+    update_billing:       { allowed: false, reason: "Clara cannot modify billing — route to human" }
+    reset_user_password:  { allowed: false, reason: "Password resets require human verification" }
+    export_all_data:      { allowed: false, reason: "Bulk exports require admin auth" }
+
+# ── Network egress controls ────────────────────────────────────────────────────
+network:
+  allowed_hosts:
+    - primeos-api:3000          # Internal PrimeOS API
+    - api.anthropic.com:443     # Claude AI
+    - graph.facebook.com:443    # WhatsApp Business API
+    - redis:6379                # Internal Redis
+    - nemoclaw:8080             # NemoClaw itself (health checks)
+  blocked_hosts:
+    - "0.0.0.0/0"              # Block everything else by default
+  dns_policy: ALLOWLIST_ONLY
+
+# ── Filesystem isolation ───────────────────────────────────────────────────────
+filesystem:
+  read_only_paths:
+    - /policies
+    - /app/config
+  writable_paths:
+    - /tmp/clara             # Temp processing only
+    - /app/logs              # Agent logs
+  blocked_paths:
+    - /etc/passwd
+    - /etc/shadow
+    - /root
+    - /home
+
+# ── Resource limits ────────────────────────────────────────────────────────────
+resources:
+  max_memory_mb:        1024
+  max_cpu_percent:      50
+  max_concurrent_calls: 20     # Max parallel WhatsApp conversations
+  max_tokens_per_min:   50000  # Anthropic API token budget
+  inference_timeout_ms: 30000
+
+# ── Audit & observability ──────────────────────────────────────────────────────
+audit:
+  enabled: true
+  log_destination: primeos-api  # POST to /api/v1/audit
+  log_all_tool_calls: true
+  log_policy_violations: true
+  sensitive_field_masking: true
+  retention_days: 365
+
+# ── Alert escalation ───────────────────────────────────────────────────────────
+alerts:
+  on_critical_violation:
+    notify: [luzia-agent, admin-webhook]
+    action: BLOCK_AND_LOG
+  on_rate_limit_exceeded:
+    notify: [luzia-agent]
+    action: THROTTLE
+  on_cross_tenant_attempt:
+    notify: [luzia-agent, admin-webhook]
+    action: BLOCK_AND_ALERT
+    severity: CRITICAL

@@ -1,0 +1,32 @@
+#wpfooter{
+	.wpconsent-footer{
+		text-align:center;
+		margin-bottom: 40px;
+		p{
+			font-weight: 600;
+		}
+		.wpconsent-footer-links{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 10px 0;
+			color: #646970;
+
+			span{
+				color: #c3c4c7;
+				padding: 0 7px;
+			}
+
+		}
+		.wpconsent-footer-social{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+			margin: 0;
+		}
+	}
+}
+.wpconsent-footer-social li:hover path{
+	fill: #50575e;
+}

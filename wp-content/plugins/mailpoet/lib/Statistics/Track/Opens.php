@@ -1,0 +1,116 @@
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing
+
+namespace MailPoet\Statistics\Track;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\Entities\NewsletterEntity;
+use MailPoet\Entities\SendingQueueEntity;
+use MailPoet\Entities\StatisticsOpenEntity;
+use MailPoet\Entities\SubscriberEntity;
+use MailPoet\Entities\UserAgentEntity;
+use MailPoet\Statistics\StatisticsNewslettersRepository;
+use MailPoet\Statistics\StatisticsOpensRepository;
+use MailPoet\Statistics\UserAgentsRepository;
+use MailPoet\Subscribers\SubscribersRepository;
+use MailPoet\Subscribers\TrackingConsentController;
+
+class Opens {
+  /** @var StatisticsOpensRepository */
+  private $statisticsOpensRepository;
+
+  /** @var StatisticsNewslettersRepository */
+  private $statisticsNewslettersRepository;
+
+  /** @var UserAgentsRepository */
+  private $userAgentsRepository;
+
+  /** @var SubscribersRepository */
+  private $subscribersRepository;
+
+  /** @var TrackingConsentController */
+  private $trackingConsentController;
+
+  public function __construct(
+    StatisticsOpensRepository $statisticsOpensRepository,
+    StatisticsNewslettersRepository $statisticsNewslettersRepository,
+    UserAgentsRepository $userAgentsRepository,
+    SubscribersRepository $subscribersRepository,
+    TrackingConsentController $trackingConsentController
+  ) {
+    $this->statisticsOpensRepository = $statisticsOpensRepository;
+    $this->statisticsNewslettersRepository = $statisticsNewslettersRepository;
+    $this->userAgentsRepository = $userAgentsRepository;
+    $this->subscribersRepository = $subscribersRepository;
+    $this->trackingConsentController = $trackingConsentController;
+  }
+
+  public function track($data, $displayImage = true) {
+    if (!$data) {
+      return $this->returnResponse($displayImage);
+    }
+    /** @var SubscriberEntity $subscriber */
+    $subscriber = $data->subscriber;
+    // No tracking consent (CNIL/Garante): serve the image but record nothing —
+    // no statistics, no engagement update. This is the backstop for emails
+    // already sent; future sends have the pixel removed entirely (see
+    // Newsletter::prepareNewsletterForSending).
+    if (!$this->trackingConsentController->isTrackingAllowed($subscriber)) {
+      return $this->returnResponse($displayImage);
+    }
+    /** @var SendingQueueEntity $queue */
+    $queue = $data->queue;
+    /** @var NewsletterEntity $newsletter */
+    $newsletter = $data->newsletter;
+    $wpUserPreview = ($data->preview && ($subscriber->isWPUser()));
+    // log statistics only if the action did not come from
+    // a WP user previewing the newsletter
+    if (!$wpUserPreview) {
+      $oldStatistics = $this->statisticsOpensRepository->findOneBy([
+        'subscriber' => $subscriber->getId(),
+        'newsletter' => $newsletter->getId(),
+        'queue' => $queue->getId(),
+      ]);
+      // Open was already tracked
+      if ($oldStatistics) {
+        if (!empty($data->userAgent)) {
+          $userAgent = $this->userAgentsRepository->findOrCreate($data->userAgent);
+          if (
+            $userAgent->getUserAgentType() === UserAgentEntity::USER_AGENT_TYPE_HUMAN
+            || $oldStatistics->getUserAgentType() === UserAgentEntity::USER_AGENT_TYPE_MACHINE
+          ) {
+            $oldStatistics->setUserAgent($userAgent);
+            $oldStatistics->setUserAgentType($userAgent->getUserAgentType());
+            $this->statisticsOpensRepository->flush();
+          }
+        }
+        $this->subscribersRepository->maybeUpdateLastOpenAt($subscriber);
+        return $this->returnResponse($displayImage);
+      }
+      $statistics = new StatisticsOpenEntity($newsletter, $queue, $subscriber);
+      if (!empty($data->userAgent)) {
+        $userAgent = $this->userAgentsRepository->findOrCreate($data->userAgent);
+        $statistics->setUserAgent($userAgent);
+        $statistics->setUserAgentType($userAgent->getUserAgentType());
+      }
+      $this->statisticsOpensRepository->persist($statistics);
+      $this->statisticsOpensRepository->flush();
+      $this->statisticsNewslettersRepository->markSentWithTracking($newsletter, $queue, $subscriber);
+      $this->subscribersRepository->maybeUpdateLastOpenAt($subscriber);
+      $this->statisticsOpensRepository->recalculateSubscriberScore($subscriber);
+    }
+    return $this->returnResponse($displayImage);
+  }
+
+  public function returnResponse($displayImage) {
+    if (!$displayImage) return;
+    // return 1x1 pixel transparent gif image
+    header('Content-Type: image/gif');
+
+    // Output of base64_decode is predetermined and safe in this case
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    echo base64_decode('R0lGODlhAQABAJAAAP8AAAAAACH5BAUQAAAALAAAAAABAAEAAAICBAEAOw==');
+    exit;
+  }
+}

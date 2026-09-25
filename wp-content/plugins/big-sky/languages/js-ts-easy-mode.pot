@@ -1,0 +1,238 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:341
+#. 1: block label, 2: position, 3: total count.
+msgid "%1$s, block %2$d of %3$d"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:367
+#. 1: annotation number, 2: comment text.
+msgid "Annotation %1$d: %2$s"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:445
+msgid ""
+"Annotate blocks. Use the arrow keys to move between blocks, Enter to "
+"comment, and Escape to exit."
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+#. %s: label of the block being annotated.
+msgid "Annotate %s"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Add a comment…"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Delete annotation"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:565
+msgid "Update annotation"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-layer.tsx:566
+msgid "Save annotation"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:14
+msgid "Send"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:18
+msgid "Sending…"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:21
+#. %d: number of annotations to send.
+msgid "Send %d annotation"
+msgid_plural "Send %d annotations"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Exit annotation mode"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Discard annotations"
+msgstr ""
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Annotating"
+msgstr ""
+
+#: src/easy-mode/annotations/prompt.ts:82
+#. %d: number of annotations.
+msgid "%d annotation submitted"
+msgid_plural "%d annotations submitted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/easy-mode/annotations/use-editor-annotations.ts:153
+msgid "Annotations could not be sent — the assistant is unavailable."
+msgstr ""
+
+#: src/easy-mode/components/app.tsx:300
+msgid "Switching to edit mode so you can approve the changes before saving."
+msgstr ""
+
+#: src/easy-mode/components/app.tsx:301
+msgid "Switching to edit mode so you can see the changes."
+msgstr ""
+
+#: src/easy-mode/components/app.tsx:439
+msgid "Switching to edit mode so you can watch the new design being built."
+msgstr ""
+
+#: src/easy-mode/components/page-switcher.tsx:113
+#. %s: page title.
+msgid "%s — Draft"
+msgstr ""
+
+#: src/easy-mode/components/page-switcher.tsx:116
+msgid "(no title)"
+msgstr ""
+
+#: src/easy-mode/components/page-switcher.tsx:34
+msgid "Home"
+msgstr ""
+
+#: src/easy-mode/components/page-switcher.tsx:49
+msgid "Pages"
+msgstr ""
+
+#: src/easy-mode/components/page-switcher.tsx:76
+msgid "Switch page"
+msgstr ""
+
+#: src/easy-mode/components/page-switcher.tsx:99
+#. %s: page currently open.
+msgid "Switch page. Current page: %s"
+msgstr ""
+
+#: src/easy-mode/components/preview-overlay.tsx:147
+msgid "The site preview could not be loaded."
+msgstr ""
+
+#: src/easy-mode/components/preview-overlay.tsx:155
+msgid "Retry"
+msgstr ""
+
+#: src/easy-mode/components/preview-overlay.tsx:158
+msgid "Site preview"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:50
+msgid "Preview"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:51
+msgid "Edit"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:54
+msgid "Desktop"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:55
+msgid "Tablet"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:56
+msgid "Mobile"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:68
+msgid "Mode"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:689
+msgid "Chat is unavailable"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:694
+#. %d: number of annotations waiting to be sent.
+msgid "Resume annotating, %d pending"
+msgid_plural "Resume annotating, %d pending"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/easy-mode/components/topbar.tsx:696
+msgid "Annotate"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:698
+msgid "Return to WP Admin"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:710
+msgid "Undo"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:713
+msgid "Redo"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:725
+msgid "Reload preview"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Open in a new tab"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Responsive view"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:743
+#. %s: selected device, e.g. Desktop.
+msgid "Responsive view: %s"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:749
+msgid "Publish"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:761
+msgid "Saving…"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:763
+msgid "Save draft"
+msgstr ""
+
+#: src/easy-mode/components/topbar.tsx:763
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Save"
+msgstr ""
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:32
+msgid "The preview shows your saved site, so unsaved changes won’t appear there."
+msgstr ""
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:33
+msgid "You need to save or discard the changes to the current page."
+msgstr ""
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:66
+msgid "Save your changes?"
+msgstr ""
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Discard"
+msgstr ""
+
+#: src/easy-mode/hooks/use-save-controller.ts:120
+msgid "Some changes could not be saved. Your work is still here — try saving again."
+msgstr ""
+
+#: src/easy-mode/hooks/use-save-controller.ts:121
+msgid "Your changes could not be saved. Your work is still here — try saving again."
+msgstr ""

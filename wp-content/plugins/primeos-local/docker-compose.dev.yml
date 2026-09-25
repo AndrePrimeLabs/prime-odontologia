@@ -1,0 +1,174 @@
+version: '3.8'
+
+# ============================================================================
+# DOCKER COMPOSE FOR DEVELOPMENT - HOT RELOAD
+# ============================================================================
+# Purpose: Fast development with live code changes
+# Usage:
+#   docker compose -f docker-compose.dev.yml up --build
+#   Edit src/ files and see changes instantly on http://localhost:5173
+#
+# Benefits over docker-compose.local.yml:
+#   - Vite dev server with HMR (hot module replacement)
+#   - Instant feedback on code changes
+#   - Source maps for debugging
+#   - Faster iteration cycle
+#
+# Drawbacks:
+#   - Different from production environment (nginx)
+#   - Node process instead of lightweight nginx
+#   - Higher memory usage
+#
+# When to use:
+#   - Active development on frontend
+#   - Need real-time feedback
+#   - Testing components and features
+#
+# When NOT to use:
+#   - Testing nginx configuration
+#   - Testing production builds
+#   - Final pre-deployment testing
+# ============================================================================
+
+services:
+  # ============================================================================
+  # SUPABASE BACKEND (SAME AS docker-compose.local.yml)
+  # ============================================================================
+  supabase:
+    image: supabase/supabase:latest
+    container_name: primeos-supabase-dev
+    restart: unless-stopped
+    platform: linux/arm64
+    
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - JWT_SECRET=super-secret-jwt-token-for-local-dev-only
+      - ANON_KEY=[REDACTED]
+      - SERVICE_ROLE_KEY=[REDACTED]
+      - SITE_URL=http://localhost:5173
+      - SUPABASE_URL=http://supabase:54321
+    
+    ports:
+      - "54321:54321"
+      - "54322:5432"
+      - "54323:9000"
+    
+    volumes:
+      - supabase-data:/var/lib/postgresql/data
+      - ./supabase/migrations:/docker-entrypoint-initdb.d
+    
+    networks:
+      - primeos-dev
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:54321/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # ============================================================================
+  # PRIMEOS DEV SERVER - VITE WITH HOT RELOAD
+  # ============================================================================
+  primeos-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: primeos:dev
+    container_name: primeos-app-dev
+    restart: unless-stopped
+    platform: linux/arm64
+    
+    environment:
+      - NODE_ENV=development
+      - VITE_LOCAL_MODE=true
+      - VITE_SUPABASE_URL=http://supabase:54321
+      - VITE_SUPABASE_PROJECT_ID=primeos-local
+      - VITE_SUPABASE_ANON_KEY=[REDACTED]
+      - VITE_FIREBASE_PROJECT_ID=primeos-local
+      - VITE_APP_BASE_URL=http://localhost:5173
+    
+    ports:
+      # Vite dev server
+      - "5173:5173"
+      # Vite HMR (hot module replacement)
+      - "24678:24678"
+    
+    volumes:
+      # Mount source code for live reload (exclude node_modules)
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./index.html:/app/index.html
+      - ./vite.config.js:/app/vite.config.js
+      - ./tsconfig.json:/app/tsconfig.json
+      # Don't mount node_modules (keep from container)
+      - /app/node_modules
+      - /app/dist
+    
+    networks:
+      - primeos-dev
+    
+    depends_on:
+      supabase:
+        condition: service_healthy
+    
+    # Performance settings
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '1'
+          memory: 1G
+
+  # ============================================================================
+  # PGADMIN - DATABASE BROWSER
+  # ============================================================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: primeos-pgadmin-dev
+    restart: unless-stopped
+    platform: linux/arm64
+    
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@primeos.local
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    
+    ports:
+      - "5050:80"
+    
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    
+    networks:
+      - primeos-dev
+    
+    depends_on:
+      - supabase
+
+networks:
+  primeos-dev:
+    driver: bridge
+
+volumes:
+  supabase-data:
+  pgadmin-data:
+
+# ============================================================================
+# USAGE
+# ============================================================================
+#
+# Start development environment:
+#   docker compose -f docker-compose.dev.yml up --build
+#
+# View logs:
+#   docker compose -f docker-compose.dev.yml logs -f primeos-dev
+#
+# Stop:
+#   docker compose -f docker-compose.dev.yml down
+#
+# The app will be at http://localhost:5173 with hot reload enabled!
+#
+# ============================================================================

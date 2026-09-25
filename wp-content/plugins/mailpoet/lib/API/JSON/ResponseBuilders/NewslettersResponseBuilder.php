@@ -1,0 +1,404 @@
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing
+
+namespace MailPoet\API\JSON\ResponseBuilders;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\Entities\DynamicSegmentFilterEntity;
+use MailPoet\Entities\NewsletterEntity;
+use MailPoet\Entities\SegmentEntity;
+use MailPoet\Entities\SendingQueueEntity;
+use MailPoet\Logging\LoggerFactory;
+use MailPoet\Logging\LogRepository;
+use MailPoet\Newsletter\NewslettersRepository;
+use MailPoet\Newsletter\Sending\NewsletterReplayMetadata;
+use MailPoet\Newsletter\Sending\SendingQueuesRepository;
+use MailPoet\Newsletter\Sending\TimeZoneCampaignScheduler;
+use MailPoet\Newsletter\Sharing\ShareVisibility;
+use MailPoet\Newsletter\Statistics\NewsletterStatistics;
+use MailPoet\Newsletter\Statistics\NewsletterStatisticsRepository;
+use MailPoet\Newsletter\Url as NewsletterUrl;
+use MailPoet\Statistics\StatisticsUnsubscribesRepository;
+use MailPoetVendor\Doctrine\ORM\EntityManager;
+
+class NewslettersResponseBuilder {
+  const DATE_FORMAT = 'Y-m-d H:i:s';
+
+  const RELATION_QUEUE = 'queue';
+  const RELATION_SEGMENTS = 'segments';
+  const RELATION_OPTIONS = 'options';
+  const RELATION_TOTAL_SENT = 'total_sent';
+  const RELATION_CHILDREN_COUNT = 'children_count';
+  const RELATION_SCHEDULED = 'scheduled';
+  const RELATION_STATISTICS = 'statistics';
+
+  /** @var NewsletterStatisticsRepository */
+  private $newslettersStatsRepository;
+
+  /** @var NewslettersRepository */
+  private $newslettersRepository;
+
+  /** @var EntityManager */
+  private $entityManager;
+
+  /** @var NewsletterUrl */
+  private $newsletterUrl;
+
+  /** @var SendingQueuesRepository */
+  private $sendingQueuesRepository;
+
+  /*** @var LogRepository */
+  private $logRepository;
+
+  /** @var ShareVisibility */
+  private $shareVisibility;
+
+  /*** @var StatisticsUnsubscribesRepository */
+  private $statisticsUnsubscribesRepository;
+
+  /*** @var TimeZoneCampaignScheduler|null */
+  private $timeZoneCampaignScheduler;
+
+  public function __construct(
+    EntityManager $entityManager,
+    NewslettersRepository $newslettersRepository,
+    NewsletterStatisticsRepository $newslettersStatsRepository,
+    NewsletterUrl $newsletterUrl,
+    SendingQueuesRepository $sendingQueuesRepository,
+    LogRepository $logRepository,
+    ShareVisibility $shareVisibility,
+    StatisticsUnsubscribesRepository $statisticsUnsubscribesRepository,
+    ?TimeZoneCampaignScheduler $timeZoneCampaignScheduler = null
+  ) {
+    $this->newslettersStatsRepository = $newslettersStatsRepository;
+    $this->newslettersRepository = $newslettersRepository;
+    $this->entityManager = $entityManager;
+    $this->newsletterUrl = $newsletterUrl;
+    $this->sendingQueuesRepository = $sendingQueuesRepository;
+    $this->logRepository = $logRepository;
+    $this->shareVisibility = $shareVisibility;
+    $this->statisticsUnsubscribesRepository = $statisticsUnsubscribesRepository;
+    $this->timeZoneCampaignScheduler = $timeZoneCampaignScheduler;
+  }
+
+  public function build(NewsletterEntity $newsletter, $relations = []) {
+    $data = [
+      'id' => (string)$newsletter->getId(), // (string) for BC
+      'hash' => $newsletter->getHash(),
+      'subject' => $newsletter->getSubject(),
+      'type' => $newsletter->getType(),
+      'sender_address' => $newsletter->getSenderAddress(),
+      'sender_name' => $newsletter->getSenderName(),
+      'status' => $newsletter->getStatus(),
+      'reply_to_address' => $newsletter->getReplyToAddress(),
+      'reply_to_name' => $newsletter->getReplyToName(),
+      'preheader' => $newsletter->getPreheader(),
+      'body' => $newsletter->getBody(),
+      'sent_at' => ($sentAt = $newsletter->getSentAt()) ? $sentAt->format(self::DATE_FORMAT) : null,
+      'created_at' => ($createdAt = $newsletter->getCreatedAt()) ? $createdAt->format(self::DATE_FORMAT) : null,
+      'updated_at' => ($updatedAt = $newsletter->getUpdatedAt()) ? $updatedAt->format(self::DATE_FORMAT) : null,
+      'deleted_at' => ($deletedAt = $newsletter->getDeletedAt()) ? $deletedAt->format(self::DATE_FORMAT) : null,
+      'parent_id' => ($parent = $newsletter->getParent()) ? $parent->getId() : null,
+      'unsubscribe_token' => $newsletter->getUnsubscribeToken(),
+      'ga_campaign' => $newsletter->getGaCampaign(),
+      'wp_post_id' => $newsletter->getWpPostId(),
+      'campaign_name' => $newsletter->getCampaignName(),
+    ];
+    $data += $this->buildSharingData($newsletter);
+
+    foreach ($relations as $relation) {
+      if ($relation === self::RELATION_QUEUE) {
+        $data['queue'] = ($queue = $newsletter->getLatestQueue()) ? $this->buildQueue($queue) : false; // false for BC
+      }
+      if ($relation === self::RELATION_SEGMENTS) {
+        $data['segments'] = $this->buildSegments($newsletter);
+      }
+      if ($relation === self::RELATION_OPTIONS) {
+        $data['options'] = $this->buildOptions($newsletter);
+      }
+      if ($relation === self::RELATION_TOTAL_SENT) {
+        $data['total_sent'] = $this->newslettersStatsRepository->getTotalSentCount($newsletter);
+      }
+      if ($relation === self::RELATION_CHILDREN_COUNT) {
+        $data['children_count'] = $this->newslettersStatsRepository->getChildrenCount($newsletter);
+      }
+      if ($relation === self::RELATION_SCHEDULED) {
+        $data['total_scheduled'] = $this->sendingQueuesRepository->countAllToProcessByNewsletter(
+          $newsletter
+        );
+      }
+
+      if ($relation === self::RELATION_STATISTICS) {
+        $data['statistics'] = $this->newslettersStatsRepository->getStatistics($newsletter)->asArray();
+        $data['statistics']['unsubscribeReasons'] = $this->statisticsUnsubscribesRepository->getReasonCountsForNewsletter($newsletter);
+      }
+    }
+    return $data;
+  }
+
+  private function processPersonalizationTags(?string $content): ?string {
+    if (is_null($content) || strlen($content) === 0) {
+      return $content;
+    }
+    if (strpos($content, '<!--') === false) {
+      // we don't need to parse anything if there are no personalization tags
+      return $content;
+    }
+    if (!class_exists('\Automattic\WooCommerce\EmailEditor\Engine\PersonalizationTags\HTML_Tag_Processor')) {
+      // editor is not active, we cannot process personalization tags
+      return $content;
+    }
+
+    $content_processor = new \Automattic\WooCommerce\EmailEditor\Engine\PersonalizationTags\HTML_Tag_Processor($content);
+    while ($content_processor->next_token()) {
+      $type = $content_processor->get_token_type();
+      if ($type === '#comment') {
+        $token = $content_processor->get_modifiable_text();
+        $content_processor->replace_token($token);
+      }
+    }
+    $content_processor->flush_updates();
+    return $content_processor->get_updated_html();
+  }
+
+  public function buildForListing(array $newsletters): array {
+    $statistics = $this->newslettersStatsRepository->getBatchStatistics($newsletters);
+    $latestQueues = $this->getBatchLatestQueuesWithTasks($newsletters);
+    $this->newslettersRepository->prefetchOptions($newsletters);
+    $this->newslettersRepository->prefetchSegments($newsletters);
+    $couponBlockLogs = $this->logRepository->getRawMessagesForNewsletters($newsletters, LoggerFactory::TOPIC_COUPONS);
+
+    $data = [];
+    foreach ($newsletters as $newsletter) {
+      $id = $newsletter->getId();
+      $data[] = $this->buildListingItem(
+        $newsletter,
+        $statistics[$id] ?? null,
+        $latestQueues[$id] ?? null,
+        $couponBlockLogs[$id] ?? []
+      );
+    }
+    return $data;
+  }
+
+  /**
+   * @param NewsletterEntity $newsletter
+   * @param NewsletterStatistics|null $statistics
+   * @param SendingQueueEntity|null $latestQueue
+   * @param string[] $couponBlockLogs
+   * @return array<string, mixed>
+   */
+  private function buildListingItem(
+    NewsletterEntity $newsletter,
+    ?NewsletterStatistics $statistics = null,
+    ?SendingQueueEntity $latestQueue = null,
+    array $couponBlockLogs = []
+  ): array {
+    $couponBlockLogs = array_map(function ($item) {
+      return "Coupon block: $item";
+    }, $couponBlockLogs);
+    $data = [
+      'id' => (string)$newsletter->getId(), // (string) for BC
+      'hash' => $newsletter->getHash(),
+      'subject' => $this->processPersonalizationTags($newsletter->getSubject()),
+      'type' => $newsletter->getType(),
+      'status' => $newsletter->getStatus(),
+      'sent_at' => ($sentAt = $newsletter->getSentAt()) ? $sentAt->format(self::DATE_FORMAT) : null,
+      'updated_at' => ($updatedAt = $newsletter->getUpdatedAt()) ? $updatedAt->format(self::DATE_FORMAT) : null,
+      'deleted_at' => ($deletedAt = $newsletter->getDeletedAt()) ? $deletedAt->format(self::DATE_FORMAT) : null,
+      'segments' => [],
+      'queue' => false,
+      'wp_post_id' => $newsletter->getWpPostId(),
+      'statistics' => ($statistics && $newsletter->getType() !== NewsletterEntity::TYPE_NOTIFICATION)
+        ? $statistics->asArray()
+        : false,
+      'preview_url' => $this->newsletterUrl->getViewInBrowserUrl(
+        $newsletter,
+        null,
+        in_array($newsletter->getStatus(), [NewsletterEntity::STATUS_SENT, NewsletterEntity::STATUS_SENDING], true)
+          ? $latestQueue
+          : null
+      ),
+      'logs' => $couponBlockLogs,
+      'campaign_name' => $newsletter->getCampaignName(),
+    ];
+    $data += $this->buildSharingData($newsletter);
+
+    if ($newsletter->getType() === NewsletterEntity::TYPE_STANDARD) {
+      $data['segments'] = $this->buildSegments($newsletter);
+      // For a sent newsletter the listing shows recipients across all completed queues,
+      // including "Send latest newsletter" replays. The statistics' total sent count already
+      // aggregates that (SUM of completed queues' count_processed), and for completed queues
+      // count_processed == count_total with count_to_process == 0, so it serves as all three
+      // queue counts below.
+      $sentCount = ($statistics && $newsletter->getStatus() === NewsletterEntity::STATUS_SENT)
+        ? $statistics->getTotalSentCount()
+        : null;
+      $data['queue'] = $latestQueue ? $this->buildQueue($latestQueue, $sentCount) : false; // false for BC
+      $data['options'] = $this->buildOptions($newsletter);
+    } elseif (in_array($newsletter->getType(), [NewsletterEntity::TYPE_WELCOME, NewsletterEntity::TYPE_AUTOMATIC], true)) {
+      $data['segments'] = [];
+      $data['options'] = $this->buildOptions($newsletter);
+      $data['total_sent'] = $statistics ? $statistics->getTotalSentCount() : 0;
+      $data['total_scheduled'] = $this->sendingQueuesRepository->countAllToProcessByNewsletter(
+        $newsletter
+      );
+    } elseif ($newsletter->getType() === NewsletterEntity::TYPE_NOTIFICATION) {
+      $data['segments'] = $this->buildSegments($newsletter);
+      $data['children_count'] = $this->newslettersStatsRepository->getChildrenCount($newsletter);
+      $data['options'] = $this->buildOptions($newsletter);
+    } elseif ($newsletter->getType() === NewsletterEntity::TYPE_NOTIFICATION_HISTORY) {
+      $data['segments'] = $this->buildSegments($newsletter);
+      $data['queue'] = $latestQueue ? $this->buildQueue($latestQueue) : false; // false for BC
+    } elseif ($newsletter->getType() === NewsletterEntity::TYPE_RE_ENGAGEMENT) {
+      $data['segments'] = $this->buildSegments($newsletter);
+      $data['options'] = $this->buildOptions($newsletter);
+      $data['total_sent'] = $statistics ? $statistics->getTotalSentCount() : 0;
+    }
+    return $data;
+  }
+
+  /**
+   * @return array<string, mixed>
+   */
+  private function buildSharingData(NewsletterEntity $newsletter): array {
+    $isSupported = $this->shareVisibility->isSupported($newsletter);
+    return [
+      'share_url' => $isSupported ? $this->newsletterUrl->getPublicShareUrl($newsletter) : '',
+      'share_visibility' => $this->shareVisibility->getConfiguredVisibility($newsletter),
+      'effective_share_visibility' => $this->shareVisibility->getEffectiveVisibility($newsletter),
+      'can_share' => $this->shareVisibility->canShare($newsletter),
+      'is_share_supported' => $isSupported,
+      'share_unavailable_reason' => $this->shareVisibility->getUnavailableReason($newsletter),
+    ];
+  }
+
+  private function buildSegments(NewsletterEntity $newsletter) {
+    $output = [];
+    foreach ($newsletter->getNewsletterSegments() as $newsletterSegment) {
+      $segment = $newsletterSegment->getSegment();
+      if (!$segment || $segment->getDeletedAt()) {
+        continue;
+      }
+      $output[] = $this->buildSegment($segment);
+    }
+    return $output;
+  }
+
+  private function buildOptions(NewsletterEntity $newsletter) {
+    $output = [];
+    foreach ($newsletter->getOptions() as $option) {
+      $optionField = $option->getOptionField();
+      if (!$optionField) {
+        continue;
+      }
+      $output[$optionField->getName()] = $option->getValue();
+    }
+
+    // convert 'afterTimeNumber' string to integer
+    if (isset($output['afterTimeNumber']) && is_numeric($output['afterTimeNumber'])) {
+      $output['afterTimeNumber'] = (int)$output['afterTimeNumber'];
+    }
+
+    return $output;
+  }
+
+  private function buildSegment(SegmentEntity $segment) {
+    $filters = $segment->getType() === SegmentEntity::TYPE_DYNAMIC ? $segment->getDynamicFilters()->toArray() : [];
+    return [
+      'id' => (string)$segment->getId(), // (string) for BC
+      'name' => $segment->getName(),
+      'type' => $segment->getType(),
+      'filters' => array_map(function(DynamicSegmentFilterEntity $filter) {
+        return [
+          'action' => $filter->getFilterData()->getAction(),
+          'type' => $filter->getFilterData()->getFilterType(),
+        ];
+      }, $filters),
+      'description' => $segment->getDescription(),
+      'created_at' => ($createdAt = $segment->getCreatedAt()) ? $createdAt->format(self::DATE_FORMAT) : null,
+      'updated_at' => ($updatedAt = $segment->getUpdatedAt()) ? $updatedAt->format(self::DATE_FORMAT) : null,
+      'deleted_at' => ($deletedAt = $segment->getDeletedAt()) ? $deletedAt->format(self::DATE_FORMAT) : null,
+    ];
+  }
+
+  /**
+   * @param int|null $sentCount Total recipients across all completed queues (incl. replays);
+   *   when set it overrides this single queue's counts for a fully-sent newsletter.
+   */
+  private function buildQueue(SendingQueueEntity $queue, ?int $sentCount = null) {
+    $task = $queue->getTask();
+    if ($task === null) {
+      return null;
+    }
+    // When $aggregateData is non-null we are looking at a time zone campaign and ALL its fields
+    // are authoritative — including a null `status`, which represents VIRTUAL_STATUS_RUNNING (a
+    // sibling batch is actively sending). Using `??` here would silently fall back to this single
+    // task's status (e.g. 'scheduled' for a future batch) and misreport the campaign.
+    $aggregateData = $this->timeZoneCampaignScheduler
+      ? $this->timeZoneCampaignScheduler->getAggregateQueueData($queue)
+      : null;
+    $scheduledAt = $aggregateData ? $aggregateData['scheduledAt'] : $task->getScheduledAt();
+    $processedAt = $aggregateData ? $aggregateData['processedAt'] : $task->getProcessedAt();
+    $countTotal = $sentCount ?? $queue->getCountTotal();
+    $countProcessed = $sentCount ?? $queue->getCountProcessed();
+    $countToProcess = $sentCount !== null ? 0 : $queue->getCountToProcess();
+
+    return [
+      'id' => (string)$queue->getId(), // (string) for BC
+      'type' => $task->getType(),
+      'status' => $aggregateData ? $aggregateData['status'] : $task->getStatus(),
+      'priority' => (string)$task->getPriority(), // (string) for BC
+      'scheduled_at' => $scheduledAt ? $scheduledAt->format(self::DATE_FORMAT) : null,
+      'processed_at' => $processedAt ? $processedAt->format(self::DATE_FORMAT) : null,
+      'created_at' => ($createdAt = $queue->getCreatedAt()) ? $createdAt->format(self::DATE_FORMAT) : null,
+      'updated_at' => ($updatedAt = $queue->getUpdatedAt()) ? $updatedAt->format(self::DATE_FORMAT) : null,
+      'deleted_at' => ($deletedAt = $queue->getDeletedAt()) ? $deletedAt->format(self::DATE_FORMAT) : null,
+      'meta' => $aggregateData ? $aggregateData['meta'] : $queue->getMeta(),
+      'task_id' => (string)$task->getId(), // (string) for BC
+      'newsletter_id' => ($newsletter = $queue->getNewsletter()) ? (string)$newsletter->getId() : null, // (string) for BC
+      'newsletter_rendered_subject' => $this->processPersonalizationTags($queue->getNewsletterRenderedSubject()),
+      'count_total' => (string)($aggregateData ? $aggregateData['countTotal'] : $countTotal), // (string) for BC
+      'count_processed' => (string)($aggregateData ? $aggregateData['countProcessed'] : $countProcessed), // (string) for BC
+      'count_to_process' => (string)($aggregateData ? $aggregateData['countToProcess'] : $countToProcess), // (string) for BC
+    ];
+  }
+
+  private function getBatchLatestQueuesWithTasks(array $newsletters): array {
+    // This batches NewsletterEntity::getLatestQueue() for listings, but skips replay queues for display metadata.
+
+    $subqueryQueryBuilder = $this->entityManager->createQueryBuilder();
+    $subquery = $subqueryQueryBuilder
+      ->select('MAX(subSq.id) AS maxId')
+      ->from(SendingQueueEntity::class, 'subSq')
+      ->where('subSq.newsletter IN (:newsletters)')
+      ->andWhere('subSq.meta IS NULL OR subSq.meta NOT LIKE :latestNewsletterReplayMeta')
+      ->setParameter('newsletters', $newsletters)
+      ->setParameter('latestNewsletterReplayMeta', NewsletterReplayMetadata::getMetaLikePattern())
+      ->groupBy('subSq.newsletter')
+      ->getQuery();
+    $latestQueueIds = array_column($subquery->getResult(), 'maxId');
+    if (empty($latestQueueIds)) {
+      return [];
+    }
+
+    $queryBuilder = $this->entityManager->createQueryBuilder();
+    $results = $queryBuilder
+      ->select('PARTIAL sq.{id, createdAt, updatedAt, deletedAt, meta, newsletterRenderedSubject, countTotal, countProcessed, countToProcess}')
+      ->addSelect('PARTIAL t.{id, type, status, priority, scheduledAt, processedAt}')
+      ->addSelect('IDENTITY(sq.newsletter)')
+      ->from(SendingQueueEntity::class, 'sq')
+      ->join('sq.task', 't')
+      ->where('sq.id IN (:sub)')
+      ->setParameter('sub', $latestQueueIds)
+      ->getQuery()
+      ->getResult();
+
+    $latestQueues = [];
+    foreach ($results as $result) {
+      $latestQueues[(int)$result[1]] = $result[0];
+    }
+    return $latestQueues;
+  }
+}

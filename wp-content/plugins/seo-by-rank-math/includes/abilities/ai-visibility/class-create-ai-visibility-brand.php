@@ -1,0 +1,263 @@
+<?php
+/**
+ * Ability: rank-math/create-ai-visibility-brand
+ *
+ * @since      1.0.273
+ * @package    RankMath
+ * @subpackage RankMath\Abilities\AI_Visibility
+ * @author     Rank Math <support@rankmath.com>
+ */
+
+namespace RankMath\Abilities\AI_Visibility;
+
+use WP_REST_Request;
+use RankMath\Abilities\Ability_Interface;
+use RankMath\AI_Visibility\Platforms;
+use RankMath\AI_Visibility\Api\Brands_Controller;
+
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Registers and executes the rank-math/create-ai-visibility-brand ability.
+ */
+class Create_AI_Visibility_Brand implements Ability_Interface {
+
+	/**
+	 * Ability category slug.
+	 *
+	 * @var string
+	 */
+	private $category;
+
+	/**
+	 * Shared meta args.
+	 *
+	 * @var array
+	 */
+	private $shared_meta;
+
+	/**
+	 * Brands REST controller instance.
+	 *
+	 * @var Brands_Controller
+	 */
+	private $controller;
+
+	/**
+	 * Constructor.
+	 *
+	 * @param string                 $category    Ability category slug.
+	 * @param array                  $shared_meta Shared meta args.
+	 * @param Brands_Controller|null $controller  Controller instance.
+	 */
+	public function __construct( string $category, array $shared_meta, ?Brands_Controller $controller = null ) {
+		$this->category    = $category;
+		$this->shared_meta = $shared_meta;
+		$this->controller  = $controller ?? new Brands_Controller();
+	}
+
+	/**
+	 * Register the ability with the WordPress Abilities API.
+	 *
+	 * @return void
+	 */
+	public function register(): void {
+		\wp_register_ability(
+			'rank-math/create-ai-visibility-brand',
+			[
+				'category'            => $this->category,
+				'label'               => esc_html__( 'Create AI Visibility brand', 'seo-by-rank-math' ),
+				'description'         => sprintf(
+					/* translators: %s: supported platform IDs. */
+					esc_html__(
+						'Creates a new brand for AI Visibility monitoring, triggering an initial analysis automatically. Ask which AI platforms to track. Supported platforms: %s. Selecting more than one requires the Expert plan; other plans may choose only one.',
+						'seo-by-rank-math'
+					),
+					Platforms::supported_as_string()
+				),
+				'input_schema'        => [
+					'type'                 => 'object',
+					'default'              => [],
+					'required'             => [ 'name', 'url', 'language', 'platforms' ],
+					'properties'           => [
+						'name'        => [
+							'type'        => 'string',
+							'description' => esc_html__( 'Brand name.', 'seo-by-rank-math' ),
+						],
+						'url'         => [
+							'type'        => 'string',
+							'format'      => 'uri',
+							'description' => esc_html__( 'Brand website URL.', 'seo-by-rank-math' ),
+						],
+						'description' => [
+							'type'        => 'string',
+							'description' => esc_html__( 'Short description of the brand or product.', 'seo-by-rank-math' ),
+							'default'     => '',
+						],
+						'locale'      => [
+							'type'        => 'string',
+							'description' => esc_html__( 'ISO 3166-1 alpha-2 country code (e.g. "US", "HU"). Defaults to no country filter.', 'seo-by-rank-math' ),
+							'default'     => '',
+						],
+						'language'    => [
+							'type'        => 'string',
+							'description' => esc_html__( 'Language the brand should be analyzed in (e.g. "US English", "French"). Required; immutable after creation — ask the user which language to use.', 'seo-by-rank-math' ),
+							'enum'        => Brands_Controller::get_language_choices( false ),
+						],
+						'interval'    => [
+							'type'        => 'string',
+							'description' => esc_html__( 'Analysis refresh cadence. Defaults to the account plan\'s default when omitted.', 'seo-by-rank-math' ),
+							'enum'        => array_merge( [ '' ], Brands_Controller::get_interval_choices() ),
+							'default'     => '',
+						],
+						'platforms'   => [
+							'type'        => 'array',
+							'minItems'    => 1,
+							'description' => sprintf(
+								/* translators: %s: supported platform IDs. */
+								esc_html__( 'AI platforms to track. Supported: %s. Selecting more than one requires the Expert plan; otherwise choose exactly one. Do not assume a default — ask the user which platform(s) to use.', 'seo-by-rank-math' ),
+								Platforms::supported_as_string()
+							),
+							'items'       => [
+								'type' => 'string',
+								'enum' => Platforms::supported(),
+							],
+						],
+					],
+					'additionalProperties' => false,
+				],
+				'output_schema'       => $this->output_schema(),
+				'permission_callback' => [ $this, 'check_permissions' ],
+				'execute_callback'    => [ $this, 'execute' ],
+				'meta'                => array_merge(
+					$this->shared_meta,
+					[
+						'annotations' => [
+							'readonly'    => false,
+							'destructive' => false,
+							'idempotent'  => false,
+						],
+					]
+				),
+			]
+		);
+	}
+
+	/**
+	 * Check if the current user has permission to execute this ability.
+	 *
+	 * @return bool
+	 */
+	public function check_permissions(): bool {
+		return current_user_can( 'manage_options' );
+	}
+
+	/**
+	 * Execute the ability.
+	 *
+	 * @param array $input Ability input arguments.
+	 * @return array
+	 */
+	public function execute( array $input = [] ): array {
+		$platforms = $this->validate_platforms( $input['platforms'] ?? null );
+		if ( isset( $platforms['error'] ) ) {
+			return $platforms;
+		}
+
+		$request = new WP_REST_Request( 'POST' );
+		$request->set_param( 'name', sanitize_text_field( (string) ( $input['name'] ?? '' ) ) );
+		$request->set_param( 'url', esc_url_raw( (string) ( $input['url'] ?? '' ) ) );
+		$request->set_param( 'description', sanitize_textarea_field( (string) ( $input['description'] ?? '' ) ) );
+		$request->set_param( 'locale', sanitize_text_field( (string) ( $input['locale'] ?? '' ) ) );
+		$request->set_param( 'language', sanitize_text_field( (string) ( $input['language'] ?? '' ) ) );
+		$request->set_param( 'interval', sanitize_text_field( (string) ( $input['interval'] ?? '' ) ) );
+		$request->set_param( 'platforms', $platforms );
+
+		$response = $this->controller->create_brand( $request );
+
+		if ( is_wp_error( $response ) ) {
+			return [ 'error' => $response->get_error_message() ];
+		}
+
+		$data  = $response->get_data();
+		$brand = $data['data']['brand'] ?? [];
+
+		return [
+			'id'              => $brand['id'] ?? '',
+			'name'            => $brand['name'] ?? '',
+			'url'             => $brand['url'] ?? '',
+			'interval'        => $brand['interval'] ?? null,
+			'platforms'       => $brand['platforms'] ?? [],
+			'analysis_status' => 'pending',
+			'created_at'      => $brand['created_at'] ?? null,
+		];
+	}
+
+	/**
+	 * Sanitize and validate platforms. No silent defaults.
+	 *
+	 * @param mixed $platforms Raw platforms value.
+	 * @return string[]|array{error: string}
+	 */
+	private function validate_platforms( $platforms ) {
+		$valid = Platforms::validate( $platforms );
+		if ( is_wp_error( $valid ) ) {
+			return [ 'error' => $valid->get_error_message() ];
+		}
+
+		return Platforms::sanitize( $platforms );
+	}
+
+	/**
+	 * JSON schema for the ability output.
+	 *
+	 * @return array
+	 */
+	private function output_schema(): array {
+		return [
+			'type'       => 'object',
+			'properties' => [
+				'id'              => [
+					'type'        => 'string',
+					'description' => 'UUID of the newly created brand. Use this as brand_id in subsequent ability calls.',
+				],
+				'name'            => [
+					'type'        => 'string',
+					'description' => 'Brand name.',
+				],
+				'url'             => [
+					'type'        => 'string',
+					'format'      => 'uri',
+					'description' => 'Brand website URL.',
+				],
+				'interval'        => [
+					'type'        => [ 'string', 'null' ],
+					'enum'        => array_merge( [ null ], Brands_Controller::get_interval_choices() ),
+					'description' => 'Resolved analysis cadence for this brand.',
+				],
+				'platforms'       => [
+					'type'        => 'array',
+					'description' => 'AI platforms selected for this brand.',
+					'items'       => [
+						'type' => 'string',
+						'enum' => Platforms::supported(),
+					],
+				],
+				'analysis_status' => [
+					'type'        => 'string',
+					'enum'        => [ 'pending' ],
+					'description' => 'Always "pending" on creation — the initial analysis is seeded automatically and will complete asynchronously.',
+				],
+				'created_at'      => [
+					'type'        => [ 'string', 'null' ],
+					'format'      => 'date-time',
+					'description' => 'ISO 8601 datetime when the brand was created.',
+				],
+				'error'           => [
+					'type'        => 'string',
+					'description' => 'Present only on failure — human-readable error from validation or the upstream API.',
+				],
+			],
+		];
+	}
+}

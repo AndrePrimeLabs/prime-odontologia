@@ -1,0 +1,299 @@
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing
+
+namespace MailPoet\Entities;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\Doctrine\EntityTraits\AutoincrementedIdTrait;
+use MailPoet\Doctrine\EntityTraits\CreatedAtTrait;
+use MailPoet\Doctrine\EntityTraits\DeletedAtTrait;
+use MailPoet\Doctrine\EntityTraits\UpdatedAtTrait;
+use MailPoetVendor\Doctrine\Common\Collections\ArrayCollection;
+use MailPoetVendor\Doctrine\ORM\Mapping as ORM;
+use MailPoetVendor\Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity()
+ * @ORM\Table(name="segments")
+ */
+class SegmentEntity {
+  use AutoincrementedIdTrait;
+  use CreatedAtTrait;
+  use UpdatedAtTrait;
+  use DeletedAtTrait;
+
+  const TYPE_WP_USERS = 'wp_users';
+  const TYPE_WC_USERS = 'woocommerce_users';
+  const TYPE_WC_MEMBERSHIPS = 'woocommerce_memberships';
+  const TYPE_DEFAULT = 'default';
+  const TYPE_DYNAMIC = 'dynamic';
+  const TYPE_WITHOUT_LIST = 'without-list';
+
+  const NON_WOO_RELATED_TYPES = [
+    self::TYPE_WP_USERS,
+    self::TYPE_DEFAULT,
+    self::TYPE_DYNAMIC,
+    self::TYPE_WITHOUT_LIST,
+  ];
+
+  const SEGMENT_ENABLED = 'active';
+  const SEGMENT_DISABLED = 'disabled';
+
+  /**
+   * @ORM\Column(type="string")
+   * @Assert\NotBlank()
+   * @var string
+   */
+  private $name;
+
+  /**
+   * @ORM\Column(type="string")
+   * @var string
+   */
+  private $type;
+
+  /**
+   * @ORM\Column(type="string")
+   * @var string
+   */
+  private $description;
+
+  /**
+   * @ORM\Column(type="text", nullable=true)
+   * @var string|null
+   */
+  private $publicDescription = '';
+
+  /**
+   * @ORM\OneToMany(targetEntity="MailPoet\Entities\DynamicSegmentFilterEntity", mappedBy="segment")
+   * @var ArrayCollection<int, DynamicSegmentFilterEntity>
+   */
+  private $dynamicFilters;
+
+  /**
+   * @ORM\Column(type="float", nullable=true)
+   * @var float|null
+   */
+  private $averageEngagementScore;
+
+  /**
+   * @ORM\Column(type="datetimetz", nullable=true)
+   * @var \DateTimeInterface|null
+   */
+  private $averageEngagementScoreUpdatedAt;
+
+  /**
+   * @ORM\Column(type="boolean")
+   * @var bool
+   */
+  private $displayInManageSubscriptionPage = false;
+
+  /**
+   * @ORM\Column(type="integer", nullable=true)
+   * @var int|null
+   */
+  private $confirmationEmailId;
+
+  /**
+   * @ORM\Column(type="integer", nullable=true)
+   * @var int|null
+   */
+  private $confirmationPageId;
+
+  public function __construct(
+    string $name,
+    string $type,
+    string $description
+  ) {
+    $this->name = $name;
+    $this->type = $type;
+    $this->description = $description;
+    $this->publicDescription = '';
+    $this->dynamicFilters = new ArrayCollection();
+  }
+
+  public function __clone() {
+    // reset ID
+    $this->id = null;
+    $this->dynamicFilters = new ArrayCollection();
+  }
+
+  /**
+   * @return string
+   */
+  public function getName() {
+    return $this->name;
+  }
+
+  /**
+   * @param string $name
+   */
+  public function setName($name) {
+    $this->name = $name;
+  }
+
+  /**
+   * @return string
+   */
+  public function getType() {
+    return $this->type;
+  }
+
+  /**
+   * @param string $type
+   */
+  public function setType($type) {
+    $this->type = $type;
+  }
+
+  /**
+   * @return string
+   */
+  public function getDescription() {
+    return $this->description;
+  }
+
+  /**
+   * @param string $description
+   */
+  public function setDescription($description) {
+    $this->description = $description;
+  }
+
+  public function getPublicDescription(): string {
+    return $this->publicDescription ?? '';
+  }
+
+  public function setPublicDescription(string $publicDescription): void {
+    $this->publicDescription = $publicDescription;
+  }
+
+  /**
+   * @return ArrayCollection<int, DynamicSegmentFilterEntity>
+   */
+  public function getDynamicFilters() {
+    return $this->dynamicFilters;
+  }
+
+  public function addDynamicFilter(DynamicSegmentFilterEntity $dynamicSegmentFilterEntity) {
+    $this->dynamicFilters->add($dynamicSegmentFilterEntity);
+  }
+
+  public function isStatic(): bool {
+    return in_array($this->getType(), [self::TYPE_DEFAULT, self::TYPE_WP_USERS, self::TYPE_WC_USERS, self::TYPE_WC_MEMBERSHIPS], true);
+  }
+
+  public function getAverageEngagementScore(): ?float {
+    return $this->averageEngagementScore;
+  }
+
+  public function setAverageEngagementScore(?float $averageEngagementScore): void {
+    $this->averageEngagementScore = $averageEngagementScore;
+  }
+
+  public function getAverageEngagementScoreUpdatedAt(): ?\DateTimeInterface {
+    return $this->averageEngagementScoreUpdatedAt;
+  }
+
+  public function setAverageEngagementScoreUpdatedAt(?\DateTimeInterface $averageEngagementScoreUpdatedAt): void {
+    $this->averageEngagementScoreUpdatedAt = $averageEngagementScoreUpdatedAt;
+  }
+
+  public function getDisplayInManageSubscriptionPage(): bool {
+    return $this->displayInManageSubscriptionPage;
+  }
+
+  public function setDisplayInManageSubscriptionPage(bool $state): void {
+    $this->displayInManageSubscriptionPage = $state;
+  }
+
+  public function getConfirmationEmailId(): ?int {
+    return $this->confirmationEmailId;
+  }
+
+  public function setConfirmationEmailId(?int $confirmationEmailId): void {
+    $this->confirmationEmailId = $confirmationEmailId;
+  }
+
+  public function getConfirmationPageId(): ?int {
+    return $this->confirmationPageId;
+  }
+
+  public function setConfirmationPageId(?int $confirmationPageId): void {
+    $this->confirmationPageId = $confirmationPageId;
+  }
+
+  /**
+   * Returns connect operand from the first filter, when doesn't exist, then returns a default value.
+   *
+   * For segments with multiple filter groups this is the outer connector between the groups
+   * (and/or). For legacy single-group segments it carries the within-group operator
+   * (and/or/none).
+   *
+   * @return string
+   */
+  public function getFiltersConnectOperator(): string {
+    $firstFilter = $this->getDynamicFilters()->first();
+    $filterData = $firstFilter ? $firstFilter->getFilterData() : null;
+    if (!$firstFilter || !$filterData) {
+      return DynamicSegmentFilterData::CONNECT_TYPE_AND;
+    }
+    $connect = $filterData->getParam('connect');
+    return is_string($connect) && $connect !== '' ? $connect : DynamicSegmentFilterData::CONNECT_TYPE_AND;
+  }
+
+  /**
+   * Returns dynamic filters grouped by their group_id.
+   *
+   * Legacy filters (no group_id) collapse into a single group whose operator is the
+   * legacy filters_connect value. Saved groups carry their own group_operator.
+   *
+   * @return array<int, array{operator: string, filters: DynamicSegmentFilterEntity[]}>
+   */
+  public function getFilterGroups(): array {
+    $filters = $this->getDynamicFilters()->toArray();
+    if (!$filters) {
+      return [];
+    }
+
+    $hasGroupData = false;
+    foreach ($filters as $filter) {
+      $data = $filter->getFilterData();
+      if ($data && $data->getParam('group_id') !== null) {
+        $hasGroupData = true;
+        break;
+      }
+    }
+
+    if (!$hasGroupData) {
+      return [[
+        'operator' => $this->getFiltersConnectOperator(),
+        'filters' => array_values($filters),
+      ]];
+    }
+
+    $groups = [];
+    $legacyGroupKey = 0;
+    foreach ($filters as $filter) {
+      $data = $filter->getFilterData();
+      if (!$data) {
+        continue;
+      }
+      $groupId = $data->getParam('group_id');
+      $hasNumericGroupId = is_int($groupId) || is_numeric($groupId);
+      $groupKey = $hasNumericGroupId ? (int)$groupId : $legacyGroupKey;
+      if (!isset($groups[$groupKey])) {
+        $operator = $hasNumericGroupId ? $data->getParam('group_operator') : $this->getFiltersConnectOperator();
+        $groups[$groupKey] = [
+          'operator' => is_string($operator) && $operator !== '' ? $operator : DynamicSegmentFilterData::CONNECT_TYPE_AND,
+          'filters' => [],
+        ];
+      }
+      $groups[$groupKey]['filters'][] = $filter;
+    }
+
+    ksort($groups);
+    return array_values($groups);
+  }
+}

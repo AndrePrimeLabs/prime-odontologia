@@ -1,0 +1,96 @@
+.wpconsent-blur-area {
+	filter: blur(2px);
+	pointer-events: none;
+}
+
+.wpconsent-add-service-from-library-lite {
+	opacity: 0.7;
+}
+
+#poststuff .wpconsent-upsell-box,
+.wpconsent-upsell-box {
+	position: absolute;
+	z-index: 20;
+	background: var(--wpconsent-background-white);
+	width: 662px;
+	max-width: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 40px;
+	text-align: center;
+	border-radius: 8px;
+	border: 1px solid var(--wpconsent-border-color);
+
+	* {
+		box-sizing: border-box;
+	}
+
+	h2 {
+		font-size: var(--wpconsent-font-size-xxl);
+		margin-top: 0;
+		line-height: 1.2;
+	}
+
+	.wpconsent-button {
+		margin-top: 6px;
+	}
+
+	.wpconsent-upsell-button-text {
+		margin-top: 16px;
+		display: inline-block;
+		font-size: var(--wpconsent-font-size-s);
+		color: var(--wpconsent-text-color-light-bg);
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	p {
+		color: var(--wpconsent-text-color-paragraph);
+		font-size: var(--wpconsent-font-size-m);
+		line-height: 1.5;
+	}
+
+	&.wpconsent-upsell-box-with-features {
+		width: 892px;
+		padding: 56px;
+
+		.wpconsent-upsell-text {
+			max-width: 600px;
+			margin: 0 auto;
+		}
+	}
+
+.wpconsent-upsell-features {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-top: 40px;
+		margin-bottom: 24px;
+		text-align: left;
+
+		.wpconsent-upsell-feature {
+			width: 50%;
+			color: var(--wpconsent-text-color-heading);
+			font-size: var(--wpconsent-font-size-m);
+			margin-bottom: 16px;
+			line-height: 1.5;
+			padding-left: 34px;
+			position: relative;
+			padding-right: 10px;
+
+			&:before {
+				content: '';
+				background-image: url("data:image/svg+xml,%3Csvg width='19' height='18' viewBox='0 0 19 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.5 0.416016C4.67 0.416016 0.75 4.33602 0.75 9.16602C0.75 13.996 4.67 17.916 9.5 17.916C14.33 17.916 18.25 13.996 18.25 9.16602C18.25 4.33602 14.33 0.416016 9.5 0.416016ZM9.5 16.166C5.64125 16.166 2.5 13.0248 2.5 9.16602C2.5 5.30727 5.64125 2.16602 9.5 2.16602C13.3587 2.16602 16.5 5.30727 16.5 9.16602C16.5 13.0248 13.3587 16.166 9.5 16.166ZM7.75 11.0648L13.5163 5.29852L14.75 6.54102L7.75 13.541L4.25 10.041L5.48375 8.80727L7.75 11.0648Z' fill='%2309A347'/%3E%3C/svg%3E");
+				display: block;
+				width: 19px;
+				height: 18px;
+				position: absolute;
+				left: 0;
+				top: 3px;
+			}
+		}
+	}
+}

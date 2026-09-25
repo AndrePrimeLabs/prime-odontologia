@@ -1,0 +1,460 @@
+/*!
+ * Jetpack CRM
+ * https://jetpackcrm.com
+ * V3.0+
+ *
+ * Copyright 2020 Automattic
+ *
+ * Date: 26/02/2019
+ */
+/* eslint-disable jsdoc/require-param-type */
+/* eslint-disable jsdoc/require-param-description */
+/* eslint-disable jsdoc/require-description */
+/* global jpcrm, zbscrm_js_uiSpinnerBlocker, zbscrm_js_getObjInvs */
+
+// v3.0 Transactions JS (as base currently)
+
+jQuery( function () {
+	// turn off auto-complete on records via form attr... should be global for all ZBS record pages
+	// not v3.0jQuery('#post').attr('autocomplete','off');
+
+	// on init, prefil the inv list from any assigned contact or company
+	zbscrmjs_refresh_inv_dropdown( jQuery( '#invoice_id' ).val() );
+
+	// bind
+	setTimeout( function () {
+		zeroBSCRMJS_showInvLinkIf();
+		zeroBSCRMJS_showContactLinkIf( jQuery( '#customer' ).val() );
+		zeroBSCRMJS_showCompanyLinkIf( jQuery( '#zbsct_company' ).val() );
+	}, 0 );
+} );
+
+/**
+ * @param o
+ */
+function zbscrmjs_transaction_unsetCustomer( o ) {
+	if ( typeof o === 'undefined' || ! o ) {
+		jQuery( '#customer' ).val( '' );
+		jQuery( '#customer_name' ).val( '' );
+
+		zbscrmjs_refresh_inv_dropdown();
+
+		setTimeout( function () {
+			// when inv select drop down changed, show/hide quick nav
+			zeroBSCRMJS_showContactLinkIf( '' );
+		}, 0 );
+	}
+}
+
+/**
+ * @param o
+ */
+function zbscrmjs_transaction_unsetCompany( o ) {
+	if ( typeof o === 'undefined' || ! o ) {
+		jQuery( '#zbsct_company' ).val( '' );
+
+		zbscrmjs_refresh_inv_dropdown();
+
+		setTimeout( function () {
+			// when inv select drop down changed, show/hide quick nav
+			zeroBSCRMJS_showCompanyLinkIf( '' );
+		}, 0 );
+	}
+}
+
+// custom fuction to copy customer details from typeahead customer deets
+/**
+ * @param obj
+ */
+function zbscrmjs_transaction_setCustomer( obj ) {
+	if ( typeof obj.id !== 'undefined' ) {
+		// set vals
+		jQuery( '#customer' ).val( obj.id );
+		jQuery( '#customer_name' ).val( obj.name );
+
+		// build inv dropdown
+		zbscrmjs_build_inv_dropdown( 'contact', obj.id );
+	} else {
+		jQuery( '#customer' ).val( '' );
+		jQuery( '#customer_name' ).val( '' );
+	}
+
+	setTimeout( function () {
+		const lID = obj.id;
+
+		// when inv select drop down changed, show/hide quick nav
+		zeroBSCRMJS_showContactLinkIf( lID );
+	}, 0 );
+}
+
+// custom fuction to copy company details from typeahead company deets
+/**
+ * @param obj
+ */
+function zbscrmjs_transaction_setCompany( obj ) {
+	// console.log("Company Chosen!",obj);
+
+	if ( typeof obj.id !== 'undefined' ) {
+		// set vals
+		jQuery( '#zbsct_company' ).val( obj.id );
+
+		// build inv dropdown
+		zbscrmjs_build_inv_dropdown( 'company', obj.id );
+	} else {
+		// set vals
+		jQuery( '#zbsct_company' ).val( '' );
+	}
+
+	setTimeout( function () {
+		const lID = obj.id;
+
+		// when inv select drop down changed, show/hide quick nav
+		zeroBSCRMJS_showCompanyLinkIf( lID );
+	}, 0 );
+}
+
+// this builds a dropdown of invoices against a contact or company
+/**
+ * @param objType - 'contact' or 'company'
+ * @param objID
+ * @param preSelectedInvID
+ */
+function zbscrmjs_build_inv_dropdown( objType, objID, preSelectedInvID ) {
+	const previousInvVal = jQuery( '#invoice_id' ).val();
+
+	// show loading
+	jQuery( '#invoiceFieldWrap' ).append( zbscrm_js_uiSpinnerBlocker() );
+
+	zbscrm_js_getObjInvs(
+		objType,
+		objID,
+		function ( r ) {
+			// successfully got list!
+			// console.log("got list",[r,r.length]);
+
+			// wrap
+			let retHTML = '<select id="invoice_id" name="invoice_id" class="form-control">'; //form-control
+
+			// if has invoices:
+			if ( r.length > 0 ) {
+				// def
+				retHTML += '<option value="" disabled="disabled"';
+
+				// if an inv id is passed, don't select this
+				if ( typeof preSelectedInvID === 'undefined' || preSelectedInvID <= 0 ) {
+					retHTML += ' selected="selected"';
+				}
+
+				retHTML += '>' + zeroBSCRMJS_transEditLang( 'selectinv', 'Select Invoice' ) + '</option>';
+				retHTML +=
+					'<option value="">' + zeroBSCRMJS_transEditLang( 'none', 'None' ) + '</option>';
+
+				// cycle through + create
+				jQuery.each( r, function ( ind, ele ) {
+					// build a user-friendly str
+					let invStr = '',
+						invID = -1;
+
+					// translated from admin.view php
+					invID = ele.id;
+
+					// id
+					invStr = '#' + ele.id;
+
+					// if ref, that too
+					if ( typeof ele.id_override !== 'undefined' ) {
+						invStr += ' - ' + ele.id_override;
+					}
+
+					if ( typeof ele.meta !== 'undefined' ) {
+						// val
+						if ( typeof ele.meta.val !== 'undefined' ) {
+							invStr += ' (' + window.zbs_root.currencyOptions.currencyStr + ele.meta.val + ')';
+						}
+						// date
+						if ( typeof ele.meta.date !== 'undefined' ) {
+							invStr += ' - ' + ele.meta.date;
+						}
+					}
+
+					retHTML += '<option value="' + jpcrm.esc_attr( invID ) + '"';
+
+					// if prefilled... select
+					// eslint-disable-next-line eqeqeq
+					if ( typeof preSelectedInvID !== 'undefined' && invID == preSelectedInvID ) {
+						retHTML += ' selected="selected"';
+					}
+
+					retHTML += '>' + jpcrm.esc_html( invStr ) + '</option>';
+				} );
+			} else {
+				// no invs
+				retHTML +=
+					'<option value="" disabled="disabled" selected="selected">' +
+					zeroBSCRMJS_transEditLang( 'noinvoices', 'None Found' ) +
+					'</option>';
+			}
+
+			// / wrap
+			retHTML += '</select>';
+
+			// output
+			jQuery( '#invoiceFieldWrap' ).html( retHTML );
+
+			// wh addition 20/7/18 - show when useful
+			jQuery( '.assignInvToCust' ).show();
+
+			// bind
+			setTimeout( function () {
+				zeroBSCRMJS_bindInvSelect();
+			}, 0 );
+		},
+		function () {
+			// wh addition 20/7/18 - hide until useful
+			jQuery( '.assignInvToCust' ).hide();
+
+			// failed to get... leave as manual
+			document.getElementById( 'invoiceFieldWrap' ).innerHTML =
+				'<input style="max-width: 200px;" id="invoice_id" name="invoice_id" class="form-control" value="' +
+				jpcrm.esc_attr( previousInvVal || '' ) +
+				'">';
+		}
+	);
+}
+
+// rebuilds the invoice dropdown from whichever of contact or company is
+// assigned (contact first), or hides it when neither is
+/**
+ * @param preSelectedInvID
+ */
+function zbscrmjs_refresh_inv_dropdown( preSelectedInvID ) {
+	const contactID = jQuery( '#customer' ).val();
+	const companyID = jQuery( '#zbsct_company' ).val();
+
+	if ( contactID ) {
+		zbscrmjs_build_inv_dropdown( 'contact', contactID, preSelectedInvID );
+	} else if ( companyID ) {
+		zbscrmjs_build_inv_dropdown( 'company', companyID, preSelectedInvID );
+	} else {
+		jQuery( '.assignInvToCust, #invoiceFieldWrap' ).hide();
+	}
+}
+
+// when inv select drop down changed, show/hide quick nav
+/**
+ *
+ */
+function zeroBSCRMJS_bindInvSelect() {
+	jQuery( '#invoice_id' ).on( 'change', function () {
+		zeroBSCRMJS_showInvLinkIf();
+	} );
+
+	zeroBSCRMJS_showInvLinkIf();
+}
+
+// if an inv is selected (against a trans) can 'quick nav' to inv
+/**
+ *
+ */
+function zeroBSCRMJS_showInvLinkIf() {
+	// remove old
+	//jQuery('#invoiceFieldWrap .zbs-view-invoice').remove();
+	jQuery( '#invoiceSelectionTitle .zbs-view-invoice' ).remove();
+
+	// see if selected
+	let inv = jQuery( '#invoiceFieldWrap select' ).val();
+
+	if ( typeof inv !== 'undefined' && inv !== null && inv !== '' ) {
+		inv = parseInt( inv );
+		if ( inv > 0 ) {
+			// seems like a legit inv, add
+
+			let html =
+				'<div class="ui right floated mini animated button zbs-view-invoice" style="margin-left:0.5em">';
+			html +=
+				'<div class="visible content">' + zeroBSCRMJS_transEditLang( 'view', 'View' ) + '</div>';
+			html += '<div class="hidden content">';
+			html += '<i class="icon file text"></i>';
+			html += '</div>';
+			html += '</div>';
+
+			jQuery( '#invoiceSelectionTitle' ).prepend( html );
+
+			// bind
+			zeroBSCRMJS_bindInvLinkIf();
+		}
+	}
+}
+
+// click for quicknav :)
+/**
+ *
+ */
+function zeroBSCRMJS_bindInvLinkIf() {
+	jQuery( '#invoiceSelectionTitle .zbs-view-invoice' )
+		.off( 'click' )
+		.on( 'click', function () {
+			const invID = parseInt( jQuery( '#invoiceFieldWrap select' ).val() ); //jQuery(this).attr('data-invid');
+
+			const url = window.zeroBSCRMJS_transactionedit_links.editinvprefix + invID;
+
+			// bla bla https://stackoverflow.com/questions/1574008/how-to-simulate-target-blank-in-javascript
+			window.open( url, '_parent' );
+		} );
+}
+
+// if an contact is selected (against a trans) can 'quick nav' to contact
+/**
+ * @param contactID
+ */
+function zeroBSCRMJS_showContactLinkIf( contactID ) {
+	// remove old
+	jQuery( '#zbs-customer-title .zbs-view-contact' ).remove();
+	jQuery( '#zbs-transaction-learn-nav .zbs-trans-quicknav-contact' ).remove();
+
+	if ( typeof contactID !== 'undefined' && contactID !== null && contactID !== '' ) {
+		contactID = parseInt( contactID );
+		if ( contactID > 0 ) {
+			const url = window.zbsObjectViewLinkPrefixCustomer + contactID;
+
+			let html = '<div class="ui right floated mini animated button zbs-view-contact">';
+			html +=
+				'<div class="visible content">' + zeroBSCRMJS_transEditLang( 'view', 'View' ) + '</div>';
+			html += '<div class="hidden content">';
+			html += '<i class="user icon"></i>';
+			html += '</div>';
+			html += '</div>';
+
+			jQuery( '#zbs-customer-title' ).prepend( html );
+
+			// ALSO show in header bar, if so
+			const navButton =
+				'<a target="_blank" style="margin-left:6px;" class="zbs-trans-quicknav-contact ui icon button black mini labeled" href="' +
+				url +
+				'"><i class="user icon"></i> ' +
+				zeroBSCRMJS_transEditLang( 'contact', 'Contact' ) +
+				'</a>';
+			jQuery( '#zbs-transaction-learn-nav' ).append( navButton );
+
+			// bind
+			zeroBSCRMJS_bindContactLinkIf();
+		}
+	}
+}
+
+// click for quicknav :)
+/**
+ *
+ */
+function zeroBSCRMJS_bindContactLinkIf() {
+	jQuery( '#zbs-customer-title .zbs-view-contact' )
+		.off( 'click' )
+		.on( 'click', function () {
+			// get from hidden input
+			let contactID = parseInt( jQuery( '#customer' ).val() ); //jQuery(this).attr('data-invid');
+
+			if ( typeof contactID !== 'undefined' && contactID !== null && contactID !== '' ) {
+				contactID = parseInt( contactID );
+				if ( contactID > 0 ) {
+					const url = window.zbsObjectViewLinkPrefixCustomer + contactID;
+					window.open( url, '_parent' );
+				}
+			}
+		} );
+}
+
+// if an Company is selected (against a trans) can 'quick nav' to Company
+/**
+ * @param companyID
+ */
+function zeroBSCRMJS_showCompanyLinkIf( companyID ) {
+	// remove old
+	jQuery( '#zbs-company-title .zbs-view-company' ).remove();
+	jQuery( '#zbs-transaction-learn-nav .zbs-trans-quicknav-company' ).remove();
+
+	if ( typeof companyID !== 'undefined' && companyID !== null && companyID !== '' ) {
+		companyID = parseInt( companyID );
+		if ( companyID > 0 ) {
+			// seems like a legit inv, add
+
+			let html = '<div class="ui right floated mini animated button zbs-view-company">';
+			html +=
+				'<div class="visible content">' + zeroBSCRMJS_transEditLang( 'view', 'View' ) + '</div>';
+			html += '<div class="hidden content">';
+			html += '<i class="building icon"></i>';
+			html += '</div>';
+			html += '</div>';
+
+			jQuery( '#zbs-company-title' ).prepend( html );
+
+			// ALSO show in header bar, if so
+			const navButton =
+				'<a target="_blank" style="margin-left:6px;" class="zbs-trans-quicknav-company ui icon button black mini labeled" href="' +
+				window.zeroBSCRMJS_transactionedit_links.editcompanyprefix +
+				companyID +
+				'"><i class="building icon"></i> ' +
+				zeroBSCRMJS_transEditLang( 'company', 'Company' ) +
+				'</a>';
+			jQuery( '#zbs-transaction-learn-nav' ).append( navButton );
+
+			// bind
+			zeroBSCRMJS_bindCompanyLinkIf();
+		}
+	}
+}
+
+// click for quicknav :)
+/**
+ *
+ */
+function zeroBSCRMJS_bindCompanyLinkIf() {
+	jQuery( '#zbs-company-title .zbs-view-company' )
+		.off( 'click' )
+		.on( 'click', function () {
+			// get from hidden input
+			let companyID = parseInt( jQuery( '#zbsct_company' ).val() ); //jQuery(this).attr('data-invid');
+
+			if ( typeof companyID !== 'undefined' && companyID !== null && companyID !== '' ) {
+				companyID = parseInt( companyID );
+				if ( companyID > 0 ) {
+					const url = window.zeroBSCRMJS_transactionedit_links.editcompanyprefix + companyID;
+
+					// bla bla https://stackoverflow.com/questions/1574008/how-to-simulate-target-blank-in-javascript
+					window.open( url, '_parent' );
+				}
+			}
+		} );
+}
+
+/**
+ * Passes language from window.zeroBSCRMJS_transactionedit_lang (js set in trans edit php).
+ * @param {string} key      - Key to look up language string.
+ * @param {string} fallback - Fallback string.
+ * @return {string}         - Language-aware string.
+ */
+function zeroBSCRMJS_transEditLang( key, fallback = '' ) {
+	if ( typeof window.zeroBSCRMJS_transactionedit_lang[ key ] !== 'undefined' ) {
+		return window.zeroBSCRMJS_transactionedit_lang[ key ];
+	}
+
+	return fallback;
+}
+
+if ( typeof module !== 'undefined' ) {
+	module.exports = {
+		zbscrmjs_transaction_unsetCustomer,
+		zbscrmjs_transaction_unsetCompany,
+		zbscrmjs_transaction_setCustomer,
+		zbscrmjs_transaction_setCompany,
+		zbscrmjs_build_inv_dropdown,
+		zbscrmjs_refresh_inv_dropdown,
+		zeroBSCRMJS_bindInvSelect,
+		zeroBSCRMJS_showInvLinkIf,
+		zeroBSCRMJS_bindInvLinkIf,
+		zeroBSCRMJS_showContactLinkIf,
+		zeroBSCRMJS_bindContactLinkIf,
+		zeroBSCRMJS_showCompanyLinkIf,
+		zeroBSCRMJS_bindCompanyLinkIf,
+		zeroBSCRMJS_transEditLang,
+	};
+}

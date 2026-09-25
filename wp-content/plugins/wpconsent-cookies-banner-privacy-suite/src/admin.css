@@ -1,0 +1,40 @@
+@import './admin/variables.css';
+@import './admin/header.css';
+@import './admin/metabox.css';
+@import './admin/content.css';
+@import './admin/items-list.css';
+@import './admin/buttons.css';
+@import './admin/inputs.css';
+@import './admin/dashboard.css';
+@import './admin/tabs.css';
+@import './admin/choices.css';
+/* After choices.css so the range picker can override the vendor's option rules,
+   which tie ours on specificity. */
+@import './admin/analytics.css';
+@import 'jquery-confirm/dist/jquery-confirm.min.css';
+@import './admin/jconfirm.css';
+@import './admin/spinner.css';
+@import './admin/pro-indicators.css';
+@import './admin/tcf-locked.css';
+@import './admin/upsells.css';
+@import './admin/notifications.css';
+@import './admin/notices.css';
+@import './admin/export.css';
+@import './admin/script-blocking.css';
+@import './admin/tooltips.css';
+@import './admin/languages.css';
+@import './admin/language-picker.css';
+@import './admin/geolocation-groups.css';
+@import './admin/tools.css';
+@import './admin/footer.css';
+@import './admin/help.css';
+
+/** Import for preview **/
+@import './frontend/banner.css';
+@import './admin/banner-preview.css';
+@import './admin/modal.css';
+@import './admin/helpers.css';
+@import './admin/cookie-management.css';
+@import './admin/scanner.css';
+@import './admin/onboarding.css';
+@import './admin/banner-admin.css';

@@ -1,0 +1,532 @@
+body div.jconfirm *,
+body div.jconfirm *::before,
+body div.jconfirm *::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-items: center;
+	animation: none;
+	background: #ffffff;
+	border-radius: 6px;
+	border-top-style: solid;
+	border-top-width: 4px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+	padding-top: 34px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-title-c,
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane,
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-buttons {
+	grid-column: 1 / -1;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-default {
+	border-top-width: 0;
+	padding-top: 25px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-default .jconfirm-title-c {
+	margin-bottom: 20px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-default .jconfirm-title-c .jconfirm-icon-c {
+	font-size: 44px;
+	margin-bottom: -6px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-default button.btn-confirm {
+	background-color: #e27730;
+	border-color: #e27730;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-default button.btn-confirm:hover {
+	background-color: #cd6622;
+	border-color: #cd6622;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-red {
+	border-top-color: #d63638 !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-red .jconfirm-title-c .jconfirm-icon-c {
+	color: #d63638 !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-red button.btn-confirm {
+	background-color: #d63638;
+	border-color: #d63638;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-red button.btn-confirm:hover {
+	background-color: #b32d2e;
+	border-color: #b32d2e;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-orange {
+	border-top-color: #e27730 !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-orange .jconfirm-title-c .jconfirm-icon-c {
+	color: #e27730 !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-orange button.btn-confirm {
+	background-color: #e27730;
+	border-color: #e27730;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-orange button.btn-confirm:hover {
+	background-color: #cd6622;
+	border-color: #cd6622;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-yellow {
+	border-top-color: #ffb900 !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-yellow .jconfirm-title-c .jconfirm-icon-c {
+	color: #ffb900 !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-yellow button.btn-confirm {
+	background-color: #ffb900;
+	border-color: #ffb900;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-yellow button.btn-confirm:hover {
+	background-color: #ffaa00;
+	border-color: #ffaa00;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-blue {
+	border-top: 0 !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-blue .jconfirm-title-c .jconfirm-icon-c {
+	color: var(--wpconsent-color-primary) !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-blue button.btn-confirm {
+	background-color: var(--wpconsent-color-primary);
+	border-color: var(--wpconsent-color-primary);
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-blue button.btn-confirm:hover {
+	background-color: var(--wpconsent-button-primary-bg-hover);
+	border-color: var(--wpconsent-button-primary-bg-hover);
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-green {
+	border-top-color: #00a32a !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-green .jconfirm-title-c .jconfirm-icon-c {
+	color: #00a32a !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-green button.btn-confirm {
+	background-color: #00a32a;
+	border-color: #00a32a;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box.jconfirm-type-green button.btn-confirm:hover {
+	background-color: #008a20;
+	border-color: #008a20;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-closeIcon {
+	font-family: inherit;
+	height: 14px;
+	opacity: 1;
+	font-weight: 700;
+	right: 17px;
+	color: #c1c1c1;
+	top: 10px;
+	width: 14px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-closeIcon:hover {
+	color: #777777 !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-title-c {
+	margin: 0 0 20px 0;
+	padding: 0;
+	font-weight: 600;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-title-c .jconfirm-icon-c {
+	font-size: 47px;
+	margin: 0;
+	-ms-transform: none !important;
+	transform: none !important;
+	-webkit-transition: none !important;
+	transition: none !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-title-c .jconfirm-icon-c + .jconfirm-title {
+	margin-top: 20px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-title-c .jconfirm-title {
+	color: #444444;
+	display: block;
+	line-height: 30px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane {
+	display: block;
+	margin-bottom: 20px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content {
+	color: #444444;
+	font-size: 16px;
+	line-height: 24px;
+	margin-bottom: 0;
+	overflow: inherit;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content.wpconsent-lite-upgrade p {
+	color: #777777;
+	font-size: 18px;
+	padding: 0 20px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content p {
+	font-size: inherit;
+	line-height: inherit;
+	margin: 0 0 16px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content p:last-of-type {
+	margin: 0;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content p.large {
+	font-size: 18px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content p.small {
+	font-size: 14px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content input[type=text],
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content input[type=number],
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content input[type=email],
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content input[type=url],
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content input[type=password],
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content input[type=search],
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content input[type=tel],
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content textarea,
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content-pane .jconfirm-content select {
+	margin: 10px 2px;
+	width: calc(100% - 4px);
+}
+
+body div.jconfirm .jconfirm-box-container .wpconsent-already-purchased {
+	grid-column: 1 / -1;
+
+	a {
+		color: #bbb;
+
+		&:hover {
+			color: #777;
+		}
+	}
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .wpconsent-discount-note {
+	grid-column: 1 / -1;
+	text-align: center;
+	background-color: #fcf9e8;
+	color: #777777;
+	font-size: 16px;
+	line-height: 24px;
+	margin: 25px -36px 17px;
+	padding: 22px 52px 12px 52px;
+	position: relative;
+}
+
+.wpconsent-green {
+	color: #00a32a;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .wpconsent-discount-note span {
+	color: #00a32a;
+	font-weight: 700;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .wpconsent-discount-note a {
+	color: #777777;
+	display: block;
+	margin-top: 12px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .feature-video {
+	margin: 30px 0 0 0;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .pro-feature-video {
+	margin: 15px 0 10px 0;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box input[type=text]:not(.choices__input) {
+	display: block;
+	width: 99%;
+	border: 1px solid #d6d6d6;
+	padding: 10px !important;
+	box-shadow: none;
+	margin: 10px 1px 1px 1px !important;
+	line-height: 1 !important;
+	outline: 0;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box input[type=text]:not(.choices__input):focus {
+	border-color: #007cba;
+	box-shadow: 0 0 0 1px #007cba;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-buttons {
+	margin-top: -10px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-buttons button {
+	min-width: 83px;
+	background: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	color: #777777;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
+	outline: none;
+	padding: 11px 17px;
+	text-transform: none;
+	margin: 10px;
+	transition-property: all;
+	transition-duration: 0.15s;
+	transition-timing-function: ease-out;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-buttons button:hover {
+	background: #eeeeee;
+	border-color: #cccccc;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-buttons button[disabled] {
+	cursor: no-drop;
+	pointer-events: none;
+	opacity: .25;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-buttons button.btn-confirm {
+	color: #ffffff;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-buttons button.hidden + button {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-buttons button.btn-block {
+	display: block;
+	margin: 0 0 10px 0 !important;
+	text-align: center;
+	width: 100%;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-buttons button.btn-normal-case {
+	text-transform: none !important;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-buttons button i {
+	margin: 0 10px 0 0;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .error {
+	color: #d63638;
+	display: none;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box button[disabled] {
+	cursor: no-drop;
+}
+
+.choices {
+	font-size: 16px;
+	text-align: start;
+}
+
+body .jconfirm.has-video div.jconfirm-box-container .jconfirm-box {
+	padding-bottom: 0;
+	padding-top: 30px;
+}
+
+body .jconfirm.has-video div.jconfirm-box-container .wpconsent-discount-note {
+	grid-row: 5;
+	margin: 20px 0 0;
+}
+
+body .jconfirm.has-video div.jconfirm-box-container .wpconsent-discount-note p {
+	margin: 0 -30px;
+	padding: 20px 52px;
+	border-radius: 0 0 6px 6px;
+}
+
+body .jconfirm.has-video div.jconfirm-box-container .wpconsent-discount-note p:after {
+	display: none;
+}
+
+body .jconfirm.has-video div.jconfirm-box-container .feature-video, body .jconfirm.has-video div.jconfirm-box-container .pro-feature-video {
+	grid-row: 1 / span 4;
+	grid-column-start: 2;
+	margin-top: 0;
+	margin-left: 15px;
+}
+
+body .jconfirm.has-video div.jconfirm-box-container .jconfirm-title-c,
+body .jconfirm.has-video div.jconfirm-box-container .jconfirm-content-pane,
+body .jconfirm.has-video div.jconfirm-box-container .jconfirm-buttons {
+	grid-column: 1 / 2;
+}
+
+body .jconfirm.upgrade-modal .jconfirm-box-container div.jconfirm-box {
+	padding-bottom: 30px;
+}
+
+body .jconfirm.upgrade-modal .jconfirm-box-container div.jconfirm-box .pro-feature-video {
+	margin-bottom: 0;
+}
+
+body .jconfirm.upgrade-modal .jconfirm-box-container div.jconfirm-box .jconfirm-buttons {
+	padding-bottom: 0;
+}
+
+@media screen and (max-width: 1023px) {
+	body .jconfirm.has-video div.jconfirm-box {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	body .jconfirm.has-video .feature-video, body .jconfirm.has-video .pro-feature-video {
+		display: none;
+	}
+}
+
+body div.jconfirm.loader-spinner-completed .jconfirm-box-container .jconfirm-box .wpconsent-loading-ring {
+	display: block;
+	text-align: center;
+	margin: 20px auto 0px auto;
+}
+
+
+body div.jconfirm .jconfirm-box-container .jconfirm-content .wpconsent-loading-ring,
+body div.jconfirm .jconfirm-box-container .jconfirm-content .wpconsent-loading-ring:after {
+	box-sizing: border-box;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-content .wpconsent-loading-ring {
+	color: var(--wpconsent-color-primary);
+	display: inline-block;
+	width: 54px;
+	height: 54px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-content .wpconsent-loading-ring:after {
+	content: " ";
+	display: block;
+	color: var(--wpconsent-color-primary);
+	width: 38px;
+	height: 38px;
+	margin: 8px;
+	border-radius: 50%;
+	border: 4px solid var(--wpconsent-color-primary);
+	border-color: var(--wpconsent-color-primary) transparent var(--wpconsent-color-primary) transparent;
+	animation: wpconsent-loading-ring 1.2s linear infinite;
+}
+
+@keyframes wpconsent-loading-ring {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.jconfirm-content-pane svg, .jconfirm-title svg {
+	width: 100px;
+	display: block;
+	margin: 22px auto 54px auto;
+}
+
+.upsell-box .jconfirm-content-pane svg, .jconfirm-title svg {
+	margin: 0 auto 10px auto;
+}
+
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-buttons .wpconsent-btn-orange {
+	background: var(--wpconsent-button-orange-bg);
+	border-color: var(--wpconsent-button-orange-bg);
+	color: #fff;
+	height: 56px;
+	font-size: var(--wpconsent-font-size-m);
+	justify-content: center;
+	padding-left: var(--wpconsent-space-h);
+	padding-right: var(--wpconsent-space-h);
+	text-align: center;
+
+	&:hover {
+		background: var(--wpconsent-button-orange-bg-hover);
+		border-color: var(--wpconsent-button-orange-bg-hover);
+		background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1));
+	}
+}
+
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-title-c .jconfirm-title .excl-mark, body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content .excl-mark {
+	height: 88px;
+	width: 88px;
+	text-align: center;
+	margin: auto;
+	font-weight: 400;
+	margin-bottom: 30px;
+	font-size: 55px;
+	color: #f8bb86c9;
+	border: 4px solid #f8bb86c9;
+	border-radius: 50%;
+	line-height: 66px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-title-c .jconfirm-title .excl-mark {
+	margin-top: 20px;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content .wpconsent-progress-container {
+	margin-top: 20px;
+	width: 100%;
+	background-color: #f3f4f5;
+	border-radius: 4px;
+	height: 8px;
+	position: relative;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content .wpconsent-progress-bar {
+	background-color: var(--wpconsent-color-primary);
+	height: 100%;
+	border-radius: 4px;
+	transition: width 0.3s ease;
+}
+
+body div.jconfirm .jconfirm-box-container .jconfirm-box .jconfirm-content .wpconsent-progress-text {
+	position: absolute;
+	right: 0;
+	top: -20px;
+	font-size: 12px;
+	color: #666;
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Incremental migrations applied after schema (or on existing DBs).",
+  "migrations": [
+    "V1__init_extensions.sql",
+    "V2__init_auth.sql",
+    "V3__init_clinical.sql",
+    "V4__init_crm.sql",
+    "V5__init_finance.sql",
+    "V6__init_marketing.sql",
+    "V7__init_operations.sql",
+    "V8__init_platform.sql",
+    "V9__rls_policies.sql",
+    "V10__add_metrics.sql"
+  ]
+}

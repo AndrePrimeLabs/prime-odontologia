@@ -1,0 +1,368 @@
+.wpconsent-button {
+	background-color: var(--wpconsent-button-primary-bg);
+	border: 1px solid var(--wpconsent-button-primary-bg);
+	border-radius: 4px;
+	color: var(--wpconsent-button-primary-text);
+	cursor: pointer;
+	display: inline-block;
+	font-size: var(--wpconsent-font-size-s);
+	font-weight: 700;
+	line-height: 1;
+	padding: 10px 16px;
+	text-decoration: none;
+
+	&.wpconsent-button-icon {
+		align-items: center;
+		display: inline-flex;
+
+		svg {
+			margin-right: 5px;
+		}
+
+		&.wpconsent-copy-target {
+			padding-bottom: 10px;
+			padding-top: 10px;
+		}
+	}
+
+	&.wpconsent-button-icon-right {
+		svg {
+			margin-left: 5px;
+
+			path {
+				fill: #051F3180;
+			}
+		}
+	}
+
+	&.wpconsent-button-wide {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: var(--wpconsent-button-primary-bg-hover);
+		border-color: var(--wpconsent-button-primary-bg-hover);
+		color: var(--wpconsent-button-primary-text-hover);
+	}
+
+	&.wpconsent-button-secondary {
+		background-color: #fff;
+		border: var(--wpconsent-button-secondary-border);
+		color: var(--wpconsent-button-secondary-text);
+
+		&:hover,
+		&:focus {
+			background-color: var(--wpconsent-button-secondary-bg-hover);
+			color: var(--wpconsent-button-secondary-text-hover);
+		}
+
+		&.wpconsent-button-danger {
+			color: var(--wpconsent-color-red);
+
+			&:hover,
+			&:focus {
+				color: var(--wpconsent-color-red-darker);
+			}
+		}
+
+		&.wpconsent-button-secondary-inactive {
+			background-color: var(--wpconsent-button-disabled-bg);
+			border-color: var(--wpconsent-button-disabled-bg);
+		}
+
+		&.wpconsent-button-secondary-selected {
+			border-color: var(--wpconsent-button-primary-bg);
+		}
+
+		&.wpconsent-button-active {
+			background-color: var(--wpconsent-button-primary-bg);
+			border-color: var(--wpconsent-button-primary-bg);
+			color: var(--wpconsent-button-primary-text);
+
+			svg path {
+				fill: var(--wpconsent-button-primary-text);
+			}
+		}
+	}
+
+	&.wpconsent-button-orange {
+		background-color: var(--wpconsent-button-orange-bg);
+		border-color: var(--wpconsent-button-orange-bg);
+		color: var(--wpconsent-button-primary-text);
+
+		&:hover,
+		&:focus {
+			background-color: var(--wpconsent-button-orange-bg-hover);
+			color: var(--wpconsent-button-primary-text);
+		}
+	}
+
+	&.wpconsent-button-large {
+		align-items: center;
+		display: inline-flex;
+		font-size: var(--wpconsent-font-size-m);
+		height: 56px;
+		justify-content: center;
+		padding-left: var(--wpconsent-space-h);
+		padding-right: var(--wpconsent-space-h);
+		text-align: center;
+
+		svg {
+			margin-right: 7px;
+		}
+	}
+
+	&.wpconsent-button-extra-large {
+		align-items: center;
+		display: inline-flex;
+		font-size: 17px;
+		font-weight: 500;
+		height: 64px;
+		justify-content: center;
+		padding-left: 65px;
+		padding-right: 65px;
+		text-align: center;
+
+		svg {
+			margin-right: 7px;
+		}
+	}
+
+	&.wpconsent-button-small {
+		font-size: var(--wpconsent-font-size-xs);
+		padding: 9px;
+	}
+
+	&:disabled:hover,
+	&:disabled {
+		background-color: var(--wpconsent-button-disabled-bg);
+		border: var(--wpconsent-button-disabled-border);
+		color: var(--wpconsent-button-disabled-text);
+	}
+}
+
+.wpconsent-button-toggle {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+
+
+	@media screen and (min-width: 783px) {
+		min-width: 424px;
+	}
+
+	.wpconsent-button {
+		width: calc(50% - 5px);
+		background: var(--wpconsent-background-white);
+		color: var(--wpconsent-input-text-color);
+	}
+
+	.wpconsent-button-secondary {
+		border: 2px solid var(--wpconsent-color-primary);
+	}
+}
+
+.wpconsent-success-icon {
+	display: none;
+}
+
+.wpconsent-show-success-icon {
+	.wpconsent-success-icon {
+		display: inline-block;
+	}
+
+	.wpconsent-default-icon {
+		display: none;
+	}
+}
+
+.wpconsent-button-just-icon {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+
+	.wpconsent-icon {
+		display: block;
+	}
+}
+
+.wpconsent-text-button-icon {
+	align-items: center;
+	background: none;
+	border: none;
+	color: var(--wpconsent-text-color-paragraph);
+	cursor: pointer;
+	display: inline-flex;
+	font-size: var(--wpconsent-font-size-s);
+	font-weight: 600;
+	padding: 0;
+
+	&:hover {
+		color: var(--wpconsent-text-color-heading);
+
+		path {
+			fill: var(--wpconsent-text-color-heading);
+		}
+	}
+
+	.wpconsent-icon {
+		margin-right: 5px;
+	}
+}
+
+.wpconsent-just-icon-button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+/* Looks like a link but it's actually a button for better accessibility. */
+.wpconsent-button-text {
+	background: none;
+	border: none;
+	color: var(--wpconsent-color-primary);
+	cursor: pointer;
+	font-size: var(--wpconsent-font-size-xs);
+	padding: 0;
+	text-decoration: underline;
+
+	.wpconsent-icon {
+		margin-right: 11px
+	}
+
+	&:focus,
+	&:hover {
+		text-decoration: none;
+		background: none;
+		color: var(--wpconsent-text-color-heading);
+
+		svg path {
+			fill: var(--wpconsent-text-color-heading);
+		}
+	}
+}
+
+/* Match notice text size when button-text is used inside WordPress notices. */
+.notice .wpconsent-button-text {
+	font-size: 13px;
+}
+
+.wpconsent-translation-progress-notice {
+	.wpconsent-button-text {
+		float: right;
+		margin-top: 2px;
+	}
+}
+
+/* AI Button styles. */
+
+#wpbody-content .wpconsent-button-ai-generate {
+	position: relative;
+	background: var(--wpconsent-color-primary); /* Default solid color */
+	border: none;
+	color: white;
+	cursor: pointer;
+	overflow: hidden; /* Ensure pseudo-element doesn't overflow */
+	z-index: 1;
+	border-radius: 5px;
+	transition: background-color 0.5s ease 0s, color 0.5s ease 0s;
+
+	svg path {
+		fill: #fff;
+		transition: fill 0.5s ease 0s;
+	}
+
+	.wpconsent-button-ai-text-done,
+	.wpconsent-button-ai-text-loading {
+		display: none;
+	}
+
+	&:focus,
+	&:hover {
+		background: var(--wpconsent-color-primary);
+		color: #fff;
+
+		&:before {
+			opacity: 0; /* Fade out the gradient */
+		}
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, #6e2dfb 0%, #a01cfd 100%);
+		transition: opacity 0.5s ease;
+		z-index: -1;
+	}
+
+	&.wpconsent-button-ai-done,
+	&.wpconsent-button-ai-loading {
+		background: white;
+		color: #a01cfd;
+
+		&:before {
+			display: none;
+		}
+
+		svg path {
+			fill: #a01cfd;
+			animation-name: wpconsent-shape-scale;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+			transform-origin: center center;
+			transform-box: fill-box;
+		}
+
+		g:nth-child(2) path {
+			animation-delay: 0.75s;
+		}
+
+		g:nth-child(3) path {
+			animation-delay: 1.5s;
+		}
+
+		.wpconsent-button-ai-text-default {
+			display: none;
+		}
+
+		.wpconsent-button-ai-text-loading {
+			display: block;
+		}
+	}
+
+	&.wpconsent-button-ai-done {
+		.wpconsent-button-ai-text-done {
+			display: block;
+		}
+		.wpconsent-button-ai-text-default,
+		.wpconsent-button-ai-text-loading {
+			display: none;
+		}
+	}
+
+	&.wpconsent-button-ai-not-available {
+		filter: grayscale(1);
+	}
+}
+
+.wpconsent-ai-improve {
+	margin-right: 14px;
+	padding: 10px 10px;
+
+	svg path {
+		fill: #a01cfd;
+	}
+}
+
+.wpconsent-submit {
+	.wpconsent-button {
+		margin-left: 12px;
+	}
+}

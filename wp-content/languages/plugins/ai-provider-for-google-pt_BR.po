@@ -1,0 +1,37 @@
+# Translation of Plugins - AI Provider for Google - Stable (latest release) in Portuguese (Brazil)
+# This file is distributed under the same license as the Plugins - AI Provider for Google - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-05-27 16:21:07+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.1.0\n"
+"Language: pt_BR\n"
+"Project-Id-Version: Plugins - AI Provider for Google - Stable (latest release)\n"
+
+#. Plugin Name of the plugin
+#: plugin.php
+msgid "AI Provider for Google"
+msgstr "Fornecedor de IA para Google"
+
+#. Plugin URI of the plugin
+#: plugin.php
+msgid "https://github.com/WordPress/ai-provider-for-google"
+msgstr "https://github.com/WordPress/ai-provider-for-google"
+
+#. Author URI of the plugin
+#: plugin.php
+msgid "https://make.wordpress.org/ai/"
+msgstr "https://make.wordpress.org/ai/"
+
+#. Author of the plugin
+#: plugin.php
+msgid "WordPress AI Team"
+msgstr "Time de IA do WordPress"
+
+#. Description of the plugin
+#: plugin.php
+msgid "AI Provider for Google for the WordPress AI Client."
+msgstr "Provedor de IA do Google para o cliente de IA do WordPress."

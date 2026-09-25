@@ -1,0 +1,133 @@
+.wpconsent-admin-page {
+	#wpcontent {
+		padding-left: 0 !important;
+	}
+
+	#wpbody-content {
+		padding-bottom: 180px;
+	}
+
+	#wpwrap {
+		background: var(--wpconsent-background-light);
+	}
+}
+
+.wpconsent-header-top {
+	align-items: center;
+	background: var(--wpconsent-background-gray);
+	display: flex;
+	justify-content: space-between;
+	padding: var(--wpconsent-space-v) var(--wpconsent-space-h);
+}
+
+.wpconsent-header-right {
+
+	button {
+		margin-left: 18px;
+		vertical-align: middle;
+	}
+}
+
+.wpconsent-header-left {
+	svg {
+		display: inline-block;
+	}
+}
+
+.wpconsent-header-bottom {
+	align-items: center;
+	background: var(--wpconsent-background-white);
+	border-color: var(--wpconsent-border-color);
+	border-style: solid;
+	border-width: 1px 0;
+	display: flex;
+	justify-content: space-between;
+	min-height: 60px;
+	padding: 0 var(--wpconsent-space-h);
+
+	h1 {
+		color: var(--wpconsent-text-color-heading);
+		font-size: var(--wpconsent-font-size-xl);
+		margin: 0;
+	}
+
+	&.wpconsent-sticky {
+		left: 160px;
+		position: fixed;
+		right: 0;
+		top: 32px;
+		z-index: 1055;
+	}
+}
+
+.folded {
+	.wpconsent-header-bottom.wpconsent-sticky {
+		left: 36px;
+	}
+}
+
+.wpconsent-column {
+	align-items: center;
+	display: flex;
+	flex-flow: row;
+
+	.wpconsent-button {
+		margin-left: 20px;
+	}
+}
+
+.wpconsent-notifications-inbox {
+	position: relative;
+
+	&[data-count]:after {
+		background: var(--wpconsent-color-red);
+		border-radius: 50%;
+		bottom: 100%;
+		color: #fff;
+		content: attr(data-count);
+		display: block;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 12px;
+		font-weight: 700;
+		height: 16px;
+		left: 100%;
+		line-height: 18px;
+		min-width: 16px;
+		position: absolute;
+		text-align: center;
+		transform: translate(-50%, 50%);
+	}
+}
+
+.wpconsent-header-title {
+	display: block;
+	color: #11293e;
+	font-size: var(--wpconsent-font-size-l);
+	margin: 0 0 3px 0;
+	vertical-align: middle;
+	line-height: 1;
+	white-space: pre;
+	font-weight: 500;
+}
+
+.wpconsent-logo-text {
+	margin-left: 10px;
+}
+
+.wpconsent-logo-with-text {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.wpconsent-icon-logo-text {
+		margin-top: -3px;
+	}
+}
+#wsrw-notice-consider-upgrading {
+	margin: 0;
+	border: 0;
+	box-shadow: none;
+	background-color: #dddddd;
+	color: var(--wpconsent-text-color-heading);
+	text-align: center;
+}

@@ -1,0 +1,3105 @@
+# Copyright (C) 2026 MailPoet
+# This file is distributed under the same license as the MailPoet Premium plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: MailPoet Premium 5.39.0\n"
+"Report-Msgid-Bugs-To: http://support.mailpoet.com/\n"
+"Last-Translator: MailPoet i18n (https://www.transifex.com/organization/wysija)\n"
+"Language-Team: MailPoet i18n <https://www.transifex.com/organization/wysija>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-21T14:33:09+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: mailpoet-premium\n"
+
+#. Plugin Name of the plugin
+#: mailpoet-premium.php
+msgid "MailPoet Premium"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: mailpoet-premium.php
+msgid "https://www.mailpoet.com"
+msgstr ""
+
+#. Description of the plugin
+#: mailpoet-premium.php
+msgid "This plugin adds Premium features to the free version of MailPoet and unlocks the subscribers limit. Enjoy!"
+msgstr ""
+
+#. Author of the plugin
+#: mailpoet-premium.php
+msgid "MailPoet"
+msgstr ""
+
+#: lib/API/JSON/v1/ResponseBuilders/SubscriberDetailedStatsResponseBuilder.php:182
+#: lib/API/JSON/v1/ResponseBuilders/SubscriberDetailedStatsResponseBuilder.php:185
+#: lib/Newsletter/Stats/SubscriberEngagement.php:414
+#: lib/Newsletter/Stats/UnsubscribeReasons.php:156
+#: assets/dist/js/premium.js:2
+msgid "No reason provided"
+msgstr ""
+
+#: lib/API/JSON/v1/Stats.php:70
+#: lib/Newsletter/Stats/RestApi/Endpoints/AbstractNewsletterStatsListingEndpoint.php:155
+msgid "This newsletter does not exist."
+msgstr ""
+
+#: lib/API/JSON/v1/Stats.php:83
+#: lib/Newsletter/Stats/RestApi/Endpoints/AbstractNewsletterStatsListingEndpoint.php:181
+msgid "This newsletter is not sent yet."
+msgstr ""
+
+#: lib/API/JSON/v1/SubscriberDetailedStats.php:42
+msgid "Missing subscriber id."
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/MailPoetPremium/Actions/AddTagAction.php:47
+#: assets/dist/js/premium.js:2
+msgid "Add tag"
+msgstr ""
+
+#. translators: %d is the ID of the tag, which was not found.
+#: lib/Automation/Integrations/MailPoetPremium/Actions/AddTagAction.php:61
+msgid "Tag %d was not found."
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/MailPoetPremium/Actions/AddToListAction.php:39
+#: assets/dist/js/premium.js:2
+msgid "Add to list"
+msgstr ""
+
+#. translators: %d is the ID of the segment
+#: lib/Automation/Integrations/MailPoetPremium/Actions/AddToListAction.php:77
+#: lib/Automation/Integrations/MailPoetPremium/Actions/RemoveFromListAction.php:86
+msgid "Segment with ID '%s' not found."
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/MailPoetPremium/Actions/CustomAction.php:67
+#: assets/dist/js/premium.js:2
+msgid "Custom action"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Actions/CustomAction.php:84
+msgid "This hook is used by the custom trigger of this automation, so firing it would trigger the automation again."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Actions/CustomAction.php:97
+#: lib/Automation/Integrations/MailPoetPremium/Actions/UnsubscribeAction.php:104
+msgid "The user who last saved this automation is not allowed to manage automations."
+msgstr ""
+
+#. translators: %s is the actual error message
+#: lib/Automation/Integrations/MailPoetPremium/Actions/NotificationEmailAction.php:85
+msgid "Failed to send notification email: %s"
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/MailPoetPremium/Actions/NotificationEmailAction.php:98
+#: assets/dist/js/premium.js:2
+msgid "Send notification email"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Actions/NotificationEmailAction.php:111
+msgid "MailPoet Automation Notification"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Actions/NotificationEmailAction.php:133
+msgid "The user who last saved this automation is not allowed to send emails."
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/MailPoetPremium/Actions/RemoveFromListAction.php:39
+#: assets/dist/js/premium.js:2
+msgid "Remove from list"
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/MailPoetPremium/Actions/RemoveTagAction.php:45
+#: assets/dist/js/premium.js:2
+msgid "Remove tag"
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/MailPoetPremium/Actions/UnsubscribeAction.php:54
+#: lib/Subscriber/Stats/SubscriberNewsletterStatsRepository.php:269
+#: assets/dist/js/premium.js:2
+msgid "Unsubscribe"
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/MailPoetPremium/Actions/UpdateSubscriberAction.php:38
+#: assets/dist/js/premium.js:2
+msgid "Update subscriber"
+msgstr ""
+
+#. translators: %d is the ID of the custom field
+#: lib/Automation/Integrations/MailPoetPremium/Actions/UpdateSubscriberAction.php:112
+msgid "Custom field with ID '%d' not found."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Actions/UpdateSubscriberAction.php:120
+msgid "Custom field '%1$s' with ID '%2$d' expects type '%3$s' but type '%4$s' was provided."
+msgstr ""
+
+#. translators: used when the scheduled task is overdue, in "Time left: Overdue"
+#: lib/Automation/Integrations/MailPoetPremium/Analytics/Controller/RunLogController.php:140
+msgid "Overdue"
+msgstr ""
+
+#. translators: %s is step ID
+#: lib/Automation/Integrations/MailPoetPremium/Analytics/Controller/RunLogController.php:184
+msgid "Unknown step: %s"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Analytics/Storage/SubscriberStatistics.php:217
+#: assets/dist/js/premium.js:2
+msgid "Failed"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Analytics/Storage/SubscriberStatistics.php:219
+#: assets/dist/js/premium.js:2
+msgid "In Progress"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Analytics/Storage/SubscriberStatistics.php:221
+#: assets/dist/js/premium.js:2
+msgid "Cancelled"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Analytics/Storage/SubscriberStatistics.php:223
+#: assets/dist/js/premium.js:2
+msgid "Completed"
+msgstr ""
+
+#. translators: automation subject (entity entering automation) title
+#: lib/Automation/Integrations/MailPoetPremium/Subjects/CustomDataSubject.php:25
+msgid "Custom data"
+msgstr ""
+
+#. translators: automation subject (entity entering automation) title
+#: lib/Automation/Integrations/MailPoetPremium/Subjects/TagSubject.php:36
+msgid "MailPoet tag"
+msgstr ""
+
+#. translators: %d is the ID.
+#: lib/Automation/Integrations/MailPoetPremium/Subjects/TagSubject.php:50
+msgid "Tag with ID '%d' not found."
+msgstr ""
+
+#. translators: automation subject (entity entering automation) title
+#: lib/Automation/Integrations/MailPoetPremium/Subjects/UserRoleChangeSubject.php:20
+msgid "WordPress user role changes"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:104
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:117
+msgid "Birthday email"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:105
+msgid "Send a birthday email to your subscribers on their special day."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:110
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:111
+msgid "A birthday treat from us"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:110
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:111
+msgid "Happy birthday!"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:112
+msgid "Enjoy 10% off your next order"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:112
+msgid "Wishing you a wonderful day"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:135
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:158
+msgid "Welcome series for new subscribers"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:136
+msgid "Welcome new subscribers and start building a relationship with them. Send an email immediately after someone subscribes to your list to introduce your brand and a follow-up two days later to keep the conversation going."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:144
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:218
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:264
+msgid "Welcome email"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:145
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:265
+msgid "Welcome to our community!"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:146
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:194
+msgid "Thanks for subscribing"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:152
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:272
+msgid "Follow-up email"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:153
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:199
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:273
+msgid "Here’s what to expect"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:154
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:200
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:274
+msgid "Learn more about us"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:186
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:211
+msgid "Sample email series"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:187
+msgid "A sample automation template with email templates."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:193
+msgid "Welcome to our newsletter!"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:205
+msgid "A special offer just for you"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:206
+msgid "Enjoy this discount"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:226
+msgid "Introduction email"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:234
+msgid "Special offer email"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:255
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:278
+msgid "Welcome series for new WordPress users"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:256
+msgid "Welcome new WordPress users to your site. Send an email immediately after a WordPress user registers. Send a follow-up email two days later with more in-depth information."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:266
+msgid "Thanks for joining us"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:301
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:317
+msgid "Thank loyal customers"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:302
+msgid "These are your most important customers. Make them feel special by sending a thank you note for supporting your brand."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:310
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:311
+msgid "Thank you for your loyalty"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:312
+msgid "We appreciate your continued support"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:362
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:397
+msgid "Win back inactive customers"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:364
+msgid "Re-engage customers who haven’t purchased in 30 days. Sends a reminder, waits 14 days, then offers a discount if they still haven’t returned."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:368
+msgid "Re-engage customers who haven’t purchased in 30 days. Sends a reminder, waits 14 days, then follows up with recommended products if they still haven’t returned."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:376
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:377
+msgid "We miss you"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:378
+msgid "Fresh picks are waiting for you"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:385
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:388
+msgid "Here’s 15% off to welcome you back"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:386
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:389
+msgid "Still thinking it over?"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:391
+msgid "Your limited-time welcome-back offer"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:392
+msgid "Fresh picks are waiting"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:444
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:483
+msgid "Abandoned cart campaign"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:445
+msgid "Encourage your potential customers to finalize their purchase when they have added items to their cart but haven’t finished the order yet. Offer a coupon code as a last resort to convert them to customers."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:453
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:454
+msgid "It looks like you left something behind…"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:455
+msgid "Complete your purchase today"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:461
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:462
+msgid "Your cart is waiting"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:463
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:478
+msgid "Your items are still waiting"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:471
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:474
+msgid "Your cart is waiting, and so is your 10% off!"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:472
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:475
+msgid "Your cart is still waiting"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:477
+msgid "A special discount awaits you"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:564
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:597
+msgid "Ask to leave a review post-purchase"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:565
+msgid "Encourage your customers to leave a review a few days after their purchase. Show them their opinion matters."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:571
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:572
+msgid "How was your experience?"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:573
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1359
+msgid "We’d love your feedback"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:661
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:677
+msgid "Follow up on a positive review (4-5 stars)"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:662
+msgid "Thank your happy customers for their feedback and let them know you appreciate their support."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:670
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:671
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:763
+msgid "Thanks for your review!"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:672
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:766
+msgid "We’re thrilled you had a good experience"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:707
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:723
+msgid "Follow up on a negative review (1-2 stars)"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:708
+msgid "Reach out to unhappy customers and show you care. Offer help or gather more feedback to improve."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:716
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:717
+msgid "Sorry to hear that – can we help?"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:718
+msgid "Let’s make things right"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:753
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:772
+msgid "Reward positive reviewers"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:754
+msgid "Thank customers who leave a 4 or 5-star review and offer a discount on their next order."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:760
+msgid "Thanks for your review"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:762
+msgid "Thanks for your review! Here’s a treat 🎁"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:765
+msgid "Enjoy a discount on your next order"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:801
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:808
+msgid "Alert on negative reviews"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:802
+msgid "Notify the store owner immediately when a customer leaves a 1 or 2-star review so they can respond quickly."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:824
+msgid "Low review alert: {{ product.name }}"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:825
+msgid ""
+"A low product review was posted.\n"
+"\n"
+"Reviewer: {{ reviewer.name }}\n"
+"Product: {{ product.name }}\n"
+"Rating: {{ review.rating }}\n"
+"Review: {{ review.text }}\n"
+"\n"
+"Open the review in WordPress admin: {{ review.admin_url }}"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:847
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:851
+msgid "Cancel unpaid orders after 3 days"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:848
+msgid "Automatically cancel orders that remain unpaid for 3 days. Adds a private note to the order explaining why it was cancelled."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:882
+msgid "Order auto-cancelled by MailPoet after 3 days without payment."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:904
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:920
+msgid "Follow up after a subscription purchase"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:905
+msgid "Thank new subscribers and let them know what to expect. A warm welcome goes a long way."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:913
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:914
+msgid "Welcome to your subscription"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:915
+msgid "Here’s what happens next"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:942
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:958
+msgid "Follow up after a subscription renewal"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:943
+msgid "Reinforce the value of your subscription by reminding customers what they’re getting after every renewal."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:951
+msgid "Your subscription renewed"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:952
+msgid "Your subscription renewed successfully"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:953
+msgid "Thanks for continuing with us"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:979
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:995
+msgid "Follow up after failed renewal"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:980
+msgid "Help customers fix failed payments and continue their subscription without disruption."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:988
+msgid "Subscription renewal needs attention"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:989
+msgid "We couldn’t renew your subscription"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:990
+msgid "Update your payment details to keep it active"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1016
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1034
+msgid "Follow up on churned subscription"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1017
+msgid "Reach out to subscribers who canceled and ask for their feedback to help improve your service."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1025
+msgid "Subscription feedback request"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1026
+msgid "Can we ask why you left?"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1027
+msgid "Your feedback helps us improve"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1060
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1078
+msgid "Follow up when trial ends"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1061
+msgid "Check in with customers after their trial ends. Encourage them to keep enjoying the benefits of their subscription."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1069
+msgid "Trial follow-up"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1070
+msgid "How was your trial?"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1071
+msgid "Keep the benefits going"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1104
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1120
+msgid "Win back churned subscribers"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1105
+msgid "Re-engage former subscribers by showing what’s new and why it’s worth coming back."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1113
+msgid "Subscription win-back"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1114
+msgid "Here’s what’s new since you left"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1115
+msgid "We’d love to welcome you back"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1167
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1183
+msgid "Abandoned booking reminder"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1168
+msgid "Remind customers who left a booking in their cart to complete their reservation."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1176
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1177
+msgid "Your spot is waiting"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1178
+msgid "Complete your booking"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1205
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1223
+msgid "Follow-up after a new booking"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1206
+msgid "Send a confirmation email after a new booking is created."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1214
+msgid "Booking confirmation"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1215
+msgid "Your booking is confirmed"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1216
+msgid "Your booking details are inside"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1244
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1253
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1260
+msgid "Pre-visit reminder"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1245
+msgid "Send a reminder before a booking starts. Customize the timing in the trigger settings."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1254
+msgid "A reminder about your upcoming booking"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1255
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1300
+msgid "Everything you need before your visit"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1289
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1314
+msgid "Educational drip before booking"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1290
+msgid "Send a series of educational emails in the days before a booking starts to help customers prepare for their visit."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1298
+msgid "What to expect"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1299
+msgid "What to expect at your booking"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1306
+msgid "Booking tips"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1307
+msgid "Make the most of your booking"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1308
+msgid "Helpful tips before your visit"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1348
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1364
+msgid "Post-booking review request"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1349
+msgid "Ask for feedback after a booking is completed."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1357
+msgid "Booking review request"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1358
+msgid "How was your booking?"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1386
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1395
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1403
+msgid "Next booking nudge"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1387
+msgid "Encourage customers to rebook after their booking is completed."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1396
+msgid "Ready for your next booking?"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Templates/PremiumTemplatesFactory.php:1397
+msgid "Book your next visit when you’re ready"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/AnnualDateTrigger.php:56
+#: assets/dist/js/premium.js:2
+msgid "Birthday"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/AnnualDateTrigger.php:82
+msgid "A date custom field must be selected."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/AnnualDateTrigger.php:93
+msgid "The selected custom field must be a \"year, month, day\" date field."
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/ClicksEmailLinkTrigger.php:60
+msgid "Subscriber clicks a link in email"
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/ClicksEmailLinkTrigger.php:84
+msgid "Please select a newsletter."
+msgstr ""
+
+#. translators: %d is the ID of the newsletter
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/ClicksEmailLinkTrigger.php:91
+msgid "Newsletter with ID '%d' not found."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/ClicksEmailLinkTrigger.php:98
+msgid "Please select an operator."
+msgstr ""
+
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/ClicksEmailLinkTrigger.php:112
+msgid "Please select a link."
+msgstr ""
+
+#. translators: %d is the ID of the link
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/ClicksEmailLinkTrigger.php:120
+msgid "Link with ID '%d' not found."
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/CustomTrigger.php:58
+#: assets/dist/js/premium.js:2
+msgid "Custom trigger"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/TagAddedTrigger.php:43
+msgid "Tag added"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/TagRemovedTrigger.php:43
+msgid "Tag removed"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/MailPoetPremium/Triggers/UserRoleChangedTrigger.php:43
+msgid "WordPress user role changed"
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/WooCommerce/Actions/AddOrderNoteAction.php:39
+#: assets/dist/js/premium.js:2
+msgid "Add order note"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Actions/AddOrderNoteAction.php:76
+msgid "Order note could not be added."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Actions/AddOrderNoteAction.php:86
+msgid "The user who last saved this automation is not allowed to add order notes."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Actions/AddOrderNoteAction.php:92
+msgid "Enter an order note."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Actions/AddOrderNoteAction.php:99
+msgid "Select a valid note type."
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/WooCommerce/Actions/ChangeOrderStatusAction.php:42
+#: assets/dist/js/premium.js:2
+msgid "Change order status"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Actions/ChangeOrderStatusAction.php:76
+msgid "Order status could not be changed."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Actions/ChangeOrderStatusAction.php:90
+msgid "Select a valid order status."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Actions/ChangeOrderStatusAction.php:95
+msgid "The user who last saved this automation is not allowed to change order statuses."
+msgstr ""
+
+#. translators: automation field title
+#: lib/Automation/Integrations/WooCommerce/Fields/SavedCardFieldsFactory.php:16
+msgid "Card type"
+msgstr ""
+
+#. translators: automation field title
+#: lib/Automation/Integrations/WooCommerce/Fields/SavedCardFieldsFactory.php:25
+msgid "Last 4 digits"
+msgstr ""
+
+#. translators: automation field title
+#: lib/Automation/Integrations/WooCommerce/Fields/SavedCardFieldsFactory.php:34
+msgid "Expiry month"
+msgstr ""
+
+#. translators: automation field title
+#: lib/Automation/Integrations/WooCommerce/Fields/SavedCardFieldsFactory.php:43
+msgid "Expiry year"
+msgstr ""
+
+#. translators: automation field title
+#: lib/Automation/Integrations/WooCommerce/Fields/SavedCardFieldsFactory.php:52
+msgid "Expires on"
+msgstr ""
+
+#. translators: automation subject (entity entering automation) title
+#: lib/Automation/Integrations/WooCommerce/Subjects/CustomerWinBackSubject.php:24
+msgid "Customer win back data"
+msgstr ""
+
+#. translators: automation subject (entity entering automation) title
+#: lib/Automation/Integrations/WooCommerce/Subjects/ReviewSubject.php:42
+msgid "Review"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Subjects/ReviewSubject.php:56
+#: assets/dist/js/premium.js:2
+msgid "Review rating"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Subjects/ReviewSubject.php:64
+#: assets/dist/js/premium.js:2
+msgid "Review text"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Subjects/ReviewSubject.php:74
+#: assets/dist/js/premium.js:2
+msgid "Review admin URL"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Subjects/ReviewSubject.php:84
+msgid "Product ID"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Subjects/ReviewSubject.php:94
+#: assets/dist/js/premium.js:2
+msgid "Product name"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Subjects/ReviewSubject.php:103
+msgid "Product URL"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Subjects/ReviewSubject.php:112
+msgid "Product price"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Subjects/ReviewSubject.php:121
+msgid "Reviewer ID"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Subjects/ReviewSubject.php:131
+#: assets/dist/js/premium.js:2
+msgid "Reviewer name"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Subjects/ReviewSubject.php:141
+msgid "Reviewer email"
+msgstr ""
+
+#. translators: automation subject (entity entering automation) title
+#: lib/Automation/Integrations/WooCommerce/Subjects/SavedCardSubject.php:37
+msgid "Saved card"
+msgstr ""
+
+#. translators: %d is the ID of the payment token.
+#: lib/Automation/Integrations/WooCommerce/Subjects/SavedCardSubject.php:51
+msgid "Saved card with ID '%d' not found."
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerce/Triggers/CustomerWinBackTrigger.php:52
+#: assets/dist/js/premium.js:2
+msgid "Customer win back"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Triggers/CustomerWinBackTrigger.php:81
+msgid "Days since last purchase must be at least 1."
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerce/Triggers/MadeAReviewTrigger.php:50
+msgid "Customer posts a review"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerce/Triggers/MadeAReviewTrigger.php:75
+msgid "The WooCommerce rating system is not enabled."
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerce/Triggers/OrderPaidTrigger.php:46
+#: assets/dist/js/premium.js:2
+msgid "Order paid"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerce/Triggers/SavedCardExpiresTrigger.php:54
+#: assets/dist/js/premium.js:2
+msgid "Customer's saved card expires"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:32
+msgid "Woo Booking ID"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:40
+msgid "Woo Booking created"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:48
+msgid "Woo Booking modified date"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:56
+msgid "Woo Booking status"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:67
+msgid "Woo Booking customer booking count"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:84
+msgid "Woo Booking persons count"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:92
+msgid "Woo Booking all day"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:100
+msgid "Woo Booking start"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:109
+msgid "Woo Booking end"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:118
+msgid "Woo Booking product"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:129
+msgid "Woo Booking product categories"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Fields/BookingFields.php:150
+msgid "Woo Booking product tags"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerceBookings/Subjects/WooCommerceBookingStatusChangeSubject.php:21
+msgid "WooCommerce Booking status changed"
+msgstr ""
+
+#. translators: automation subject (entity entering automation) title
+#: lib/Automation/Integrations/WooCommerceBookings/Subjects/WooCommerceBookingSubject.php:39
+msgid "WooCommerce Booking"
+msgstr ""
+
+#. translators: %d is the booking ID.
+#: lib/Automation/Integrations/WooCommerceBookings/Subjects/WooCommerceBookingSubject.php:59
+msgid "WooCommerce Booking with ID '%d' not found."
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerceBookings/Triggers/BookingCreatedTrigger.php:43
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:366
+msgid "Booking Created"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerceBookings/Triggers/BookingStartsTrigger.php:67
+#: assets/dist/js/premium.js:2
+msgid "Booking starts"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Triggers/BookingStartsTrigger.php:247
+msgid "Timing must be \"before\" or \"after\"."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Triggers/BookingStartsTrigger.php:253
+msgid "Time value must be at least 1."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Triggers/BookingStartsTrigger.php:259
+msgid "Time unit must be \"minutes\", \"hours\", or \"days\"."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceBookings/Triggers/BookingStartsTrigger.php:265
+msgid "At least one booking status must be selected."
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerceBookings/Triggers/BookingStatusChangedTrigger.php:36
+#: assets/dist/js/premium.js:2
+msgid "Booking status changed"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:55
+msgid "The user who last saved this automation is not allowed to manage WooCommerce subscriptions."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:61
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:161
+msgid "WooCommerce Subscriptions is required for this action."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:69
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:75
+msgid "Select a valid subscription status."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:82
+msgid "Enter a quantity of at least 1."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:95
+msgid "Enter a valid line total."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:99
+msgid "Enter a line total of at least 0."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:106
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:112
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:125
+msgid "Select a valid product."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:118
+msgid "Select a valid product variation."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AbstractSubscriptionAction.php:153
+msgid "Subscription could not be saved."
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AddProductToSubscriptionAction.php:25
+#: assets/dist/js/premium.js:2
+msgid "Add product to subscription"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/AddProductToSubscriptionAction.php:74
+msgid "Product could not be added to the subscription."
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/ChangeSubscriptionStatusAction.php:25
+#: assets/dist/js/premium.js:2
+msgid "Change subscription status"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/ChangeSubscriptionStatusAction.php:56
+msgid "Subscription status could not be changed."
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/RemoveProductFromSubscriptionAction.php:25
+#: assets/dist/js/premium.js:2
+msgid "Remove product from subscription"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/RemoveProductFromSubscriptionAction.php:66
+msgid "Product could not be removed from the subscription."
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/UpdateProductOnSubscriptionAction.php:26
+#: assets/dist/js/premium.js:2
+msgid "Update product on subscription"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/UpdateProductOnSubscriptionAction.php:64
+msgid "Product could not be found on the subscription."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/UpdateProductOnSubscriptionAction.php:91
+msgid "Subscription product could not be updated."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/UpdateProductOnSubscriptionAction.php:115
+msgid "Select a product before selecting a variation."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Actions/UpdateProductOnSubscriptionAction.php:120
+msgid "Select at least one subscription product update."
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:28
+msgid "Woo Subscription ID"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:36
+msgid "Woo Subscription created"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:44
+msgid "Woo Subscription modified date"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:52
+msgid "Woo Subscription title"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:60
+msgid "Woo Subscription status"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:71
+msgid "Woo Subscription number of failed payments"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:79
+msgid "Woo Subscription number of payments"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:87
+msgid "The total amount charged at the outset of the Subscription"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:95
+msgid "Woo Subscription billing period"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:106
+msgid "Woo Subscription billing interval"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:114
+msgid "Woo Subscription requires manual renewal payments"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:122
+msgid "Woo Subscription cancel email sent"
+msgstr ""
+
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Fields/SubscriptionFields.php:130
+msgid "Woo Subscription is in trial period"
+msgstr ""
+
+#. translators: automation subject (entity entering automation) title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Subjects/WooCommerceSubscriptionStatusChangeSubject.php:22
+msgid "WooCommerce Subscription status change"
+msgstr ""
+
+#. translators: automation subject (entity entering automation) title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Subjects/WooCommerceSubscriptionSubject.php:43
+msgid "WooCommerce Subscription"
+msgstr ""
+
+#. translators: %d is the order ID.
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Subjects/WooCommerceSubscriptionSubject.php:62
+msgid "Subscription with ID '%d' not found."
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Triggers/SubscriptionCreatedTrigger.php:42
+msgid "Woo Subscription started"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Triggers/SubscriptionExpiredTrigger.php:36
+msgid "Woo Subscription expired"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Triggers/SubscriptionPaymentFailedTrigger.php:36
+msgid "Woo Subscription payment failed"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Triggers/SubscriptionRenewedTrigger.php:37
+msgid "Woo Subscription renewed"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Triggers/SubscriptionStatusChangedTrigger.php:38
+msgid "Woo Subscription status changed"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Triggers/SubscriptionTrialEndedTrigger.php:43
+msgid "Woo Subscription trial ended"
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WooCommerceSubscriptions/Triggers/SubscriptionTrialStartedTrigger.php:37
+msgid "Woo Subscription trial started"
+msgstr ""
+
+#. translators: automation action title
+#: lib/Automation/Integrations/WordPress/Actions/ChangeUserRoleAction.php:55
+#: assets/dist/js/premium.js:2
+msgid "Change user role"
+msgstr ""
+
+#: lib/Automation/Integrations/WordPress/Actions/ChangeUserRoleAction.php:75
+msgid "The user who last saved this automation is not allowed to change user roles."
+msgstr ""
+
+#: lib/Automation/Integrations/WordPress/Actions/ChangeUserRoleAction.php:85
+msgid "User role could not be changed because the target role is no longer available or cannot be granted."
+msgstr ""
+
+#: lib/Automation/Integrations/WordPress/Actions/ChangeUserRoleAction.php:92
+msgid "User role could not be changed because the user does not exist."
+msgstr ""
+
+#: lib/Automation/Integrations/WordPress/Actions/ChangeUserRoleAction.php:103
+msgid "User role could not be changed because the user who last saved this automation is not allowed to change the role of this user."
+msgstr ""
+
+#: lib/Automation/Integrations/WordPress/Actions/ChangeUserRoleAction.php:116
+msgid "Select a valid user role."
+msgstr ""
+
+#: lib/Automation/Integrations/WordPress/Actions/ChangeUserRoleAction.php:121
+msgid "This role cannot be granted by an automation."
+msgstr ""
+
+#. translators: automation trigger title
+#: lib/Automation/Integrations/WordPress/Triggers/MadeACommentTrigger.php:52
+msgid "User makes a comment"
+msgstr ""
+
+#. translators: %s is the name of the post type.
+#: lib/Automation/Integrations/WordPress/Triggers/MadeACommentTrigger.php:91
+msgid "Post Type “%s” is not registered."
+msgstr ""
+
+#. translators: %d is the ID of the post not found.
+#: lib/Automation/Integrations/WordPress/Triggers/MadeACommentTrigger.php:115
+msgid "Post with ID '%d' not found."
+msgstr ""
+
+#. translators: %s is the name of the taxonomy
+#: lib/Automation/Integrations/WordPress/Triggers/MadeACommentTrigger.php:138
+msgid "The taxonomy “%s” is not registered."
+msgstr ""
+
+#: lib/Config/Hooks.php:75
+msgid "[link1]Register[/link1] your copy of the MailPoet Premium plugin to receive access to automatic upgrades and support. Need a license key? [link2]Purchase one now.[/link2]"
+msgstr ""
+
+#: lib/Config/Hooks.php:98
+msgid "View MailPoet settings"
+msgstr ""
+
+#: lib/Config/Hooks.php:98
+#: assets/dist/js/premium.js:2
+msgid "Settings"
+msgstr ""
+
+#. translators: %1$s is the name of the template, %2$s the path to the cache folder and %3$s the error message.
+#: lib/Config/Renderer.php:106
+msgid "Failed to render template \"%1$s\". Please ensure the template cache folder \"%2$s\" exists and has write permissions. Terminated with error: \"%3$s\""
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:210
+msgid "Subscription"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:214
+msgid "Subscription ID"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:224
+msgid "Subscription Created"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:234
+msgid "Subscription Modified Date"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:244
+msgid "Subscription Title"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:254
+msgid "Subscription Status"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:264
+msgid "Subscription Failed Payment Count"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:274
+msgid "Subscription Payment Count"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:284
+msgid "Subscription Total Initial Payment"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:294
+msgid "Subscription Billing Period"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:304
+msgid "Subscription Billing Interval"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:314
+msgid "Subscription Requires Manual Renewal"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:324
+msgid "Subscription Cancel Email Sent"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:334
+msgid "Subscription Is in Trial Period"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:352
+msgid "Booking"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:356
+msgid "Booking ID"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:376
+msgid "Booking Modified Date"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:386
+msgid "Booking Status"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:396
+msgid "Booking Persons Count"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:406
+msgid "Booking Start Date"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:416
+msgid "Booking End Date"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:426
+msgid "Booking Product Name"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTagManager.php:436
+msgid "Booking All Day"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTags/WooCommerceBooking.php:159
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTags/WooCommerceSubscription.php:125
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTags/WooCommerceSubscription.php:140
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTags/WooCommerceSubscription.php:159
+#: lib/Newsletter/Stats/RecipientsExporter.php:173
+#: lib/Newsletter/Stats/RecipientsExporter.php:176
+#: lib/Newsletter/Stats/RecipientsExporter.php:177
+#: lib/Newsletter/Stats/RecipientsExporter.php:179
+#: lib/Newsletter/Stats/RecipientsExporter.php:180
+#: lib/Newsletter/Stats/RecipientsExporter.php:196
+#: assets/dist/js/premium.js:2
+msgid "Yes"
+msgstr ""
+
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTags/WooCommerceBooking.php:159
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTags/WooCommerceSubscription.php:125
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTags/WooCommerceSubscription.php:140
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTags/WooCommerceSubscription.php:155
+#: lib/EmailEditor/Integrations/MailPoet/PersonalizationTags/WooCommerceSubscription.php:159
+#: lib/Newsletter/Stats/RecipientsExporter.php:173
+#: lib/Newsletter/Stats/RecipientsExporter.php:176
+#: lib/Newsletter/Stats/RecipientsExporter.php:177
+#: lib/Newsletter/Stats/RecipientsExporter.php:179
+#: lib/Newsletter/Stats/RecipientsExporter.php:180
+#: lib/Newsletter/Stats/RecipientsExporter.php:197
+#: assets/dist/js/premium.js:2
+msgid "No"
+msgstr ""
+
+#. translators: %s is the send time in UTC, shown when the recipient's delivery timezone could not be resolved.
+#: lib/Newsletter/Stats/RecipientsExporter.php:246
+msgid "%s (UTC)"
+msgstr ""
+
+#: lib/Newsletter/Stats/RestApi/Endpoints/AbstractNewsletterStatsListingEndpoint.php:168
+msgid "Detailed analytics are not available for this site."
+msgstr ""
+
+#. translators: %s is a timezone name. "site default" marks subscribers without their own timezone who received the email in the site timezone.
+#: lib/Newsletter/Stats/SubscriberEngagement.php:525
+#: assets/dist/js/premium.js:2
+msgid "%s (site default)"
+msgstr ""
+
+#: lib/Newsletter/Stats/SubscriberEngagement.php:598
+msgid "Filter by link clicked"
+msgstr ""
+
+#: lib/Newsletter/Stats/SubscriberEngagement.php:640
+#: assets/dist/js/premium.js:2
+msgctxt "Subscriber engagement filter - filter those who clicked on a newsletter link"
+msgid "Clicked"
+msgstr ""
+
+#: lib/Newsletter/Stats/SubscriberEngagement.php:645
+#: assets/dist/js/premium.js:2
+msgctxt "Subscriber engagement filter - filter those who opened a newsletter"
+msgid "Opened"
+msgstr ""
+
+#: lib/Newsletter/Stats/SubscriberEngagement.php:650
+#: assets/dist/js/premium.js:2
+msgctxt "Subscriber engagement filter - shows machine-opens for a given newsletter"
+msgid "Machine-opened"
+msgstr ""
+
+#: lib/Newsletter/Stats/SubscriberEngagement.php:655
+#: assets/dist/js/premium.js:2
+msgctxt "Subscriber engagement filter - filter those who unsubscribed from a newsletter"
+msgid "Unsubscribed"
+msgstr ""
+
+#: lib/Newsletter/Stats/SubscriberEngagement.php:664
+msgctxt "Subscriber engagement filter - filter those who performed any action (e.g., clicked, opened, unsubscribed)"
+msgid "All engaged"
+msgstr ""
+
+#: lib/Newsletter/Stats/SubscriberEngagement.php:671
+#: assets/dist/js/premium.js:2
+msgctxt "Subscriber engagement filter - filter those who did not open a newsletter"
+msgid "Unopened"
+msgstr ""
+
+#: lib/Subscriber/Stats/SubscriberNewsletterStatsRepository.php:266
+#: assets/dist/js/premium.js:2
+msgid "Email open"
+msgstr ""
+
+#: lib/Subscriber/Stats/SubscriberNewsletterStatsRepository.php:267
+#: assets/dist/js/premium.js:2
+msgid "Link click"
+msgstr ""
+
+#: lib/Subscriber/Stats/SubscriberNewsletterStatsRepository.php:268
+#: assets/dist/js/premium.js:2
+msgid "Purchase"
+msgstr ""
+
+#. translators: %1$s is the plugin name (MailPoet or MailPoet Premium), %2$s, %3$s, and %4$s are PHP version (e.g. "8.1.30")
+#: mailpoet-premium.php:36
+msgid "%1$s requires PHP version %2$s or newer (%3$s recommended). You are running version %4$s."
+msgstr ""
+
+#: mailpoet-premium.php:43
+msgid "Please read our [link]instructions[/link] on how to upgrade your site."
+msgstr ""
+
+#: mailpoet-premium.php:69
+msgid "MailPoet Premium cannot start because it is missing core files. Please reinstall the plugin."
+msgstr ""
+
+#. translators: %s is the MailPoet version.
+#: mailpoet_initializer.php:76
+msgid "You need to have MailPoet version %s or higher activated before using this version of MailPoet Premium."
+msgstr ""
+
+#: mailpoet_initializer.php:90
+msgid "You have an older version of the Premium plugin. The features have been disabled in order not to break MailPoet. Please update it in the Plugins page now."
+msgstr ""
+
+#: mailpoet_initializer.php:92
+msgid "Your MailPoet Premium plugin is incompatible with the free MailPoet plugin. [link1]Register[/link1] your key or [link2]purchase one now[/link2] to update the Premium to the latest version."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select criteria"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Filtering by this field is not supported."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Save"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Cancel"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Set date"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Set date/time"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "days"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "weeks"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "months"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "over all time"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "in the last"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select one or more values…"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "From"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "To"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Are you sure you want to delete this step? This action cannot be undone."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Are you sure you want to delete the following step: \"%s\"? This action cannot be undone."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Delete this step?"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Delete step"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Do not trigger automations"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Tags to add"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Please select a tag"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Adding a tag to a subscriber won't trigger other automations"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Add one or more tags to a subscriber."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Not set up yet"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Add the \"%s\" tag"
+msgid_plural "Add \"%s\" tags"
+msgstr[0] ""
+msgstr[1] ""
+
+#: assets/dist/js/premium.js:2
+msgid "tag"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "tags"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "label"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "labels"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "add tag"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "add tags"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Tags to remove"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Removing a tag from a subscriber won't trigger other automations"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Remove one or more tags from a subscriber."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Remove the \"%s\" tag"
+msgid_plural "Remove \"%s\" tags"
+msgstr[0] ""
+msgstr[1] ""
+
+#: assets/dist/js/premium.js:2
+msgid "remove tag"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "remove tags"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Trigger settings"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Lists to subscribe to:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Please select a list"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Adding a subscriber to a list won't trigger other automations"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Add a subscriber to a specific list."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Add to the \"%s\" list"
+msgid_plural "Add to \"%s\" lists"
+msgstr[0] ""
+msgstr[1] ""
+
+#: assets/dist/js/premium.js:2
+msgid "list"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "add list"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "add to list"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Lists to unsubscribe from:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Remove a subscriber from a specific list."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Remove from the \"%s\" list"
+msgid_plural "Remove from \"%s\" lists"
+msgstr[0] ""
+msgstr[1] ""
+
+#: assets/dist/js/premium.js:2
+msgid "remove list"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "remove from list"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Set custom field value…"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select a value…"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Year"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select year…"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Month"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select month…"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Day"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select day…"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "This field is required."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Custom field"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select a custom field…"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Set the value to"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "How to create a custom field?"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Update a subscriber’s custom field with a chosen value."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Unknown field"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Update \"%s\" to \"%s\""
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "update"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "update subscriber"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "update custom field"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Remove the subscriber from all marketing emails."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "unsubscribe"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Recipients"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Send to (up to 5 email addresses)"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Available shortcodes"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "You can use these shortcodes in the subject or email body:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Close"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Email body"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "View available shortcodes"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "\"From\" name"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "John Doe"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "\"From\" email address"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "you@domain.com"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Subject"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Type in subject…"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Receive notification email"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Get notified when a contact reaches this point in the automation."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "notification"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "email"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Added to clipboard."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Could not add the text to clipboard."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "You can find a developer on codeable.io."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Advanced: starts when a custom action runs. The first argument must be the subscriber’s email address."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Learn more"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgctxt "noun"
+msgid "Trigger"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "custom"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "hook"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "code"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Hook"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Copy code snippet"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Example code:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Advanced: run a custom hook when this step is reached."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Fires the \"%s\" hook"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Tags"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Tag added to email subscriber"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a tag is added to an email subscriber."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Trigger"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Tag removed from email subscriber"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a tag is removed from an email subscriber."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Newsletter:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select a newsletter"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Standard emails"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Automation emails"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Loading..."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "This newsletter has no links"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Condition:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "any of"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "all of"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "none of"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Link:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Please select a link"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Email link clicked"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a subscriber clicks a link in an email."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "link"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "clicks"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Any or none"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Administrator"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Editor"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Author"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Contributor"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Subscriber"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Customer"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Shop Manager"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "WordPress user can have multiple roles. This trigger will fire when a new one is added to or removed from existing roles, or when all roles are replaced with a single one."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Removed old role"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "If \"Any or none\" is selected, this setting is ignored."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Added new role"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "User role changed"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a user’s role changes."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "user"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "role"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "change"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "No date fields found — <link>create</link> a date custom field first."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Date field:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select a date field…"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Timing:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgctxt "timing option for annual date trigger"
+msgid "Before"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgctxt "timing option for annual date trigger"
+msgid "On"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgctxt "timing option for annual date trigger"
+msgid "After"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Days offset:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Send time:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Site time. Currently %s."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Triggers annually based on a subscriber's birthday or other date field."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgctxt "annual date trigger subtitle — \"On Birthday\""
+msgid "On %s"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgctxt "annual date trigger subtitle — \"3 days before Birthday\""
+msgid "%1$d days before %2$s"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgctxt "annual date trigger subtitle — \"3 days after Birthday\""
+msgid "%1$d days after %2$s"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "birthday"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "anniversary"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "annual"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "date"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Post Types:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Any"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Posts:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Comment Status"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select Comment Status:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Posts"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "The automation will be triggered for these:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Comment posted"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a user leaves a comment."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "comment"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select a role"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "This replaces the user’s existing WordPress roles with the selected role. Administrator and elevated roles are blocked."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Target role"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "No editable roles are available."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Changes the WordPress role for a user."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Changes role to %s"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "wordpress"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "account"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "to"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Ratings"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Enable"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Review Status"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select Review Status:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Products"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Products:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Review posted"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a customer submits a review for a product, service, or event."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "review"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "buy"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "ecommerce"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "woocommerce"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "product"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "order"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when payment for an order is completed."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "paid"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "payment"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Set how many days must pass after the customer’s last completed purchase."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Days since last purchase"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a customer has not purchased recently."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "customer"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "win back"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "inactive"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select a status"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "No order statuses are available."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Change order status to:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Changes the status of an order."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Change status to %s"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "status"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Note"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Note type"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Private note"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Note to customer"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "WooCommerce sends the customer-note email when a customer note is added."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Adds a private or customer note to an order."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Add a customer note"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Add a private note"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "note"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Cards expire on the last calendar day of their expiry month. Some payment gateways aren't supported."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Days before expiry:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Triggers a set number of days before a customer's saved card expires."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "%d days before card expires"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "card"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "credit card"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "expiry"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "expiration"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Status changes to:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Status changes from:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Subscription status changed"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a subscription changes to a selected status."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "subscriptions"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "changed"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Subscription started"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a new subscription is created."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "new"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "created"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "started"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Subscription trial ended"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a subscription trial ends."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "subscription"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "trial"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "ended"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Subscription trial started"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a subscription trial begins."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Subscription renewed"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a subscription renewal is completed."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "renewed"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Subscription payment failed"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a subscription payment fails."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "failed"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Subscription expired"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a subscription expires."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "expired"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "WooCommerce Subscriptions must be active to use this action."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Change subscription status to:"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "No subscription statuses are available."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Product details could not be loaded."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Search for a product"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Product variations could not be loaded."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Search for a variation"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Product"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Variation"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Optional. Use this when the subscription line targets a specific variation."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "product #%1$d, variation #%2$d"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "product #%d"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Changes the status of a subscription."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Quantity"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Line total"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Optional. Leave empty to use the product price."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Adds a product to a subscription."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Add %1$d of %2$s"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Removes a product from a subscription."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Remove %s"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "New quantity"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Optional. Leave empty to keep the current quantity."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "New line total"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Optional. Leave empty to keep the current total."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Replacement product"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Optional. Leave empty to keep the current product."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Replacement variation"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Optional. Use this when replacing the line with a specific variation."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Updates a product line on a subscription."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Replace %1$s with %2$s"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Update %s"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Booking created"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a new booking is created by a customer or store staff."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "bookings"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Timing"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select…"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Before"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "After"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Time value"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Number"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Time unit"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Minutes"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Hours"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Days"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Booking statuses"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select statuses…"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "start"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "schedule"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "minute(s)"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "hour(s)"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "day(s)"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "before"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "after"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts before or after a booking is scheduled to begin."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "%1$d %2$s %3$s booking starts"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Starts when a booking changes to a selected status."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "New automation"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "An unknown error occurred."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Duplicate step"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Clear all filters"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select Email"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "All emails"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Filter"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "All"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "%d. \"%s\" step"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Search subscriber"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Select step"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "All steps"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Status"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "<revenue/> from <count/> orders"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Revenues generated by customers who made a purchase within two weeks after they clicked on this email. This is the sum of the order totals including shipping and taxes."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Link"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Unique clicks"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "View subscribers"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "No clicked links found"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Search"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Products sold"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Total net revenue"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Unfortunately, no products were sold as a result of this email!"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "For best practice tips, check out our <link>guide to WooCommerce follow up emails</link>."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Or, if you haven’t tried out the products widget yet, <link>here’s how to get started</link>."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Clicked link"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Reason"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Delivery timezone"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Date and time"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Subscribed"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Unsubscribed"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Unconfirmed"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Inactive"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Bounced"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Deleted subscriber"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Opened"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Machine-opened"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Clicked"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Unopened"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Subscriber status"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "No engagement data found"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Saving..."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Create Segment"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Segment already exists."
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Segment \"<segmentName/>\" created. <link>Create and send an email to it.</link>"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "No bounces found"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "I no longer want to receive these emails"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "I never signed up for this mailing list"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "The emails are inappropriate"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "The emails are spam and should be reported"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Other"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Responses"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "No unsubscribe reasons recorded"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Add group"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "<strong>All</strong> of the conditions"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "<strong>Any</strong> of the conditions"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "<strong>None</strong> of the conditions"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "<strong>All</strong> of the groups"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "<strong>Any</strong> of the groups"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "nor"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "or"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "and"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Remove condition"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Opened email"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Link clicked in email"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Completed purchase"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Unsubscribed from email"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Order #%1$s · %2$s"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Reason: %s"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Activity"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "Event"
+msgstr ""
+
+#: assets/dist/js/premium.js:2
+msgid "No stats"
+msgstr ""

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmanage=globalThis.webpackChunkmanage||[]).push([[425],{5425:a=>{a.exports=JSON.parse('{"example":{"component":"Przykładowy komponent"}}')}}]);

@@ -1,0 +1,44 @@
+{
+  "defaultEnvironment": "dev",
+  "environments": {
+    "dev": {
+      "label": "Development",
+      "supabaseProjectId": "foeahubnrbclbelsqikp",
+      "supabaseUrl": "https://foeahubnrbclbelsqikp.supabase.co",
+      "databaseHost": "db.foeahubnrbclbelsqikp.supabase.co",
+      "databasePort": 5432,
+      "databaseName": "postgres",
+      "databaseUser": "postgres",
+      "connectionEnvVar": "DATABASE_URL",
+      "seedPath": "seeds/dev",
+      "runMigrations": true,
+      "runSchema": true
+    },
+    "staging": {
+      "label": "Staging",
+      "supabaseProjectId": "foeahubnrbclbelsqikp",
+      "supabaseUrl": "https://foeahubnrbclbelsqikp.supabase.co",
+      "databaseHost": "db.foeahubnrbclbelsqikp.supabase.co",
+      "databasePort": 5432,
+      "databaseName": "postgres",
+      "databaseUser": "postgres",
+      "connectionEnvVar": "DATABASE_URL",
+      "seedPath": "seeds/prod",
+      "runMigrations": true,
+      "runSchema": false
+    },
+    "prod": {
+      "label": "Production",
+      "supabaseProjectId": "foeahubnrbclbelsqikp",
+      "supabaseUrl": "https://foeahubnrbclbelsqikp.supabase.co",
+      "databaseHost": "db.foeahubnrbclbelsqikp.supabase.co",
+      "databasePort": 5432,
+      "databaseName": "postgres",
+      "databaseUser": "postgres",
+      "connectionEnvVar": "DATABASE_URL",
+      "seedPath": "seeds/prod",
+      "runMigrations": true,
+      "runSchema": false
+    }
+  }
+}

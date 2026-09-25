@@ -1,0 +1,121 @@
+.manage__notice {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 8px;
+	padding: 0;
+	border: none;
+}
+
+.manage__notice-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 48px;
+}
+
+.manage__notice p {
+	margin: 0;
+}
+
+.manage__notice .notice-dismiss::before {
+	content: "\f335";
+	/* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+	font-family: dashicons;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 24px;
+	color: #1e1e1e;
+	width: 24px;
+}
+
+.manage__notice button:not(.notice-dismiss) {
+	display: block;
+	padding: 0;
+	background: none;
+	color: #dc2626;
+	border-width: 0;
+	border-style: none;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: -0.247px;
+	text-decoration-line: underline;
+	cursor: pointer;
+}
+
+.manage__notice--error {
+	background-color: #fde8ec;
+	border-inline-start-width: 4px;
+	border-inline-start-style: solid;
+	border-inline-start-color: #dc2626;
+}
+
+.manage__notice--error-custom {
+	background-color: #fff;
+	border-inline-start-width: 4px;
+	border-inline-start-style: solid;
+	border-inline-start-color: #93003f;
+}
+
+.manage__notice--warning {
+	background-color: #fef8ee;
+	border-inline-start-width: 4px;
+	border-inline-start-style: solid;
+	border-inline-start-color: #f0b849;
+}
+
+.manage__notice--success {
+	background-color: #eff9f1;
+	border-inline-start-width: 4px;
+	border-inline-start-style: solid;
+	border-inline-start-color: #4ab866;
+}
+
+.manage__notice--info {
+	background-color: #f1f6fb;
+	border-inline-start-width: 4px;
+	border-inline-start-style: solid;
+	border-inline-start-color: #0288d1;
+}
+
+.manage__notice--pink {
+	background-color: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #d8d8da;
+	border-inline-start-width: 4px;
+	border-inline-start-style: solid;
+	border-inline-start-color: #ff7be5;
+}
+
+.manage__notice--pink b {
+	font-weight: 500;
+	color: #444950;
+}
+
+.manage__notice--pink a {
+	font-weight: 500;
+	color: #d004d4;
+	margin-inline-start: 10px;
+	text-decoration: none;
+}
+
+.manage__notice--pink .manage__notice-icon {
+	background-color: #fae8ff;
+}
+
+.manage__notice .primary-heading {
+	font-size: 17px;
+	color: #0c0d0e;
+	font-weight: 700;
+	margin-block-end: 8px;
+}
+
+.manage__notice .sub-heading {
+	font-size: 13px;
+	color: #6d7882;
+	margin-block: 0 12px;
+}

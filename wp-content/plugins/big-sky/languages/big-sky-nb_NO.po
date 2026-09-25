@@ -1,0 +1,998 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Big Sky\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:25:55+00:00\n"
+"PO-Revision-Date: 2026-09-03 02:58:26+0000\n"
+"Language: nb_NO\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:74
+msgid "Here is the visible area of the canvas. Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "Her er det synlige området av lerretet. Fotografier vises som flate plassholderbokser i sin virkelige størrelse, så behandle enhver grå rektangel som et bilde som er til stede, ikke som et som mangler."
+
+#. %d: number of blocks framed in the screenshot.
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:73
+msgid "Here is the canvas around %d block(s). Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "Her er lerretet rundt %d blokk(er). Fotografier vises som flate plassholderbokser i sin virkelige størrelse, så behandle enhver grå rektangel som et bilde som er til stede, ikke som et som mangler."
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:61
+msgid "Here is the whole page, top to bottom. It is scaled down to fit, so body text will not be legible — read it for colour, type scale, spacing and section rhythm, and take an ordinary picture of a specific area when wording or fine detail matters. Photographs are shown as flat placeholder boxes at their real size."
+msgstr "Her er hele siden, fra topp til bunn. Den er skalert ned for å passe, så brødteksten vil ikke være leselig — les den for farge, skrifttype, avstand og seksjonsrytme, og ta et vanlig bilde av et spesifikt område når ordlyd eller fine detaljer betyr noe. Fotografier vises som flate plassholderbokser i sin virkelige størrelse."
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:47
+msgid "I couldn't get a picture of the canvas just now."
+msgstr "Jeg klarte ikke å ta et bilde av lerretet akkurat nå."
+
+#: src/abilities/capture-canvas/index.ts:18
+msgid "Takes a picture of the editor canvas as it currently renders, including unsaved changes. Use it to check how the page actually looks when the block data alone cannot answer that — after changing styles, colours, spacing or CSS, or whenever a reported problem is visual. Pass fullPage to see the whole page at once, which is what a theme or global styles change needs checking against. Photographs are replaced by flat placeholder boxes at their real size."
+msgstr "Tar et bilde av redigeringsverktøyet slik det for øyeblikket gengi, inkludert usparte endringer. Bruk det for å sjekke hvordan siden faktisk ser ut når blokkdata alene ikke kan svare på det — etter å ha endret stil, farger, avstand eller CSS, eller når som helst et rapportert problem er visuelt. Send fullPage for å se hele siden på en gang, noe som er hva et tema eller globale stilendringer trenger å sjekkes mot. Fotografier blir erstattet av flate plassholderbokser i sin ekte størrelse."
+
+#: src/abilities/capture-canvas/index.ts:16
+msgid "Capture Canvas"
+msgstr "Fang lerret"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:55
+msgid "Are there any changes you would like me to make?"
+msgstr "Er det noen endringer du vil at jeg skal gjøre?"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:54
+msgid "Your site is ready! Please click around and check it out."
+msgstr "Ditt nettsted er klart! Vennligst klikk rundt og sjekk det ut."
+
+#: src/easy-mode/components/app.tsx:439
+msgid "Switching to edit mode so you can watch the new design being built."
+msgstr "Bytter til redigeringsmodus så du kan se den nye utformingen bli bygget."
+
+#: src/easy-mode/components/topbar.tsx:698
+msgid "Return to WP Admin"
+msgstr "Tilbake til WP-admin"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:313
+msgid "Personalize my site copy with my details."
+msgstr "Tilpass teksten på nettstedet mitt med mine detaljer."
+
+#: src/easy-mode/hooks/use-save-controller.ts:121
+msgid "Your changes could not be saved. Your work is still here — try saving again."
+msgstr "Dine endringer kunne ikke lagres. Arbeidet ditt er fortsatt her — prøv å lagre igjen."
+
+#: src/easy-mode/hooks/use-save-controller.ts:120
+msgid "Some changes could not be saved. Your work is still here — try saving again."
+msgstr "Noen endringer kunne ikke lagres. Arbeidet ditt er fortsatt her — prøv å lagre igjen."
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:66
+msgid "Save your changes?"
+msgstr "Lagre endringene dine?"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:33
+msgid "You need to save or discard the changes to the current page."
+msgstr "Du må lagre eller forkaste endringene på den nåværende siden."
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:32
+msgid "The preview shows your saved site, so unsaved changes won’t appear there."
+msgstr "Forspretten viser ditt lagrede nettsted, så usparte endringer vil ikke vises der."
+
+#: src/easy-mode/components/topbar.tsx:763
+msgid "Save draft"
+msgstr "Lagre utkast"
+
+#: src/easy-mode/components/topbar.tsx:749
+msgid "Publish"
+msgstr "Publiser"
+
+#: src/easy-mode/components/topbar.tsx:713
+msgid "Redo"
+msgstr "Redo"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Open in a new tab"
+msgstr "Åpne i en ny fane"
+
+#: src/easy-mode/components/topbar.tsx:68
+msgid "Mode"
+msgstr "Modus"
+
+#. %s: selected device, e.g. Desktop.
+#: src/easy-mode/components/topbar.tsx:743
+msgid "Responsive view: %s"
+msgstr "Responsiv se: %s"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Responsive view"
+msgstr "Responsiv se"
+
+#: src/easy-mode/components/topbar.tsx:725
+msgid "Reload preview"
+msgstr "Last inn forhåndsvisning på nytt"
+
+#: src/easy-mode/components/topbar.tsx:696
+msgid "Annotate"
+msgstr "Annoter"
+
+#. %d: number of annotations waiting to be sent.
+#: src/easy-mode/components/topbar.tsx:694
+msgid "Resume annotating, %d pending"
+msgid_plural "Resume annotating, %d pending"
+msgstr[0] "Fortsett å annotere, %d ventende"
+msgstr[1] "Fortsett å annotere, %d ventende"
+
+#: src/easy-mode/components/topbar.tsx:689
+msgid "Chat is unavailable"
+msgstr "Chat er utilgjengelig"
+
+#: src/easy-mode/components/topbar.tsx:56
+msgid "Mobile"
+msgstr "Mobil"
+
+#: src/easy-mode/components/topbar.tsx:55
+msgid "Tablet"
+msgstr "Tablet"
+
+#: src/easy-mode/components/topbar.tsx:54
+msgid "Desktop"
+msgstr "skrivebord"
+
+#: src/easy-mode/components/topbar.tsx:50
+msgid "Preview"
+msgstr "Se"
+
+#: src/easy-mode/components/preview-overlay.tsx:147
+msgid "The site preview could not be loaded."
+msgstr "Nettstedets forhåndsvisning kunne ikke lastes."
+
+#: src/easy-mode/components/page-switcher.tsx:116
+msgid "(no title)"
+msgstr "(ingen tittel | overskrift)"
+
+#. %s: page title.
+#: src/easy-mode/components/page-switcher.tsx:113
+msgid "%s — Draft"
+msgstr "%s — Utkast"
+
+#. %s: page currently open.
+#: src/easy-mode/components/page-switcher.tsx:99
+msgid "Switch page. Current page: %s"
+msgstr "Bytt side. Nåværende side: %s"
+
+#: src/easy-mode/components/page-switcher.tsx:76
+msgid "Switch page"
+msgstr "Bytt side"
+
+#: src/easy-mode/components/app.tsx:301
+msgid "Switching to edit mode so you can see the changes."
+msgstr "Bytter til redigeringsmodus så du kan se endringene."
+
+#: src/easy-mode/components/app.tsx:300
+msgid "Switching to edit mode so you can approve the changes before saving."
+msgstr "Bytter til redigeringsmodus så du kan godkjenne endringene før du lagrer."
+
+#: src/easy-mode/annotations/use-editor-annotations.ts:153
+msgid "Annotations could not be sent — the assistant is unavailable."
+msgstr "Annotasjoner kunne ikke sendes — assistenten er utilgjengelig."
+
+#. %d: number of annotations.
+#: src/easy-mode/annotations/prompt.ts:82
+msgid "%d annotation submitted"
+msgid_plural "%d annotations submitted"
+msgstr[0] "%d annotasjon innsendt"
+msgstr[1] "%d annotasjoner innsendt"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Annotating"
+msgstr "Annotering"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Discard annotations"
+msgstr "Forkast kommentarer"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Exit annotation mode"
+msgstr "Avslutt annotasjonsmodus"
+
+#. %d: number of annotations to send.
+#: src/easy-mode/annotations/annotation-topbar.tsx:21
+msgid "Send %d annotation"
+msgid_plural "Send %d annotations"
+msgstr[0] "Send %d annotasjon"
+msgstr[1] "Send %d annotasjoner"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:18
+msgid "Sending…"
+msgstr "Sender…"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:14
+msgid "Send"
+msgstr "Send"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:566
+msgid "Save annotation"
+msgstr "Lagre annotasjon"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:565
+msgid "Update annotation"
+msgstr "Oppdatering av merknad"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Delete annotation"
+msgstr "Slette annotasjon"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Add a comment…"
+msgstr "Legg igjen en kommentar"
+
+#. %s: label of the block being annotated.
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Annotate %s"
+msgstr "Annoter %s"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:445
+msgid "Annotate blocks. Use the arrow keys to move between blocks, Enter to comment, and Escape to exit."
+msgstr "Annoter blokkene. Bruk piltastene for å flytte mellom blokkene, Enter for å kommentere, og Escape for å avslutte."
+
+#. 1: annotation number, 2: comment text.
+#: src/easy-mode/annotations/annotation-layer.tsx:367
+msgid "Annotation %1$d: %2$s"
+msgstr "Annotasjon %1$d: %2$s"
+
+#. 1: block label, 2: position, 3: total count.
+#: src/easy-mode/annotations/annotation-layer.tsx:341
+msgid "%1$s, block %2$d of %3$d"
+msgstr "%1$s, blokk %2$d av %3$d"
+
+#. %s: comma-separated list of navigation item identifiers that could not be
+#. resolved.
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:180
+msgid "Navigation items not found: %s. These are not in the menu or in the current page structure, so there is nothing to reorder them from — they are most likely from an earlier turn, or the header is not part of the page currently open in the editor. Read the page structure again and use the clientIds it returns, or identify each item by its url or label instead. This reorder was not applied."
+msgstr "Navigasjonselementer ikke funnet: %s. Disse er ikke i menyen eller i den nåværende side-strukturen, så det er ingenting å endre rekkefølge fra — de er mest sannsynlig fra en tidligere runde, eller toppområdet er ikke en del av siden som for øyeblikket er åpen i redigeringsverktøyet. Les side-strukturen igjen og bruk clientIds den returnerer, eller identifiser hvert punkt etter url eller etikett i stedet. Denne endringen av rekkefølge ble ikke brukt."
+
+#. Description of the plugin
+#: big-sky.php
+msgid "Your WordPress.com AI agent that helps with site setup, content, design, and more."
+msgstr "Din WordPress.com AI-agent som hjelper med nettstedoppsett, innhold, utforming | design, og mer."
+
+#. Plugin Name of the plugin
+#: big-sky.php
+msgid "WordPress Agent"
+msgstr "WordPress Agent"
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:23
+msgid "Invalid editor path. look up the numeric id from <site_pages>, then retry navigation with the numeric editor_path."
+msgstr "Ugyldig redigeringsverktøybane. se opp det numeriske id fra <site_pages>, og prøv deretter navigering med den numeriske redigeringsverktøybanen."
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:22
+msgid "Invalid editor path. Page navigation requires /page/{numeric-id}. Look up the page ID first."
+msgstr "Ugyldig redigeringsverktøybane. Sidenavigering krever /page/{numeric-id}. Se opp side-ID-en først."
+
+#: src/abilities/editor-navigate/index.ts:17
+msgid "Saves everything and navigates to the specified path in the editor. For page navigation, path must be a numeric editor path like \"/page/123\" or \"page/123\"; full URLs, slugs, \"all-pages\", and paths like \"/visit\" or \"/page/visit\" are invalid. If the user names a page and the current page is not the target, look up the numeric id from <site_pages> first, then navigate with the numeric editor path."
+msgstr "Lagrer alt og navigerer til den angitte stien i redigeringsverktøyet. For sidenavigering må stien være en numerisk redigeringssti som \"/page/123\" eller \"page/123\"; fullstendige URL-er, identifikatorer, \"all-pages\", og stier som \"/visit\" eller \"/page/visit\" er ugyldige. Hvis brukeren navngir en side og den nåværende siden ikke er målet, se opp den numeriske id-en fra <site_pages> først, og naviger deretter med den numeriske redigeringsstien."
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:94
+msgid "I did not restore that checkpoint because it may replace or remove too much current content."
+msgstr "Jeg gjenopprettet ikke det sjekkpunktet fordi det kan erstatte eller fjerne for mye nåværende innhold."
+
+#: src/abilities/restore-checkpoint/index.ts:19
+msgid "Restores editor state from a checkpoint associated with a previous mutating tool call. Use for undo/redo requests. Prefer checkpointId values from clientContext.availableCheckpoints whose toolId matches the user intent: block-edit checkpoints for content changes, theme-update checkpoints for style/theme changes, and navigation/entity checkpoints for navigation/entity changes. For undo, use the checkpointId for the most recent relevant non-restore mutating Big Sky tool call. Only use a checkpoint whose toolId is big_sky__restore_checkpoint for explicit redo requests, because those checkpoints represent the state before a prior undo/restore. Pass requestIntentType to describe the user intent: \"undo\" for undo requests, \"redo\" for redo requests, or \"restore\" when restoring a specific checkpoint/version. The checkpoint ID usually starts with \"toolu_\". Do not use the current restore-checkpoint call ID, any id starting with \"call_\", a tool name/id, or calypsoCheckpointId/messageId. If the user reports missing homepage/footer/navigation content, do not rebuild or redesign unless the user explicitly agrees; try a relevant checkpoint, WordPress revisions, or support escalation instead."
+msgstr "Gjenoppretter redigeringsverktøyets tilstand fra et sjekkpunkt knyttet til et tidligere muterende verktøyanrop. Bruk for angre/omgjøre forespørselene. Foretrekk checkpointId-verdier fra clientContext.availableCheckpoints hvis toolId matcher brukerens intensjon: blokk-rediger sjekkpunkter for innholdsforandringer, tema-oppdatering sjekkpunkter for stil/tema forandringer, og navigasjon/enhet sjekkpunkter for navigasjon/enhet forandringer. For angre, bruk checkpointId for det mest relevante nylige ikke-gjenopprettende muterende Big Sky verktøyanropet. Bruk kun et sjekkpunkt hvis toolId er big_sky__restore_checkpoint for eksplisitte omgjøre forespørseler, fordi disse sjekkpunktene representerer tilstanden før en tidligere angre/gjenopprett. Send requestIntentType for å beskrive brukerens intensjon: \"angre\" for angre forespørseler, \"omgjøre\" for omgjøre forespørseler, eller \"gjenopprette\" når du gjenoppretter et spesifikt sjekkpunkt/versjon. Sjekkpunkt-ID-en starter vanligvis med \"toolu_\". Ikke bruk den nåværende gjenopprett-sjekkpunkt anrops-ID-en, noen id som starter med \"call_\", et verktøy navn/id, eller calypsoCheckpointId/messageId. Hvis brukeren rapporterer manglende hjemmeside/bunnområde/navigasjonsinnhold, ikke bygg opp igjen eller utform på nytt med mindre brukeren eksplisitt godtar; prøv et relevant sjekkpunkt, WordPress revisjoner, eller brukerstøtte eskalering i stedet."
+
+#: src/abilities/stream-page-design/index.ts:23
+msgid "The editor is still loading. Try the page design again once the page is editable."
+msgstr "Redigeringsverktøyet laster fortsatt. Prøv sideutformingen igjen én gang siden siden er redigerbar."
+
+#: src/abilities/stream-page-design/index.ts:22
+msgid "The generated page content has been staged in the editor for review."
+msgstr "Det genererte sideinnholdet har blitt lagt til i redigeringsverktøyet for gjennomgang."
+
+#: src/abilities/stream-page-design/index.ts:21
+msgid "Stream Page Design"
+msgstr "Strøm Side Utforming"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1372
+msgid "The requested changes were already applied."
+msgstr "De forespurte endringene ble allerede brukt."
+
+#: src/components/open-help-center-button.tsx:20
+msgid "Open Help Center"
+msgstr "Åpne hjelpesenter"
+
+#: src/abilities/open-help-center.ts:200
+msgid "Get help"
+msgstr "Få hjelp"
+
+#: src/abilities/open-help-center.ts:144
+msgid "Show the user a button they can click to open WordPress.com Help Center chat when they ask to talk to a human, contact support, or get help from a person. This ability does not open Help Center automatically."
+msgstr "Vis brukeren en knapp de kan klikke på for å åpne WordPress.com brukerstøtte chat når de ber om å snakke med et menneske, kontakte støtte, eller få hjelp fra en person. Denne muligheten åpner ikke brukerstøtte automatisk."
+
+#: src/abilities/open-help-center.ts:142
+msgid "Show Help Center chat button"
+msgstr "Vis Hjelpesenter chat knapp"
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:49
+msgid "I could not find a checkpoint for that ID."
+msgstr "Jeg kunne ikke finne en sjekkpunkt for den ID-en."
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:39
+msgid "I could not restore the checkpoint because no checkpoint ID was provided."
+msgstr "Jeg kunne ikke gjenopprette sjekkpunktet fordi ingen sjekkpunkt-ID ble oppgitt."
+
+#: src/abilities/restore-checkpoint/index.ts:17
+msgid "Restore Checkpoint"
+msgstr "Gjenopprett punkt"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:580
+msgid "Awaiting user confirmation before making this change."
+msgstr "Venter på brukerbekreftelse før jeg gjør denne endringen."
+
+#: src/abilities/site-logo/set-site-logo.ts:71
+msgid "There was an error with this request."
+msgstr "Det var en feil med denne forespørselen."
+
+#: src/abilities/site-logo/set-site-logo.ts:58
+msgid "Logo set successfully"
+msgstr "Logoen ble satt vellykket"
+
+#: src/abilities/show-component/show-component.tsx:175
+msgid "Choose from the options I provided."
+msgstr "Velg fra alternativene jeg ga."
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:592
+msgid "Updated the entity records."
+msgstr "Oppdaterte enhetsregistrene."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:442
+#: src/components/dock/index.js:429
+msgid "New chat"
+msgstr "Ny chat"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:59
+msgid "How can you help me?"
+msgstr "Hvordan kan du hjelpe meg?"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:53
+msgid "What should I do next?"
+msgstr "Hva skal jeg gjøre neste?"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:457
+msgid "Welcome to your new store! I'm your personal AI assistant. How can I help you?"
+msgstr "Velkommen til din nye butikk! Jeg er din personlige AI-assistent. Hvordan kan jeg hjelpe deg?"
+
+#: src/components/product-card/ProductCard.tsx:51
+#: src/components/site-spec-landing/index.js:345
+msgid "Loading…"
+msgstr "Laster inn ..."
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:99
+msgid "Help me to connect PayPal Payments to my store"
+msgstr "Hjelp meg å koble til PayPal-betalinger til butikken min"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:98
+msgid "Connect PayPal Payments to my store"
+msgstr "Koble til PayPal-betalinger til butikken min"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:93
+msgid "Recommend shipping zones and methods for my store"
+msgstr "Anbefal fraktsoner og metoder for butikken min"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:92
+msgid "Set up shipping rates"
+msgstr "Sett opp fraktvurder"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:87
+msgid "Set my product pricing"
+msgstr "Sett prisen på produktet mitt"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:81
+msgid "Help me to write a product description"
+msgstr "Hjelp meg med å skrive en produktbeskrivelse"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:80
+msgid "Write a product description"
+msgstr "Skriv en produktbeskrivelse"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:75
+msgid "Help me to create a product"
+msgstr "Hjelp meg å opprette et produkt"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:22
+msgid "Failed to make the theme update. Please try again."
+msgstr "Kunne ikke gjøre temaoppdateringen. Vennligst prøv igjen."
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:67
+msgid "Add to post"
+msgstr "Legg til innlegg"
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:60
+msgid "Replace selected image"
+msgstr "Bytt ut valgt bilde"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat"
+msgstr "Start en ny chat"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat to begin"
+msgstr "Start en ny chat for å begynne"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "No past conversations"
+msgstr "Ingen tidligere samtaler"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Failed to load conversations. Please try again."
+msgstr "Kunne ikke laste inn samtaler. Vennligst prøv igjen."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:449
+msgid "Past chats"
+msgstr "Tidligere samtaler"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:276
+msgid "Failed to upload images. Please try again."
+msgstr "Kunne ikke laste opp bilder. Vennligst prøv igjen."
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:37
+msgid "Tell me what you can do for me"
+msgstr "Fortell meg hva du kan gjøre for meg"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:74
+msgid "Create a product"
+msgstr "Opprett et produkt"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:31
+msgid "Show me recent comments"
+msgstr "Vis meg nylige kommentarer"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:30
+msgid "Review comments"
+msgstr "Vurdering kommentarer"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:25
+msgid "Show me my site health status"
+msgstr "Vis meg helsestatusen til nettstedet mitt"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:24
+msgid "Check site health"
+msgstr "Sjekk nettstedets helse"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:19
+msgid "Help me create a new post"
+msgstr "Hjelp meg å opprette et nytt innlegg"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:18
+msgid "Create content"
+msgstr "Opprett innhold"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:13
+msgid "Show me my recent posts"
+msgstr "Vis meg mine nylige innlegg"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:12
+msgid "Manage posts"
+msgstr "Administrer innlegg"
+
+#: src/ai/hooks/suggestions-data.ts:91
+msgid "Remove the background from this image"
+msgstr "Fjern bakgrunnen fra dette bildet"
+
+#: src/ai/hooks/suggestions-data.ts:90
+msgid "Remove background"
+msgstr "Fjern bakgrunn"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Discard"
+msgstr "Forkast"
+
+#: src/easy-mode/components/topbar.tsx:761
+msgid "Saving…"
+msgstr "Lagrer …"
+
+#: src/ai/wp-orchestrator/index.tsx:52
+msgid "Unable to authenticate with Jetpack. Please try again."
+msgstr "Kan ikke autentisere med Jetpack. Vennligst prøv igjen."
+
+#: src/ai/wp-orchestrator/index.tsx:50
+msgid "Network connection issue. Please check your internet connection and try again."
+msgstr "Problemer med nettverkstilkoblingen. Vennligst sjekk internettforbindelsen din og prøv igjen."
+
+#: src/ai/wp-orchestrator/index.tsx:45
+msgid "Unable to connect to Jetpack. Please ensure Jetpack is active and up to date."
+msgstr "Kan ikke koble til Jetpack. Vennligst sørg for at Jetpack er aktiv og oppdatert."
+
+#: src/ai/wp-orchestrator/index.tsx:42
+msgid "You don't have permission to access AI features."
+msgstr "Du har ikke tillatelse til å få tilgang til AI funksjoner."
+
+#: src/ai/wp-orchestrator/index.tsx:39
+msgid "Your session expired. Please refresh the page and try again."
+msgstr "Økten din har utløpt. Vennligst oppfriske siden og prøv igjen."
+
+#: src/components/product-card/ProductCard.tsx:56
+msgid "Error: Product name is required"
+msgstr "Feil: Produktnavn er påkrevet | obligatorisk | nødvendig"
+
+#: src/components/product-card/ProductCard.tsx:87
+msgid "Product"
+msgstr "Produkt"
+
+#: src/components/product-card/ProductCard.tsx:84
+msgid "Service"
+msgstr "Tjeneste"
+
+#: src/components/product-card/ProductCard.tsx:53
+msgid "Error: Could not render product card"
+msgstr "Feil: Kunne ikke gengi produktkort"
+
+#: src/components/product-card/ProductCard.tsx:25
+msgid "unit"
+msgid_plural "units"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/easy-mode/components/preview-overlay.tsx:155
+#: src/components/index.js:200
+msgid "Retry"
+msgstr "Prøv igjen"
+
+#: src/abilities/set-styles/index.ts:20
+msgid "Apply color palette, font pairing, and button style variations to the WordPress site. Accepts variation titles (e.g., \"Professional\", \"Montserrat + Open Sans\") and applies the complete styling including colors, typography, button styles, and all associated theme variations."
+msgstr "Bruk fargepalett, skrifttypeparinger og variasjoner av knappestil på WordPress nettstedet. Aksepterer variasjonstitler (f.eks. \"Profesjonell\", \"Montserrat + Open Sans\") og bruker den komplette styling inkludert farger, typografi, knappestiler, og alle tilknyttede tema variasjoner."
+
+#: src/abilities/set-styles/index.ts:18
+msgid "Set Styles"
+msgstr "Sett stil"
+
+#: src/abilities/add-pages/index.ts:19
+msgid "Creates multiple WordPress pages with generated content from patterns and layouts. Page titles are provided by the backend, and page content is composed from layout blocks. Also updates site navigation."
+msgstr "Oppretter flere WordPress-sider med generert innhold fra mønstre og oppsett. Sidetitler blir gitt av backend, og sideinnholdet er sammensatt av oppsettblokker. Oppdaterer også nettstednavigasjonen."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:82
+msgid "Failed to update styles:"
+msgstr "Kunne ikke oppdatere stilene: "
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:76
+msgid "Failed to update styles. The style variation may be invalid."
+msgstr "Kunne ikke oppdatere stilene. Stilvarianten kan være ugyldig."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:62
+msgid "Styles updated successfully."
+msgstr "Stilene oppdatert vellykket."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:38
+msgid "Invalid button format. Button must be a string (variation title)."
+msgstr "Ugyldig knappformat. Knappen må være en streng (tittel | overskrift for variasjon)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:31
+msgid "Invalid font format. Font must be a string (variation title)."
+msgstr "Ugyldig skrifttypeformat. Skrifttypen må være en streng (variasjonstittel)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:24
+msgid "Invalid color format. Color must be a string (variation title)."
+msgstr "Ugyldig fargeformat. Farge må være en streng (variasjon tittel | overskrift)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:17
+msgid "Invalid arguments. Provide at least one of: color, font, or button."
+msgstr "Ugyldige argumenter. Oppgi minst én av: farge, skrifttype, eller knapp."
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:169
+msgid "Failed to create pages:"
+msgstr "Kunne ikke opprette sider: "
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:65
+msgid "Invalid pages. Must provide an array of page objects."
+msgstr "Ugyldige sider. Må gi en rekke sideobjekter."
+
+#: src/abilities/site-logo/index.ts:17
+msgid "Set the site logo"
+msgstr "Sett nettstedlogoen"
+
+#: src/abilities/site-logo/index.ts:15
+msgid "Set Site Logo"
+msgstr "Sett nettstedlogo"
+
+#: src/abilities/update-theme/index.ts:17
+msgid "Update WordPress theme settings and styles using theme.json format"
+msgstr "Oppdater WordPress tema innstillinger og stil ved å bruke theme.json format"
+
+#: src/abilities/update-theme/index.ts:15
+msgid "Update Theme"
+msgstr "Oppdater tema"
+
+#: src/abilities/edit-entity-record/index.ts:17
+msgid "Create, edit, or delete WordPress data entity records using the data layer"
+msgstr "Opprett, rediger eller slett WordPress dataenhetsoppføringer ved å bruke datalagret"
+
+#: src/abilities/edit-entity-record/index.ts:15
+msgid "Manage Entity Records"
+msgstr "Behandle Enhetsoppføringer"
+
+#: src/abilities/show-component/index.ts:23
+msgid "Display a component in the UI with specified props"
+msgstr "Vis en komponent i UI-en med spesifiserte props"
+
+#: src/abilities/show-component/index.ts:21
+msgid "Show Component"
+msgstr "Vis komponent"
+
+#: src/abilities/client-assistants/index.ts:29
+msgid "Always use this if the user asks for something that requires a client-side assistant. Available assistants:"
+msgstr "Bruk alltid dette hvis brukeren ber om noe som krever en klient-side assistent. Tilgjengelige assistenter: "
+
+#: src/abilities/client-assistants/index.ts:27
+msgid "Execute Client Assistant"
+msgstr "Utfør Klientassistent"
+
+#: src/abilities/apply-block-edits/index.ts:17
+msgid "Applies a collection of block edits to the canvas"
+msgstr "Bruker en samling av blokkredigeringer på lerretet"
+
+#: src/abilities/apply-block-edits/index.ts:15
+msgid "Apply Block Edits"
+msgstr "Bruk blokkredigeringer"
+
+#: src/abilities/editor-navigate/index.ts:15
+msgid "Navigate"
+msgstr "Navigere"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:131
+msgid "By updating the query, order posts from %s"
+msgstr "Ved å oppdatere spørringen, ordne innlegg fra %s"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:128
+msgid "Stop inheriting default query settings and order posts from %s"
+msgstr "Slutt å arve standard spørringsinnstillinger og ordne innlegg fra %s"
+
+#: src/ai/hooks/suggestions-data.ts:123
+msgid "newest to oldest"
+msgstr "nyeste til eldste"
+
+#: src/ai/hooks/suggestions-data.ts:122
+msgid "oldest to newest"
+msgstr "eldste til nyeste"
+
+#: src/ai/hooks/suggestions-data.ts:117
+msgid "Order posts"
+msgstr "Ordne innlegg"
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:110
+msgid "Currently this query is displaying %s posts per page, change it to:"
+msgstr "Foreløpig viser denne spørringen %s innlegg pr. side, endre det til: "
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:107
+msgid "Stop inheriting default query settings and change the current number of posts displayed per page from %s to:"
+msgstr "Slutt å arve standard spørringsinnstillinger og endre det nåværende antallet innlegg som vises pr. side fra %s til: "
+
+#: src/ai/hooks/suggestions-data.ts:99
+msgid "Change number of posts"
+msgstr "Endre antall innlegg"
+
+#: src/ai/hooks/suggestions-data.ts:96
+msgid "Tell me all the ways you can help design or edit my site"
+msgstr "Fortell meg alle måtene du kan hjelpe til med å utforme | design eller redigere | rediger nettstedet mitt"
+
+#: src/ai/hooks/suggestions-data.ts:95
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:36
+msgid "What else can you do?"
+msgstr "Hva annet kan du gjøre?"
+
+#: src/ai/hooks/suggestions-data.ts:86
+msgid "Edit the image to:"
+msgstr "Redigere bildet til: "
+
+#: src/ai/hooks/suggestions-data.ts:85
+msgid "Edit image"
+msgstr "Rediger bilde"
+
+#: src/ai/hooks/suggestions-data.ts:81
+msgid "Generate an image of:"
+msgstr "Generer et bilde av: "
+
+#: src/ai/hooks/suggestions-data.ts:76
+msgid "Check the grammar of this text"
+msgstr "Sjekk grammatikken i denne teksten"
+
+#: src/ai/hooks/suggestions-data.ts:75
+msgid "Check grammar"
+msgstr "Sjekk grammatikk"
+
+#: src/ai/hooks/suggestions-data.ts:71
+msgid "Change the tone of this text to be more:"
+msgstr "Endre tonen i denne teksten til å være mer: "
+
+#: src/ai/hooks/suggestions-data.ts:66
+msgid "Translate this to:"
+msgstr "Oversett dette til: "
+
+#: src/ai/hooks/suggestions-data.ts:65
+msgid "Translate content"
+msgstr "Oversett innhold"
+
+#: src/ai/hooks/suggestions-data.ts:61
+msgid "Add another column to the end of these"
+msgstr "Legg til en kolonne til slutten av disse"
+
+#: src/ai/hooks/suggestions-data.ts:60
+msgid "Add column"
+msgstr "Legg til kolonne"
+
+#: src/ai/hooks/suggestions-data.ts:56
+msgid "Reverse the order of these columns"
+msgstr "Reverser rekkefølgen på disse kolonnene"
+
+#: src/ai/hooks/suggestions-data.ts:55
+msgid "Swap columns"
+msgstr "Bytt kolonner"
+
+#. %s is the button text
+#: src/ai/hooks/suggestions-data.ts:52
+msgid "Change the %s button link to:"
+msgstr "Endre %s knappe lenken til: "
+
+#: src/ai/hooks/suggestions-data.ts:46
+msgid "Create a new page on my site for"
+msgstr "Opprett en ny side på nettstedet mitt for "
+
+#: src/ai/hooks/suggestions-data.ts:45
+msgid "Add new page"
+msgstr "Legg til ny side"
+
+#: src/ai/hooks/suggestions-data.ts:42
+msgid "Show me different layouts for this page"
+msgstr "Vis meg forskjellige oppsett for denne siden"
+
+#: src/ai/hooks/suggestions-data.ts:41
+msgid "Change page layout"
+msgstr "Endre sideoppsett"
+
+#: src/ai/hooks/suggestions-data.ts:38
+msgid "Show me color palettes for my site that are:"
+msgstr "Vis meg fargepaletter for nettstedet mitt som er: "
+
+#: src/ai/hooks/suggestions-data.ts:37
+msgid "Customize colors"
+msgstr "Tilpasse farger"
+
+#: src/ai/hooks/suggestions-data.ts:34
+msgid "Show me new fonts for my site"
+msgstr "Vis meg nye skrifttyper for nettstedet mitt"
+
+#: src/ai/hooks/suggestions-data.ts:33
+msgid "Choose new fonts"
+msgstr "Velg nye skrifttyper"
+
+#: big-sky.php:349
+msgid "AI-powered site building and navigation abilities."
+msgstr "AI-drevet nettstedbygging og navigasjonsmuligheter."
+
+#: src/components/product-card/ProductCard.tsx:90
+#: src/easy-mode/components/topbar.tsx:51
+msgid "Edit"
+msgstr "Redigere"
+
+#: src/hooks/use-dock-state.ts:138
+#: src/components/dock/index.js:440
+msgid "Pop out sidebar"
+msgstr "Pop ut sidekolonne"
+
+#: src/hooks/use-dock-state.ts:132
+#: src/components/dock/index.js:460
+msgid "Move to sidebar"
+msgstr "Flytte til sidekolonne"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:548
+msgid "Got a different request? Ask away."
+msgstr "Har du en annen forespørsel? Spør i vei."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:542
+msgid "Howdy! How can I help you today?"
+msgstr "Hei! Hvordan kan jeg hjelpe deg i dag?"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:65
+msgid "Updated:"
+msgstr "Oppdatert:"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:86
+msgid "Theme updated successfully"
+msgstr "Tema oppdatert."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:51
+msgid "Invalid styles format. Styles must be an object."
+msgstr "Ugyldig stilformat. Stiler må være et objekt."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:40
+msgid "Invalid settings format. Settings must be an object."
+msgstr "Ugyldig innstillingsformat. Innstillinger må være et objekt."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:29
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "Ugyldige argumenter. Gi enten innstillinger eller stil for å oppdatere temaet."
+
+#: big-sky.php:1652
+#: big-sky.php:1653
+msgid "AI Editor"
+msgstr "AI redigeringsverktøy"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:493
+msgid "Proceed"
+msgstr "Fortsett"
+
+#: src/ai/hooks/suggestions-data.ts:49
+msgid "Edit link"
+msgstr "Rediger kobling"
+
+#: src/abilities/show-component/show-component.tsx:214
+#: src/abilities/site-logo/set-site-logo.ts:70
+msgid "There was an error with this request. Please try again."
+msgstr "Det oppstod en feil med denne forespørselen. Vennligst prøv igjen."
+
+#: src/abilities/client-assistants/run-assistant.ts:189
+msgid "No response from assistant"
+msgstr "Ikke noe svar fra assistenten"
+
+#: src/abilities/client-assistants/index.ts:89
+msgid "Assistant completed successfully"
+msgstr "Assistenten ble fullført vellykket"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1464
+msgid "Something went wrong. Please try again."
+msgstr "Noe gikk galt. Vennligst prøv igjen."
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1422
+msgid "I have completed the edits."
+msgstr "Jeg har fullført redigeringene."
+
+#. translators: %s is the theme name.
+#: big-sky.php:625
+msgid "The current theme (%s) is a block theme."
+msgstr "Det nåværende temaet (%s) er et blokktema."
+
+#: big-sky.php:618
+msgid "The current theme is not a block theme. Big Sky requires a block theme to be active."
+msgstr "Det nåværende temaet er ikke et blokktema. Big Sky krever at et blokktema er aktivt."
+
+#: src/abilities/client-assistants/run-assistant.ts:182
+msgid "Sorry, I've encountered an error. Please try again or let me know if you need help with something else."
+msgstr "Beklager, jeg har støtt på en feil. Vennligst prøv igjen eller gi meg beskjed hvis du trenger hjelp med noe annet."
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:499
+msgid "I changed my mind"
+msgstr "Jeg ombestemte meg"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1381
+msgid "I was not able to make the changes you requested. Either I don't have the capability to do so or I didn't understand your request. You can ask me to try again or ask me to do something else."
+msgstr "Jeg klarte ikke å gjøre de endringene du ba om. Enten har jeg ikke muligheten til å gjøre det, eller så forsto jeg ikke forespørselen din. Du kan be meg om å prøve igjen eller be meg om å gjøre noe annet."
+
+#: src/easy-mode/components/preview-overlay.tsx:158
+msgid "Site preview"
+msgstr "Forhåndsvisning av nettsted"
+
+#: src/ai/hooks/suggestions-data.ts:80
+msgid "Generate image"
+msgstr "Generer bilde"
+
+#: src/easy-mode/components/page-switcher.tsx:49
+#: src/components/mosaic.js:633
+#: src/components/mosaic.js:675
+msgid "Pages"
+msgstr "Sider"
+
+#: src/easy-mode/components/page-switcher.tsx:34
+msgid "Home"
+msgstr "Hjem"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:490
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:22
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:30
+msgid "No"
+msgstr "Nei"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:541
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:16
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:24
+msgid "Yes"
+msgstr "Ja"
+
+#: src/abilities/add-pages/index.ts:17
+msgid "Add Pages"
+msgstr "Legg til sider"
+
+#: src/ai/hooks/suggestions-data.ts:70
+msgid "Change tone"
+msgstr "Endre tone"
+
+#: src/easy-mode/components/topbar.tsx:710
+msgid "Undo"
+msgstr "Angre"
+
+#: src/easy-mode/components/topbar.tsx:763
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Save"
+msgstr "Lagre"
+
+#: big-sky.php:707
+msgid "These checks passed:"
+msgstr "Disse sjekkene besto:"
+
+#: big-sky.php:693
+msgid "Big Sky detected the following issues with your site:"
+msgstr "Big Sky oppdaget følgende problemer med nettstedet ditt:"
+
+#. translators: $d is the number of performance issues found.
+#: big-sky.php:692
+msgid "Big Sky is affected by %d issue"
+msgid_plural "Big Sky is affected by %d issues"
+msgstr[0] "Big Sky er påvirket av %d problem"
+msgstr[1] "Big Sky er påvirket av %d problemer"
+
+#: big-sky.php:682
+msgid "Mapbox API key is set."
+msgstr "Mapbox API-nøkkel er satt."
+
+#: big-sky.php:677
+msgid "Mapbox API key is not set. Big Sky requires a Mapbox API key to be set."
+msgstr "Mapbox API-nøkkel er ikke satt. Big Sky krever at en Mapbox API-nøkkel er satt."
+
+#: big-sky.php:669
+msgid "Jetpack is connected to an admin."
+msgstr "Jetpack er koblet til en admin."
+
+#: big-sky.php:664
+msgid "Jetpack does not have a connected admin. Big Sky requires Jetpack to be connected to an admin."
+msgstr "Jetpack har ikke en koblet til admin. Big Sky krever at Jetpack er koblet til en admin."
+
+#: big-sky.php:655
+msgid "Jetpack is connected."
+msgstr "Jetpack er koblet til."
+
+#: big-sky.php:650
+msgid "Jetpack is not connected. Big Sky requires Jetpack to be connected."
+msgstr "Jetpack er ikke koblet til. Big Sky krever at Jetpack er koblet til."
+
+#: big-sky.php:639
+msgid "Jetpack is installed."
+msgstr "Jetpack er installert."
+
+#: big-sky.php:634
+msgid "Jetpack is not installed. Big Sky requires Jetpack to be installed and active."
+msgstr "Jetpack er ikke installert. Big Sky krever at Jetpack er installert og aktiv."
+
+#: big-sky.php:608
+msgid "Big Sky did not find any known issues with your site."
+msgstr "Big Sky fant ingen kjente problemer med nettstedet ditt."
+
+#: big-sky.php:600
+msgid "Big Sky Checks"
+msgstr "Big Sky Checks"
+
+#: big-sky.php:575
+#: big-sky.php:576
+msgid "Big Sky checks"
+msgstr "Big Sky-sjekker"
+
+#: big-sky.php:406
+msgid "AI Features"
+msgstr "AI-funksjoner"
+
+#: big-sky.php:398
+msgid "Enable AI-powered site building experience"
+msgstr "Slå på AI-drevet nettstedbyggingserfaring"
+
+#. Author of the plugin
+#: big-sky.php
+msgid "Automattic, Inc."
+msgstr "Automattic, Inc."
+
+#: big-sky.php:348
+#: big-sky.php:603
+msgid "Big Sky"
+msgstr "Big Sky"

@@ -1,0 +1,65 @@
+<?php declare(strict_types = 1);
+
+namespace MailPoet\EmailEditor\Integrations\MailPoet\Patterns\Library;
+
+if (!defined('ABSPATH')) exit;
+
+
+/**
+ * Abandoned cart with discount email pattern for cart recovery.
+ */
+class AbandonedCartWithDiscountPattern extends AbstractAbandonedCartPattern {
+  protected $name = 'abandoned-cart-with-discount-content';
+
+  protected function get_content(): string { // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+    return $this->buildContent($this->getProductPlaceholderBlocks([
+      'product-large-01.jpg',
+      'product-large-02.jpg',
+    ]));
+  }
+
+  public function get_email_content(): string { // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+    return $this->buildContent($this->getProductCollectionBlock());
+  }
+
+  private function buildContent(string $productSection): string {
+    return '
+    <!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|40","left":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+    <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+      <!-- wp:heading {"level":1} -->
+      <h1 class="wp-block-heading ">' . __('We Saved Your Cart + Little Surprise', 'mailpoet') . '</h1>
+      <!-- /wp:heading -->
+
+      <!-- wp:paragraph -->
+      <p>' . __('Good news — your cart is still here! Even better? You can get 10% off if you check out in the next 24 hours.', 'mailpoet') . '</p>
+      <!-- /wp:paragraph -->
+
+      <!-- wp:paragraph -->
+      <p>' . __('Use this code at checkout to redeem your discount:', 'mailpoet') . '</p>
+      <!-- /wp:paragraph -->
+
+      ' . $this->getGeneratedCouponBlock('left', 10, 1) . '
+
+      <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+      <div class="wp-block-buttons">
+      <!-- wp:button {"style":{"typography":{"fontSize":"16px"},"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10","left":"var:preset|spacing|20","right":"var:preset|spacing|20"}}}} -->
+      <div class="wp-block-button"><a class="wp-block-button__link wp-element-button has-custom-font-size" style="font-size:16px;padding-top:var(--wp--preset--spacing--10);padding-bottom:var(--wp--preset--spacing--10);padding-left:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20)" href="[mailpoet/site-homepage-url]">' . __('Finish checkout', 'mailpoet') . '</a></div>
+      <!-- /wp:button -->
+      </div>
+      <!-- /wp:buttons -->
+
+      <!-- wp:heading {"textAlign":"left","level":3,"style":{"border":{"top":{"color":"var:preset|color|cyan-bluish-gray","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}}} -->
+      <h3 class="wp-block-heading has-text-align-left" style="border-top-color:var(--wp--preset--color--cyan-bluish-gray);border-top-width:1px;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)">' . __('These items are waiting in your cart', 'mailpoet') . '</h3>
+      <!-- /wp:heading -->
+
+      ' . $productSection . '
+    </div>
+    <!-- /wp:group -->
+    ';
+  }
+
+  protected function get_title(): string { // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+    /* translators: Name of a content pattern used as starting content of an email */
+    return __('Abandoned Cart with Discount', 'mailpoet');
+  }
+}

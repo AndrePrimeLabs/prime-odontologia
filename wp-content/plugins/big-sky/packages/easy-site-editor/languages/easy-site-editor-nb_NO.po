@@ -1,0 +1,586 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Easy Site Editor\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:26:00+00:00\n"
+"PO-Revision-Date: 2026-05-25 10:57:51+0000\n"
+"Language: nb_NO\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/components/DebugPanel.tsx:77
+msgid "Tracks Dashboard"
+msgstr "Tracks kontrollpanel"
+
+#: src/components/DebugPanel.tsx:74
+msgid "Errors Dashboard"
+msgstr "Feil Kontrollpanel"
+
+#: includes/class-easy-site-editor.php:155
+#: includes/class-easy-site-editor.php:156
+msgid "AI Editor"
+msgstr "AI redigeringsverktøy"
+
+#: src/hooks/useAgentFeedbackAction.ts:395
+msgid "Tell us more"
+msgstr "Fortell oss mer"
+
+#: src/hooks/useAgentFeedbackAction.ts:381
+msgid "Bad response"
+msgstr "Dårlig respons"
+
+#: src/hooks/useAgentFeedbackAction.ts:371
+msgid "Good response"
+msgstr "God respons"
+
+#: src/components/AgentFeedbackPopover.tsx:96
+msgid "Feedback could not be sent. Please try again."
+msgstr "Tilbakemelding kunne ikke sendes. Vennligst prøv igjen."
+
+#: src/components/AgentFeedbackPopover.tsx:206
+msgid "Send feedback"
+msgstr "Send tilbakemelding"
+
+#: src/components/AgentFeedbackPopover.tsx:205
+msgid "Sending…"
+msgstr "Sender…"
+
+#: src/components/AgentFeedbackPopover.tsx:197
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: src/components/AgentFeedbackPopover.tsx:167
+msgid "What did you expect instead?"
+msgstr "Hva forventet du i stedet?"
+
+#: src/components/AgentFeedbackPopover.tsx:154
+msgid "Add any details that would help us improve this response."
+msgstr "Legg til eventuelle detaljer som kan hjelpe oss med å forbedre dette svaret."
+
+#: src/components/AgentFeedbackPopover.tsx:148
+msgid "What went wrong?"
+msgstr "Hva gikk galt?"
+
+#: src/hooks/useClientAbilityBridge.ts:40
+msgid "The current preview is not editable. It may be a dynamic front page. Tell the user to open a different page and try again."
+msgstr "Den nåværende forhåndsvisningen er ikke redigerbar. Det kan være en dynamisk forsideside. Si til brukeren å åpne en annen side og prøve igjen."
+
+#: src/components/AppTopBar.tsx:84
+msgid "WordPress Admin"
+msgstr "WordPress Admin"
+
+#: src/components/AnnouncementBar.tsx:52
+msgid "Dismiss announcement"
+msgstr "Avfei kunngjøring"
+
+#: src/components/AnnouncementBar.tsx:41
+msgid "Switch to the full Site Editor instead."
+msgstr "Bytt til det fullstendige redigeringsverktøyet i stedet."
+
+#: src/components/AnnouncementBar.tsx:29
+msgid "You're using the new experimental Easy Site Editor."
+msgstr "Du bruker det nye eksperimentelle Easy Site Editor."
+
+#: src/components/AppTopBar.tsx:383
+msgid "Publish"
+msgstr "Publiser"
+
+#: src/components/AppTopBar.tsx:348
+msgid "Launch your site"
+msgstr "Lanser nettstedet ditt"
+
+#: src/components/AppTopBar.tsx:261
+msgid "Redo"
+msgstr "Redo"
+
+#: src/components/AppTopBar.tsx:257
+msgid "Undo"
+msgstr "Angre"
+
+#. 1: control label, 2: keyboard shortcut.
+#: src/components/AppTopBar.tsx:252
+msgid "%1$s (%2$s)"
+msgstr "%1$s (%2$s)"
+
+#: src/components/AppTopBar.tsx:218
+msgid "Discard"
+msgstr "Forkast"
+
+#: src/components/DebugPanel.tsx:71
+msgid "No active session yet."
+msgstr "Ikke noen aktiv økt ennå."
+
+#: src/components/DebugPanel.tsx:68
+msgid "Langfuse trace"
+msgstr "Langfuse spor"
+
+#: src/components/DebugPanel.tsx:61
+msgid "Debug"
+msgstr "Debug"
+
+#: includes/class-easy-site-editor.php:997
+msgid "Assets have not been built yet. Run pnpm build in the plugin directory, then reload this page."
+msgstr "Eiendeler er ikke bygget ennå. Kjør pnpm build i utvidelsesmappen, og last deretter inn denne siden på nytt."
+
+#. Author of the plugin
+#: easy-site-editor.php
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Description of the plugin
+#: easy-site-editor.php
+msgid "Split-pane AI site editor with chat on the left and a live frontend preview on the right."
+msgstr "Split-pane AI nettsted redigeringsverktøy med chat til venstre og en live frontend forhåndsvisning til høyre."
+
+#: src/lib/unsaved-changes-warning.ts:3
+msgid "You have unsaved changes. If you leave before saving, your changes will be lost."
+msgstr "Du har usikrede endringer. Hvis du forlater før du lagrer, vil endringene dine gå tapt."
+
+#: src/lib/editor-bridge.ts:19
+msgid "The editor is still loading. Try the request again once the page is editable."
+msgstr "Redigeringsverktøyet laster fortsatt. Prøv å be om forespørselen igjen én gang siden siden er redigerbar."
+
+#: src/hooks/useUpdateTheme.ts:311
+msgid "The requested theme update has been staged in the editor."
+msgstr "Den forespurte temaoppdateringen har blitt klargjort i redigeringsverktøyet."
+
+#: src/hooks/useUpdateTheme.ts:258
+msgid "Global styles are still loading. Try the theme update again in a moment."
+msgstr "Globale stilene laster fortsatt. Prøv temaoppdateringen igjen om et øyeblikk."
+
+#: src/hooks/useUpdateTheme.ts:236
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "Ugyldige argumenter. Gi enten innstillinger eller stil for å oppdatere temaet."
+
+#: src/hooks/useUpdateTheme.ts:220
+msgid "Invalid styles format. Styles must be an object."
+msgstr "Ugyldig stilformat. Stiler må være et objekt."
+
+#: src/hooks/useUpdateTheme.ts:201
+msgid "Invalid settings format. Settings must be an object."
+msgstr "Ugyldig innstillingsformat. Innstillinger må være et objekt."
+
+#: src/hooks/useSuggestions.ts:35
+msgid "Create a new page on my site"
+msgstr "Opprett en ny side på nettstedet mitt"
+
+#: src/hooks/useSuggestions.ts:34
+msgid "Add new page"
+msgstr "Legg til ny side"
+
+#: src/hooks/useSuggestions.ts:27
+msgid "Suggest a new font family for my site that is:"
+msgstr "Foreslå en ny skriftfamilie for nettstedet mitt som er:"
+
+#: src/hooks/useSuggestions.ts:26
+msgid "Choose new fonts"
+msgstr "Velg nye skrifttyper"
+
+#: src/hooks/useSuggestions.ts:19
+msgid "Suggest a different layout for this page"
+msgstr "Foreslå et annet oppsett for denne siden"
+
+#: src/hooks/useSuggestions.ts:18
+msgid "Change page layout"
+msgstr "Endre sideoppsett"
+
+#: src/hooks/useSuggestions.ts:11
+msgid "Suggest a new color palette for my site that is:"
+msgstr "Foreslå en ny fargepalett for nettstedet mitt som er:"
+
+#: src/hooks/useSuggestions.ts:10
+msgid "Customize colors"
+msgstr "Tilpasse farger"
+
+#: src/hooks/usePreviewPages.ts:57
+msgid "Home"
+msgstr "Hjem"
+
+#: src/hooks/usePreviewPages.ts:130
+msgid "Unable to load pages."
+msgstr "Kan ikke laste inn sider."
+
+#: src/hooks/useGlobalStylesVariation.ts:73
+msgid "Global styles are still loading. Try the selection again in a moment."
+msgstr "Globale stiler laster fortsatt. Prøv å velge igjen om et øyeblikk."
+
+#. %s is the requested page path.
+#: src/hooks/useEditorNavigate.ts:59
+msgid "Successfully navigated to: %s"
+msgstr "Vellykket navigert til: %s"
+
+#. %s is the requested page path.
+#: src/hooks/useEditorNavigate.ts:40
+msgid "The current page has unsaved changes, so navigation to %s was canceled. If this was requested after creating a page, the page has already been created. Tell the user to save or discard their current changes, then open the page from the page picker."
+msgstr "Den nåværende siden har usikrede endringer, så navigering til %s ble avbrutt. Hvis dette ble forespurt etter å ha opprettet en side, har siden allerede blitt opprettet. Si til brukeren å lagre eller forkaste sine nåværende endringer, og åpne deretter siden fra sidevelgeren."
+
+#: src/hooks/useEditorNavigate.ts:28
+msgid "Invalid path provided. Path must be a non-empty string."
+msgstr "Ugyldig sti oppgitt. Stien må være en ikke-tom streng."
+
+#: src/hooks/useEasySiteAgentChat.ts:110
+msgid "Jetpack token context is unavailable."
+msgstr "Jetpack-tokenkonteksten er utilgjengelig."
+
+#: src/hooks/useClientAbilityBridge.ts:141
+msgid "Failed to display picker."
+msgstr "Kunne ikke vise velgeren."
+
+#: src/hooks/useClientAbilityBridge.ts:128
+msgid "Picker displayed successfully."
+msgstr "Picker vist vellykket."
+
+#. %s: component type
+#: src/hooks/useClientAbilityBridge.ts:95
+msgid "Unsupported component type: %s"
+msgstr "Ikke støttet komponenttype: %s"
+
+#: src/components/SelectedPreviewBlock.tsx:38
+msgid "Clear selected block"
+msgstr "Fjern valgt blokk"
+
+#. %s: selected block title.
+#: src/components/SelectedPreviewBlock.tsx:24
+msgid "Selected block: %s"
+msgstr "Valgt blokk: %s"
+
+#: src/components/PreviewPane.tsx:501
+msgid "Site frontend preview"
+msgstr "Nettsted frontend forhåndsvisning"
+
+#: src/components/PreviewPane.tsx:493
+msgid "Preview loaded"
+msgstr "Se lastet"
+
+#: src/components/PreviewPane.tsx:492
+msgid "Loading preview…"
+msgstr "Laster forhåndsvisning…"
+
+#: src/components/PreviewPane.tsx:465
+msgid "Site preview panel"
+msgstr "Nettsted forhåndsvisningspanel"
+
+#: src/components/PreviewPane.tsx:464
+msgid "Site editor panel"
+msgstr "Nettsted redigeringsverktøy panel"
+
+#: src/components/PreviewPageSwitcher.tsx:122
+msgid "Preview Site"
+msgstr "Se nettsted"
+
+#: src/components/PreviewPageSwitcher.tsx:121
+msgid "Refresh"
+msgstr "Oppfriske"
+
+#. %s: page path, e.g. "/about"
+#: src/components/PreviewPageSwitcher.tsx:117
+msgid "%s – draft"
+msgstr "%s – utkast"
+
+#: src/components/PreviewPageSwitcher.tsx:215
+msgid "Loading pages…"
+msgstr "Laster sider…"
+
+#: src/components/PreviewPageSwitcher.tsx:211
+msgid "Site pages"
+msgstr "Nettsted sider"
+
+#: src/components/PreviewPageSwitcher.tsx:158
+msgid "Draft"
+msgstr "Utkast"
+
+#: src/components/PreviewDeviceSwitcher.tsx:89
+msgid "Preview size"
+msgstr "Se størrelse"
+
+#: src/components/PreviewDeviceSwitcher.tsx:65
+msgid "Device Preview"
+msgstr "Enhet Forhåndsvisning"
+
+#: src/components/PreviewDeviceSwitcher.tsx:53
+msgid "Mobile preview"
+msgstr "Mobil forhåndsvisning"
+
+#: src/components/PreviewDeviceSwitcher.tsx:52
+msgid "Mobile"
+msgstr "Mobil"
+
+#: src/components/PreviewDeviceSwitcher.tsx:47
+msgid "Tablet preview"
+msgstr "Tablet forhåndsvisning"
+
+#: src/components/PreviewDeviceSwitcher.tsx:46
+msgid "Tablet"
+msgstr "Tablet"
+
+#: src/components/PreviewDeviceSwitcher.tsx:41
+msgid "Desktop preview"
+msgstr "Skrivebord forhåndsvisning"
+
+#: src/components/PreviewDeviceSwitcher.tsx:40
+msgid "Desktop"
+msgstr "skrivebord"
+
+#. %d is the pattern layout number.
+#: src/components/PatternPicker.tsx:55
+msgid "Layout %d"
+msgstr "Oppsett %d"
+
+#: src/components/PatternPicker.tsx:252
+#: src/components/StyleVariationPicker.tsx:457
+msgid "Next"
+msgstr "Neste"
+
+#. %1$d is the current page, %2$d is the total page count.
+#: src/components/PatternPicker.tsx:244
+#: src/components/StyleVariationPicker.tsx:449
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
+
+#: src/components/PatternPicker.tsx:231
+#: src/components/StyleVariationPicker.tsx:436
+msgid "Previous"
+msgstr "Forrige"
+
+#. %s is the pattern layout title.
+#: src/components/PatternPicker.tsx:208
+msgid "Select %s"
+msgstr "Velg %s"
+
+#: src/components/PatternPicker.tsx:175
+#: src/components/StyleVariationPicker.tsx:396
+msgid "The selection could not be staged. Please try again."
+msgstr "Valget kunne ikke gjennomføres. Vennligst prøv igjen."
+
+#: src/components/PatternPicker.tsx:157
+#: src/components/StyleVariationPicker.tsx:380
+msgid "The editor is still loading. Try again in a moment."
+msgstr "Redigeringsverktøyet laster fortsatt. Prøv igjen om et øyeblikk."
+
+#: src/components/PatternPicker.tsx:136
+#: src/components/StyleVariationPicker.tsx:359
+msgid "There was a problem retrieving options. Please try again."
+msgstr "Det oppsto et problem med å hente innstillinger. Vennligst prøv igjen."
+
+#: src/components/EditorWorkspace.tsx:90
+msgid "Resize chat panel"
+msgstr "Endre størrelse på chatpanel"
+
+#: src/lib/content-editor/block-edits.ts:196
+msgid "Insertions must include block data with a block name."
+msgstr "Setninger må inkludere blokkdata med et blokk navn."
+
+#: src/lib/content-editor/block-edits.ts:182
+msgid "Updates must include the clientId of the block to update."
+msgstr "Oppdateringer må inkludere clientId til blokken som skal oppdateres."
+
+#. %s is a block type name, such as core/paragraph.
+#: src/lib/content-editor/block-edits.ts:159
+msgid "Block type \"%s\" is not available."
+msgstr "Blokk skrive | taste \"%s\" er ikke tilgjengelig."
+
+#: src/lib/content-editor/block-edits.ts:151
+msgid "Block data must include a block name."
+msgstr "Blokkdata må inkludere et blokk navn."
+
+#: src/lib/content-editor/block-edits.ts:102
+msgid "Global styles are still loading. Try the block edit again in a moment."
+msgstr "Globale stiler laster fortsatt. Prøv blokkredigeringen igjen om et øyeblikk."
+
+#: src/lib/content-editor/block-edits.ts:69
+msgid "Apply block edits needs at least one update, insert, delete, or summary."
+msgstr "Bruk blokkredigering krever minst én oppdatering, innsetting, slett, eller sammendrag."
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:334
+msgid "The requested block edits have been staged in the editor."
+msgstr "De forespurte blokkredigeringene har blitt lagt til i redigeringsverktøyet."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:305
+msgid "Block \"%s\" was not found for deletion."
+msgstr "Blokk \"%s\" ble ikke funnet for sletting."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:292
+msgid "Could not map client ID \"%s\" for deletion."
+msgstr "Kunne ikke kartlegge klient-ID \"%s\" for sletting."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:231
+msgid "Block \"%s\" was not found for update."
+msgstr "Blokk \"%s\" ble ikke funnet for oppdatering."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:216
+msgid "Could not map client ID \"%s\" for update."
+msgstr "Kunne ikke kartlegge klient-ID \"%s\" for oppdatering."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:152
+msgid "Parent block \"%s\" was not found for insertion."
+msgstr "Forelder blokk \"%s\" ble ikke funnet for innsetting."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:136
+msgid "Could not map parent client ID \"%s\" for insertion."
+msgstr "Kunne ikke kartlegge forelder klient-ID \"%s\" for innsetting."
+
+#: src/components/PreviewPane.tsx:527
+#: src/components/content-editor/ContentEditorLoading.tsx:16
+msgid "Loading editor…"
+msgstr "Laster redigeringsverktøy…"
+
+#: src/components/content-editor/ContentEditorError.tsx:6
+msgid "Failed to load template."
+msgstr "Kunne ikke laste malen."
+
+#: src/components/ChatPanel.tsx:57
+msgid "Ask for changes"
+msgstr "Be om endringer"
+
+#: src/components/ApplyPatternLayoutBridge.tsx:28
+#: src/lib/content-editor/block-edits.ts:265
+msgid "Cannot create a block without a name."
+msgstr "Kan ikke opprett | lag | skap en blokk uten et navn."
+
+#: src/components/ApplyPatternLayoutBridge.tsx:239
+msgid "The selected pattern layout has been staged in the editor."
+msgstr "Det valgte oppsettet for mønsteret har blitt satt opp i redigeringsverktøyet."
+
+#: src/components/ApplyPatternLayoutBridge.tsx:184
+msgid "Cannot stage a pattern layout without blocks."
+msgstr "Kan ikke sette opp et mønsteroppsett uten blokker."
+
+#: src/components/AppTopBar.tsx:85
+msgid "Start a new conversation"
+msgstr "Start en ny samtale"
+
+#: src/components/AppTopBar.tsx:382
+msgid "Publishing…"
+msgstr "Publiserer…"
+
+#: src/components/AppTopBar.tsx:365
+#: src/components/PreviewPane.tsx:569
+msgid "Saving…"
+msgstr "Lagrer…"
+
+#: src/components/AppTopBar.tsx:352
+msgid "Save"
+msgstr "Lagre"
+
+#: src/components/AppTopBar.tsx:351
+msgid "Save draft"
+msgstr "Lagre utkast"
+
+#: src/components/AppTopBar.tsx:208
+msgid "Keep editing"
+msgstr "Fortsett redigering"
+
+#: src/components/AppTopBar.tsx:202
+msgid "Unsaved changes"
+msgstr "Ikke lagrede endringer"
+
+#: src/components/AppTopBar.tsx:196
+msgid "Edit"
+msgstr "Redigere"
+
+#: src/components/AppTopBar.tsx:193
+msgid "Edit mode"
+msgstr "Redigeringsmodus"
+
+#: src/components/AppTopBar.tsx:189
+msgid "Preview"
+msgstr "Se"
+
+#: src/components/AppTopBar.tsx:186
+msgid "Preview mode"
+msgstr "Se-modus"
+
+#: src/components/AppTopBar.tsx:164
+msgid "Editor mode"
+msgstr "Redigeringsverktøy-modus"
+
+#: src/abilities/update-theme.ts:99
+msgid "Use this for site-wide theme.json settings or styles. After it succeeds, tell the user the theme update is staged in the editor and ready to review/save, not live or published."
+msgstr "Bruk dette for nettstedets tema.json-innstillinger eller stiler. Etter at det er vellykket, fortell brukeren at temaoppdateringen er klargjort i redigeringsverktøyet og klar til å se/lagre, ikke live eller publisert."
+
+#: src/abilities/update-theme.ts:70
+msgid "Stages WordPress theme settings and styles using theme.json format."
+msgstr "Stages WordPress tema innstillinger og stil ved hjelp av theme.json format."
+
+#: src/abilities/update-theme.ts:68
+msgid "Update theme"
+msgstr "Oppdater tema"
+
+#: src/abilities/update-theme.ts:33
+msgid "The editor is still loading. Try the theme update again once the page is editable."
+msgstr "Redigeringsverktøyet laster fortsatt. Prøv oppdateringen av temaet igjen én gang siden siden er redigerbar."
+
+#: src/abilities/show-component.ts:79
+msgid "Displays a font, color, or pattern picker in the Easy Site Editor chat."
+msgstr "Viser en skrifttype, farge eller mønstervelger i Easy Site Editor-chatten."
+
+#: src/abilities/show-component.ts:77
+msgid "Show picker"
+msgstr "Vis velger"
+
+#: src/abilities/show-component.ts:42
+msgid "The picker UI is still loading. Try the request again in a moment."
+msgstr "Picker-grensesnittet laster fortsatt. Prøv forespørselen igjen om et øyeblikk."
+
+#: src/abilities/show-component.ts:110
+msgid "Use this to show staged global font, color, or pattern choices. The user must select an option and save before changes are live."
+msgstr "Bruk dette for å vise trinnvis globale skrifttype-, farge- eller mønsteralternativer. Brukeren må velge en innstilling og lagre før endringene blir aktive."
+
+#: src/abilities/editor-navigate.ts:82
+msgid "Use this when the user asks to navigate, go to, open, view, or switch to a site page. If you call this after creating a new page, page creation is already complete before this tool runs. If navigation is canceled because the current page has unsaved changes, do not continue or retry page creation; tell the user the page exists and they need to save or discard their current changes before opening it."
+msgstr "Bruk dette når brukeren ber om å navigere, gå til, åpne, se, eller bytte til en side. Hvis du kaller dette etter å ha opprettet en ny side, er opprettelsen av siden allerede fullført før dette verktøyet kjører. Hvis navigeringen blir avbrutt fordi den nåværende siden har usikrede endringer, ikke fortsett eller prøv på nytt med opprettelsen av siden; fortell brukeren at siden eksisterer og at de må lagre eller forkaste sine nåværende endringer før de åpner den."
+
+#: src/abilities/editor-navigate.ts:60
+msgid "Navigates the Easy Site Editor preview to a specific site page or to the pages list."
+msgstr "Navigerer i forhåndsvisningen av Easy Site Editor til en spesifikk side eller til sidelisten."
+
+#: src/abilities/editor-navigate.ts:58
+msgid "Navigate"
+msgstr "Navigere"
+
+#: src/abilities/editor-navigate.ts:30
+msgid "Editor navigation is still loading. Try navigating again in a moment."
+msgstr "Redigeringsverktøy navigasjon laster fortsatt. Prøv å navigere igjen om et øyeblikk."
+
+#: src/abilities/apply-block-edits.ts:93
+msgid "Stages block updates, insertions, and deletions in the client-side editor for review before saving."
+msgstr "Faser blokk oppdateringer, innsettinger og slettinger i redigeringsverktøyet på klientsiden for gjennomgang før lagring."
+
+#: src/abilities/apply-block-edits.ts:91
+msgid "Apply block edits"
+msgstr "Bruk blokkredigeringer"
+
+#: src/abilities/apply-block-edits.ts:81
+#: src/abilities/editor-navigate.ts:48
+#: src/abilities/show-component.ts:67
+#: src/abilities/update-theme.ts:58
+msgid "Abilities for staging edits in the Easy Site Editor."
+msgstr "Evner for å redigere i redigeringsverktøyet for enkelt nettsteder."
+
+#. Plugin Name of the plugin
+#: src/abilities/apply-block-edits.ts:80
+#: src/abilities/editor-navigate.ts:47
+#: src/abilities/show-component.ts:66
+#: src/abilities/update-theme.ts:57
+#: easy-site-editor.php
+msgid "Easy Site Editor"
+msgstr "Enkel nettstedredigerer"
+
+#: src/abilities/apply-block-edits.ts:56
+msgid "The editor is still loading. Try the block edit again once the page is editable."
+msgstr "Redigeringsverktøyet laster fortsatt. Prøv å redigere blokken igjen når siden er redigerbar."
+
+#: src/abilities/apply-block-edits.ts:134
+msgid "Use this for current-page content and layout edits. After it succeeds, tell the user the edits are staged in the editor and ready to review/save, not live or published."
+msgstr "Bruk dette for innhold og oppsettredigering av nåværende side. Etter at det lykkes, fortell brukeren at redigeringene er klare i redigeringsverktøyet og klare til å se/lagre, ikke live eller publisert."

@@ -1,0 +1,998 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Big Sky\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:25:54+00:00\n"
+"PO-Revision-Date: 2026-09-09 21:58:17+0000\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:74
+msgid "Here is the visible area of the canvas. Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "İşte tuvalin görünür kısmı. Fotoğraflar, gerçek boyutlarında düz yer tutucu kutular olarak gösterilir, bu nedenle herhangi bir gri dikdörtgeni eksik olarak değil, mevcut olan bir görsel olarak ele alın."
+
+#. %d: number of blocks framed in the screenshot.
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:73
+msgid "Here is the canvas around %d block(s). Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "%d blok etrafındaki tuval. Fotoğraflar, gerçek boyutlarında düz yer tutucu kutular olarak gösterilir, bu nedenle herhangi bir gri dikdörtgeni eksik olarak değil, mevcut olan bir görsel olarak ele alın."
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:61
+msgid "Here is the whole page, top to bottom. It is scaled down to fit, so body text will not be legible — read it for colour, type scale, spacing and section rhythm, and take an ordinary picture of a specific area when wording or fine detail matters. Photographs are shown as flat placeholder boxes at their real size."
+msgstr "İşte tüm sayfa, yukarıdan aşağıya. Sığacak şekilde ölçeklendirilir, bu nedenle metin okunamaz; renk, yazı ölçeği, aralık ve bölüm ritmi için okuyun ve sözcük ya da ince ayrıntı önemli olduğunda belirli bir alanın sıradan resmini çekin. Fotoğraflar gerçek boyutlarında, sabit yer tutucu kutular olarak gösterilir."
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:47
+msgid "I couldn't get a picture of the canvas just now."
+msgstr "Şu anda tuvalin resmini çekemedim."
+
+#: src/abilities/capture-canvas/index.ts:18
+msgid "Takes a picture of the editor canvas as it currently renders, including unsaved changes. Use it to check how the page actually looks when the block data alone cannot answer that — after changing styles, colours, spacing or CSS, or whenever a reported problem is visual. Pass fullPage to see the whole page at once, which is what a theme or global styles change needs checking against. Photographs are replaced by flat placeholder boxes at their real size."
+msgstr "Düzenleyici kanvasının kaydedilmemiş değişiklikler dahil olmak üzere, halihazırda ürettiği şekilde resmini çeker. Stilleri, renkleri, boşlukları veya CSS'yi değiştirdikten sonra veya bildirilen bir sorun görsel olduğunda, yalnızca blok verileri bu sorunun yanıtını veremediğinde sayfanın gerçekten nasıl görüneceğini kontrol etmek için bunu kullanın. Bir tema veya genel stil değişikliğinin kontrol edilmesi gereken şey olan tüm sayfayı bir kerede görmek için fullPage'i geçirin. Fotoğraflar, gerçek boyutlarındaki düz yer tutucu kutularla değiştirilir."
+
+#: src/abilities/capture-canvas/index.ts:16
+msgid "Capture Canvas"
+msgstr "Tuval Yakala"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:55
+msgid "Are there any changes you would like me to make?"
+msgstr "Yapmamı istediğiniz herhangi bir değişiklik var mı?"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:54
+msgid "Your site is ready! Please click around and check it out."
+msgstr "Siteniz hazır! Lütfen etrafına tıklayıp kontrol edin."
+
+#: src/easy-mode/components/app.tsx:439
+msgid "Switching to edit mode so you can watch the new design being built."
+msgstr "Yeni tasarımın oluşturulmasını izleyebilmeniz için düzenleme moduna geçiliyor."
+
+#: src/easy-mode/components/topbar.tsx:698
+msgid "Return to WP Admin"
+msgstr "WP Yöneticisine Dön"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:313
+msgid "Personalize my site copy with my details."
+msgstr "Ayrıntılarımla site kopyamı kişiselleştir."
+
+#: src/easy-mode/hooks/use-save-controller.ts:121
+msgid "Your changes could not be saved. Your work is still here — try saving again."
+msgstr "Değişiklikleriniz kaydedilemedi. Çalışmanız hala burada — tekrar kaydetmeyi deneyin."
+
+#: src/easy-mode/hooks/use-save-controller.ts:120
+msgid "Some changes could not be saved. Your work is still here — try saving again."
+msgstr "Bazı değişiklikler kaydedilemedi. Çalışmanız hala burada — tekrar kaydetmeyi deneyin."
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:66
+msgid "Save your changes?"
+msgstr "Değişiklikleriniz kaydedilsin mi?"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:33
+msgid "You need to save or discard the changes to the current page."
+msgstr "Geçerli sayfadaki değişiklikleri kaydetmeniz veya iptal etmeniz gerekir."
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:32
+msgid "The preview shows your saved site, so unsaved changes won’t appear there."
+msgstr "Önizleme kaydedilen sitenizi gösterir, böylece kaydedilmemiş değişiklikler orada görünmez."
+
+#: src/easy-mode/components/topbar.tsx:763
+msgid "Save draft"
+msgstr "Taslağı kaydet"
+
+#: src/easy-mode/components/topbar.tsx:749
+msgid "Publish"
+msgstr "Yayımla"
+
+#: src/easy-mode/components/topbar.tsx:713
+msgid "Redo"
+msgstr "Yinele"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Open in a new tab"
+msgstr "Yeni sekmede aç"
+
+#: src/easy-mode/components/topbar.tsx:68
+msgid "Mode"
+msgstr "Mod"
+
+#. %s: selected device, e.g. Desktop.
+#: src/easy-mode/components/topbar.tsx:743
+msgid "Responsive view: %s"
+msgstr "Hızlı görünüm: %s"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Responsive view"
+msgstr "Hızlı görünüm"
+
+#: src/easy-mode/components/topbar.tsx:725
+msgid "Reload preview"
+msgstr "Önizlemeyi yeniden yükle"
+
+#: src/easy-mode/components/topbar.tsx:696
+msgid "Annotate"
+msgstr "Açıklama ekle"
+
+#. %d: number of annotations waiting to be sent.
+#: src/easy-mode/components/topbar.tsx:694
+msgid "Resume annotating, %d pending"
+msgid_plural "Resume annotating, %d pending"
+msgstr[0] "Ek açıklama yapmaya devam et, %d beklemede"
+msgstr[1] "Ek açıklama yapmaya devam et, %d beklemede"
+
+#: src/easy-mode/components/topbar.tsx:689
+msgid "Chat is unavailable"
+msgstr "Sohbet kullanılamıyor"
+
+#: src/easy-mode/components/topbar.tsx:56
+msgid "Mobile"
+msgstr "Mobil"
+
+#: src/easy-mode/components/topbar.tsx:55
+msgid "Tablet"
+msgstr "Tablet"
+
+#: src/easy-mode/components/topbar.tsx:54
+msgid "Desktop"
+msgstr "Masaüstü"
+
+#: src/easy-mode/components/topbar.tsx:50
+msgid "Preview"
+msgstr "Ön izleme"
+
+#: src/easy-mode/components/preview-overlay.tsx:147
+msgid "The site preview could not be loaded."
+msgstr "Site önizlemesi yüklenemedi."
+
+#: src/easy-mode/components/page-switcher.tsx:116
+msgid "(no title)"
+msgstr "(başlık yok)"
+
+#. %s: page title.
+#: src/easy-mode/components/page-switcher.tsx:113
+msgid "%s — Draft"
+msgstr "%s — Taslak"
+
+#. %s: page currently open.
+#: src/easy-mode/components/page-switcher.tsx:99
+msgid "Switch page. Current page: %s"
+msgstr "Sayfayı değiştirin. Geçerli sayfa: %s"
+
+#: src/easy-mode/components/page-switcher.tsx:76
+msgid "Switch page"
+msgstr "Sayfa değiştir"
+
+#: src/easy-mode/components/app.tsx:301
+msgid "Switching to edit mode so you can see the changes."
+msgstr "Değişiklikleri görebilmeniz için düzenleme moduna geçiliyor."
+
+#: src/easy-mode/components/app.tsx:300
+msgid "Switching to edit mode so you can approve the changes before saving."
+msgstr "Değişiklikleri kaydetmeden önce onaylayabilmeniz için düzenleme moduna geçiliyor."
+
+#: src/easy-mode/annotations/use-editor-annotations.ts:153
+msgid "Annotations could not be sent — the assistant is unavailable."
+msgstr "Ek açıklamalar gönderilemedi, yardımcı kullanılamıyor."
+
+#. %d: number of annotations.
+#: src/easy-mode/annotations/prompt.ts:82
+msgid "%d annotation submitted"
+msgid_plural "%d annotations submitted"
+msgstr[0] "%d ek açıklama gönderildi"
+msgstr[1] "%d ek açıklama gönderildi"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Annotating"
+msgstr "Ek açıklama"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Discard annotations"
+msgstr "Ek açıklamaları sil"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Exit annotation mode"
+msgstr "Ek açıklama modundan çık"
+
+#. %d: number of annotations to send.
+#: src/easy-mode/annotations/annotation-topbar.tsx:21
+msgid "Send %d annotation"
+msgid_plural "Send %d annotations"
+msgstr[0] "%d ek açıklamayı gönder"
+msgstr[1] "%d ek açıklamayı gönder"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:18
+msgid "Sending…"
+msgstr "Gönderiliyor..."
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:14
+msgid "Send"
+msgstr "Gönder"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:566
+msgid "Save annotation"
+msgstr "Bilgi notu"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:565
+msgid "Update annotation"
+msgstr "Ek açıklamayı güncelle"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Delete annotation"
+msgstr "Ek açıklamayı sil"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Add a comment…"
+msgstr "Yorum ekleyin…"
+
+#. %s: label of the block being annotated.
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Annotate %s"
+msgstr "Ek açıklama: %s"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:445
+msgid "Annotate blocks. Use the arrow keys to move between blocks, Enter to comment, and Escape to exit."
+msgstr "Bloklara ek açıklama yapın. Bloklar arasında hareket etmek için ok tuşlarını kullanın, yorum yapmak için Enter tuşuna basın ve çıkmak için Escape tuşuna basın."
+
+#. 1: annotation number, 2: comment text.
+#: src/easy-mode/annotations/annotation-layer.tsx:367
+msgid "Annotation %1$d: %2$s"
+msgstr "Ek açıklama %1$d: %2$s"
+
+#. 1: block label, 2: position, 3: total count.
+#: src/easy-mode/annotations/annotation-layer.tsx:341
+msgid "%1$s, block %2$d of %3$d"
+msgstr "%1$s, %2$d/%3$d blok"
+
+#. %s: comma-separated list of navigation item identifiers that could not be
+#. resolved.
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:180
+msgid "Navigation items not found: %s. These are not in the menu or in the current page structure, so there is nothing to reorder them from — they are most likely from an earlier turn, or the header is not part of the page currently open in the editor. Read the page structure again and use the clientIds it returns, or identify each item by its url or label instead. This reorder was not applied."
+msgstr "Gezinme öğeleri bulunamadı: %s Bunlar menüde veya sayfa yapısında yer almıyor, yani bunları yeniden sıralayacak bir şey yok. Büyük olasılıkla daha önceki bir döneme ait ya da üst bilgi o anda düzenleyicide açılan sayfanın bir parçası değil. Sayfa yapısını tekrar okuyun ve döndürdüğü istemci kimliklerini kullanın veya her öğeyi url'si veya etiketi ile tanımlayın. Bu yeniden sıralama uygulanmadı."
+
+#. Description of the plugin
+#: big-sky.php
+msgid "Your WordPress.com AI agent that helps with site setup, content, design, and more."
+msgstr "Site kurulumu, içerik, tasarım ve daha fazlasına yardımcı olan WordPress.com yapay zeka aracımız."
+
+#. Plugin Name of the plugin
+#: big-sky.php
+msgid "WordPress Agent"
+msgstr "WordPress Aracısı"
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:23
+msgid "Invalid editor path. look up the numeric id from <site_pages>, then retry navigation with the numeric editor_path."
+msgstr "Geçersiz düzenleyici yolu. Numerik kimliğe <site_pages> üzerinden bakın ve sayısal editor_path ile gezinmeyi yeniden deneyin."
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:22
+msgid "Invalid editor path. Page navigation requires /page/{numeric-id}. Look up the page ID first."
+msgstr "Geçersiz düzenleyici yolu. Sayfa dolaşımı /sayfa/{numeric-id} gerektirir. Önce sayfa numarasına bak."
+
+#: src/abilities/editor-navigate/index.ts:17
+msgid "Saves everything and navigates to the specified path in the editor. For page navigation, path must be a numeric editor path like \"/page/123\" or \"page/123\"; full URLs, slugs, \"all-pages\", and paths like \"/visit\" or \"/page/visit\" are invalid. If the user names a page and the current page is not the target, look up the numeric id from <site_pages> first, then navigate with the numeric editor path."
+msgstr "Her şeyi kaydeder ve düzenleyicide belirtilen yola gider. Sayfa dolaşımı için yol \"/page/123\" veya \"page/123\" gibi sayısal bir düzenleyici yolu olmalıdır; tam URL'ler, kısaltmalar, \"all-pages\" ve \"/visit\" veya \"/page/visit\" gibi yollar geçersiz. Kullanıcı bir sayfa adlandırırsa ve geçerli sayfa hedef değilse <site_pages> önce sayısal kimliğe bakın, sonra sayısal düzenleyici yoluyla gezinin."
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:94
+msgid "I did not restore that checkpoint because it may replace or remove too much current content."
+msgstr "Mevcut içeriğin çok fazla değiştirilebileceği veya kaldırılabileceği için bu kontrol noktasını geri yüklemedim."
+
+#: src/abilities/restore-checkpoint/index.ts:19
+msgid "Restores editor state from a checkpoint associated with a previous mutating tool call. Use for undo/redo requests. Prefer checkpointId values from clientContext.availableCheckpoints whose toolId matches the user intent: block-edit checkpoints for content changes, theme-update checkpoints for style/theme changes, and navigation/entity checkpoints for navigation/entity changes. For undo, use the checkpointId for the most recent relevant non-restore mutating Big Sky tool call. Only use a checkpoint whose toolId is big_sky__restore_checkpoint for explicit redo requests, because those checkpoints represent the state before a prior undo/restore. Pass requestIntentType to describe the user intent: \"undo\" for undo requests, \"redo\" for redo requests, or \"restore\" when restoring a specific checkpoint/version. The checkpoint ID usually starts with \"toolu_\". Do not use the current restore-checkpoint call ID, any id starting with \"call_\", a tool name/id, or calypsoCheckpointId/messageId. If the user reports missing homepage/footer/navigation content, do not rebuild or redesign unless the user explicitly agrees; try a relevant checkpoint, WordPress revisions, or support escalation instead."
+msgstr "Düzenleyici durumunu önceki bir değiştirme aracı çağrısıyla ilişkili kontrol noktasından geri yükler. Geri alma/yineleme istekleri için kullanın. clientContext.availabilityId değerlerinden, toolId'nin kullanıcı amacıyla eşleştiği kontrol noktalarını tercih edin: içerik değişiklikleri için blok düzenleme, stil/tema değişiklikleri için tema güncelleme kontrol noktaları ve gezinme/varlık değişiklikleri için gezinme/varlık kontrol noktaları. Geri almak için geri yükleme yapılmayan en güncel Big Sky mutasyonu için checkpointId kullanın. Bu kontrol noktaları, önceki bir geri alma/geri yükleme işleminden önce durumu temsil ettiğinden, sadece toolId'si açık yineleme istekleri için big_sky_restore_checkpoint olan bir kontrol noktası kullanın. Kullanıcının amacını tanımlamak için requestIntentType'ı iletin: Geri alma istekleri için \"geri al\", yineleme istekleri için \"yinele\" veya belirli bir kontrol noktası/sürümü geri yüklenirken \"geri yükle\". Denetim noktası kimliği genellikle \"toolu_\" ile başlar. Mevcut geri yükleme kontrol noktası arama kimliğini, \"call_\", araç adı/kimliği veya calypsoCheckpointId/messageId ile başlayan kimlikleri kullanmayın. Kullanıcı ana sayfa/alt bilgi/gezinme içeriğinin eksik olduğunu bildirirse, kullanıcı açıkça kabul etmedikçe yeniden oluşturmayın veya yeniden tasarlamayın; bunun yerine ilgili bir kontrol noktasını, WordPress sürümlerini veya sorun giderme desteğini deneyin."
+
+#: src/abilities/stream-page-design/index.ts:23
+msgid "The editor is still loading. Try the page design again once the page is editable."
+msgstr "Düzenleyici hala yükleniyor. Sayfa düzenlenebilir olduğunda sayfa tasarımını tekrar deneyin."
+
+#: src/abilities/stream-page-design/index.ts:22
+msgid "The generated page content has been staged in the editor for review."
+msgstr "Oluşturulan sayfa içeriği incelenmek üzere düzenleyicide sahnelenmiştir."
+
+#: src/abilities/stream-page-design/index.ts:21
+msgid "Stream Page Design"
+msgstr "Sayfa Tasarımı Yayınlayın"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1372
+msgid "The requested changes were already applied."
+msgstr "İstenen değişiklikler zaten uygulandı."
+
+#: src/components/open-help-center-button.tsx:20
+msgid "Open Help Center"
+msgstr "Yardım Merkezini Açın"
+
+#: src/abilities/open-help-center.ts:200
+msgid "Get help"
+msgstr "Yardım alın"
+
+#: src/abilities/open-help-center.ts:144
+msgid "Show the user a button they can click to open WordPress.com Help Center chat when they ask to talk to a human, contact support, or get help from a person. This ability does not open Help Center automatically."
+msgstr "Kullanıcıya, bir insanla konuşmak, destekle iletişime geçmek veya bir insandan yardım almak istediğinde WordPress.com Yardım Merkezi sohbetini açmak için tıklayabilecekleri bir düğme gösterin. Bu özellik, Yardım Merkezi'ni otomatik olarak açmaz."
+
+#: src/abilities/open-help-center.ts:142
+msgid "Show Help Center chat button"
+msgstr "Yardım Merkezi sohbet düğmesini göster"
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:49
+msgid "I could not find a checkpoint for that ID."
+msgstr "Bu kimlik için bir kontrol noktası bulamadım."
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:39
+msgid "I could not restore the checkpoint because no checkpoint ID was provided."
+msgstr "Kontrol noktası kimliği sağlanmadığı için kontrol noktasını geri yükleyemedim."
+
+#: src/abilities/restore-checkpoint/index.ts:17
+msgid "Restore Checkpoint"
+msgstr "Kontrol Noktasını Geri Yükle"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:580
+msgid "Awaiting user confirmation before making this change."
+msgstr "Bu değişikliği yapmadan önce kullanıcı onayı bekleniyor."
+
+#: src/abilities/site-logo/set-site-logo.ts:71
+msgid "There was an error with this request."
+msgstr "Bu istekle ilgili bir hata oluştu."
+
+#: src/abilities/site-logo/set-site-logo.ts:58
+msgid "Logo set successfully"
+msgstr "Logo başarıyla ayarlandı"
+
+#: src/abilities/show-component/show-component.tsx:175
+msgid "Choose from the options I provided."
+msgstr "Sağladığım seçeneklerden birini seçin."
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:592
+msgid "Updated the entity records."
+msgstr "Varlık kayıtları güncellendi."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:442
+#: src/components/dock/index.js:429
+msgid "New chat"
+msgstr "Yeni sohbet"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:59
+msgid "How can you help me?"
+msgstr "Bana nasıl yardım edebilirsin?"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:53
+msgid "What should I do next?"
+msgstr "Şimdi ne yapmalıyım?"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:457
+msgid "Welcome to your new store! I'm your personal AI assistant. How can I help you?"
+msgstr "Yeni mağazanıza hoş geldiniz! Ben senin kişisel yapay zeka asistanıyım. Nasıl yardımcı olabilirim?"
+
+#: src/components/product-card/ProductCard.tsx:51
+#: src/components/site-spec-landing/index.js:345
+msgid "Loading…"
+msgstr "yükleniyor..."
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:99
+msgid "Help me to connect PayPal Payments to my store"
+msgstr "PayPal Ödemeleri'ni mağazama bağlamama yardımcı ol"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:98
+msgid "Connect PayPal Payments to my store"
+msgstr "Mağazama PayPal Ödemeleri'ni bağla"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:93
+msgid "Recommend shipping zones and methods for my store"
+msgstr "Mağazam için gönderim bölgeleri ve yöntemlerini öner"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:92
+msgid "Set up shipping rates"
+msgstr "Gönderim oranlarını ayarla"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:87
+msgid "Set my product pricing"
+msgstr "Ürün fiyatlandırmamı ayarla"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:81
+msgid "Help me to write a product description"
+msgstr "Ürün açıklaması yazmama yardımcı ol"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:80
+msgid "Write a product description"
+msgstr "Ürün açıklaması yaz"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:75
+msgid "Help me to create a product"
+msgstr "Ürün oluşturmama yardım et"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:22
+msgid "Failed to make the theme update. Please try again."
+msgstr "Tema güncellemesi yapılamadı. Lütfen tekrar deneyin."
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:67
+msgid "Add to post"
+msgstr "Gönderiye ekle"
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:60
+msgid "Replace selected image"
+msgstr "Seçilen görseli değiştir"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat"
+msgstr "Yeni Sohbet Başlat"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat to begin"
+msgstr "Başlamak için yeni bir sohbet başlatın"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "No past conversations"
+msgstr "Eski konuşma bulunmuyor"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Failed to load conversations. Please try again."
+msgstr "Konuşmalar yüklenemedi. Lütfen tekrar deneyin."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:449
+msgid "Past chats"
+msgstr "Eski sohbetler"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:276
+msgid "Failed to upload images. Please try again."
+msgstr "Görseller karşıya yüklenemedi. Lütfen tekrar deneyin."
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:37
+msgid "Tell me what you can do for me"
+msgstr "Bana benim için ne yapabileceğini söyle"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:74
+msgid "Create a product"
+msgstr "Ürün oluşturun"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:31
+msgid "Show me recent comments"
+msgstr "Son yorumları göster"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:30
+msgid "Review comments"
+msgstr "Yorumları gözden geçir"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:25
+msgid "Show me my site health status"
+msgstr "Site sağlığı durumumu göster"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:24
+msgid "Check site health"
+msgstr "Site sağlığını kontrol et"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:19
+msgid "Help me create a new post"
+msgstr "Yeni gönderi oluşturmama yardım et"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:18
+msgid "Create content"
+msgstr "İçerik oluştur"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:13
+msgid "Show me my recent posts"
+msgstr "Son gönderilerimi göster"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:12
+msgid "Manage posts"
+msgstr "Gönderileri Yönet"
+
+#: src/ai/hooks/suggestions-data.ts:91
+msgid "Remove the background from this image"
+msgstr "Arka planı bu görselden kaldır"
+
+#: src/ai/hooks/suggestions-data.ts:90
+msgid "Remove background"
+msgstr "Arka planı kaldır"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Discard"
+msgstr "Sil"
+
+#: src/easy-mode/components/topbar.tsx:761
+msgid "Saving…"
+msgstr "Kaydediliyor…"
+
+#: src/ai/wp-orchestrator/index.tsx:52
+msgid "Unable to authenticate with Jetpack. Please try again."
+msgstr "Jetpack ile kimlik doğrulaması yapılamıyor. Lütfen tekrar deneyin."
+
+#: src/ai/wp-orchestrator/index.tsx:50
+msgid "Network connection issue. Please check your internet connection and try again."
+msgstr "Ağ bağlantısı sorunu. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin."
+
+#: src/ai/wp-orchestrator/index.tsx:45
+msgid "Unable to connect to Jetpack. Please ensure Jetpack is active and up to date."
+msgstr "Jetpack'e bağlanamıyor. Lütfen Jetpack'in etkin ve güncel olduğundan emin olun."
+
+#: src/ai/wp-orchestrator/index.tsx:42
+msgid "You don't have permission to access AI features."
+msgstr "Yapay zekâ özelliklerine erişim izniniz yok."
+
+#: src/ai/wp-orchestrator/index.tsx:39
+msgid "Your session expired. Please refresh the page and try again."
+msgstr "Oturumunuzun süresi doldu. Lütfen sayfayı yenileyin ve tekrar deneyin."
+
+#: src/components/product-card/ProductCard.tsx:56
+msgid "Error: Product name is required"
+msgstr "Hata: Ürün adı gerekli"
+
+#: src/components/product-card/ProductCard.tsx:87
+msgid "Product"
+msgstr "Ürün"
+
+#: src/components/product-card/ProductCard.tsx:84
+msgid "Service"
+msgstr "Hizmet"
+
+#: src/components/product-card/ProductCard.tsx:53
+msgid "Error: Could not render product card"
+msgstr "Hata: Ürün kartı işlenemedi"
+
+#: src/components/product-card/ProductCard.tsx:25
+msgid "unit"
+msgid_plural "units"
+msgstr[0] "birim"
+msgstr[1] "birim"
+
+#: src/easy-mode/components/preview-overlay.tsx:155
+#: src/components/index.js:200
+msgid "Retry"
+msgstr "Tekrar dene"
+
+#: src/abilities/set-styles/index.ts:20
+msgid "Apply color palette, font pairing, and button style variations to the WordPress site. Accepts variation titles (e.g., \"Professional\", \"Montserrat + Open Sans\") and applies the complete styling including colors, typography, button styles, and all associated theme variations."
+msgstr "WordPress sitesine renk paleti, yazı tipi çiftleri ve düğme stili varyasyonları uygulayın. Varyasyon başlıklarını (örn. \"Professional\", \"Montserrat + Open Sans\") kabul eder ve renkler, tipografi, düğme stilleri ve ilgili tüm tema varyasyonları dahil olmak üzere tüm biçimlendirmeyi uygular."
+
+#: src/abilities/set-styles/index.ts:18
+msgid "Set Styles"
+msgstr "Stilleri Ayarla"
+
+#: src/abilities/add-pages/index.ts:19
+msgid "Creates multiple WordPress pages with generated content from patterns and layouts. Page titles are provided by the backend, and page content is composed from layout blocks. Also updates site navigation."
+msgstr "Desenlerden ve düzenlerden oluşturulan içeriklerle birden çok WordPress sayfası oluşturur. Sayfa başlıkları arka uç tarafından sağlanır ve sayfa içeriği düzen bloklarından oluşturulur. Ayrıca site gezinmesini de günceller."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:82
+msgid "Failed to update styles:"
+msgstr "Stiller güncellenemedi:"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:76
+msgid "Failed to update styles. The style variation may be invalid."
+msgstr "Stiller güncellenemedi. Stil varyasyonu geçersiz olabilir."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:62
+msgid "Styles updated successfully."
+msgstr "Stiller başarıyla güncellendi."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:38
+msgid "Invalid button format. Button must be a string (variation title)."
+msgstr "Geçersiz düğme biçimi. Düğme bir dize olmalıdır (varyasyon başlığı)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:31
+msgid "Invalid font format. Font must be a string (variation title)."
+msgstr "Geçersiz yazı tipi biçimi. Yazı tipi bir dize olmalıdır (varyasyon başlığı)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:24
+msgid "Invalid color format. Color must be a string (variation title)."
+msgstr "Geçersiz renk biçimi. Renk bir dize olmalıdır (varyasyon başlığı)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:17
+msgid "Invalid arguments. Provide at least one of: color, font, or button."
+msgstr "Bağımsız değişkenler geçersiz. En az şunlardan bir tane sağlayın: Renk, yazı tipi veya düğme."
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:169
+msgid "Failed to create pages:"
+msgstr "Sayfa oluşturma başarısız:"
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:65
+msgid "Invalid pages. Must provide an array of page objects."
+msgstr "Geçersiz sayfalar. Sayfa nesneleri dizilimi sağlamalıdır."
+
+#: src/abilities/site-logo/index.ts:17
+msgid "Set the site logo"
+msgstr "Site logosu belirleyin"
+
+#: src/abilities/site-logo/index.ts:15
+msgid "Set Site Logo"
+msgstr "Site Logosu Ayarla"
+
+#: src/abilities/update-theme/index.ts:17
+msgid "Update WordPress theme settings and styles using theme.json format"
+msgstr "theme.json biçimini kullanarak WordPress tema ayarlarını ve stillerini güncelleyin"
+
+#: src/abilities/update-theme/index.ts:15
+msgid "Update Theme"
+msgstr "Tema güncelle"
+
+#: src/abilities/edit-entity-record/index.ts:17
+msgid "Create, edit, or delete WordPress data entity records using the data layer"
+msgstr "Veri katmanını kullanarak WordPress veri varlığı kayıtları oluşturun, düzenleyin veya silin"
+
+#: src/abilities/edit-entity-record/index.ts:15
+msgid "Manage Entity Records"
+msgstr "Varlık Kayıtlarını Yönet"
+
+#: src/abilities/show-component/index.ts:23
+msgid "Display a component in the UI with specified props"
+msgstr "Kullanıcı arayüzünde belirtilen özellikleri içeren bir bileşen görüntüleyin"
+
+#: src/abilities/show-component/index.ts:21
+msgid "Show Component"
+msgstr "Bileşeni Göster"
+
+#: src/abilities/client-assistants/index.ts:29
+msgid "Always use this if the user asks for something that requires a client-side assistant. Available assistants:"
+msgstr "Kullanıcı bir istemci tarafı asistanı gerektiren bir şey soruyorsa bunu her zaman kullanın. Kullanılabilir yardımcılar:"
+
+#: src/abilities/client-assistants/index.ts:27
+msgid "Execute Client Assistant"
+msgstr "İstemci Asistanını Yürüt"
+
+#: src/abilities/apply-block-edits/index.ts:17
+msgid "Applies a collection of block edits to the canvas"
+msgstr "Tuvale blok düzenlemeleri koleksiyonu uygular"
+
+#: src/abilities/apply-block-edits/index.ts:15
+msgid "Apply Block Edits"
+msgstr "Blok Düzenlemelerini Uygula"
+
+#: src/abilities/editor-navigate/index.ts:15
+msgid "Navigate"
+msgstr "Şuraya gidin:"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:131
+msgid "By updating the query, order posts from %s"
+msgstr "Sorguyu güncelleyerek şuradan gönderileri düzenleyin: %s"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:128
+msgid "Stop inheriting default query settings and order posts from %s"
+msgstr "Şuradan varsayılan sorgu ayarlarını ve sipariş gönderilerini devralmayı durdurun: %s"
+
+#: src/ai/hooks/suggestions-data.ts:123
+msgid "newest to oldest"
+msgstr "yeniden eskiye"
+
+#: src/ai/hooks/suggestions-data.ts:122
+msgid "oldest to newest"
+msgstr "eskiden yeniye"
+
+#: src/ai/hooks/suggestions-data.ts:117
+msgid "Order posts"
+msgstr "Gönderileri sırala"
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:110
+msgid "Currently this query is displaying %s posts per page, change it to:"
+msgstr "Şu anda bu sorgu her bir sayfa için %s gönderiyi gösteriyor, şu şekilde değiştirin:"
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:107
+msgid "Stop inheriting default query settings and change the current number of posts displayed per page from %s to:"
+msgstr "Varsayılan sorgu ayarlarını devralmayı durdur ve sayfa başına görüntülenen mevcut gönderi sayısını %s üzerinden şu olarak değiştir:"
+
+#: src/ai/hooks/suggestions-data.ts:99
+msgid "Change number of posts"
+msgstr "Gönderi sayısını değiştir"
+
+#: src/ai/hooks/suggestions-data.ts:96
+msgid "Tell me all the ways you can help design or edit my site"
+msgstr "Sitemi tasarlamama veya düzenlemeye yardımcı olabilecek tüm yolları bana anlatın"
+
+#: src/ai/hooks/suggestions-data.ts:95
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:36
+msgid "What else can you do?"
+msgstr "Başka ne yapabilirsin?"
+
+#: src/ai/hooks/suggestions-data.ts:86
+msgid "Edit the image to:"
+msgstr "Görseli şuna düzenle:"
+
+#: src/ai/hooks/suggestions-data.ts:85
+msgid "Edit image"
+msgstr "Görseli düzenle"
+
+#: src/ai/hooks/suggestions-data.ts:81
+msgid "Generate an image of:"
+msgstr "Şunun görselini oluştur:"
+
+#: src/ai/hooks/suggestions-data.ts:76
+msgid "Check the grammar of this text"
+msgstr "Bu metnin dil bilgisini kontrol et"
+
+#: src/ai/hooks/suggestions-data.ts:75
+msgid "Check grammar"
+msgstr "Dilbilgisini kontrol et"
+
+#: src/ai/hooks/suggestions-data.ts:71
+msgid "Change the tone of this text to be more:"
+msgstr "Bu metnin tonunu daha fazla olacak şekilde değiştir:"
+
+#: src/ai/hooks/suggestions-data.ts:66
+msgid "Translate this to:"
+msgstr "Bunu şuna çevir:"
+
+#: src/ai/hooks/suggestions-data.ts:65
+msgid "Translate content"
+msgstr "İçeriği çevir"
+
+#: src/ai/hooks/suggestions-data.ts:61
+msgid "Add another column to the end of these"
+msgstr "Bunların sonuna başka bir sütun ekle"
+
+#: src/ai/hooks/suggestions-data.ts:60
+msgid "Add column"
+msgstr "Sütun ekle"
+
+#: src/ai/hooks/suggestions-data.ts:56
+msgid "Reverse the order of these columns"
+msgstr "Bu sütunların sırasını ters çevir"
+
+#: src/ai/hooks/suggestions-data.ts:55
+msgid "Swap columns"
+msgstr "Sütunları değiştir"
+
+#. %s is the button text
+#: src/ai/hooks/suggestions-data.ts:52
+msgid "Change the %s button link to:"
+msgstr "%s düğme bağlantısını değiştir:"
+
+#: src/ai/hooks/suggestions-data.ts:46
+msgid "Create a new page on my site for"
+msgstr "Şunun için sitemde yeni bir sayfa oluştur:"
+
+#: src/ai/hooks/suggestions-data.ts:45
+msgid "Add new page"
+msgstr "Yeni sayfa ekle"
+
+#: src/ai/hooks/suggestions-data.ts:42
+msgid "Show me different layouts for this page"
+msgstr "Bu sayfa için bana farklı düzenler göster"
+
+#: src/ai/hooks/suggestions-data.ts:41
+msgid "Change page layout"
+msgstr "Sayfa düzenini değiştir"
+
+#: src/ai/hooks/suggestions-data.ts:38
+msgid "Show me color palettes for my site that are:"
+msgstr "Sitem için şu renk paletlerini göster:"
+
+#: src/ai/hooks/suggestions-data.ts:37
+msgid "Customize colors"
+msgstr "Renkleri özelleştir"
+
+#: src/ai/hooks/suggestions-data.ts:34
+msgid "Show me new fonts for my site"
+msgstr "Sitem için yeni yazı tipleri göster"
+
+#: src/ai/hooks/suggestions-data.ts:33
+msgid "Choose new fonts"
+msgstr "Yeni yazı tipleri seç"
+
+#: big-sky.php:349
+msgid "AI-powered site building and navigation abilities."
+msgstr "Yapay zeka destekli site oluşturma ve gezinme yetenekleri."
+
+#: src/components/product-card/ProductCard.tsx:90
+#: src/easy-mode/components/topbar.tsx:51
+msgid "Edit"
+msgstr "Düzenle"
+
+#: src/hooks/use-dock-state.ts:138
+#: src/components/dock/index.js:440
+msgid "Pop out sidebar"
+msgstr "Kenar çubuğunu aç"
+
+#: src/hooks/use-dock-state.ts:132
+#: src/components/dock/index.js:460
+msgid "Move to sidebar"
+msgstr "Kenar çubuğuna taşı"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:548
+msgid "Got a different request? Ask away."
+msgstr "Farklı bir isteğiniz mi var? Sorun gitsin."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:542
+msgid "Howdy! How can I help you today?"
+msgstr "Selam! Bugün size nasıl yardımcı olabilirim?"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:65
+msgid "Updated:"
+msgstr "Güncellenme:"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:86
+msgid "Theme updated successfully"
+msgstr "Tema başarıyla güncellendi."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:51
+msgid "Invalid styles format. Styles must be an object."
+msgstr "Geçersiz stiller biçimi. Stiller bir nesne olmalıdır."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:40
+msgid "Invalid settings format. Settings must be an object."
+msgstr "Geçersiz ayarlar biçimi. Ayarlar bir nesne olmalıdır."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:29
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "Bağımsız değişkenler geçersiz. Temayı güncellemek için ayarlar veya stiller sağlayın."
+
+#: big-sky.php:1652
+#: big-sky.php:1653
+msgid "AI Editor"
+msgstr "Yapay Zeka Düzenleyici"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:493
+msgid "Proceed"
+msgstr "İlerle"
+
+#: src/ai/hooks/suggestions-data.ts:49
+msgid "Edit link"
+msgstr "Bağlantıyı düzenle"
+
+#: src/abilities/show-component/show-component.tsx:214
+#: src/abilities/site-logo/set-site-logo.ts:70
+msgid "There was an error with this request. Please try again."
+msgstr "Bu istekle ilgili bir hata oluştu. Lütfen tekrar deneyin."
+
+#: src/abilities/client-assistants/run-assistant.ts:189
+msgid "No response from assistant"
+msgstr "Asistandan yanıt alınmadı"
+
+#: src/abilities/client-assistants/index.ts:89
+msgid "Assistant completed successfully"
+msgstr "Asistan başarıyla tamamladı"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1464
+msgid "Something went wrong. Please try again."
+msgstr "Bir yanlışlık oldu. Lütfen yeniden deneyin."
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1422
+msgid "I have completed the edits."
+msgstr "Düzenlemeleri tamamladım."
+
+#. translators: %s is the theme name.
+#: big-sky.php:625
+msgid "The current theme (%s) is a block theme."
+msgstr "Geçerli tema (%s) bir blok teması."
+
+#: big-sky.php:618
+msgid "The current theme is not a block theme. Big Sky requires a block theme to be active."
+msgstr "Geçerli tema bir blok teması değil. Big Sky, blok temasının etkin olmasını gerektirir."
+
+#: src/abilities/client-assistants/run-assistant.ts:182
+msgid "Sorry, I've encountered an error. Please try again or let me know if you need help with something else."
+msgstr "Üzgünüz, bir sorunla karşılaştım. Lütfen tekrar deneyin veya başka bir konuda yardıma ihtiyacınız olursa bana bildirin."
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:499
+msgid "I changed my mind"
+msgstr "Fikrimi değiştirdim"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1381
+msgid "I was not able to make the changes you requested. Either I don't have the capability to do so or I didn't understand your request. You can ask me to try again or ask me to do something else."
+msgstr "İstediğiniz değişiklikleri yapamadım. Bunu yapacak yetkinliğim yok ya da isteğinizi anlamadım. Tekrar denememi ya da başka bir şey yapmamı isteyebilirsiniz."
+
+#: src/easy-mode/components/preview-overlay.tsx:158
+msgid "Site preview"
+msgstr "Site ön izleme"
+
+#: src/ai/hooks/suggestions-data.ts:80
+msgid "Generate image"
+msgstr "Görsel oluştur"
+
+#: src/easy-mode/components/page-switcher.tsx:49
+#: src/components/mosaic.js:633
+#: src/components/mosaic.js:675
+msgid "Pages"
+msgstr "Sayfalar"
+
+#: src/easy-mode/components/page-switcher.tsx:34
+msgid "Home"
+msgstr "Başlangıç"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:490
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:22
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:30
+msgid "No"
+msgstr "Hayır"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:541
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:16
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:24
+msgid "Yes"
+msgstr "Evet"
+
+#: src/abilities/add-pages/index.ts:17
+msgid "Add Pages"
+msgstr "Sayfa Ekle"
+
+#: src/ai/hooks/suggestions-data.ts:70
+msgid "Change tone"
+msgstr "Bildirim sesini"
+
+#: src/easy-mode/components/topbar.tsx:710
+msgid "Undo"
+msgstr "Geri al"
+
+#: src/easy-mode/components/topbar.tsx:763
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Save"
+msgstr "Kaydet"
+
+#: big-sky.php:707
+msgid "These checks passed:"
+msgstr "Şu kontrollerden geçti:"
+
+#: big-sky.php:693
+msgid "Big Sky detected the following issues with your site:"
+msgstr "Big Sky, sitenizle ilgili şu sorunları tespit etti:"
+
+#. translators: $d is the number of performance issues found.
+#: big-sky.php:692
+msgid "Big Sky is affected by %d issue"
+msgid_plural "Big Sky is affected by %d issues"
+msgstr[0] "Big Sky %d sorundan etkilendi"
+msgstr[1] "Big Sky %d sorundan etkilendi"
+
+#: big-sky.php:682
+msgid "Mapbox API key is set."
+msgstr "Mapbox API anahtarı ayarlandı."
+
+#: big-sky.php:677
+msgid "Mapbox API key is not set. Big Sky requires a Mapbox API key to be set."
+msgstr "Mapbox API anahtarı ayarlanmadı. Big Sky, Mapbox API anahtarının ayarlanmasını gerektirir."
+
+#: big-sky.php:669
+msgid "Jetpack is connected to an admin."
+msgstr "Jetpack bir yöneticiye bağlandı."
+
+#: big-sky.php:664
+msgid "Jetpack does not have a connected admin. Big Sky requires Jetpack to be connected to an admin."
+msgstr "Jetpack'te bağlı yönetici yok. Big Sky, Jetpack'in bir yöneticiye bağlanmasını gerektirir."
+
+#: big-sky.php:655
+msgid "Jetpack is connected."
+msgstr "Jetpack bağlandı."
+
+#: big-sky.php:650
+msgid "Jetpack is not connected. Big Sky requires Jetpack to be connected."
+msgstr "Jetpack bağlı değil. Big Sky, Jetpack'in bağlı olmasını gerektirir."
+
+#: big-sky.php:639
+msgid "Jetpack is installed."
+msgstr "Jetpack yüklendi."
+
+#: big-sky.php:634
+msgid "Jetpack is not installed. Big Sky requires Jetpack to be installed and active."
+msgstr "Jetpack yüklenmedi. Big Sky, Jetpack'in yüklenmesini ve etkinleştirilmesini gerektirir."
+
+#: big-sky.php:608
+msgid "Big Sky did not find any known issues with your site."
+msgstr "Big Sky, sitenizle ilgili bilenen hiçbir sorun bulamadı."
+
+#: big-sky.php:600
+msgid "Big Sky Checks"
+msgstr "Big Sky Kontrolleri"
+
+#: big-sky.php:575
+#: big-sky.php:576
+msgid "Big Sky checks"
+msgstr "Big Sky kontrolleri"
+
+#: big-sky.php:406
+msgid "AI Features"
+msgstr "Yapay Zeka Özellikleri"
+
+#: big-sky.php:398
+msgid "Enable AI-powered site building experience"
+msgstr "Yapay zeka destekli site oluşturma deneyimini etkinleştirin"
+
+#. Author of the plugin
+#: big-sky.php
+msgid "Automattic, Inc."
+msgstr "Automattic, A.Ş."
+
+#: big-sky.php:348
+#: big-sky.php:603
+msgid "Big Sky"
+msgstr "Big Sky"

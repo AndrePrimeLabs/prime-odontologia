@@ -1,0 +1,65 @@
+# Translation of Plugins - RSS Importer - Stable (latest release) in Portuguese (Brazil)
+# This file is distributed under the same license as the Plugins - RSS Importer - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-02-10 18:10:26+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: pt_BR\n"
+"Project-Id-Version: Plugins - RSS Importer - Stable (latest release)\n"
+
+#: rss-importer.php:225
+msgid "RSS"
+msgstr "RSS"
+
+#: rss-importer.php:195
+msgid "All done. <a href=\"%s\">Have fun!</a>"
+msgstr "Tudo concluído. <a href=\"%s\">Divirta-se!</a>"
+
+#: rss-importer.php:170
+msgid "Done!"
+msgstr "Pronto!"
+
+#: rss-importer.php:164
+msgid "Couldn&#8217;t get post ID"
+msgstr "Não foi possível obter a ID do post."
+
+#: rss-importer.php:158
+msgid "Post already imported"
+msgstr "Post já importado"
+
+#: rss-importer.php:153
+msgid "Importing post..."
+msgstr "Importando post..."
+
+#: rss-importer.php:64
+msgid "Howdy! This importer allows you to extract posts from an RSS 2.0 file into your WordPress site. This is useful if you want to import your posts from a system that is not handled by a custom import tool. Pick an RSS file to upload and click Import."
+msgstr "Olá! Este importador permite que você extraia posts de um arquivo RSS 2.0 para o seu site WordPress. Isto é útil se você quiser importar posts de um sistema que não é suportado por uma ferramente de importação personalizada. Selecione um arquivo RSS para fazer upload e clique em Importar."
+
+#: rss-importer.php:55
+msgid "Import RSS"
+msgstr "Importar RSS"
+
+#. Author URI of the plugin
+msgid "https://wordpress.org/"
+msgstr "https://br.wordpress.org/"
+
+#. Author of the plugin
+msgid "wordpressdotorg"
+msgstr ""
+
+#. Description of the plugin
+#: rss-importer.php:225
+msgid "Import posts from an RSS feed."
+msgstr "Importar posts de um feed RSS."
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/extend/plugins/rss-importer/"
+msgstr "https://br.wordpress.org/extend/plugins/rss-importer/"
+
+#. Plugin Name of the plugin
+msgid "RSS Importer"
+msgstr "Importador RSS"

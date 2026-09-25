@@ -1,0 +1,50 @@
+.wpconsent-content {
+	padding: 28px var(--wpconsent-space-h);
+
+	* {
+		box-sizing: border-box;
+	}
+
+	h2 {
+		color: var(--wpconsent-text-color-heading);
+		font-size: var(--wpconsent-font-size-l);
+	}
+
+	p {
+		color: var(--wpconsent-text-color-paragraph);
+		font-size: var(--wpconsent-font-size-s);
+
+		&.wpconsent-disclaimer {
+			font-size: 12px;
+			font-weight: 400;
+		}
+	}
+
+	.wpconsent-add-snippet & {
+		padding-top: 20px;
+	}
+
+	& > hr {
+		margin-bottom: 36px;
+		margin-top: 36px;
+	}
+}
+
+.wrap {
+	margin: 0;
+	padding: 0 var(--wpconsent-space-h);
+
+	div.error,
+	div.updated {
+		margin-bottom: 0;
+		position: relative;
+	}
+
+	div:first-child {
+		margin-top: 28px;
+	}
+}
+
+#wpcontent .wrap .wpconsent-review-step {
+	margin-top: 0;
+}

@@ -1,0 +1,123 @@
+{
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#92fce7",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#422109",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#3a1b09",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#391c09e6",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#9cfce9",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				},
+				{
+					"color": "#2d15060d",
+					"name": "Quaternary",
+					"slug": "quaternary"
+				}
+			]
+		},
+		"typography": {
+			"fontSizes": [
+				{
+					"fluid": false,
+					"name": "Small",
+					"size": "0.9rem",
+					"slug": "small"
+				},
+				{
+					"fluid": {
+						"max": "1rem",
+						"min": "0.9rem"
+					},
+					"name": "Medium",
+					"size": "1rem",
+					"slug": "medium"
+				},
+				{
+					"fluid": {
+						"max": "1.15rem",
+						"min": "1rem"
+					},
+					"name": "Large",
+					"size": "1.25rem",
+					"slug": "large"
+				},
+				{
+					"fluid": {
+						"max": "2.65rem",
+						"min": "2.15rem"
+					},
+					"name": "Extra Large",
+					"size": "2.65rem",
+					"slug": "x-large"
+				},
+				{
+					"fluid": {
+						"max": "5rem",
+						"min": "2.25rem"
+					},
+					"name": "Double Extra Large",
+					"size": "5rem",
+					"slug": "xx-large"
+				}
+			]
+		}
+	},
+	"styles": {
+		"blocks": {
+			"core/image": {
+				"filter": {
+					"duotone": "var(--wp--preset--duotone--default)"
+				}
+			},
+			"core/post-featured-image": {
+				"filter": {
+					"duotone": "var(--wp--preset--duotone--default)"
+				}
+			}
+		},
+		"elements": {
+			"h1": {
+				"typography": {
+					"letterSpacing": "0rem"
+				}
+			},
+			"h2": {
+				"typography": {
+					"letterSpacing": "-0.01rem"
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontStyle": "normal",
+					"fontWeight": "400"
+				}
+			}
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--archivo)",
+			"fontStyle": "normal",
+			"fontWeight": "400"
+		}
+	},
+	"version": 3,
+	"title": "Chocolad"
+}

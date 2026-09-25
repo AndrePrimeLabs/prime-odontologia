@@ -1,0 +1,372 @@
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing
+
+namespace MailPoet\API\JSON;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\Captcha\CaptchaConstants;
+use MailPoet\Config\AccessControl;
+use MailPoet\Exception;
+use MailPoet\Logging\LoggerFactory;
+use MailPoet\Settings\SettingsController;
+use MailPoet\Tracy\ApiPanel\ApiPanel;
+use MailPoet\Tracy\DIPanel\DIPanel;
+use MailPoet\Util\Helpers;
+use MailPoet\WP\Functions as WPFunctions;
+use MailPoetVendor\Psr\Container\ContainerInterface;
+use Throwable;
+use Tracy\Debugger;
+use Tracy\ILogger;
+
+class API {
+  private $requestApiVersion;
+  private $requestEndpoint;
+  private $requestMethod;
+  private $requestToken;
+  private $requestType;
+  private $requestEndpointClass;
+  private $requestData = [];
+  private $endpointNamespaces = [];
+  private $availableApiVersions = [
+      'v1',
+  ];
+
+  /** @var ContainerInterface */
+  private $container;
+
+  /** @var AccessControl */
+  private $accessControl;
+
+  /** @var ErrorHandler */
+  private $errorHandler;
+
+  /** @var WPFunctions */
+  private $wp;
+
+  /** @var SettingsController */
+  private $settings;
+
+  /** @var LoggerFactory */
+  private $loggerFactory;
+
+  const CURRENT_VERSION = 'v1';
+
+  public function __construct(
+    ContainerInterface $container,
+    AccessControl $accessControl,
+    ErrorHandler $errorHandler,
+    SettingsController $settings,
+    LoggerFactory $loggerFactory,
+    WPFunctions $wp
+  ) {
+    $this->container = $container;
+    $this->accessControl = $accessControl;
+    $this->errorHandler = $errorHandler;
+    $this->settings = $settings;
+    $this->wp = $wp;
+    foreach ($this->availableApiVersions as $availableApiVersion) {
+      $this->addEndpointNamespace(
+        sprintf('%s\%s', __NAMESPACE__, $availableApiVersion),
+        $availableApiVersion
+      );
+    }
+    $this->loggerFactory = $loggerFactory;
+  }
+
+  public function init() {
+    // admin security token and API version
+    WPFunctions::get()->addAction(
+      'admin_head',
+      [$this, 'setTokenAndAPIVersion']
+    );
+
+    // ajax (logged in users)
+    WPFunctions::get()->addAction(
+      'wp_ajax_mailpoet',
+      [$this, 'setupAjax']
+    );
+
+    // ajax (logged out users)
+    WPFunctions::get()->addAction(
+      'wp_ajax_nopriv_mailpoet',
+      [$this, 'setupAjax']
+    );
+
+    // fresh-token endpoint for cached pages (e.g. edge-cached signup forms);
+    // intentionally separate from setupAjax() to break the chicken-and-egg of needing a token to fetch a token
+    WPFunctions::get()->addAction(
+      'wp_ajax_mailpoet_token',
+      [$this, 'getToken']
+    );
+    WPFunctions::get()->addAction(
+      'wp_ajax_nopriv_mailpoet_token',
+      [$this, 'getToken']
+    );
+
+    // nonce refreshing via heartbeats
+    WPFunctions::get()->addAction(
+      'wp_refresh_nonces',
+      [$this, 'addTokenToHeartbeatResponse']
+    );
+  }
+
+  public function setupAjax() {
+    $this->wp->doAction('mailpoet_api_setup', [$this]);
+
+    if (isset($_POST['api_version'])) {
+      $this->setRequestData($_POST, Endpoint::TYPE_POST);
+    } else {
+      $this->setRequestData($_GET, Endpoint::TYPE_GET);
+    }
+
+    $ignoreToken = (
+        $this->settings->get('captcha.type') != CaptchaConstants::TYPE_DISABLED &&
+        $this->requestEndpoint === 'subscribers' &&
+        $this->requestMethod === 'subscribe'
+      ) || (
+        $this->requestEndpoint === 'captcha'
+      );
+
+    if (!$ignoreToken && $this->wp->wpVerifyNonce($this->requestToken, 'mailpoet_token') === false) {
+      $errorMessage = __("Sorry, but we couldn't connect to the MailPoet server. Please refresh the web page and try again.", 'mailpoet');
+      $errorResponse = $this->createErrorResponse(Error::UNAUTHORIZED, $errorMessage, Response::STATUS_UNAUTHORIZED);
+      return $errorResponse->send();
+    }
+
+    $response = $this->processRoute();
+    $response->send();
+  }
+
+  public function setRequestData($data, $requestType) {
+    $this->requestApiVersion = (!empty($data['api_version']) && is_string($data['api_version'])) ? $data['api_version'] : false;
+
+    $this->requestEndpoint = (isset($data['endpoint']) && is_string($data['endpoint']))
+      ? Helpers::underscoreToCamelCase(trim($data['endpoint']))
+      : null;
+
+    // JS part of /wp-admin/customize.php does not like a 'method' field in a form widget
+    $methodParamName = isset($data['mailpoet_method']) ? 'mailpoet_method' : 'method';
+    $this->requestMethod = (isset($data[$methodParamName]) && is_string($data[$methodParamName]))
+      ? Helpers::underscoreToCamelCase(trim($data[$methodParamName]))
+      : null;
+    $this->requestType = $requestType;
+
+    $this->requestToken = (isset($data['token']) && is_string($data['token']))
+      ? trim($data['token'])
+      : null;
+
+    if (!$this->requestEndpoint || !$this->requestMethod || !$this->requestApiVersion) {
+      $errorMessage = __('Invalid API request.', 'mailpoet');
+      $errorResponse = $this->createErrorResponse(Error::BAD_REQUEST, $errorMessage, Response::STATUS_BAD_REQUEST);
+      return $errorResponse;
+    } else if (!empty($this->endpointNamespaces[$this->requestApiVersion])) {
+      foreach ($this->endpointNamespaces[$this->requestApiVersion] as $namespace) {
+        $endpointClass = sprintf(
+          '%s\%s',
+          $namespace,
+          ucfirst($this->requestEndpoint)
+        );
+        if ($this->container->has($endpointClass)) {
+          $this->requestEndpointClass = $endpointClass;
+          break;
+        }
+      }
+      $this->requestData = isset($data['data'])
+        ? WPFunctions::get()->stripslashesDeep($data['data'])
+        : [];
+
+      // remove reserved keywords from data
+      if (is_array($this->requestData) && !empty($this->requestData)) {
+        // filter out reserved keywords from data
+        $reservedKeywords = [
+          'token',
+          'endpoint',
+          'method',
+          'api_version',
+          'mailpoet_method', // alias of 'method'
+          'mailpoet_redirect',
+        ];
+        $this->requestData = array_diff_key(
+          $this->requestData,
+          array_flip($reservedKeywords)
+        );
+      }
+    }
+  }
+
+  public function processRoute() {
+    try {
+      if (
+        empty($this->requestEndpointClass) ||
+        !$this->container->has($this->requestEndpointClass)
+      ) {
+        throw new \Exception(__('Invalid API endpoint.', 'mailpoet'));
+      }
+
+      $endpoint = $this->container->get($this->requestEndpointClass);
+      if (!$endpoint instanceof Endpoint) {
+        throw new \Exception(__('Invalid API endpoint.', 'mailpoet'));
+      }
+      if (
+        !method_exists($endpoint, $this->requestMethod)
+        || !$this->isDispatchableEndpointMethod($endpoint, $this->requestMethod)
+      ) {
+        throw new \Exception(__('Invalid API endpoint method.', 'mailpoet'));
+      }
+
+      if (!$endpoint->isMethodAllowed($this->requestMethod, $this->requestType)) {
+        throw new \Exception(__('HTTP request method not allowed.', 'mailpoet'));
+      }
+
+      if (
+        class_exists(Debugger::class)
+        && class_exists(DIPanel::class)
+        && class_exists(ApiPanel::class)
+      ) {
+        ApiPanel::init($endpoint, $this->requestMethod, $this->requestData);
+        DIPanel::init();
+      }
+
+      // check the accessibility of the requested endpoint's action
+      // by default, an endpoint's action is considered "private"
+      if (!$this->validatePermissions($this->requestMethod, $endpoint->permissions)) {
+        $errorMessage = __('You do not have the required permissions.', 'mailpoet');
+        $errorResponse = $this->createErrorResponse(Error::FORBIDDEN, $errorMessage, Response::STATUS_FORBIDDEN);
+        return $errorResponse;
+      }
+      $response = $endpoint->{$this->requestMethod}($this->requestData);
+      if (!$response instanceof Response) {
+        throw new \Exception(__('Invalid API endpoint method.', 'mailpoet'));
+      }
+      return $response;
+    } catch (Exception $e) {
+      $this->logError($e);
+      return $this->errorHandler->convertToResponse($e);
+    } catch (Throwable $e) {
+      if (class_exists(Debugger::class) && Debugger::$logDirectory) {
+        Debugger::log($e, ILogger::EXCEPTION);
+      }
+      $this->logError($e);
+      $errorMessage = $e->getMessage();
+      $errorResponse = $this->createErrorResponse(Error::BAD_REQUEST, $errorMessage, Response::STATUS_BAD_REQUEST);
+      return $errorResponse;
+    }
+  }
+
+  /**
+   * The response-builder helpers on the Endpoint base class are framework plumbing,
+   * blocked by name so that a subclass override cannot re-expose them. Non-public
+   * methods are never dispatchable.
+   */
+  private function isDispatchableEndpointMethod(Endpoint $endpoint, string $requestMethod): bool {
+    // Magic methods (__construct, __call, __get, __invoke, ...) are never actions.
+    if (strpos($requestMethod, '__') === 0) {
+      return false;
+    }
+    if (method_exists(Endpoint::class, $requestMethod)) {
+      return false;
+    }
+    $method = new \ReflectionMethod($endpoint, $requestMethod);
+    // PHP resolves method names case-insensitively; require the exact declared casing
+    // so that every name-keyed lookup downstream matches the method that runs.
+    if ($method->getName() !== $requestMethod) {
+      return false;
+    }
+    return $method->isPublic();
+  }
+
+  public function validatePermissions($requestMethod, $permissions) {
+    // validate method permission if defined, otherwise validate global permission
+    return(!empty($permissions['methods'][$requestMethod])) ?
+      $this->accessControl->validatePermission($permissions['methods'][$requestMethod]) :
+      $this->accessControl->validatePermission($permissions['global']);
+  }
+
+  public function setTokenAndAPIVersion() {
+    echo sprintf(
+      '<script type="text/javascript">' .
+      'var mailpoet_token = "%s";' .
+      'var mailpoet_api_version = "%s";' .
+      '</script>',
+      esc_js($this->wp->wpCreateNonce('mailpoet_token')),
+      esc_js(self::CURRENT_VERSION)
+    );
+  }
+
+  public function getToken() {
+    // Bypass intermediate caches so the token is always fresh; the embedded form
+    // token in HTML can be served stale by edge caches and expire by submit time.
+    if (!headers_sent()) {
+      header('Cache-Control: no-store, max-age=0');
+      header('Content-Type: application/json; charset=UTF-8');
+    }
+
+    echo wp_json_encode([
+      'token' => $this->wp->wpCreateNonce('mailpoet_token'),
+      'api_version' => self::CURRENT_VERSION,
+    ]);
+    $this->wp->wpDie();
+  }
+
+  public function addTokenToHeartbeatResponse($response) {
+    $response['mailpoet_token'] = $this->wp->wpCreateNonce('mailpoet_token');
+    return $response;
+  }
+
+  public function addEndpointNamespace($namespace, $version) {
+    if (!empty($this->endpointNamespaces[$version][$namespace])) return;
+    $this->endpointNamespaces[$version][] = $namespace;
+  }
+
+  public function getEndpointNamespaces() {
+    return $this->endpointNamespaces;
+  }
+
+  public function getRequestedEndpointClass() {
+    return $this->requestEndpointClass;
+  }
+
+  public function getRequestedAPIVersion() {
+    return $this->requestApiVersion;
+  }
+
+  public function createErrorResponse($errorType, $errorMessage, $responseStatus) {
+    $errorMessages = [
+      $errorType => $errorMessage,
+    ];
+
+    if ($errorType === Error::BAD_REQUEST) {
+      $mpReinstallErrorMessage = __('The plugin has encountered an unexpected error. Please reload the page. If that does not help, [link]re-install the MailPoet Plugin.[/link]', 'mailpoet');
+      $mpReinstallErrorMessage = Helpers::replaceLinkTags(
+        $mpReinstallErrorMessage,
+        'https://kb.mailpoet.com/article/258-re-installing-updating-the-plugin-via-ftp',
+        ['target' => '_blank']
+      );
+      $errorMessages[Error::REINSTALL_PLUGIN] = $mpReinstallErrorMessage;
+    }
+
+    $errorResponse = new ErrorResponse(
+      $errorMessages,
+      [],
+      $responseStatus
+    );
+    return $errorResponse;
+  }
+
+  private function logError(Throwable $e): void {
+    // logging to the php log
+    if (function_exists('error_log')) {
+      // phpcs:disable QITStandard.PHP.DebugCode.DebugFunctionFound
+      error_log((string)$e); // phpcs:ignore Squiz.PHP.DiscouragedFunctions
+      // phpcs:enable QITStandard.PHP.DebugCode.DebugFunctionFound
+    }
+    // logging to the MailPoet table
+    $this->loggerFactory->getLogger(LoggerFactory::TOPIC_API)->warning($e->getMessage(), [
+      'requestMethod' => $this->requestMethod,
+      'requestEndpoint' => $this->requestEndpoint,
+      'exceptionMessage' => $e->getMessage(),
+      'exceptionTrace' => $e->getTrace(),
+    ]);
+  }
+}

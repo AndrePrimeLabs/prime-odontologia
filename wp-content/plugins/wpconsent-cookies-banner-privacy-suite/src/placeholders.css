@@ -1,0 +1,96 @@
+.wpforms-form .wpconsent-iframe-placeholder,
+div.wpforms-container-full .wpconsent-iframe-placeholder,
+.wpconsent-iframe-placeholder {
+	position: relative;
+	display: inline-block;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	overflow: hidden;
+
+	&.wpconsent-iframe-placeholder-recaptcha {
+		width: 302px;
+		height: 76px;
+	}
+}
+
+.wp-block-embed__wrapper {
+	.wpconsent-iframe-placeholder {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+}
+
+.wpforms-form .wpconsent-iframe-thumbnail,
+div.wpforms-container-full .wpconsent-iframe-thumbnail,
+.wpconsent-iframe-thumbnail {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.wpforms-form .wpconsent-iframe-overlay,
+div.wpforms-container-full .wpconsent-iframe-overlay
+.wpconsent-iframe-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+}
+
+.wpforms-form .wpconsent-iframe-overlay-content,
+div.wpforms-container-full .wpconsent-iframe-overlay-content,
+.wpconsent-iframe-overlay-content {
+	text-align: center;
+	padding: 20px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 5;
+}
+
+.wpconsent-iframe-overlay-content.wpconsent-content-hidden {
+	visibility: hidden;
+}
+
+.wpforms-form .wpconsent-iframe-accept-button,
+div.wpforms-container-full .wpconsent-iframe-accept-button,
+.wpconsent-iframe-accept-button {
+	background-color: var(--wpconsent-accept-bg);
+	color: var(--wpconsent-accept-color);
+	border: none;
+	padding: 12px 24px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background-color 0.2s ease;
+}
+
+/* Hide thumbnail and overlay when iframe is loaded */
+.wpconsent-iframe-placeholder iframe[src] + .wpconsent-iframe-thumbnail,
+.wpconsent-iframe-placeholder iframe[src] + .wpconsent-iframe-thumbnail + .wpconsent-iframe-overlay {
+	display: none;
+}

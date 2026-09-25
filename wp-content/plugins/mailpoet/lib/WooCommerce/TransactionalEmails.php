@@ -1,0 +1,198 @@
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing
+
+namespace MailPoet\WooCommerce;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\Config\Env;
+use MailPoet\Entities\NewsletterEntity;
+use MailPoet\Newsletter\NewslettersRepository;
+use MailPoet\Settings\SettingsController;
+use MailPoet\WooCommerce\TransactionalEmails\Template;
+use MailPoet\WP\Functions as WPFunctions;
+
+class TransactionalEmails {
+  const SETTING_EMAIL_ID = 'woocommerce.transactional_email_id';
+
+  /**
+   * Tokens resolvable by resolvePlaceholdersInFooterText(). Deliberately excludes
+   * {order_date}/{order_number}: those are only meaningful in email headings
+   * (see replacePlaceholders()), and resolving them in footer/migrated content
+   * would bake a fixed, wrong value into saved template text.
+   */
+  const FOOTER_PLACEHOLDER_TOKENS = [
+    '{site_title}',
+    '{site_address}',
+    '{site_url}',
+    '{store_address}',
+    '{store_email}',
+    '{woocommerce}',
+    '{WooCommerce}',
+  ];
+
+  /** @var WPFunctions */
+  private $wp;
+
+  /** @var SettingsController */
+  private $settings;
+
+  /** @var Template */
+  private $template;
+
+  /** @var Helper */
+  private $woocommerceHelper;
+
+  /** @var array */
+  private $emailHeadings = [];
+
+  /** @var NewslettersRepository */
+  private $newslettersRepository;
+
+  public function __construct(
+    WPFunctions $wp,
+    SettingsController $settings,
+    Template $template,
+    Helper $woocommerceHelper,
+    NewslettersRepository $newslettersRepository
+  ) {
+    $this->wp = $wp;
+    $this->settings = $settings;
+    $this->template = $template;
+    $this->woocommerceHelper = $woocommerceHelper;
+    $this->newslettersRepository = $newslettersRepository;
+  }
+
+  public function setupEmailHeadings() {
+    $this->emailHeadings = [
+      'new_account' => [
+        'option_name' => 'woocommerce_new_order_settings',
+        'default' => __('New Order: #{order_number}', 'woocommerce'),
+      ],
+      'processing_order' => [
+        'option_name' => 'woocommerce_customer_processing_order_settings',
+        'default' => __('Thank you for your order', 'woocommerce'),
+      ],
+      'completed_order' => [
+        'option_name' => 'woocommerce_customer_completed_order_settings',
+        'default' => __('Thanks for shopping with us', 'woocommerce'),
+      ],
+      'customer_note' => [
+        'option_name' => 'woocommerce_customer_note_settings',
+        'default' => __('A note has been added to your order', 'woocommerce'),
+      ],
+    ];
+  }
+
+  public function init() {
+    $savedEmailId = (bool)$this->settings->get(self::SETTING_EMAIL_ID, false);
+    if (!$savedEmailId) {
+      $email = $this->createNewsletter();
+      $this->settings->set(self::SETTING_EMAIL_ID, $email->getId());
+    }
+  }
+
+  public function getEmailHeadings() {
+    if (empty($this->emailHeadings)) {
+      $this->setupEmailHeadings();
+    }
+
+    $values = [];
+    foreach ($this->emailHeadings as $name => $heading) {
+      $settings = $this->wp->getOption($heading['option_name']);
+      if (!$settings) {
+        $values[$name] = $this->replacePlaceholders($heading['default']);
+      } else {
+        $value = !empty($settings['heading']) ? $settings['heading'] : $heading['default'];
+        $values[$name] = $this->replacePlaceholders($value);
+      }
+    }
+    return $values;
+  }
+
+  private function createNewsletter() {
+    $wcEmailSettings = $this->getWCEmailSettings();
+    $newsletter = new NewsletterEntity;
+    $newsletter->setType(NewsletterEntity::TYPE_WC_TRANSACTIONAL_EMAIL);
+    $newsletter->setSubject('WooCommerce Transactional Email');
+    $newsletter->setBody($this->template->create($wcEmailSettings));
+    $this->newslettersRepository->persist($newsletter);
+    $this->newslettersRepository->flush();
+    return $newsletter;
+  }
+
+  private function replacePlaceholders($text) {
+    $text = $this->resolveSitePlaceholders($text);
+    $text = str_replace(['{woocommerce}', '{WooCommerce}'], 'WooCommerce', $text);
+    $replacements = [
+      '{order_date}' => date('Y-m-d'),
+      '{order_number}' => '0001',
+    ];
+    return str_replace(array_keys($replacements), array_values($replacements), $text);
+  }
+
+  private function resolveSitePlaceholders(string $text): string {
+    $title = $this->wp->wpSpecialcharsDecode($this->wp->getOption('blogname'), ENT_QUOTES);
+    $address = $this->wp->wpParseUrl($this->wp->homeUrl(), PHP_URL_HOST);
+    $replacements = [
+      '{site_title}' => $title,
+      '{site_address}' => $address,
+      '{site_url}' => $address,
+    ];
+    // Resolved lazily: they require WooCommerce to be loaded, unlike the placeholders above.
+    if (strpos($text, '{store_address}') !== false) {
+      $replacements['{store_address}'] = $this->woocommerceHelper->wcGetStoreAddress();
+    }
+    if (strpos($text, '{store_email}') !== false) {
+      $replacements['{store_email}'] = $this->woocommerceHelper->wcGetStoreEmail();
+    }
+    return str_replace(array_keys($replacements), array_values($replacements), $text);
+  }
+
+  public function getWCEmailSettings() {
+    $wcEmailSettings = [
+      'woocommerce_email_background_color' => '#f7f7f7',
+      'woocommerce_email_base_color' => '#333333',
+      'woocommerce_email_body_background_color' => '#ffffff',
+      'woocommerce_email_footer_text' => _x('Footer text', 'Default footer text for a WooCommerce transactional email', 'mailpoet'),
+      'woocommerce_email_header_image' => Env::$assetsUrl . '/img/newsletter_editor/wc-default-logo.png',
+      'woocommerce_email_text_color' => '#111111',
+    ];
+    $result = [];
+    foreach ($wcEmailSettings as $name => $default) {
+      $value = $this->wp->getOption($name);
+      $key = preg_replace('/^woocommerce_email_/', '', $name);
+      $result[$key] = $value ?: $default;
+    }
+    $result['base_text_color'] = $this->woocommerceHelper->wcLightOrDark($result['base_color'], '#202020', '#ffffff');
+    if ($this->woocommerceHelper->wcHexIsLight($result['body_background_color'])) {
+      $result['link_color'] = $this->woocommerceHelper->wcHexIsLight($result['base_color']) ? $result['base_text_color'] : $result['base_color'];
+    } else {
+      $result['link_color'] = $this->woocommerceHelper->wcHexIsLight($result['base_color']) ? $result['base_color'] : $result['base_text_color'];
+    }
+    $result['footer_text'] = $this->resolvePlaceholdersInFooterText($result['footer_text']);
+    // The footer text is placed inside a paragraph in a text block so we keep only tags we allow in the text block in the newsletter editor
+    $result['footer_text'] = strip_tags($result['footer_text'], '<em><strong><br><a><span><s><del>');
+    return $result;
+  }
+
+  /**
+   * Only replaces placeholder tokens, without strip_tags(). getWCEmailSettings() applies
+   * strip_tags() separately for newly-generated footer settings; Migration_20260826_120000_App
+   * also calls this directly on already-persisted, already-formatted footer blocks, where
+   * strip_tags() would strip surrounding markup (e.g. the wrapping <p style="...">) that was
+   * never meant to be re-sanitized.
+   *
+   * Deliberately uses resolveSitePlaceholders() rather than replacePlaceholders(): footer/migrated
+   * content must never have {order_date}/{order_number} rewritten into it (see FOOTER_PLACEHOLDER_TOKENS).
+   */
+  public function resolvePlaceholdersInFooterText(string $text): string {
+    // WooCommerce's own WC_Emails::replace_placeholders() links these; matched here so footer text stays consistent with core.
+    $text = str_replace(
+      ['{woocommerce}', '{WooCommerce}'],
+      '<a href="https://woocommerce.com">WooCommerce</a>',
+      $text
+    );
+    return $this->resolveSitePlaceholders($text);
+  }
+}

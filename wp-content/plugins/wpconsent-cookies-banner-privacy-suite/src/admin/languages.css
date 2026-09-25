@@ -1,0 +1,131 @@
+.wpconsent-language-settings {
+	margin-top: 10px;
+	margin-bottom: 30px;
+
+	svg.wpconsent-icon {
+		vertical-align: text-top;
+		path {
+			fill: #777;
+		}
+	}
+}
+
+.wpconsent-language-selector {
+	margin-top: 15px;
+}
+
+.wpconsent-language-search {
+	margin-bottom: 15px;
+}
+
+.wpconsent-language-setting-list {
+	max-height: 300px;
+	overflow-y: auto;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 10px;
+}
+
+.wpconsent-language-section {
+	margin-bottom: 15px;
+}
+
+.wpconsent-language-section:last-child {
+	margin-bottom: 0;
+}
+
+.wpconsent-language-section-title {
+	font-weight: 600;
+	color: #1d2327;
+	padding: 8px;
+	background: #f0f0f1;
+	border-radius: 4px;
+	margin-bottom: 8px;
+}
+
+.wpconsent-language-settings .wpconsent-language-item {
+	padding: 8px;
+	border-bottom: 1px solid #eee;
+	display: flex;
+	align-items: center;
+	min-height: 44px;
+}
+
+.wpconsent-language-item:last-child {
+	border-bottom: none;
+}
+
+.wpconsent-language-default {
+	background-color: #f0f6fc;
+}
+
+.wpconsent-language-default input[type="checkbox"] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.wpconsent-language-default-badge {
+	display: inline-block;
+	background: #2271b1;
+	color: white;
+	padding: 2px 6px;
+	border-radius: 3px;
+	font-size: 12px;
+	margin-left: 8px;
+}
+
+.wpconsent-language-locale {
+	color: #666;
+	font-size: 0.9em;
+	margin-left: 4px;
+}
+
+.wpconsent-language-native-name {
+	color: #666;
+	font-size: 0.9em;
+}
+
+.wpconsent-language-settings .wpconsent-checkbox-label {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	flex: 1;
+	min-width: 0;
+}
+
+.wpconsent-checkbox-text {
+	margin-left: 8px;
+}
+
+.wpconsent-language-default .wpconsent-checkbox-label {
+	cursor: not-allowed;
+}
+
+.wpconsent-language-actions {
+	display: flex;
+	gap: 8px;
+	margin-left: auto;
+	flex-shrink: 0;
+	align-items: center;
+}
+
+.wpconsent-language-actions .wpconsent-button {
+	white-space: nowrap;
+}
+
+/* Make translate button appear disabled for Basic/no license. */
+.wpconsent-translation-restricted .wpconsent-translate-language {
+	opacity: 0.5;
+	cursor: not-allowed;
+	position: relative;
+}
+
+.wpconsent-translation-restricted .wpconsent-translate-language::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	cursor: not-allowed;
+}

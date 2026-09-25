@@ -1,0 +1,23 @@
+{
+  "description": "Apply schema objects in this order (state-based deploy).",
+  "tables": [
+    "00_extensions.sql",
+    "01_auth_profiles.sql",
+    "02_clinical.sql",
+    "03_crm.sql",
+    "04_finance.sql",
+    "05_marketing.sql",
+    "06_operations.sql",
+    "07_platform.sql"
+  ],
+  "views": [
+    "active_customers.sql",
+    "upcoming_appointments.sql"
+  ],
+  "functions": [
+    "set_updated_date.sql"
+  ],
+  "procedures": [
+    "refresh_customer_metrics.sql"
+  ]
+}

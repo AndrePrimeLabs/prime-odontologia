@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  clara-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+      args:
+        USE_CUDA: "1"   # set to "0" to build CPU-only
+    image: primeos-agent:latest
+    restart: unless-stopped
+    # Using host networking simplifies access to local devices; remove if undesirable
+    network_mode: "host"
+    volumes:
+      - ./models:/models   # place your GGML model files here (e.g., ggml-model-q4_0.bin)
+      - /tmp:/tmp
+    environment:
+      - BACKEND_URL=https://api.primeodontologia.com.br
+      - PRIMEOS_API_KEY=replace_with_key
+    # When running with docker-compose, use `docker compose up -d --build` and ensure
+    # the host has NVIDIA container toolkit configured; if not, build on-device and run with --gpus all:
+    # docker run --gpus all -v $(pwd)/models:/models --network host -e BACKEND_URL=... primeos-agent:latest
+
+networks:
+  default:
+    external: false

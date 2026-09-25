@@ -1,0 +1,65 @@
+/**
+ * Admin notices styles.
+ */
+
+.wpconsent-notice-top-area .notice-top {
+	margin: 0;
+	border: 0;
+	box-shadow: none;
+	background-color: #dddddd;
+	color: var(--wpconsent-text-color-heading);
+	text-align: center;
+}
+
+.wpconsent-notice-title {
+	margin-top: 20px;
+	margin-bottom: 15px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #23282d;
+}
+
+.wpconsent-notice a {
+	color: var(--wpconsent-color-primary);
+	text-decoration: none;
+}
+#wpconsent-notice-wpconsent-dashboard-pro {
+	margin: 24px 0 36px;
+	border-left: 1px solid #c3c4c7;
+	.wpconsent-discount-text{
+		color:#59A56D;
+	}
+	h3 {
+		font-size: 18px;
+		font-weight: 700;
+	}
+	p {
+		font-size: 14px;
+		margin: 0 0 16px;
+		color: #2c3338;
+	}
+	h6 {
+		font-weight: 700;
+		font-size: 14px;
+		margin: 0;
+	}
+	.wpconsent-features-list {
+		display: flex;
+		justify-content: space-between;
+		max-width: 1000px;
+
+		ul {
+			margin-right: 12px;
+		}
+
+		li {
+			font-size: 14px;
+			margin-bottom: 15px;
+			&:before {
+				content: '+';
+				margin-right: 5px;
+				vertical-align: middle;
+			}
+		}
+	}
+}

@@ -1,0 +1,34 @@
+# Translation of Plugins - Layout Grid Block - Development (trunk) in Chinese (China)
+# This file is distributed under the same license as the Plugins - Layout Grid Block - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-02-07 15:54:07+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.0-alpha.11\n"
+"Language: zh_CN\n"
+"Project-Id-Version: Plugins - Layout Grid Block - Development (trunk)\n"
+
+#: block.json
+msgctxt "block description"
+msgid "A Gutenberg container block to let you align items consistently across a global grid."
+msgstr "古腾堡容器区块可让您在全局网格中一致地对齐项目。"
+
+#: block.json
+msgctxt "block title"
+msgid "Layout Grid"
+msgstr "布局网格"
+
+#. Author URI of the plugin
+msgid "https://automattic.com"
+msgstr "https://automattic.com"
+
+#. Author of the plugin
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Description of the plugin
+msgid "Let any blocks align to a global grid"
+msgstr "让任何区块对齐到全局网格"

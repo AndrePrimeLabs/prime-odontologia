@@ -1,0 +1,157 @@
+.wpconsent-metabox {
+	background: var(--wpconsent-background-white);
+	border: 1px solid var(--wpconsent-border-color);
+	border-radius: 4px;
+	margin-bottom: var(--wpconsent-space-h);
+}
+
+.wpconsent-metabox-title {
+	align-items: center;
+	border-bottom: 1px solid var(--wpconsent-border-color);
+	display: flex;
+	justify-content: space-between;
+	/* Stated here rather than inherited from the inert collapse toggle, which is
+	   hidden on headers that carry actions. 60px toggle box + 1px border, so
+	   every header keeps the height it had before. */
+	min-height: 61px;
+}
+
+.wpconsent-metabox-title-text {
+	color: var(--wpconsent-text-color-heading);
+	font-size: var(--wpconsent-font-size-m);
+	font-weight: 600;
+	padding: 0 var(--wpconsent-space-v);
+}
+
+.wpconsent-metabox-button-toggle {
+	background-color: var(--wpconsent-background-white);
+	border: none;
+	cursor: pointer;
+	height: 60px;
+	margin: 0;
+	text-align: center;
+	width: 60px;
+
+	.wpconsent-metabox-collapsed & {
+		svg {
+			transform: rotate(180deg);
+		}
+	}
+}
+
+.wpconsent-metabox-content {
+	padding: var(--wpconsent-space-v);
+	padding-bottom: 0;
+
+	.wpconsent-metabox-collapsed & {
+		display: none;
+	}
+
+	p:first-child {
+		margin-top: 0;
+	}
+
+	.notice {
+		margin: 24px 0;
+
+		p {
+			margin: 0.5em 0;
+		}
+	}
+}
+
+.wpconsent-metabox-form {
+	.wpconsent-metabox-form-row {
+		max-width: 670px;
+	}
+}
+
+.wpconsent-metabox-form-row {
+	display: flex;
+	margin-bottom: var(--wpconsent-space-v);
+
+	@media screen and (max-width: 782px) {
+		flex-flow: wrap;
+	}
+}
+
+.wpconsent-metabox-form-row-label {
+	flex-shrink: 0;
+	width: 160px;
+
+	@media screen and (max-width: 782px) {
+		margin-bottom: 6px;
+	}
+
+	label {
+		color: var(--wpconsent-text-color-heading);
+		font-size: var(--wpconsent-font-size-s);
+		font-weight: 600;
+		margin-top: 10px;
+		display: inline-block;
+	}
+}
+
+.wpconsent-metabox-row-2columns {
+	max-width: 720px;
+	display: flex;
+	flex-flow: wrap;
+
+	.wpconsent-metabox-form-row {
+		width: 50%;
+	}
+
+	.wpconsent-metabox-form-row-input {
+
+		select {
+			min-width: 170px;
+			height: 40px
+		}
+	}
+}
+
+.wpconsent-metabox-title-actions {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-left: auto;
+	padding: 0 var(--wpconsent-space-v);
+
+	/* The collapse toggle is inert and invisible but still reserves 60px, which
+	   would push these actions out of line with the content below. */
+	& ~ .wpconsent-metabox-title-toggle {
+		display: none;
+	}
+
+	.wpconsent-metabox-title-note {
+		font-size: var(--wpconsent-font-size-xs);
+		color: var(--wpconsent-text-color-paragraph);
+	}
+
+	.wpconsent-metabox-title-link {
+		font-size: var(--wpconsent-font-size-s);
+		font-weight: 700;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+}
+
+.wpconsent-metabox-title-toggle {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.wpconsent-metabox-form-row-separator {
+	border-bottom: 1px solid var(--wpconsent-border-color);
+	margin-top: 6px;
+	margin-bottom: 30px;
+}
+
+.wpconsent-input-area-description {
+	font-size: 14px;
+	line-height: 1.2;
+	color: #051F3199;
+	margin-top: 10px;
+	display: inline-block;
+	font-weight: 500;
+}

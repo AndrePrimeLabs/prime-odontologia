@@ -1,0 +1,998 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Big Sky\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:25:55+00:00\n"
+"PO-Revision-Date: 2026-09-09 09:55:51+0000\n"
+"Language: he_IL\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:74
+msgid "Here is the visible area of the canvas. Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "זהו האזור הגלוי של משטח העבודה. תצלומים מוצגים כתיבות מציין מקום שטוחות בגודלם האמיתי, לכן יש להתייחס לכל מלבן אפור כאל תמונה שקיימת, ולא כאל תמונה חסרה."
+
+#. %d: number of blocks framed in the screenshot.
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:73
+msgid "Here is the canvas around %d block(s). Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "הנה משטח העבודה סביב %d בלוקים. תצלומים מוצגים כתיבות מציין מקום שטוחות בגודלם האמיתי, לכן יש להתייחס לכל מלבן אפור כאל תמונה שקיימת, ולא כאל תמונה חסרה."
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:61
+msgid "Here is the whole page, top to bottom. It is scaled down to fit, so body text will not be legible — read it for colour, type scale, spacing and section rhythm, and take an ordinary picture of a specific area when wording or fine detail matters. Photographs are shown as flat placeholder boxes at their real size."
+msgstr "זהו העמוד כולו, מלמעלה עד למטה. הוא מוקטן כדי להתאים למסך, ולכן טקסט הגוף לא יהיה קריא — יש להשתמש בו כדי לבחון צבעים, קנה מידה טיפוגרפי, מרווחים וקצב בין מקטעים, ולצלם תמונה רגילה של אזור מסוים כאשר הניסוח או פרטים קטנים חשובים. תצלומים מוצגים כתיבות מציין מקום שטוחות בגודלם האמיתי."
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:47
+msgid "I couldn't get a picture of the canvas just now."
+msgstr "לא הצלחתי לצלם את משטח העבודה כרגע."
+
+#: src/abilities/capture-canvas/index.ts:18
+msgid "Takes a picture of the editor canvas as it currently renders, including unsaved changes. Use it to check how the page actually looks when the block data alone cannot answer that — after changing styles, colours, spacing or CSS, or whenever a reported problem is visual. Pass fullPage to see the whole page at once, which is what a theme or global styles change needs checking against. Photographs are replaced by flat placeholder boxes at their real size."
+msgstr "פעולה זו מצלמת תמונה של משטח העבודה של העורך כפי שהוא מוצג כרגע, כולל שינויים שטרם נשמרו. השתמשו באפשרות זו כדי לבדוק כיצד העמוד נראה בפועל כאשר נתוני הבלוקים לבדם אינם מספקים תשובה — לאחר שינוי סגנונות, צבעים, מרווחים או CSS, או בכל פעם שהבעיה המדווחת היא חזותית. יש להעביר את fullPage כדי לראות את העמוד כולו בבת אחת — זה מה שצריך לבדוק לאחר שינוי בערכת העיצוב או בסגנונות הגלובליים. תצלומים מוחלפים בתיבות מציין מקום שטוחות בגודלם האמיתי."
+
+#: src/abilities/capture-canvas/index.ts:16
+msgid "Capture Canvas"
+msgstr "צילום משטח העבודה"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:55
+msgid "Are there any changes you would like me to make?"
+msgstr "האם יש שינויים שברצונך לבצע?"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:54
+msgid "Your site is ready! Please click around and check it out."
+msgstr "האתר שלך מוכן! כדאי לנסות ללחוץ בכל מיני מקומות כדי לבדוק אותו."
+
+#: src/easy-mode/components/app.tsx:439
+msgid "Switching to edit mode so you can watch the new design being built."
+msgstr "אנחנו עוברים למצב עריכה כדי שיהיה אפשר לצפות בתהליך בניית העיצוב החדש."
+
+#: src/easy-mode/components/topbar.tsx:698
+msgid "Return to WP Admin"
+msgstr "חזרה אל ניהול WP"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:313
+msgid "Personalize my site copy with my details."
+msgstr "התאם אישית את תוכן האתר שלי באמצעות הפרטים שלי."
+
+#: src/easy-mode/hooks/use-save-controller.ts:121
+msgid "Your changes could not be saved. Your work is still here — try saving again."
+msgstr "לא ניתן היה לשמור את השינויים שביצעת. העבודה שלך עדיין כאן — יש לנסות לשמור שוב."
+
+#: src/easy-mode/hooks/use-save-controller.ts:120
+msgid "Some changes could not be saved. Your work is still here — try saving again."
+msgstr "לא ניתן היה לשמור חלק מהשינויים. העבודה שלך עדיין כאן — יש לנסות לשמור שוב."
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:66
+msgid "Save your changes?"
+msgstr "האם לשמור את השינויים שלך?"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:33
+msgid "You need to save or discard the changes to the current page."
+msgstr "יש לשמור או למחוק את השינויים בעמוד הנוכחי."
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:32
+msgid "The preview shows your saved site, so unsaved changes won’t appear there."
+msgstr "התצוגה המקדימה מציגה את האתר השמור שלך, ולכן שינויים שלא נשמרו לא יופיעו בה."
+
+#: src/easy-mode/components/topbar.tsx:763
+msgid "Save draft"
+msgstr "לשמור טיוטה"
+
+#: src/easy-mode/components/topbar.tsx:749
+msgid "Publish"
+msgstr "פרסום"
+
+#: src/easy-mode/components/topbar.tsx:713
+msgid "Redo"
+msgstr "בצע שוב"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Open in a new tab"
+msgstr "לפתוח בלשונית חדשה"
+
+#: src/easy-mode/components/topbar.tsx:68
+msgid "Mode"
+msgstr "מצב"
+
+#. %s: selected device, e.g. Desktop.
+#: src/easy-mode/components/topbar.tsx:743
+msgid "Responsive view: %s"
+msgstr "תצוגה רספונסיבית: %s"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Responsive view"
+msgstr "תצוגה רספונסיבית"
+
+#: src/easy-mode/components/topbar.tsx:725
+msgid "Reload preview"
+msgstr "טעינה מחדש של התצוגה המקדימה"
+
+#: src/easy-mode/components/topbar.tsx:696
+msgid "Annotate"
+msgstr "הוספת ביאורים"
+
+#. %d: number of annotations waiting to be sent.
+#: src/easy-mode/components/topbar.tsx:694
+msgid "Resume annotating, %d pending"
+msgid_plural "Resume annotating, %d pending"
+msgstr[0] "המשך להוסיף ביאורים, %d בהמתנה"
+msgstr[1] "המשך להוסיף ביאורים, %d בהמתנה"
+
+#: src/easy-mode/components/topbar.tsx:689
+msgid "Chat is unavailable"
+msgstr "הצ'אט אינו זמין"
+
+#: src/easy-mode/components/topbar.tsx:56
+msgid "Mobile"
+msgstr "מובייל"
+
+#: src/easy-mode/components/topbar.tsx:55
+msgid "Tablet"
+msgstr "טאבלט"
+
+#: src/easy-mode/components/topbar.tsx:54
+msgid "Desktop"
+msgstr "דסקטופ"
+
+#: src/easy-mode/components/topbar.tsx:50
+msgid "Preview"
+msgstr "תצוגה מקדימה"
+
+#: src/easy-mode/components/preview-overlay.tsx:147
+msgid "The site preview could not be loaded."
+msgstr "לא ניתן היה לטעון את התצוגה המקדימה של האתר."
+
+#: src/easy-mode/components/page-switcher.tsx:116
+msgid "(no title)"
+msgstr "(חסרה כותרת)"
+
+#. %s: page title.
+#: src/easy-mode/components/page-switcher.tsx:113
+msgid "%s — Draft"
+msgstr "%s — טיוטה"
+
+#. %s: page currently open.
+#: src/easy-mode/components/page-switcher.tsx:99
+msgid "Switch page. Current page: %s"
+msgstr "החלף עמוד. עמוד נוכחי: %s"
+
+#: src/easy-mode/components/page-switcher.tsx:76
+msgid "Switch page"
+msgstr "החלפת עמוד"
+
+#: src/easy-mode/components/app.tsx:301
+msgid "Switching to edit mode so you can see the changes."
+msgstr "מתבצע מעבר למצב עריכה כדי לאפשר לך להציג את השינויים."
+
+#: src/easy-mode/components/app.tsx:300
+msgid "Switching to edit mode so you can approve the changes before saving."
+msgstr "מתבצע מעבר למצב עריכה כדי לאפשר לך לאשר את השינויים לפני השמירה."
+
+#: src/easy-mode/annotations/use-editor-annotations.ts:153
+msgid "Annotations could not be sent — the assistant is unavailable."
+msgstr "לא ניתן היה לשלוח את הביאורים — הסייען אינו זמין."
+
+#. %d: number of annotations.
+#: src/easy-mode/annotations/prompt.ts:82
+msgid "%d annotation submitted"
+msgid_plural "%d annotations submitted"
+msgstr[0] "הערה %d נשלחה"
+msgstr[1] "%d הערות נשלחו"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Annotating"
+msgstr "הוספת ביאורים"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Discard annotations"
+msgstr "ביטול ביאורים"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Exit annotation mode"
+msgstr "יציאה ממצב ביאור"
+
+#. %d: number of annotations to send.
+#: src/easy-mode/annotations/annotation-topbar.tsx:21
+msgid "Send %d annotation"
+msgid_plural "Send %d annotations"
+msgstr[0] "שליחת ביאור %d"
+msgstr[1] "שליחת %d ביאורים"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:18
+msgid "Sending…"
+msgstr "שולח..."
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:14
+msgid "Send"
+msgstr "שלח"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:566
+msgid "Save annotation"
+msgstr "שמירת ביאור"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:565
+msgid "Update annotation"
+msgstr "עדכון ביאור"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Delete annotation"
+msgstr "מחיקת ביאור"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Add a comment…"
+msgstr "להגיב"
+
+#. %s: label of the block being annotated.
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Annotate %s"
+msgstr "הוספת ביאורים ל%s"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:445
+msgid "Annotate blocks. Use the arrow keys to move between blocks, Enter to comment, and Escape to exit."
+msgstr "הוספת ביאורים לבלוקים. ניתן להשתמש במקשי החצים כדי לעבור בין בלוקים, Enter כדי להגיב ו-Escape כדי לצאת."
+
+#. 1: annotation number, 2: comment text.
+#: src/easy-mode/annotations/annotation-layer.tsx:367
+msgid "Annotation %1$d: %2$s"
+msgstr "ביאור ⁦%1$d⁩: %2$s"
+
+#. 1: block label, 2: position, 3: total count.
+#: src/easy-mode/annotations/annotation-layer.tsx:341
+msgid "%1$s, block %2$d of %3$d"
+msgstr "⁦%1$s⁩, בלוק ⁦%2$d⁩ מתוך ⁦%3$d⁩"
+
+#. %s: comma-separated list of navigation item identifiers that could not be
+#. resolved.
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:180
+msgid "Navigation items not found: %s. These are not in the menu or in the current page structure, so there is nothing to reorder them from — they are most likely from an earlier turn, or the header is not part of the page currently open in the editor. Read the page structure again and use the clientIds it returns, or identify each item by its url or label instead. This reorder was not applied."
+msgstr "פריטי ניווט לא נמצאו: %s. פריטים אלה אינם נמצאים בתפריט או במבנה העמוד הנוכחי, ולכן אין מה לסדר מחדש — סביר להניח שהם נותרו מפעולה קודמת, או שהכותרת אינה חלק מהעמוד שפתוח כעת בעורך. יש לקרוא שוב את מבנה העמוד ולהשתמש ב-clientIds שהוא מחזיר, או לזהות כל פריט לפי כתובת ה-URL או התווית שלו. סידור מחדש זה לא הוחל."
+
+#. Description of the plugin
+#: big-sky.php
+msgid "Your WordPress.com AI agent that helps with site setup, content, design, and more."
+msgstr "סוכן הבינה המלאכותית של WordPress.com שעוזר בהגדרת האתר, בתוכן, בעיצוב ועוד."
+
+#. Plugin Name of the plugin
+#: big-sky.php
+msgid "WordPress Agent"
+msgstr "סוכן WordPress"
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:23
+msgid "Invalid editor path. look up the numeric id from <site_pages>, then retry navigation with the numeric editor_path."
+msgstr "נתיב עורך לא תקף. יש לחפש את המזהה המספרי מתוך <site_pages>, ולאחר מכן לנסות שוב את הניווט באמצעות editor_path המספרי."
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:22
+msgid "Invalid editor path. Page navigation requires /page/{numeric-id}. Look up the page ID first."
+msgstr "נתיב עורך לא תקף. לניווט בעמוד נדרש /page/{numeric-id}‎. יש לחפש תחילה את מזהה העמוד."
+
+#: src/abilities/editor-navigate/index.ts:17
+msgid "Saves everything and navigates to the specified path in the editor. For page navigation, path must be a numeric editor path like \"/page/123\" or \"page/123\"; full URLs, slugs, \"all-pages\", and paths like \"/visit\" or \"/page/visit\" are invalid. If the user names a page and the current page is not the target, look up the numeric id from <site_pages> first, then navigate with the numeric editor path."
+msgstr "פעולה זו שומרת הכול ומנווטת לנתיב שצוין בעורך. לניווט בין עמודים, הנתיב חייב להיות נתיב עורך מספרי כמו ‎'/page/123'‎ או ‎'page/123'‎; כתובות URL מלאות, מזהים לכתובת, ‎'all-pages'‎ ונתיבים כמו ‎'/visit'‎ או ‎'/page/visit' אינם תקפים. אם המשתמש נותן שם לעמוד והעמוד הנוכחי אינו עמוד היעד, יש לחפש תחילה את המזהה המספרי מתוך <site_pages>, ולאחר מכן לנווט באמצעות נתיב העורך המספרי."
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:94
+msgid "I did not restore that checkpoint because it may replace or remove too much current content."
+msgstr "לא שחזרתי את נקודת הביקורת, מאחר שהיא עלולה להחליף או להסיר יותר מדי תוכן נוכחי."
+
+#: src/abilities/restore-checkpoint/index.ts:19
+msgid "Restores editor state from a checkpoint associated with a previous mutating tool call. Use for undo/redo requests. Prefer checkpointId values from clientContext.availableCheckpoints whose toolId matches the user intent: block-edit checkpoints for content changes, theme-update checkpoints for style/theme changes, and navigation/entity checkpoints for navigation/entity changes. For undo, use the checkpointId for the most recent relevant non-restore mutating Big Sky tool call. Only use a checkpoint whose toolId is big_sky__restore_checkpoint for explicit redo requests, because those checkpoints represent the state before a prior undo/restore. Pass requestIntentType to describe the user intent: \"undo\" for undo requests, \"redo\" for redo requests, or \"restore\" when restoring a specific checkpoint/version. The checkpoint ID usually starts with \"toolu_\". Do not use the current restore-checkpoint call ID, any id starting with \"call_\", a tool name/id, or calypsoCheckpointId/messageId. If the user reports missing homepage/footer/navigation content, do not rebuild or redesign unless the user explicitly agrees; try a relevant checkpoint, WordPress revisions, or support escalation instead."
+msgstr "פעולה זו משחזרת את מצב העורך מנקודת ביקורת המשויכת לקריאה קודמת של כלי שינוי. יש להשתמש באפשרות זו לבקשות ביטול/ביצוע מחדש. העדפת ערכי ‎checkpointId‎ מתוך ‎clientContext.availableCheckpoints‎ שבהם ‎toolId‎ תואם לכוונת המשתמש: נקודות ביקורת של עריכת בלוקים עבור שינויים בתוכן, נקודות ביקורת של עדכון ערכת עיצוב עבור שינויים בסגנון/בערכת העיצוב, ונקודות ביקורת של ניווט/ישות עבור שינויים הקשורים לניווט או לישויות. לביטול הפעולה, יש להשתמש ב-‎checkpointId‎ של קריאת כלי Big Sky האחרונה והרלוונטית שביצעה שינוי ואינה פעולת שחזור. יש להשתמש רק בנקודת ביקורת שבה ערך ה-toolId הוא big_sky__restore_checkpoint עבור בקשות מפורשות לביצוע מחדש, מכיוון שנקודות ביקורת אלו מייצגות את המצב שלפני פעולת ביטול פעולה/שחזור. יש להעביר את ‎requestIntentType‎ כדי לתאר את כוונת המשתמש: 'undo' עבור בקשות ביטול, 'redo' עבור בקשות ביצוע מחדש, או 'restore' בעת שחזור נקודת ביקורת/גרסה ספציפית. מזהה נקודת הביקורת מתחיל בדרך כלל ב-'toolu_‎'. אין להשתמש במזהה קריאת השחזור הנוכחית, בכל מזהה שמתחיל ב-‎'call_'‎, בשם/מזהה של כלי או ב-‎calypsoCheckpointId‎/‎messageId‎. אם המשתמש מדווח על תוכן חסר בעמוד הבית, בכותרת התחתונה או בניווט, אין לבנות מחדש או לעצב מחדש אלא אם המשתמש מסכים לכך במפורש; יש לנסות להשתמש בנקודת ביקורת רלוונטית או בגרסאות קודמות של WordPress, או להסלים לתמיכה."
+
+#: src/abilities/stream-page-design/index.ts:23
+msgid "The editor is still loading. Try the page design again once the page is editable."
+msgstr "העורך עדיין בתהליך טעינה. יש לנסות שוב לעצב את העמוד כאשר העמוד יהיה זמין לעריכה."
+
+#: src/abilities/stream-page-design/index.ts:22
+msgid "The generated page content has been staged in the editor for review."
+msgstr "תוכן הדף שנוצר הוצב בעורך לצורך סקירה ואישור."
+
+#: src/abilities/stream-page-design/index.ts:21
+msgid "Stream Page Design"
+msgstr "עיצוב עמודים יעיל"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1372
+msgid "The requested changes were already applied."
+msgstr "השינויים המבוקשים כבר הוחלו."
+
+#: src/components/open-help-center-button.tsx:20
+msgid "Open Help Center"
+msgstr "פתיחת מרכז העזרה"
+
+#: src/abilities/open-help-center.ts:200
+msgid "Get help"
+msgstr "קבלת עזרה"
+
+#: src/abilities/open-help-center.ts:144
+msgid "Show the user a button they can click to open WordPress.com Help Center chat when they ask to talk to a human, contact support, or get help from a person. This ability does not open Help Center automatically."
+msgstr "הצגת כפתור למשתמש שעליו הוא יכול ללחוץ כדי לפתוח את צ'אט מרכז העזרה של WordPress.com כאשר הוא מבקש לדבר עם נציג אנושי, ליצור קשר עם התמיכה או לקבל עזרה מאדם. אפשרות זו אינה פותחת את מרכז העזרה באופן אוטומטי."
+
+#: src/abilities/open-help-center.ts:142
+msgid "Show Help Center chat button"
+msgstr "הצגת כפתור צ'אט מרכז העזרה"
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:49
+msgid "I could not find a checkpoint for that ID."
+msgstr "לא הצלחתי למצוא נקודת שמירה עבור מזהה זה."
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:39
+msgid "I could not restore the checkpoint because no checkpoint ID was provided."
+msgstr "לא הצלחתי לשחזר את נקודת השמירה, מאחר שלא סופק מזהה נקודת ביקורת."
+
+#: src/abilities/restore-checkpoint/index.ts:17
+msgid "Restore Checkpoint"
+msgstr "שחזור לנקודת שמירה"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:580
+msgid "Awaiting user confirmation before making this change."
+msgstr "ממתין לאישור המשתמש לפני ביצוע השינוי."
+
+#: src/abilities/site-logo/set-site-logo.ts:71
+msgid "There was an error with this request."
+msgstr "אירעה שגיאה בבקשה זו."
+
+#: src/abilities/site-logo/set-site-logo.ts:58
+msgid "Logo set successfully"
+msgstr "הלוגו הוגדר בהצלחה"
+
+#: src/abilities/show-component/show-component.tsx:175
+msgid "Choose from the options I provided."
+msgstr "יש לבחור מבין האפשרויות שסיפקתי."
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:592
+msgid "Updated the entity records."
+msgstr "רשומות הישות עודכנו."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:442
+#: src/components/dock/index.js:429
+msgid "New chat"
+msgstr "צ'אט חדש"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:59
+msgid "How can you help me?"
+msgstr "איך אפשר לעזור לי?"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:53
+msgid "What should I do next?"
+msgstr "מה כדאי לי לעשות בשלב הבא?"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:457
+msgid "Welcome to your new store! I'm your personal AI assistant. How can I help you?"
+msgstr "ברוך בואך לחנות החדשה שלך! אני עוזרת הבינה המלאכותית האישית שלך. איך אוכל לעזור?"
+
+#: src/components/product-card/ProductCard.tsx:51
+#: src/components/site-spec-landing/index.js:345
+msgid "Loading…"
+msgstr "טוען..."
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:99
+msgid "Help me to connect PayPal Payments to my store"
+msgstr "אני רוצה לעזור לך לחבר את PayPal Payments לחנות שלי"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:98
+msgid "Connect PayPal Payments to my store"
+msgstr "לחבר את PayPal Payments לחנות שלי"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:93
+msgid "Recommend shipping zones and methods for my store"
+msgstr "להמליץ על אזורי משלוח ושיטות עבור החנות שלי"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:92
+msgid "Set up shipping rates"
+msgstr "הגדרת תעריפי משלוח"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:87
+msgid "Set my product pricing"
+msgstr "קבע את תמחור המוצר שלי"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:81
+msgid "Help me to write a product description"
+msgstr "תעזרו לי לכתוב תיאור מוצר"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:80
+msgid "Write a product description"
+msgstr "לכתוב תיאור למוצר"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:75
+msgid "Help me to create a product"
+msgstr "עזור לי ליצור מוצר"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:22
+msgid "Failed to make the theme update. Please try again."
+msgstr "נכשל בעדכון ערכת הנושא. יש לנסות שוב."
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:67
+msgid "Add to post"
+msgstr "להוסיף לפוסט"
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:60
+msgid "Replace selected image"
+msgstr "החלפת התמונה שנבחרה"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat"
+msgstr "להתחיל צ'אט חדש"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat to begin"
+msgstr "התחל צ'אט חדש כדי להתחיל"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "No past conversations"
+msgstr "אין שיחות קודמות"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Failed to load conversations. Please try again."
+msgstr "הטעינה של השיחות נכשלה. יש לנסות שוב."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:449
+msgid "Past chats"
+msgstr "צ'אטים קודמים"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:276
+msgid "Failed to upload images. Please try again."
+msgstr "העלאת התמונות נכשלה. יש לנסות שוב."
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:37
+msgid "Tell me what you can do for me"
+msgstr "מה אפשר לעשות עבורי"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:74
+msgid "Create a product"
+msgstr "יצירת מוצר"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:31
+msgid "Show me recent comments"
+msgstr "הצג לי תגובות אחרונות"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:30
+msgid "Review comments"
+msgstr "לבדוק תגובות"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:25
+msgid "Show me my site health status"
+msgstr "הראה לי את מצב הבריאות של האתר שלי"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:24
+msgid "Check site health"
+msgstr "לבדוק את תקינות האתר"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:19
+msgid "Help me create a new post"
+msgstr "תעזרו לי ליצור פוסט חדש"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:18
+msgid "Create content"
+msgstr "ליצור תוכן"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:13
+msgid "Show me my recent posts"
+msgstr "הציגו לי את הפוסטים האחרונים שלי"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:12
+msgid "Manage posts"
+msgstr "לנהל פוסטים"
+
+#: src/ai/hooks/suggestions-data.ts:91
+msgid "Remove the background from this image"
+msgstr "להסיר את הרקע מתמונה זו"
+
+#: src/ai/hooks/suggestions-data.ts:90
+msgid "Remove background"
+msgstr "להסיר רקע"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Discard"
+msgstr "ביטול"
+
+#: src/easy-mode/components/topbar.tsx:761
+msgid "Saving…"
+msgstr "שומר..."
+
+#: src/ai/wp-orchestrator/index.tsx:52
+msgid "Unable to authenticate with Jetpack. Please try again."
+msgstr "לא ניתן לאמת באמצעות Jetpack. כדאי לנסות שוב."
+
+#: src/ai/wp-orchestrator/index.tsx:50
+msgid "Network connection issue. Please check your internet connection and try again."
+msgstr "בעיה בחיבור לרשת. יש לבדוק את החיבור לאינטרנט ולנסות שוב."
+
+#: src/ai/wp-orchestrator/index.tsx:45
+msgid "Unable to connect to Jetpack. Please ensure Jetpack is active and up to date."
+msgstr "לא ניתן לחבר אל Jetpack. נא לוודא כי Jetpack פעיל ומעודכן."
+
+#: src/ai/wp-orchestrator/index.tsx:42
+msgid "You don't have permission to access AI features."
+msgstr "אין לך הרשאות גישה לכלי בינה מלאכותית."
+
+#: src/ai/wp-orchestrator/index.tsx:39
+msgid "Your session expired. Please refresh the page and try again."
+msgstr "פג תוקף ההפעלה שלך. יש לרענן את העמוד ולנסות שוב."
+
+#: src/components/product-card/ProductCard.tsx:56
+msgid "Error: Product name is required"
+msgstr "שגיאה: חובה לציין את שם המוצר"
+
+#: src/components/product-card/ProductCard.tsx:87
+msgid "Product"
+msgstr "מוצר"
+
+#: src/components/product-card/ProductCard.tsx:84
+msgid "Service"
+msgstr "שירות"
+
+#: src/components/product-card/ProductCard.tsx:53
+msgid "Error: Could not render product card"
+msgstr "שגיאה: לא הצלחנו לעבד את כרטיס המוצר"
+
+#: src/components/product-card/ProductCard.tsx:25
+msgid "unit"
+msgid_plural "units"
+msgstr[0] "יחידה"
+msgstr[1] "יחידות"
+
+#: src/easy-mode/components/preview-overlay.tsx:155
+#: src/components/index.js:200
+msgid "Retry"
+msgstr "לנסות שוב"
+
+#: src/abilities/set-styles/index.ts:20
+msgid "Apply color palette, font pairing, and button style variations to the WordPress site. Accepts variation titles (e.g., \"Professional\", \"Montserrat + Open Sans\") and applies the complete styling including colors, typography, button styles, and all associated theme variations."
+msgstr "להחיל סוגי צבעים, שילוב גופנים וסגנון כפתורים באתר של WordPress. מקבל את שמות הסוגים (לדוגמה, \"Professional\", \"Montserrat + Open Sans\") ומחיל את הסגנון השלם, כולל צבעים, טיפוגרפיה, סגנונות כפתורים וכל הסוגים המשויכים לתבנית."
+
+#: src/abilities/set-styles/index.ts:18
+msgid "Set Styles"
+msgstr "להגדיר סגנונות"
+
+#: src/abilities/add-pages/index.ts:19
+msgid "Creates multiple WordPress pages with generated content from patterns and layouts. Page titles are provided by the backend, and page content is composed from layout blocks. Also updates site navigation."
+msgstr "יוצר מספר עמודים של WordPress עם תוכן שנוצר ממקבצי בלוקים ומפריסות. כותרות העמודים מסופקות על ידי הבק-אנד ותוכן העמוד מורכב מבלוקים של פריסה. מעדכן גם את הניווט באתר."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:82
+msgid "Failed to update styles:"
+msgstr "העדכון של הסגנונות נכשל:"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:76
+msgid "Failed to update styles. The style variation may be invalid."
+msgstr "העדכון של הסגנונות נכשל. ייתכן שסוג הסגנון אינו תקין."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:62
+msgid "Styles updated successfully."
+msgstr "הסגנונות עודכנו בהצלחה."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:38
+msgid "Invalid button format. Button must be a string (variation title)."
+msgstr "פורמט כפתור לא תקין. כפתור חייב להיות מחרוזת (סוג כותרת)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:31
+msgid "Invalid font format. Font must be a string (variation title)."
+msgstr "פורמט גופן לא תקין. גופן חייב להיות מחרוזת (סוג כותרת)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:24
+msgid "Invalid color format. Color must be a string (variation title)."
+msgstr "פורמט צבע לא תקין. צבע חייב להיות מחרוזת (סוג כותרת)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:17
+msgid "Invalid arguments. Provide at least one of: color, font, or button."
+msgstr "ארגומנטים לא תקינים. יש לספק לפחות אחד מהבאים: צבע, גופן או כפתור."
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:169
+msgid "Failed to create pages:"
+msgstr "יצירת דפים נכשלה:"
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:65
+msgid "Invalid pages. Must provide an array of page objects."
+msgstr "עמודים לא תקפים. יש לספק מערך של אובייקטי עמוד."
+
+#: src/abilities/site-logo/index.ts:17
+msgid "Set the site logo"
+msgstr "להגדיר את הלוגו של האתר"
+
+#: src/abilities/site-logo/index.ts:15
+msgid "Set Site Logo"
+msgstr "להגדיר לוגו לאתר"
+
+#: src/abilities/update-theme/index.ts:17
+msgid "Update WordPress theme settings and styles using theme.json format"
+msgstr "לעדכן את ההגדרות ואת הסגנונות של התבנית של WordPress באמצעות הפורמט theme.json"
+
+#: src/abilities/update-theme/index.ts:15
+msgid "Update Theme"
+msgstr "עדכון תבניות"
+
+#: src/abilities/edit-entity-record/index.ts:17
+msgid "Create, edit, or delete WordPress data entity records using the data layer"
+msgstr "יצירה, עריכה או מחיקה של רשומות ישות הנתונים של WordPress באמצעות שכבת הנתונים"
+
+#: src/abilities/edit-entity-record/index.ts:15
+msgid "Manage Entity Records"
+msgstr "ניהול רשומות ישות"
+
+#: src/abilities/show-component/index.ts:23
+msgid "Display a component in the UI with specified props"
+msgstr "להציג רכיב בממשק המשתמש עם מאפיינים מוגדרים"
+
+#: src/abilities/show-component/index.ts:21
+msgid "Show Component"
+msgstr "להציג רכיב"
+
+#: src/abilities/client-assistants/index.ts:29
+msgid "Always use this if the user asks for something that requires a client-side assistant. Available assistants:"
+msgstr "יש להשתמש באפשרות זו תמיד אם המשתמש מבקש לבצע פעולה שדורשת סייען בצד הלקוח. סייענים זמינים:"
+
+#: src/abilities/client-assistants/index.ts:27
+msgid "Execute Client Assistant"
+msgstr "להפעיל את סייען הלקוח"
+
+#: src/abilities/apply-block-edits/index.ts:17
+msgid "Applies a collection of block edits to the canvas"
+msgstr "מחיל אוסף של עריכות בלוקים על דף הציור"
+
+#: src/abilities/apply-block-edits/index.ts:15
+msgid "Apply Block Edits"
+msgstr "מחיל עריכות של בלוקים"
+
+#: src/abilities/editor-navigate/index.ts:15
+msgid "Navigate"
+msgstr "לנווט"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:131
+msgid "By updating the query, order posts from %s"
+msgstr "על ידי עדכון השאילתה, ניתן להזמין פוסטים מ-%s"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:128
+msgid "Stop inheriting default query settings and order posts from %s"
+msgstr "להפסיק לקבל בירושה הגדרות שאילתה המהוות ברירת מחדל ולהזמין פוסטים מ-%s"
+
+#: src/ai/hooks/suggestions-data.ts:123
+msgid "newest to oldest"
+msgstr "מהחדש לישן"
+
+#: src/ai/hooks/suggestions-data.ts:122
+msgid "oldest to newest"
+msgstr "מהישן לחדש"
+
+#: src/ai/hooks/suggestions-data.ts:117
+msgid "Order posts"
+msgstr "להזמין פוסטים"
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:110
+msgid "Currently this query is displaying %s posts per page, change it to:"
+msgstr "נכון לעכשיו, השאילתה הזו מציגה %s פוסטים לכל דף, שנה זאת אל:"
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:107
+msgid "Stop inheriting default query settings and change the current number of posts displayed per page from %s to:"
+msgstr "הפסק לקבל בירושה הגדרות שאילתה מסוג ברירת מחדל ושנה את מספר הפוסטים הנוכחי שמוצג בכל עמוד מ-%s אל:"
+
+#: src/ai/hooks/suggestions-data.ts:99
+msgid "Change number of posts"
+msgstr "שינוי מספר הפוסטים"
+
+#: src/ai/hooks/suggestions-data.ts:96
+msgid "Tell me all the ways you can help design or edit my site"
+msgstr "ספר לי על כל הדרכים שבהן אפשר לעזור בעיצוב או בעריכת האתר שלי"
+
+#: src/ai/hooks/suggestions-data.ts:95
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:36
+msgid "What else can you do?"
+msgstr "מה עוד ביכולתך לעשות?"
+
+#: src/ai/hooks/suggestions-data.ts:86
+msgid "Edit the image to:"
+msgstr "לערוך את התמונה:"
+
+#: src/ai/hooks/suggestions-data.ts:85
+msgid "Edit image"
+msgstr "עריכת תמונה"
+
+#: src/ai/hooks/suggestions-data.ts:81
+msgid "Generate an image of:"
+msgstr "ליצור תמונה של:"
+
+#: src/ai/hooks/suggestions-data.ts:76
+msgid "Check the grammar of this text"
+msgstr "לבדוק את הדיוק הדקדוקי של הטקסט הזה"
+
+#: src/ai/hooks/suggestions-data.ts:75
+msgid "Check grammar"
+msgstr "בדיקת דקדוק"
+
+#: src/ai/hooks/suggestions-data.ts:71
+msgid "Change the tone of this text to be more:"
+msgstr "לשנות את הנימה של הטקסט הזה כך שתהיה יותר:"
+
+#: src/ai/hooks/suggestions-data.ts:66
+msgid "Translate this to:"
+msgstr "תרגם זאת אל:"
+
+#: src/ai/hooks/suggestions-data.ts:65
+msgid "Translate content"
+msgstr "לתרגם תוכן"
+
+#: src/ai/hooks/suggestions-data.ts:61
+msgid "Add another column to the end of these"
+msgstr "הוסף עמודה נוספת לסוף של אלה"
+
+#: src/ai/hooks/suggestions-data.ts:60
+msgid "Add column"
+msgstr "להוסיף טור"
+
+#: src/ai/hooks/suggestions-data.ts:56
+msgid "Reverse the order of these columns"
+msgstr "הפוך את הסדר של העמודות האלה"
+
+#: src/ai/hooks/suggestions-data.ts:55
+msgid "Swap columns"
+msgstr "החלף עמודות"
+
+#. %s is the button text
+#: src/ai/hooks/suggestions-data.ts:52
+msgid "Change the %s button link to:"
+msgstr "שנה את הקישור של הכפתור %s:"
+
+#: src/ai/hooks/suggestions-data.ts:46
+msgid "Create a new page on my site for"
+msgstr "צור עמוד חדש באתר שלי עבור"
+
+#: src/ai/hooks/suggestions-data.ts:45
+msgid "Add new page"
+msgstr "להוסיף עמוד חדש"
+
+#: src/ai/hooks/suggestions-data.ts:42
+msgid "Show me different layouts for this page"
+msgstr "הראה לי פריסות שונות עבור עמוד זה"
+
+#: src/ai/hooks/suggestions-data.ts:41
+msgid "Change page layout"
+msgstr "שינוי הפריסה של העמוד"
+
+#: src/ai/hooks/suggestions-data.ts:38
+msgid "Show me color palettes for my site that are:"
+msgstr "להציג לי לוחות צבעים לאתר שלי שהם:"
+
+#: src/ai/hooks/suggestions-data.ts:37
+msgid "Customize colors"
+msgstr "להתאים אישית את הצבעים"
+
+#: src/ai/hooks/suggestions-data.ts:34
+msgid "Show me new fonts for my site"
+msgstr "להציג לי גופנים חדשים עבור האתר שלי"
+
+#: src/ai/hooks/suggestions-data.ts:33
+msgid "Choose new fonts"
+msgstr "לבחור גופנים חדשים"
+
+#: big-sky.php:349
+msgid "AI-powered site building and navigation abilities."
+msgstr "בניית אתרים מבוססת בינה מלאכותית ויכולות ניווט."
+
+#: src/components/product-card/ProductCard.tsx:90
+#: src/easy-mode/components/topbar.tsx:51
+msgid "Edit"
+msgstr "ערוך"
+
+#: src/hooks/use-dock-state.ts:138
+#: src/components/dock/index.js:440
+msgid "Pop out sidebar"
+msgstr "להקפיץ את הסרגל הצדי"
+
+#: src/hooks/use-dock-state.ts:132
+#: src/components/dock/index.js:460
+msgid "Move to sidebar"
+msgstr "להעביר אל הסרגל הצדי"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:548
+msgid "Got a different request? Ask away."
+msgstr "יש לך בקשה אחרת? אפשר לשאול הכול."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:542
+msgid "Howdy! How can I help you today?"
+msgstr "אהלן! איך אוכל לעזור לך היום?"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:65
+msgid "Updated:"
+msgstr "עודכן:"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:86
+msgid "Theme updated successfully"
+msgstr "התבנית עודכנה בהצלחה."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:51
+msgid "Invalid styles format. Styles must be an object."
+msgstr "פורמט סגנונות לא תקף. הסגנונות חייבים להיות אובייקט."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:40
+msgid "Invalid settings format. Settings must be an object."
+msgstr "פורמט הגדרות לא תקף. ההגדרות חייבות להיות אובייקט."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:29
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "ארגומנטים לא תקפים. יש לספק הגדרות או סגנונות כדי לעדכן את התבנית."
+
+#: big-sky.php:1652
+#: big-sky.php:1653
+msgid "AI Editor"
+msgstr "עורך בינה מלאכותית"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:493
+msgid "Proceed"
+msgstr "המשך"
+
+#: src/ai/hooks/suggestions-data.ts:49
+msgid "Edit link"
+msgstr "לערוך קישור"
+
+#: src/abilities/show-component/show-component.tsx:214
+#: src/abilities/site-logo/set-site-logo.ts:70
+msgid "There was an error with this request. Please try again."
+msgstr "אירעה שגיאה בבקשה זו. יש לנסות שוב."
+
+#: src/abilities/client-assistants/run-assistant.ts:189
+msgid "No response from assistant"
+msgstr "אין תשובה מהעוזר"
+
+#: src/abilities/client-assistants/index.ts:89
+msgid "Assistant completed successfully"
+msgstr "העוזר השלים את הפעולה בהצלחה"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1464
+msgid "Something went wrong. Please try again."
+msgstr "משהו השתבש. יש לנסות שנית."
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1422
+msgid "I have completed the edits."
+msgstr "השלמתי את העריכות."
+
+#. translators: %s is the theme name.
+#: big-sky.php:625
+msgid "The current theme (%s) is a block theme."
+msgstr "התבנית הנוכחית (%s) היא תבנית בלוק."
+
+#: big-sky.php:618
+msgid "The current theme is not a block theme. Big Sky requires a block theme to be active."
+msgstr "התבנית הנוכחית אינה תבנית בלוק. שירות Big Sky דורש שתבנית בלוק תהיה פעילה."
+
+#: src/abilities/client-assistants/run-assistant.ts:182
+msgid "Sorry, I've encountered an error. Please try again or let me know if you need help with something else."
+msgstr "מצטערים, נתקלתי בשגיאה. כדאי לנסות שוב או לבקש ממני עזרה בכל נושא אחר."
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:499
+msgid "I changed my mind"
+msgstr "שיניתי את דעתי"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1381
+msgid "I was not able to make the changes you requested. Either I don't have the capability to do so or I didn't understand your request. You can ask me to try again or ask me to do something else."
+msgstr "לא הצלחתי לבצע את השינויים שביקשת. אין לי יכולת לעשות זאת או שלא הבנתי את בקשתך. אפשר לבקש ממני לנסות שוב או לבקש ממני לעשות משהו אחר."
+
+#: src/easy-mode/components/preview-overlay.tsx:158
+msgid "Site preview"
+msgstr "תצוגה מקדימה"
+
+#: src/ai/hooks/suggestions-data.ts:80
+msgid "Generate image"
+msgstr "ליצור תמונה"
+
+#: src/easy-mode/components/page-switcher.tsx:49
+#: src/components/mosaic.js:633
+#: src/components/mosaic.js:675
+msgid "Pages"
+msgstr "עמודים"
+
+#: src/easy-mode/components/page-switcher.tsx:34
+msgid "Home"
+msgstr "דף הבית"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:490
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:22
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:30
+msgid "No"
+msgstr "לא"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:541
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:16
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:24
+msgid "Yes"
+msgstr "כן"
+
+#: src/abilities/add-pages/index.ts:17
+msgid "Add Pages"
+msgstr "להוסיף עמודים"
+
+#: src/ai/hooks/suggestions-data.ts:70
+msgid "Change tone"
+msgstr "לשנות את הטון"
+
+#: src/easy-mode/components/topbar.tsx:710
+msgid "Undo"
+msgstr "ביטול פעולה אחרונה"
+
+#: src/easy-mode/components/topbar.tsx:763
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Save"
+msgstr "שמור"
+
+#: big-sky.php:707
+msgid "These checks passed:"
+msgstr "הבדיקות האלו עברו:"
+
+#: big-sky.php:693
+msgid "Big Sky detected the following issues with your site:"
+msgstr "שירות Big Sky זיהה את הבעיות הבאות באתר שלך:"
+
+#. translators: $d is the number of performance issues found.
+#: big-sky.php:692
+msgid "Big Sky is affected by %d issue"
+msgid_plural "Big Sky is affected by %d issues"
+msgstr[0] "בעיה %d משפיעה על שירות Big Sky"
+msgstr[1] "%d בעיות משפיעות על שירות Big Sky"
+
+#: big-sky.php:682
+msgid "Mapbox API key is set."
+msgstr "מפתח API של Mapbox מוגדר."
+
+#: big-sky.php:677
+msgid "Mapbox API key is not set. Big Sky requires a Mapbox API key to be set."
+msgstr "מפתח API של Mapbox לא מוגדר. שירות Big Sky דורש להגדיר מפתח API של Mapbox."
+
+#: big-sky.php:669
+msgid "Jetpack is connected to an admin."
+msgstr "שירות Jetpack מחובר למנהל מערכת."
+
+#: big-sky.php:664
+msgid "Jetpack does not have a connected admin. Big Sky requires Jetpack to be connected to an admin."
+msgstr "לא מחובר מנהל מערכת לשירות Jetpack. שירות Big Sky דורש ששירות Jetpack יהיה מחובר למנהל מערכת."
+
+#: big-sky.php:655
+msgid "Jetpack is connected."
+msgstr "Jetpack מחובר."
+
+#: big-sky.php:650
+msgid "Jetpack is not connected. Big Sky requires Jetpack to be connected."
+msgstr "שירות Jetpack לא מחובר. שירות Big Sky דורש ששירות Jetpack יהיה מחובר."
+
+#: big-sky.php:639
+msgid "Jetpack is installed."
+msgstr "שירות Jetpack מותקן."
+
+#: big-sky.php:634
+msgid "Jetpack is not installed. Big Sky requires Jetpack to be installed and active."
+msgstr "שירות Jetpack אינו מותקן. שירות Big Sky דורש ששירות Jetpack יהיה מותקן ופעיל."
+
+#: big-sky.php:608
+msgid "Big Sky did not find any known issues with your site."
+msgstr "שירות Big Sky לא מצא בעיות ידועות באתר שלך."
+
+#: big-sky.php:600
+msgid "Big Sky Checks"
+msgstr "בדיקות של Big Sky"
+
+#: big-sky.php:575
+#: big-sky.php:576
+msgid "Big Sky checks"
+msgstr "בדיקות של Big Sky"
+
+#: big-sky.php:406
+msgid "AI Features"
+msgstr "כלי AI"
+
+#: big-sky.php:398
+msgid "Enable AI-powered site building experience"
+msgstr "להפעיל חוויית בניית אתרים מבוססת בינה מלאכותית"
+
+#. Author of the plugin
+#: big-sky.php
+msgid "Automattic, Inc."
+msgstr "Automattic, Inc.‎"
+
+#: big-sky.php:348
+#: big-sky.php:603
+msgid "Big Sky"
+msgstr "Big Sky"

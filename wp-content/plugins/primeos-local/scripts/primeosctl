@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# primeosctl - helper for common remote devops tasks
+# Usage: ./scripts/primeosctl <cmd> [args]
+# Commands:
+#   ssh                 - open interactive SSH to deploy@VPS
+#   sync                - rsync local repo -> remote /opt/primeos (excludes .git)
+#   bootstrap           - run /root/primeos-bootstrap.sh on VPS as root (requires root access)
+#   setup               - run scripts/vps-setup-complete.sh on remote as deploy user
+#   pull                - docker compose pull (uses docker-compose.registry.yml)
+#   up                  - docker compose up -d (uses docker-compose.registry.yml)
+#   down                - docker compose down (uses docker-compose.registry.yml)
+#   logs [service]      - tail logs for service (api, frontend, db)
+#   status              - docker compose ps
+#   exec <cmd>          - run arbitrary command on remote in repo dir
+#   help                - show this help
+
+# Configuration (override via env or edit here)
+VPS_HOST="82.29.56.236"
+VPS_USER="deploy"
+IDENTITY="${IDENTITY:-$HOME/.ssh/primeos_key}"
+REMOTE_DIR="/opt/primeos"
+COMPOSE_FILE="docker-compose.registry.yml"
+RSYNC_EXCLUDES=(".git" "node_modules" "dist" "build" ".env.local" ".env")
+SSH_OPTS=( -o IdentitiesOnly=yes -o ServerAliveInterval=60 -i "$IDENTITY" )
+
+if [ "$#" -lt 1 ]; then
+  echo "Usage: $0 <command> [args]"; exit 1
+fi
+
+cmd="$1"; shift || true
+
+function remote() {
+  ssh "${SSH_OPTS[@]}" "$VPS_USER@$VPS_HOST" "cd '$REMOTE_DIR' && $*"
+}
+
+case "$cmd" in
+  ssh)
+    ssh "${SSH_OPTS[@]}" "$VPS_USER@$VPS_HOST" ;;
+
+  sync)
+    EXC_ARGS=()
+    for e in "${RSYNC_EXCLUDES[@]}"; do EXC_ARGS+=(--exclude="$e"); done
+    rsync -avz -e "ssh ${SSH_OPTS[*]}" "${EXC_ARGS[@]}" --delete ./ "$VPS_USER@$VPS_HOST:$REMOTE_DIR/"
+    echo "Synced to $VPS_HOST:$REMOTE_DIR" ;;
+
+  bootstrap)
+    echo "Copying bootstrap to /root and running as root (you'll be prompted for password unless key allows root)"
+    scp -o IdentitiesOnly=no -i "$IDENTITY" ./primeos-bootstrap.sh root@"$VPS_HOST":/root/
+    ssh -o IdentitiesOnly=no -i "$IDENTITY" root@"$VPS_HOST" 'bash /root/primeos-bootstrap.sh' ;;
+
+  setup)
+    remote "./scripts/vps-setup-complete.sh" ;;
+
+  pull)
+    remote "docker compose -f $COMPOSE_FILE pull" ;;
+
+  up)
+    remote "docker compose -f $COMPOSE_FILE up -d --remove-orphans" ;;
+
+  down)
+    remote "docker compose -f $COMPOSE_FILE down" ;;
+
+  logs)
+    svc="${1:-api}"
+    remote "docker compose -f $COMPOSE_FILE logs -f $svc" ;;
+
+  status)
+    remote "docker compose -f $COMPOSE_FILE ps" ;;
+
+  exec)
+    if [ "$#" -lt 1 ]; then echo "exec requires a command"; exit 1; fi
+    CMD="$*"
+    remote "$CMD" ;;
+
+  help|--help|-h)
+    sed -n '1,200p' "$0" ;;
+
+  *)
+    echo "Unknown command: $cmd"; echo "Use $0 help"; exit 2 ;;
+
+esac

@@ -1,0 +1,204 @@
+<?php // phpcs:ignore SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing
+
+namespace MailPoet\AdminPages\Pages;
+
+if (!defined('ABSPATH')) exit;
+
+
+use MailPoet\AdminPages\AssetsController;
+use MailPoet\AdminPages\PageRenderer;
+use MailPoet\Entities\NewsletterEntity;
+use MailPoet\Entities\SubscriberEntity;
+use MailPoet\Form\Util\CustomFonts;
+use MailPoet\Newsletter\NewslettersRepository;
+use MailPoet\Newsletter\Renderer\Blocks\Coupon;
+use MailPoet\Newsletter\Shortcodes\ShortcodesHelper;
+use MailPoet\NewsletterTemplates\BrandStyles;
+use MailPoet\Settings\SettingsController;
+use MailPoet\Settings\UserFlagsController;
+use MailPoet\Subscribers\SubscribersRepository;
+use MailPoet\Subscribers\TrackingConsentController;
+use MailPoet\WooCommerce\Helper as WooCommerceHelper;
+use MailPoet\WooCommerce\TransactionalEmailHooks;
+use MailPoet\WooCommerce\TransactionalEmails;
+use MailPoet\WooCommerce\TransactionalEmails\Template as WooTransactionalEmailTemplate;
+use MailPoet\WP\AutocompletePostListLoader as WPPostListLoader;
+use MailPoet\WP\Functions as WPFunctions;
+
+class NewsletterEditor {
+  private const DATE_FORMAT = 'Y-m-d H:i:s';
+
+  private PageRenderer $pageRenderer;
+  private SettingsController $settings;
+  private UserFlagsController $userFlags;
+  private WooCommerceHelper $woocommerceHelper;
+  private WPFunctions $wp;
+  private TransactionalEmails $wcTransactionalEmails;
+  private ShortcodesHelper $shortcodesHelper;
+  private SubscribersRepository $subscribersRepository;
+  private TransactionalEmailHooks $wooEmailHooks;
+  private WPPostListLoader $wpPostListLoader;
+  private CustomFonts $customFonts;
+  private AssetsController $assetsController;
+  private BrandStyles $brandStyles;
+  private WooTransactionalEmailTemplate $template;
+  private NewslettersRepository $newslettersRepository;
+  private TrackingConsentController $trackingConsentController;
+
+  public function __construct(
+    PageRenderer $pageRenderer,
+    SettingsController $settings,
+    UserFlagsController $userFlags,
+    WooCommerceHelper $woocommerceHelper,
+    WPFunctions $wp,
+    TransactionalEmails $wcTransactionalEmails,
+    ShortcodesHelper $shortcodesHelper,
+    SubscribersRepository $subscribersRepository,
+    TransactionalEmailHooks $wooEmailHooks,
+    WPPostListLoader $wpPostListLoader,
+    CustomFonts $customFonts,
+    AssetsController $assetsController,
+    WooTransactionalEmailTemplate $template,
+    BrandStyles $brandStyles,
+    NewslettersRepository $newslettersRepository,
+    TrackingConsentController $trackingConsentController
+  ) {
+    $this->pageRenderer = $pageRenderer;
+    $this->settings = $settings;
+    $this->userFlags = $userFlags;
+    $this->woocommerceHelper = $woocommerceHelper;
+    $this->wp = $wp;
+    $this->wcTransactionalEmails = $wcTransactionalEmails;
+    $this->shortcodesHelper = $shortcodesHelper;
+    $this->subscribersRepository = $subscribersRepository;
+    $this->wooEmailHooks = $wooEmailHooks;
+    $this->wpPostListLoader = $wpPostListLoader;
+    $this->customFonts = $customFonts;
+    $this->assetsController = $assetsController;
+    $this->template = $template;
+    $this->brandStyles = $brandStyles;
+    $this->newslettersRepository = $newslettersRepository;
+    $this->trackingConsentController = $trackingConsentController;
+  }
+
+  public function render() {
+    $this->setupImageSize();
+    $this->assetsController->setupNewsletterEditorDependencies();
+    $newsletterId = isset($_GET['id']) && is_numeric($_GET['id']) ? (int)$_GET['id'] : 0;
+    $woocommerceTemplateId = (int)$this->settings->get(TransactionalEmails::SETTING_EMAIL_ID, null);
+    if (
+      $woocommerceTemplateId
+      && $newsletterId === $woocommerceTemplateId
+      && !$this->woocommerceHelper->isWooCommerceActive()
+    ) {
+      $location = 'admin.php?page=mailpoet-settings&enable-customizer-notice#woocommerce';
+      if (headers_sent()) {
+        echo '<script>window.location = "' . esc_js($location) . '";</script>';
+      } else {
+        header('Location: ' . $location, true, 302);
+      }
+      exit;
+    }
+
+    $subscriber = $this->subscribersRepository->getCurrentWPUser();
+    $subscriberData = $subscriber ? $this->formatSubscriber($subscriber) : [];
+    $woocommerceData = [];
+    $originalTemplateBody = null;
+    if ($this->woocommerceHelper->isWooCommerceActive()) {
+      $wcEmailSettings = $this->wcTransactionalEmails->getWCEmailSettings();
+
+      // Activate hooks for Woo emails styles so that we always load styles set in Woo email customizer
+      if ($newsletterId === (int)$this->settings->get(TransactionalEmails::SETTING_EMAIL_ID)) {
+        $this->wooEmailHooks->overrideStylesForWooEmails();
+        $originalTemplateBody = $this->template->create($wcEmailSettings);
+      }
+      $discountTypes = $this->woocommerceHelper->wcGetCouponTypes();
+      $discountType = (string)current(array_keys($discountTypes));
+      $amountMax = strpos($discountType, 'percent') !== false ? 100 : null;
+      $woocommerceData = [
+        'email_headings' => $this->wcTransactionalEmails->getEmailHeadings(),
+        'customizer_enabled' => (bool)$this->settings->get('woocommerce.use_mailpoet_editor'),
+        'coupon' => [
+          'config' => [
+            'discount_types' => array_map(function($label, $value): array {
+              return ['label' => $label, 'value' => $value];
+            }, $discountTypes, array_keys($discountTypes)),
+            'code_placeholder' => Coupon::CODE_PLACEHOLDER,
+            'price_decimal_separator' => $this->woocommerceHelper->wcGetPriceDecimalSeparator(),
+          ],
+          'defaults' => [
+            'code' => Coupon::CODE_PLACEHOLDER,
+            'discountType' => $discountType,
+            'amountMax' => $amountMax,
+          ],
+        ],
+      ];
+      $woocommerceData = array_merge($wcEmailSettings, $woocommerceData);
+    }
+
+    // Check if newsletter is a confirmation email type (includes per-list confirmation emails)
+    $newsletter = $newsletterId ? $this->newslettersRepository->findOneById($newsletterId) : null;
+    $isConfirmationEmailType = $newsletter && $newsletter->getType() === NewsletterEntity::TYPE_CONFIRMATION_EMAIL_CUSTOMIZER;
+
+    $data = [
+      'customFontsEnabled' => $this->customFonts->displayCustomFonts(),
+      'shortcodes' => $this->shortcodesHelper->getShortcodes(),
+      'settings' => $this->settings->getAll(),
+      'editor_tutorial_seen' => $this->userFlags->get('editor_tutorial_seen'),
+      'current_wp_user' => array_merge($subscriberData, $this->wp->wpGetCurrentUser()->to_array()),
+      'woocommerce' => $woocommerceData,
+      'is_wc_transactional_email' => $newsletterId === $woocommerceTemplateId,
+      'is_confirmation_email_type' => $isConfirmationEmailType,
+      'is_tracking_consent_ask_all' => $this->trackingConsentController->getSubscriberChoice() === TrackingConsentController::CHOICE_ASK_ALL,
+      'is_confirmation_email_customizer_enabled' => (bool)$this->settings->get('signup_confirmation.use_mailpoet_editor', false),
+      'original_template_body' => $originalTemplateBody,
+      'product_categories' => $this->wpPostListLoader->getWooCommerceCategories(),
+      'products' => $this->wpPostListLoader->getProducts(),
+      'brand_styles' => [
+        'available' => $this->brandStyles->isAvailable(),
+      ],
+      'api' => [
+        'root' => rtrim($this->wp->escUrlRaw($this->wp->restUrl()), '/'),
+        'nonce' => $this->wp->wpCreateNonce('wp_rest'),
+      ],
+    ];
+    $this->wp->wpEnqueueMedia();
+    $this->wp->wpEnqueueStyle('editor', $this->wp->includesUrl('css/editor.css'));
+    $this->pageRenderer->displayPage('newsletter/editor.html', $data);
+  }
+
+  private function formatSubscriber(SubscriberEntity $subscriber): array {
+    return [
+      'id' => $subscriber->getId(),
+      'wp_user_id' => $subscriber->getWpUserId(),
+      'is_woocommerce_user' => (string)$subscriber->getIsWoocommerceUser(), // BC compatibility
+      'first_name' => $subscriber->getFirstName(),
+      'last_name' => $subscriber->getLastName(),
+      'email' => $subscriber->getEmail(),
+      'status' => $subscriber->getStatus(),
+      'subscribed_ip' => $subscriber->getSubscribedIp(),
+      'confirmed_ip' => $subscriber->getConfirmedIp(),
+      'confirmed_at' => ($confirmedAt = $subscriber->getConfirmedAt()) ? $confirmedAt->format(self::DATE_FORMAT) : null,
+      'last_subscribed_at' => ($lastSubscribedAt = $subscriber->getLastSubscribedAt()) ? $lastSubscribedAt->format(self::DATE_FORMAT) : null,
+      'created_at' => ($createdAt = $subscriber->getCreatedAt()) ? $createdAt->format(self::DATE_FORMAT) : null,
+      'updated_at' => ($updatedAt = $subscriber->getUpdatedAt()) ? $updatedAt->format(self::DATE_FORMAT) : null,
+      'deleted_at' => ($deletedAt = $subscriber->getDeletedAt()) ? $deletedAt->format(self::DATE_FORMAT) : null,
+      'unconfirmed_data' => $subscriber->getUnconfirmedData(),
+      'source' => $subscriber->getSource(),
+      'count_confirmation' => $subscriber->getConfirmationsCount(),
+      'unsubscribe_token' => $subscriber->getUnsubscribeToken(),
+      'link_token' => $subscriber->getLinkToken(),
+    ];
+  }
+
+  private function setupImageSize(): void {
+    $this->wp->addFilter(
+      'image_size_names_choose',
+      function ($sizes): array {
+        return array_merge($sizes, [
+          'mailpoet_newsletter_max' => __('MailPoet Newsletter', 'mailpoet'),
+        ]);
+      }
+    );
+  }
+}

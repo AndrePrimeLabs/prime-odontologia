@@ -1,0 +1,30 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.statusBar.visible": false,
+		"workbench.panel.defaultLocation": "bottom",
+		"workbench.editor.showTabs": "none",
+		"breadcrumbs.enabled": false,
+		"terminal.integrated.hideOnLastClosed": false,
+		"github.copilot.enable": {
+			"*": false
+		},
+		"workbench.activityBar.location": "hidden",
+		"explorer.autoReveal": false,
+		"explorer.openEditors.visible": 0,
+		"chat.disableAIFeatures": false,
+		"terminal.integrated.defaultLocation": "editor",
+		"terminal.integrated.defaultProfile.linux": "bash",
+		"workbench.editor.enablePreview": false,
+		"workbench.editor.closeOnFileDelete": true,
+		"workbench.layoutControl.enabled": false,
+		"workbench.layoutControl.type": "hidden",
+		"workbench.panel.opensMaximized": "always",
+		"workbench.tips.enabled": false,
+		"terminal.integrated.automationProfile.linux": null
+	}
+}

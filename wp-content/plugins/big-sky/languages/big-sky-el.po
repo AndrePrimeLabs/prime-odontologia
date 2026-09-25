@@ -1,0 +1,998 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Big Sky\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:25:54+00:00\n"
+"PO-Revision-Date: 2026-09-03 02:55:50+0000\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:74
+msgid "Here is the visible area of the canvas. Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "Εδώ είναι η ορατή περιοχή του καμβά. Οι φωτογραφίες εμφανίζονται ως επίπεδα κουτιά θέσης στο πραγματικό τους μέγεθος, οπότε αντιμετωπίστε οποιοδήποτε γκρι ορθογώνιο ως μια εικόνα που είναι παρούσα, όχι ως μια που λείπει."
+
+#. %d: number of blocks framed in the screenshot.
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:73
+msgid "Here is the canvas around %d block(s). Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "Εδώ είναι ο καμβάς γύρω από %d μπλοκ(ά). Οι φωτογραφίες εμφανίζονται ως επίπεδα κουτιά κρατήσεων στο πραγματικό τους μέγεθος, οπότε αντιμετωπίστε οποιοδήποτε γκρι ορθογώνιο ως μια εικόνα που είναι παρούσα, όχι ως μια που λείπει."
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:61
+msgid "Here is the whole page, top to bottom. It is scaled down to fit, so body text will not be legible — read it for colour, type scale, spacing and section rhythm, and take an ordinary picture of a specific area when wording or fine detail matters. Photographs are shown as flat placeholder boxes at their real size."
+msgstr "Εδώ είναι η ολόκληρη Σελίδα, από πάνω μέχρι κάτω. Είναι μειωμένη για να ταιριάζει, οπότε το κείμενο δεν θα είναι ευανάγνωστο — διάβασε το για χρώμα, κλίμακα τύπου, διάστημα και ρυθμό τμημάτων, και πάρε μια κανονική φωτογραφία μιας συγκεκριμένης περιοχής όταν η διατύπωση ή οι λεπτομέρειες έχουν σημασία. Οι φωτογραφίες εμφανίζονται ως επίπεδα κουτιά κρατήσεων στο πραγματικό τους μέγεθος."
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:47
+msgid "I couldn't get a picture of the canvas just now."
+msgstr "Δεν μπόρεσα να βγάλω μια φωτογραφία του καμβά μόλις τώρα."
+
+#: src/abilities/capture-canvas/index.ts:18
+msgid "Takes a picture of the editor canvas as it currently renders, including unsaved changes. Use it to check how the page actually looks when the block data alone cannot answer that — after changing styles, colours, spacing or CSS, or whenever a reported problem is visual. Pass fullPage to see the whole page at once, which is what a theme or global styles change needs checking against. Photographs are replaced by flat placeholder boxes at their real size."
+msgstr "Βγάζει μια φωτογραφία του καμβά του επεξεργαστή όπως εμφανίζεται αυτή τη στιγμή, συμπεριλαμβανομένων των μη αποθηκευμένων αλλαγών. Χρησιμοποίησέ το για να ελέγξεις πώς φαίνεται πραγματικά η σελίδα όταν τα δεδομένα του μπλοκ από μόνα τους δεν μπορούν να απαντήσουν σε αυτό — μετά την αλλαγή στυλ, χρωμάτων, αποστάσεων ή CSS, ή όποτε ένα αναφερόμενο πρόβλημα είναι οπτικό. Πέρασε το fullPage για να δεις ολόκληρη τη σελίδα ταυτόχρονα, που είναι αυτό που χρειάζεται να ελέγξεις σε σχέση με μια αλλαγή θέματος ή παγκόσμιων στυλ. Οι φωτογραφίες αντικαθίστανται από επίπεδα κουτιά κράτησης θέσης στο πραγματικό τους μέγεθος."
+
+#: src/abilities/capture-canvas/index.ts:16
+msgid "Capture Canvas"
+msgstr "Καταγραφή Καμβά"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:55
+msgid "Are there any changes you would like me to make?"
+msgstr "Υπάρχουν κάποιες αλλαγές που θα ήθελες να κάνω;"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:54
+msgid "Your site is ready! Please click around and check it out."
+msgstr "Ο Ιστότοπός σας είναι έτοιμος! Παρακαλώ κάντε κλικ γύρω και ρίξτε μια ματιά."
+
+#: src/easy-mode/components/app.tsx:439
+msgid "Switching to edit mode so you can watch the new design being built."
+msgstr "Μεταβαίνω σε λειτουργία τροποποίησης για να μπορέσεις να παρακολουθήσεις το νέο σχέδιο να κατασκευάζεται."
+
+#: src/easy-mode/components/topbar.tsx:698
+msgid "Return to WP Admin"
+msgstr "Επιστροφή στο WP Admin"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:313
+msgid "Personalize my site copy with my details."
+msgstr "Προσαρμόστε το αντίγραφο του ιστότοπού μου με τις λεπτομέρειές μου."
+
+#: src/easy-mode/hooks/use-save-controller.ts:121
+msgid "Your changes could not be saved. Your work is still here — try saving again."
+msgstr "Οι αλλαγές σας δεν μπόρεσαν να αποθηκευτούν. Η δουλειά σας είναι ακόμα εδώ — δοκιμάστε να αποθηκεύσετε ξανά."
+
+#: src/easy-mode/hooks/use-save-controller.ts:120
+msgid "Some changes could not be saved. Your work is still here — try saving again."
+msgstr "Ορισμένες αλλαγές δεν μπόρεσαν να αποθηκευτούν. Η δουλειά σου είναι ακόμα εδώ — δοκίμασε να αποθηκεύσεις ξανά."
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:66
+msgid "Save your changes?"
+msgstr "Να αποθηκεύσω τις αλλαγές σου;"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:33
+msgid "You need to save or discard the changes to the current page."
+msgstr "Πρέπει να αποθηκεύσεις ή να απορρίψεις τις αλλαγές στη τρέχουσα Σελίδα."
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:32
+msgid "The preview shows your saved site, so unsaved changes won’t appear there."
+msgstr "Η προεπισκόπηση δείχνει τον αποθηκευμένο ιστότοπό σας, οπότε οι μη αποθηκευμένες αλλαγές δεν θα εμφανιστούν εκεί."
+
+#: src/easy-mode/components/topbar.tsx:763
+msgid "Save draft"
+msgstr "Αποθήκευση προσχεδίου"
+
+#: src/easy-mode/components/topbar.tsx:749
+msgid "Publish"
+msgstr "Δημοσίευση"
+
+#: src/easy-mode/components/topbar.tsx:713
+msgid "Redo"
+msgstr "Επανάληψη"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Open in a new tab"
+msgstr "Άνοιγμα σε νέα καρτέλα"
+
+#: src/easy-mode/components/topbar.tsx:68
+msgid "Mode"
+msgstr "Λειτουργία"
+
+#. %s: selected device, e.g. Desktop.
+#: src/easy-mode/components/topbar.tsx:743
+msgid "Responsive view: %s"
+msgstr "Προσαρμοζόμενη στις κινητές συσκευές προβολή: %s"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Responsive view"
+msgstr "Προσαρμοζόμενη στις κινητές συσκευές προβολή"
+
+#: src/easy-mode/components/topbar.tsx:725
+msgid "Reload preview"
+msgstr "Επαναφόρτωση προεπισκόπησης"
+
+#: src/easy-mode/components/topbar.tsx:696
+msgid "Annotate"
+msgstr "Σημείωση"
+
+#. %d: number of annotations waiting to be sent.
+#: src/easy-mode/components/topbar.tsx:694
+msgid "Resume annotating, %d pending"
+msgid_plural "Resume annotating, %d pending"
+msgstr[0] "Συνέχισε την ανάλυση, %d εκκρεμεί"
+msgstr[1] "Συνέχισε την ανάλυση, %d εκκρεμή"
+
+#: src/easy-mode/components/topbar.tsx:689
+msgid "Chat is unavailable"
+msgstr "Η συνομιλία δεν είναι διαθέσιμη"
+
+#: src/easy-mode/components/topbar.tsx:56
+msgid "Mobile"
+msgstr "Κινητό τηλέφωνο"
+
+#: src/easy-mode/components/topbar.tsx:55
+msgid "Tablet"
+msgstr "Ταμπλέτα"
+
+#: src/easy-mode/components/topbar.tsx:54
+msgid "Desktop"
+msgstr "Επιφάνεια εργασίας"
+
+#: src/easy-mode/components/topbar.tsx:50
+msgid "Preview"
+msgstr "Προεπισκόπηση"
+
+#: src/easy-mode/components/preview-overlay.tsx:147
+msgid "The site preview could not be loaded."
+msgstr "Η προεπισκόπηση του ιστότοπου δεν μπόρεσε να φορτωθεί."
+
+#: src/easy-mode/components/page-switcher.tsx:116
+msgid "(no title)"
+msgstr "(χωρίς τίτλο)"
+
+#. %s: page title.
+#: src/easy-mode/components/page-switcher.tsx:113
+msgid "%s — Draft"
+msgstr "%s — Προσχέδιο"
+
+#. %s: page currently open.
+#: src/easy-mode/components/page-switcher.tsx:99
+msgid "Switch page. Current page: %s"
+msgstr "Αλλαγή Σελίδας. Τρέχουσα Σελίδα: %s"
+
+#: src/easy-mode/components/page-switcher.tsx:76
+msgid "Switch page"
+msgstr "Αλλαγή Σελίδας"
+
+#: src/easy-mode/components/app.tsx:301
+msgid "Switching to edit mode so you can see the changes."
+msgstr "Μεταβαίνω σε λειτουργία τροποποίησης ώστε να μπορείς να δεις τις αλλαγές."
+
+#: src/easy-mode/components/app.tsx:300
+msgid "Switching to edit mode so you can approve the changes before saving."
+msgstr "Μεταβαίνω σε λειτουργία τροποποίησης ώστε να μπορείς να εγκρίνεις τις αλλαγές πριν αποθηκεύσεις."
+
+#: src/easy-mode/annotations/use-editor-annotations.ts:153
+msgid "Annotations could not be sent — the assistant is unavailable."
+msgstr "Οι σημειώσεις δεν μπόρεσαν να σταλούν — ο βοηθός δεν είναι διαθέσιμος."
+
+#. %d: number of annotations.
+#: src/easy-mode/annotations/prompt.ts:82
+msgid "%d annotation submitted"
+msgid_plural "%d annotations submitted"
+msgstr[0] "%d ανάλυση υποβλήθηκε"
+msgstr[1] "%d σημειώσεις υποβλήθηκαν"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Annotating"
+msgstr "Σημειώνοντας"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Discard annotations"
+msgstr "Απόρριψη σχολίων"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Exit annotation mode"
+msgstr "Έξοδος από τη λειτουργία σχολιασμού"
+
+#. %d: number of annotations to send.
+#: src/easy-mode/annotations/annotation-topbar.tsx:21
+msgid "Send %d annotation"
+msgid_plural "Send %d annotations"
+msgstr[0] "Στείλε %d σημείωση"
+msgstr[1] "Στείλε %d σημειώσεις"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:18
+msgid "Sending…"
+msgstr "Αποστολή..."
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:14
+msgid "Send"
+msgstr "Αποστολή"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:566
+msgid "Save annotation"
+msgstr "Αποθήκευση σχολιασμού"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:565
+msgid "Update annotation"
+msgstr "Ενημέρωση σχολιασμού"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Delete annotation"
+msgstr "Διαγραφή σχολίου"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Add a comment…"
+msgstr "Πρόσθεσε ένα Σχόλιο…"
+
+#. %s: label of the block being annotated.
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Annotate %s"
+msgstr "Σημείωσε %s"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:445
+msgid "Annotate blocks. Use the arrow keys to move between blocks, Enter to comment, and Escape to exit."
+msgstr "Σημειώστε τα μπλοκ. Χρησιμοποιήστε τα βελάκια για να μετακινηθείτε μεταξύ των μπλοκ, Enter για να προσθέσετε σχόλιο, και Escape για να βγείτε."
+
+#. 1: annotation number, 2: comment text.
+#: src/easy-mode/annotations/annotation-layer.tsx:367
+msgid "Annotation %1$d: %2$s"
+msgstr "Σημείωση %1$d: %2$s"
+
+#. 1: block label, 2: position, 3: total count.
+#: src/easy-mode/annotations/annotation-layer.tsx:341
+msgid "%1$s, block %2$d of %3$d"
+msgstr "%1$s, μπλοκ %2$d από %3$d"
+
+#. %s: comma-separated list of navigation item identifiers that could not be
+#. resolved.
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:180
+msgid "Navigation items not found: %s. These are not in the menu or in the current page structure, so there is nothing to reorder them from — they are most likely from an earlier turn, or the header is not part of the page currently open in the editor. Read the page structure again and use the clientIds it returns, or identify each item by its url or label instead. This reorder was not applied."
+msgstr "Δεν βρέθηκαν στοιχεία πλοήγησης: %s. Αυτά δεν είναι στο μενού ή στη δομή της τρέχουσας σελίδας, οπότε δεν υπάρχει τίποτα για να τα αναδιατάξετε — πιθανότατα προέρχονται από προηγούμενη εκδοχή, ή η κεφαλίδα δεν είναι μέρος της σελίδας που είναι ανοιχτή αυτή τη στιγμή στον επεξεργαστή. Διαβάστε ξανά τη δομή της σελίδας και χρησιμοποιήστε τα clientIds που επιστρέφει, ή προσδιορίστε κάθε στοιχείο με το url ή την ετικέτα του αντί. Αυτή η αναδιάταξη δεν εφαρμόστηκε."
+
+#. Description of the plugin
+#: big-sky.php
+msgid "Your WordPress.com AI agent that helps with site setup, content, design, and more."
+msgstr "Ο AI πράκτορας του WordPress.com που βοηθά με τη ρύθμιση του Ιστότοπου, το περιεχόμενο, το σχέδιο και άλλα."
+
+#. Plugin Name of the plugin
+#: big-sky.php
+msgid "WordPress Agent"
+msgstr "WordPress Πράκτορας"
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:23
+msgid "Invalid editor path. look up the numeric id from <site_pages>, then retry navigation with the numeric editor_path."
+msgstr "Μη έγκυρη διαδρομή επεξεργαστή. αναζητήστε το αριθμητικό id από <site_pages>, στη συνέχεια δοκιμάστε ξανά την πλοήγηση με την αριθμητική editor_path."
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:22
+msgid "Invalid editor path. Page navigation requires /page/{numeric-id}. Look up the page ID first."
+msgstr "Μη έγκυρη διαδρομή επεξεργαστή. Η πλοήγηση στη Σελίδα απαιτεί /page/{numeric-id}. Κοίτα πρώτα το ID της Σελίδας."
+
+#: src/abilities/editor-navigate/index.ts:17
+msgid "Saves everything and navigates to the specified path in the editor. For page navigation, path must be a numeric editor path like \"/page/123\" or \"page/123\"; full URLs, slugs, \"all-pages\", and paths like \"/visit\" or \"/page/visit\" are invalid. If the user names a page and the current page is not the target, look up the numeric id from <site_pages> first, then navigate with the numeric editor path."
+msgstr "Αποθηκεύει τα πάντα και πλοηγείται στο καθορισμένο μονοπάτι στον επεξεργαστή. Για πλοήγηση σε σελίδα, το μονοπάτι πρέπει να είναι ένα αριθμητικό μονοπάτι επεξεργαστή όπως το \"/page/123\" ή \"page/123\"; πλήρεις διευθύνσεις URL, σύντομα ονόματα, \"all-pages\" και μονοπάτια όπως το \"/visit\" ή το \"/page/visit\" είναι άκυρα. Αν ο χρήστης ονομάσει μια σελίδα και η τρέχουσα σελίδα δεν είναι ο στόχος, αναζητήστε πρώτα το αριθμητικό id από <site_pages>, στη συνέχεια πλοηγηθείτε με το αριθμητικό μονοπάτι επεξεργαστή."
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:94
+msgid "I did not restore that checkpoint because it may replace or remove too much current content."
+msgstr "Δεν αποκατέστησα εκείνο το σημείο ελέγχου γιατί μπορεί να αντικαταστήσει ή να αφαιρέσει πάρα πολύ τρέχον περιεχόμενο."
+
+#: src/abilities/restore-checkpoint/index.ts:19
+msgid "Restores editor state from a checkpoint associated with a previous mutating tool call. Use for undo/redo requests. Prefer checkpointId values from clientContext.availableCheckpoints whose toolId matches the user intent: block-edit checkpoints for content changes, theme-update checkpoints for style/theme changes, and navigation/entity checkpoints for navigation/entity changes. For undo, use the checkpointId for the most recent relevant non-restore mutating Big Sky tool call. Only use a checkpoint whose toolId is big_sky__restore_checkpoint for explicit redo requests, because those checkpoints represent the state before a prior undo/restore. Pass requestIntentType to describe the user intent: \"undo\" for undo requests, \"redo\" for redo requests, or \"restore\" when restoring a specific checkpoint/version. The checkpoint ID usually starts with \"toolu_\". Do not use the current restore-checkpoint call ID, any id starting with \"call_\", a tool name/id, or calypsoCheckpointId/messageId. If the user reports missing homepage/footer/navigation content, do not rebuild or redesign unless the user explicitly agrees; try a relevant checkpoint, WordPress revisions, or support escalation instead."
+msgstr "Επαναφέρει την κατάσταση του επεξεργαστή από ένα σημείο ελέγχου που σχετίζεται με μια προηγούμενη κλήση εργαλείου που τροποποιεί. Χρησιμοποίησε το για αιτήματα αναιρέσεως/επανάληψης. Προτίμησε τις τιμές checkpointId από το clientContext.availableCheckpoints των οποίων το toolId ταιριάζει με την πρόθεση του χρήστη: μπλοκ-τροποποίησης checkpoints για αλλαγές περιεχομένου, θέμα-ενημέρωσης checkpoints για αλλαγές στυλ/θέματος, και πλοήγηση/οντότητα checkpoints για αλλαγές πλοήγησης/οντότητας. Για αναιρέσεις, χρησιμοποίησε το checkpointId για την πιο πρόσφατη σχετική μη-επαναφορά κλήση εργαλείου Big Sky που τροποποιεί. Χρησιμοποίησε μόνο ένα σημείο ελέγχου του οποίου το toolId είναι big_sky__restore_checkpoint για ρητές αιτήσεις επανάληψης, γιατί αυτά τα σημεία ελέγχου αντιπροσωπεύουν την κατάσταση πριν από μια προηγούμενη αναιρέση/επαναφορά. Πέρασε το requestIntentType για να περιγράψεις την πρόθεση του χρήστη: \"αναιρέση\" για αιτήματα αναιρέσεως, \"επανάληψη\" για αιτήματα επανάληψης, ή \"επαναφορά\" όταν επαναφέρεις ένα συγκεκριμένο σημείο ελέγχου/έκδοση. Το ID του σημείου ελέγχου συνήθως ξεκινά με \"toolu_\". Μην χρησιμοποιήσεις το τρέχον ID κλήσης restore-checkpoint, κανένα ID που ξεκινά με \"call_\", ένα όνομα/ID εργαλείου, ή calypsoCheckpointId/messageId. Αν ο χρήστης αναφέρει ότι λείπει περιεχόμενο από την αρχική σελίδα/υποσέλιδο/πλοήγηση, μην ξαναχτίσεις ή σχεδιάσεις εκ νέου εκτός αν ο χρήστης συμφωνήσει ρητά; δοκίμασε ένα σχετικό σημείο ελέγχου, τις αναθεωρήσεις του WordPress, ή την κλιμάκωση υποστήριξης αντί."
+
+#: src/abilities/stream-page-design/index.ts:23
+msgid "The editor is still loading. Try the page design again once the page is editable."
+msgstr "Ο επεξεργαστής φορτώνει ακόμα. Δοκίμασε ξανά το σχέδιο της Σελίδας μόλις η Σελίδα είναι τροποποιήσιμη."
+
+#: src/abilities/stream-page-design/index.ts:22
+msgid "The generated page content has been staged in the editor for review."
+msgstr "Το περιεχόμενο της Σελίδας που δημιουργήθηκε έχει τοποθετηθεί στον επεξεργαστή για Ανασκόπηση, αξιολόγηση."
+
+#: src/abilities/stream-page-design/index.ts:21
+msgid "Stream Page Design"
+msgstr "Σχεδίαση Σελίδας Ροής"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1372
+msgid "The requested changes were already applied."
+msgstr "Οι ζητούμενες αλλαγές έχουν ήδη εφαρμοστεί."
+
+#: src/components/open-help-center-button.tsx:20
+msgid "Open Help Center"
+msgstr "Άνοιγμα Κέντρου Βοήθειας"
+
+#: src/abilities/open-help-center.ts:200
+msgid "Get help"
+msgstr "Πάρε βοήθεια"
+
+#: src/abilities/open-help-center.ts:144
+msgid "Show the user a button they can click to open WordPress.com Help Center chat when they ask to talk to a human, contact support, or get help from a person. This ability does not open Help Center automatically."
+msgstr "Δείξε στον Χρήστη ένα κουμπί που μπορεί να κάνει κλικ για να ανοίξει τη συνομιλία του Κέντρου Βοήθειας του WordPress.com όταν ζητήσει να μιλήσει με έναν άνθρωπο, να επικοινωνήσει με την υποστήριξη ή να πάρει βοήθεια από ένα άτομο. Αυτή η δυνατότητα δεν ανοίγει αυτόματα το Κέντρο Βοήθειας."
+
+#: src/abilities/open-help-center.ts:142
+msgid "Show Help Center chat button"
+msgstr "Εμφάνιση κουμπιού συνομιλίας Κέντρου Βοήθειας"
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:49
+msgid "I could not find a checkpoint for that ID."
+msgstr "Δεν μπόρεσα να βρω ένα σημείο ελέγχου για αυτή την ταυτότητα."
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:39
+msgid "I could not restore the checkpoint because no checkpoint ID was provided."
+msgstr "Δεν μπόρεσα να επαναφέρω το σημείο ελέγχου γιατί δεν δόθηκε κανένα ID σημείου ελέγχου."
+
+#: src/abilities/restore-checkpoint/index.ts:17
+msgid "Restore Checkpoint"
+msgstr "Επαναφορά Σημείου Ελέγχου"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:580
+msgid "Awaiting user confirmation before making this change."
+msgstr "Αναμένοντας επιβεβαίωση από τον Χρήστη πριν κάνω αυτή την αλλαγή."
+
+#: src/abilities/site-logo/set-site-logo.ts:71
+msgid "There was an error with this request."
+msgstr "Υπήρξε ένα σφάλμα με αυτό το αίτημα."
+
+#: src/abilities/site-logo/set-site-logo.ts:58
+msgid "Logo set successfully"
+msgstr "Το λογότυπο ρυθμίστηκε με επιτυχία"
+
+#: src/abilities/show-component/show-component.tsx:175
+msgid "Choose from the options I provided."
+msgstr "Διάλεξε από τις επιλογές που έδωσα."
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:592
+msgid "Updated the entity records."
+msgstr "Ενημέρωση των εγγραφών οντοτήτων."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:442
+#: src/components/dock/index.js:429
+msgid "New chat"
+msgstr "Νέα συνομιλία"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:59
+msgid "How can you help me?"
+msgstr "Πώς μπορείς να με βοηθήσεις;"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:53
+msgid "What should I do next?"
+msgstr "Τι πρέπει να κάνω στη συνέχεια;"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:457
+msgid "Welcome to your new store! I'm your personal AI assistant. How can I help you?"
+msgstr "Καλώς ήρθες στο νέο σου κατάστημα! Είμαι ο προσωπικός σου AI βοηθός. Πώς μπορώ να σε βοηθήσω;"
+
+#: src/components/product-card/ProductCard.tsx:51
+#: src/components/site-spec-landing/index.js:345
+msgid "Loading…"
+msgstr "Φόρτωση"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:99
+msgid "Help me to connect PayPal Payments to my store"
+msgstr "Βοήθησέ με να συνδέσω τις πληρωμές PayPal με το κατάστημά μου"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:98
+msgid "Connect PayPal Payments to my store"
+msgstr "Σύνδεση πληρωμών PayPal με το κατάστημά μου"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:93
+msgid "Recommend shipping zones and methods for my store"
+msgstr "Συνιστήστε ζώνες αποστολής και μεθόδους για το κατάστημά μου"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:92
+msgid "Set up shipping rates"
+msgstr "Ρύθμιση τιμών αποστολής"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:87
+msgid "Set my product pricing"
+msgstr "Ρύθμισε τις τιμές του προϊόντος μου"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:81
+msgid "Help me to write a product description"
+msgstr "Βοήθησέ με να γράψω μια περιγραφή προϊόντος"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:80
+msgid "Write a product description"
+msgstr "Γράψε μια περιγραφή προϊόντος"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:75
+msgid "Help me to create a product"
+msgstr "Βοήθησέ με να δημιουργήσω ένα προϊόν"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:22
+msgid "Failed to make the theme update. Please try again."
+msgstr "Αποτυχία στην Ενημέρωση του θέματος. Παρακαλώ δοκιμάστε ξανά."
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:67
+msgid "Add to post"
+msgstr "Προσθήκη στο άρθρο"
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:60
+msgid "Replace selected image"
+msgstr "Αντικατάσταση επιλεγμένης εικόνας"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat"
+msgstr "Ξεκίνα μια νέα συνομιλία"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat to begin"
+msgstr "Ξεκίνα μια νέα συνομιλία για να ξεκινήσεις"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "No past conversations"
+msgstr "Δεν υπάρχουν προηγούμενες συνομιλίες"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Failed to load conversations. Please try again."
+msgstr "Αποτυχία φόρτωσης συνομιλιών. Παρακαλώ δοκιμάστε ξανά."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:449
+msgid "Past chats"
+msgstr "Προηγούμενες συνομιλίες"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:276
+msgid "Failed to upload images. Please try again."
+msgstr "Αποτυχία μεταφόρτωσης εικόνων. Παρακαλώ δοκιμάστε ξανά."
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:37
+msgid "Tell me what you can do for me"
+msgstr "Πες μου τι μπορείς να κάνεις για μένα"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:74
+msgid "Create a product"
+msgstr "Δημιουργήστε ένα προϊόν"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:31
+msgid "Show me recent comments"
+msgstr "Δείξε μου πρόσφατα σχόλια"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:30
+msgid "Review comments"
+msgstr "Σχόλια ανασκόπησης"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:25
+msgid "Show me my site health status"
+msgstr "Δείξε μου την κατάσταση υγείας του ιστότοπού μου"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:24
+msgid "Check site health"
+msgstr "Έλεγξε την υγεία του Ιστότοπου"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:19
+msgid "Help me create a new post"
+msgstr "Βοήθησέ με να δημιουργήσω ένα νέο Άρθρο"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:18
+msgid "Create content"
+msgstr "Δημιουργία περιεχομένου"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:13
+msgid "Show me my recent posts"
+msgstr "Δείξε μου τα πρόσφατα άρθρα μου"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:12
+msgid "Manage posts"
+msgstr "Διαχείριση άρθρων"
+
+#: src/ai/hooks/suggestions-data.ts:91
+msgid "Remove the background from this image"
+msgstr "Αφαίρεσε το Υπόβαθρο από αυτή την εικόνα"
+
+#: src/ai/hooks/suggestions-data.ts:90
+msgid "Remove background"
+msgstr "Αφαίρεση Υπόβαθρου"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Discard"
+msgstr "Απόρριψη"
+
+#: src/easy-mode/components/topbar.tsx:761
+msgid "Saving…"
+msgstr "Αποθηκευεται..."
+
+#: src/ai/wp-orchestrator/index.tsx:52
+msgid "Unable to authenticate with Jetpack. Please try again."
+msgstr "Δεν μπορώ να πιστοποιηθώ με το Jetpack. Παρακαλώ δοκιμάστε ξανά."
+
+#: src/ai/wp-orchestrator/index.tsx:50
+msgid "Network connection issue. Please check your internet connection and try again."
+msgstr "Πρόβλημα σύνδεσης δικτύου. Παρακαλώ ελέγξτε τη σύνδεση στο διαδίκτυο και δοκιμάστε ξανά."
+
+#: src/ai/wp-orchestrator/index.tsx:45
+msgid "Unable to connect to Jetpack. Please ensure Jetpack is active and up to date."
+msgstr "Δεν μπορώ να συνδεθώ με το Jetpack. Παρακαλώ βεβαιωθείτε ότι το Jetpack είναι ενεργό και ενημερωμένο."
+
+#: src/ai/wp-orchestrator/index.tsx:42
+msgid "You don't have permission to access AI features."
+msgstr "Δεν έχεις άδεια να έχεις πρόσβαση σε δυνατότητες AI."
+
+#: src/ai/wp-orchestrator/index.tsx:39
+msgid "Your session expired. Please refresh the page and try again."
+msgstr "Η συνεδρία σας έληξε. Παρακαλώ ανανεώστε τη Σελίδα και δοκιμάστε ξανά."
+
+#: src/components/product-card/ProductCard.tsx:56
+msgid "Error: Product name is required"
+msgstr "Σφάλμα: Το όνομα του προϊόντος είναι υποχρεωτικό"
+
+#: src/components/product-card/ProductCard.tsx:87
+msgid "Product"
+msgstr "Προϊόν"
+
+#: src/components/product-card/ProductCard.tsx:84
+msgid "Service"
+msgstr "Υπηρεσία"
+
+#: src/components/product-card/ProductCard.tsx:53
+msgid "Error: Could not render product card"
+msgstr "Σφάλμα: Δεν μπόρεσε να αποδώσει την κάρτα προϊόντος"
+
+#: src/components/product-card/ProductCard.tsx:25
+msgid "unit"
+msgid_plural "units"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/easy-mode/components/preview-overlay.tsx:155
+#: src/components/index.js:200
+msgid "Retry"
+msgstr "Δοκιμάστε ξανά"
+
+#: src/abilities/set-styles/index.ts:20
+msgid "Apply color palette, font pairing, and button style variations to the WordPress site. Accepts variation titles (e.g., \"Professional\", \"Montserrat + Open Sans\") and applies the complete styling including colors, typography, button styles, and all associated theme variations."
+msgstr "Εφάρμοσε παλέτα χρωμάτων, συνδυασμούς γραμματοσειρών και παραλλαγές στυλ κουμπιών στον Ιστότοπο WordPress. Δέχεται τίτλους παραλλαγών (π.χ., \"Επαγγελματικό\", \"Montserrat + Open Sans\") και εφαρμόζει το πλήρες στυλ συμπεριλαμβανομένων των χρωμάτων, της τυπογραφίας, των στυλ κουμπιών και όλων των σχετικών παραλλαγών θέματος."
+
+#: src/abilities/set-styles/index.ts:18
+msgid "Set Styles"
+msgstr "Ορισμός Στυλ"
+
+#: src/abilities/add-pages/index.ts:19
+msgid "Creates multiple WordPress pages with generated content from patterns and layouts. Page titles are provided by the backend, and page content is composed from layout blocks. Also updates site navigation."
+msgstr "Δημιουργεί πολλές Σελίδες WordPress με παραγόμενο περιεχόμενο από μοτίβα και διατάξεις. Οι τίτλοι σελίδων παρέχονται από το backend, και το περιεχόμενο της σελίδας συντίθεται από μπλοκ διάταξης. Επίσης, ενημερώνει την πλοήγηση του ιστότοπου."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:82
+msgid "Failed to update styles:"
+msgstr "Αποτυχία στην Ενημέρωση στυλ: "
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:76
+msgid "Failed to update styles. The style variation may be invalid."
+msgstr "Αποτυχία στην Ενημέρωση στυλ. Η παραλλαγή στυλ μπορεί να είναι μη έγκυρη."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:62
+msgid "Styles updated successfully."
+msgstr "Οι στυλ ενημερώθηκαν με επιτυχία."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:38
+msgid "Invalid button format. Button must be a string (variation title)."
+msgstr "Μη έγκυρη μορφή κουμπιού. Το κουμπί πρέπει να είναι μια συμβολοσειρά (τίτλος παραλλαγής)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:31
+msgid "Invalid font format. Font must be a string (variation title)."
+msgstr "Μη έγκυρη μορφή γραμματοσειράς. Η γραμματοσειρά πρέπει να είναι μια συμβολοσειρά (τίτλος παραλλαγής)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:24
+msgid "Invalid color format. Color must be a string (variation title)."
+msgstr "Μη έγκυρη μορφή χρώματος. Το χρώμα πρέπει να είναι μια συμβολοσειρά (τίτλος παραλλαγής)."
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:17
+msgid "Invalid arguments. Provide at least one of: color, font, or button."
+msgstr "Μη έγκυρα επιχειρήματα. Παρέχετε τουλάχιστον ένα από τα εξής: χρώμα, γραμματοσειρά ή κουμπί."
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:169
+msgid "Failed to create pages:"
+msgstr "Αποτυχία στη δημιουργία Σελίδων: "
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:65
+msgid "Invalid pages. Must provide an array of page objects."
+msgstr "Μη έγκυρες Σελίδες. Πρέπει να παρέχετε έναν πίνακα αντικειμένων σελίδας."
+
+#: src/abilities/site-logo/index.ts:17
+msgid "Set the site logo"
+msgstr "Ρύθμισε το λογότυπο του Ιστότοπου"
+
+#: src/abilities/site-logo/index.ts:15
+msgid "Set Site Logo"
+msgstr "Ρύθμιση Λογότυπου Ιστότοπου"
+
+#: src/abilities/update-theme/index.ts:17
+msgid "Update WordPress theme settings and styles using theme.json format"
+msgstr "Ενημέρωση ρυθμίσεων και στυλ θέματος WordPress χρησιμοποιώντας τη μορφή theme.json"
+
+#: src/abilities/update-theme/index.ts:15
+msgid "Update Theme"
+msgstr "Αναβάθμιση θέματος"
+
+#: src/abilities/edit-entity-record/index.ts:17
+msgid "Create, edit, or delete WordPress data entity records using the data layer"
+msgstr "Δημιουργία, τροποποίηση ή Διαγραφή εγγραφών οντοτήτων δεδομένων WordPress χρησιμοποιώντας την στρώση δεδομένων"
+
+#: src/abilities/edit-entity-record/index.ts:15
+msgid "Manage Entity Records"
+msgstr "Διαχείριση Εγγραφών Οντοτήτων"
+
+#: src/abilities/show-component/index.ts:23
+msgid "Display a component in the UI with specified props"
+msgstr "Εμφάνιση ενός στοιχείου στη Διεπαφή χρήστη με καθορισμένα props"
+
+#: src/abilities/show-component/index.ts:21
+msgid "Show Component"
+msgstr "Εμφάνιση Στοιχείου"
+
+#: src/abilities/client-assistants/index.ts:29
+msgid "Always use this if the user asks for something that requires a client-side assistant. Available assistants:"
+msgstr "Χρησιμοποίησε πάντα αυτό αν ο χρήστης ζητήσει κάτι που απαιτεί έναν βοηθό πλευράς πελάτη. Διαθέσιμοι βοηθοί: "
+
+#: src/abilities/client-assistants/index.ts:27
+msgid "Execute Client Assistant"
+msgstr "Εκτέλεση Βοηθού Πελάτη"
+
+#: src/abilities/apply-block-edits/index.ts:17
+msgid "Applies a collection of block edits to the canvas"
+msgstr "Εφαρμόζει μια συλλογή τροποποιήσεων μπλοκ στον καμβά"
+
+#: src/abilities/apply-block-edits/index.ts:15
+msgid "Apply Block Edits"
+msgstr "Εφαρμογή Μπλοκ Τροποποιήσεων"
+
+#: src/abilities/editor-navigate/index.ts:15
+msgid "Navigate"
+msgstr "Πλοηγηθείτε"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:131
+msgid "By updating the query, order posts from %s"
+msgstr "Με την ενημέρωση του ερωτήματος, παραγγείλετε άρθρα από %s"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:128
+msgid "Stop inheriting default query settings and order posts from %s"
+msgstr "Σταμάτα να κληρονομείς τις ρυθμίσεις ερωτήματος προεπιλογής και να παραγγέλνεις άρθρα από %s"
+
+#: src/ai/hooks/suggestions-data.ts:123
+msgid "newest to oldest"
+msgstr "νεότερα προς παλαιότερα"
+
+#: src/ai/hooks/suggestions-data.ts:122
+msgid "oldest to newest"
+msgstr "παλιότερο σε πιο καινούριο"
+
+#: src/ai/hooks/suggestions-data.ts:117
+msgid "Order posts"
+msgstr "Διατάξτε άρθρα"
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:110
+msgid "Currently this query is displaying %s posts per page, change it to:"
+msgstr "Αυτή τη στιγμή αυτή η ερώτηση εμφανίζει %s άρθρα ανά Σελίδα, άλλαξέ το σε: "
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:107
+msgid "Stop inheriting default query settings and change the current number of posts displayed per page from %s to:"
+msgstr "Σταμάτα να κληρονομείς τις ρυθμίσεις ερωτήματος προεπιλογής και άλλαξε τον τρέχοντα αριθμό άρθρων που εμφανίζονται ανά σελίδα από %s σε: "
+
+#: src/ai/hooks/suggestions-data.ts:99
+msgid "Change number of posts"
+msgstr "Αλλαγή αριθμού άρθρων"
+
+#: src/ai/hooks/suggestions-data.ts:96
+msgid "Tell me all the ways you can help design or edit my site"
+msgstr "Πες μου όλους τους τρόπους που μπορείς να βοηθήσεις στο σχεδιασμό ή την Τροποποίηση του Ιστότοπού μου"
+
+#: src/ai/hooks/suggestions-data.ts:95
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:36
+msgid "What else can you do?"
+msgstr "Τι άλλο μπορείς να κάνεις;"
+
+#: src/ai/hooks/suggestions-data.ts:86
+msgid "Edit the image to:"
+msgstr "Τροποποίηση της εικόνας σε: "
+
+#: src/ai/hooks/suggestions-data.ts:85
+msgid "Edit image"
+msgstr "Επεξεργασία εικόνας"
+
+#: src/ai/hooks/suggestions-data.ts:81
+msgid "Generate an image of:"
+msgstr "Δημιούργησε μια εικόνα του: "
+
+#: src/ai/hooks/suggestions-data.ts:76
+msgid "Check the grammar of this text"
+msgstr "Έλεγξε τη γραμματική αυτού του κειμένου"
+
+#: src/ai/hooks/suggestions-data.ts:75
+msgid "Check grammar"
+msgstr "Έλεγξε τη γραμματική"
+
+#: src/ai/hooks/suggestions-data.ts:71
+msgid "Change the tone of this text to be more:"
+msgstr "Αλλάξτε τον τόνο αυτού του κειμένου ώστε να είναι πιο: "
+
+#: src/ai/hooks/suggestions-data.ts:66
+msgid "Translate this to:"
+msgstr "Μετάφρασε αυτό σε: "
+
+#: src/ai/hooks/suggestions-data.ts:65
+msgid "Translate content"
+msgstr "Μετάφραση περιεχομένου"
+
+#: src/ai/hooks/suggestions-data.ts:61
+msgid "Add another column to the end of these"
+msgstr "Πρόσθεσε μια άλλη Στήλη στο τέλος αυτών"
+
+#: src/ai/hooks/suggestions-data.ts:60
+msgid "Add column"
+msgstr "Προσθήκη Στήλης"
+
+#: src/ai/hooks/suggestions-data.ts:56
+msgid "Reverse the order of these columns"
+msgstr "Αντίστροφη σειρά αυτών των Στηλών"
+
+#: src/ai/hooks/suggestions-data.ts:55
+msgid "Swap columns"
+msgstr "Ανταλλαγή Στηλών"
+
+#. %s is the button text
+#: src/ai/hooks/suggestions-data.ts:52
+msgid "Change the %s button link to:"
+msgstr "Αλλάξτε τον σύνδεσμο του κουμπιού %s σε: "
+
+#: src/ai/hooks/suggestions-data.ts:46
+msgid "Create a new page on my site for"
+msgstr "Δημιούργησε μια νέα Σελίδα στον Ιστότοπό μου για "
+
+#: src/ai/hooks/suggestions-data.ts:45
+msgid "Add new page"
+msgstr "Νέα σελίδα"
+
+#: src/ai/hooks/suggestions-data.ts:42
+msgid "Show me different layouts for this page"
+msgstr "Δείξε μου διαφορετικές διατάξεις για αυτή τη σελίδα"
+
+#: src/ai/hooks/suggestions-data.ts:41
+msgid "Change page layout"
+msgstr "Αλλαγή διάταξης σελίδας"
+
+#: src/ai/hooks/suggestions-data.ts:38
+msgid "Show me color palettes for my site that are:"
+msgstr "Δείξε μου παλέτες χρωμάτων για τον ιστότοπό μου που είναι: "
+
+#: src/ai/hooks/suggestions-data.ts:37
+msgid "Customize colors"
+msgstr "Προσαρμόστε τα χρώματα"
+
+#: src/ai/hooks/suggestions-data.ts:34
+msgid "Show me new fonts for my site"
+msgstr "Δείξε μου νέες γραμματοσειρές για τον ιστότοπό μου"
+
+#: src/ai/hooks/suggestions-data.ts:33
+msgid "Choose new fonts"
+msgstr "Επίλεξε νέες γραμματοσειρές"
+
+#: big-sky.php:349
+msgid "AI-powered site building and navigation abilities."
+msgstr "Δυνατότητες κατασκευής και πλοήγησης Ιστότοπου με τεχνητή νοημοσύνη."
+
+#: src/components/product-card/ProductCard.tsx:90
+#: src/easy-mode/components/topbar.tsx:51
+msgid "Edit"
+msgstr "Τροποποίηση"
+
+#: src/hooks/use-dock-state.ts:138
+#: src/components/dock/index.js:440
+msgid "Pop out sidebar"
+msgstr "Πλευρική στήλη"
+
+#: src/hooks/use-dock-state.ts:132
+#: src/components/dock/index.js:460
+msgid "Move to sidebar"
+msgstr "Μετακίνηση στην πλευρική στήλη"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:548
+msgid "Got a different request? Ask away."
+msgstr "Έχεις ένα διαφορετικό αίτημα; Ρώτα ελεύθερα."
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:542
+msgid "Howdy! How can I help you today?"
+msgstr "Γεια σου! Πώς μπορώ να σε βοηθήσω σήμερα;"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:65
+msgid "Updated:"
+msgstr "Ανανεώθηκε:"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:86
+msgid "Theme updated successfully"
+msgstr "Το θέμα ενημερώθηκε επιτυχώς."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:51
+msgid "Invalid styles format. Styles must be an object."
+msgstr "Μη έγκυρη μορφή στυλ. Τα στυλ πρέπει να είναι ένα αντικείμενο."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:40
+msgid "Invalid settings format. Settings must be an object."
+msgstr "Μη έγκυρη μορφή ρυθμίσεων. Οι ρυθμίσεις πρέπει να είναι ένα αντικείμενο."
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:29
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "Μη έγκυρα επιχειρήματα. Παρέχετε είτε ρυθμίσεις είτε στυλ για να ενημερώσετε το θέμα εμφάνισης."
+
+#: big-sky.php:1652
+#: big-sky.php:1653
+msgid "AI Editor"
+msgstr "AI Τροποποίηση"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:493
+msgid "Proceed"
+msgstr "Συνέχεια"
+
+#: src/ai/hooks/suggestions-data.ts:49
+msgid "Edit link"
+msgstr "Επεξεργασία συνδέσμου"
+
+#: src/abilities/show-component/show-component.tsx:214
+#: src/abilities/site-logo/set-site-logo.ts:70
+msgid "There was an error with this request. Please try again."
+msgstr "Υπήρξε ένα Σφάλμα με αυτό το Αίτημα. Παρακαλώ δοκιμάστε ξανά."
+
+#: src/abilities/client-assistants/run-assistant.ts:189
+msgid "No response from assistant"
+msgstr "Καμία απάντηση από τον βοηθό"
+
+#: src/abilities/client-assistants/index.ts:89
+msgid "Assistant completed successfully"
+msgstr "Ο βοηθός ολοκληρώθηκε με επιτυχία"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1464
+msgid "Something went wrong. Please try again."
+msgstr "Σφάλμα. Προσπαθήστε ξανά."
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1422
+msgid "I have completed the edits."
+msgstr "Έχω ολοκληρώσει τις Τροποποιήσεις."
+
+#. translators: %s is the theme name.
+#: big-sky.php:625
+msgid "The current theme (%s) is a block theme."
+msgstr "Το τρέχον θέμα εμφάνισης (%s) είναι ένα μπλοκ θέμα."
+
+#: big-sky.php:618
+msgid "The current theme is not a block theme. Big Sky requires a block theme to be active."
+msgstr "Το τρέχον θέμα εμφάνισης δεν είναι θέμα μπλοκ. Το Big Sky απαιτεί να είναι ενεργό ένα θέμα μπλοκ."
+
+#: src/abilities/client-assistants/run-assistant.ts:182
+msgid "Sorry, I've encountered an error. Please try again or let me know if you need help with something else."
+msgstr "Λυπάμαι, έχω συναντήσει ένα Σφάλμα. Παρακαλώ δοκιμάστε ξανά ή ενημερώστε με αν χρειάζεστε βοήθεια με κάτι άλλο."
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:499
+msgid "I changed my mind"
+msgstr "Άλλαξα γνώμη"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1381
+msgid "I was not able to make the changes you requested. Either I don't have the capability to do so or I didn't understand your request. You can ask me to try again or ask me to do something else."
+msgstr "Δεν μπόρεσα να κάνω τις αλλαγές που ζήτησες. Ή δεν έχω τη δυνατότητα να το κάνω ή δεν κατάλαβα το αίτημά σου. Μπορείς να μου ζητήσεις να προσπαθήσω ξανά ή να μου ζητήσεις να κάνω κάτι άλλο."
+
+#: src/easy-mode/components/preview-overlay.tsx:158
+msgid "Site preview"
+msgstr "Προεπισκόπηση ιστοτόπου"
+
+#: src/ai/hooks/suggestions-data.ts:80
+msgid "Generate image"
+msgstr "Δημιουργία εικόνας"
+
+#: src/easy-mode/components/page-switcher.tsx:49
+#: src/components/mosaic.js:633
+#: src/components/mosaic.js:675
+msgid "Pages"
+msgstr "Σελίδες"
+
+#: src/easy-mode/components/page-switcher.tsx:34
+msgid "Home"
+msgstr "Αρχική"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:490
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:22
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:30
+msgid "No"
+msgstr "Όχι"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:541
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:16
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:24
+msgid "Yes"
+msgstr "Ναι"
+
+#: src/abilities/add-pages/index.ts:17
+msgid "Add Pages"
+msgstr "Προσθήκη Σελίδων"
+
+#: src/ai/hooks/suggestions-data.ts:70
+msgid "Change tone"
+msgstr "Αλλαγή τόνου"
+
+#: src/easy-mode/components/topbar.tsx:710
+msgid "Undo"
+msgstr "Αναίρεση"
+
+#: src/easy-mode/components/topbar.tsx:763
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Save"
+msgstr "Αποθήκευση"
+
+#: big-sky.php:707
+msgid "These checks passed:"
+msgstr "Αυτοί οι έλεγχοι πέρασαν:"
+
+#: big-sky.php:693
+msgid "Big Sky detected the following issues with your site:"
+msgstr "Το Big Sky ανίχνευσε τα εξής προβλήματα με τον ιστότοπό σας:"
+
+#. translators: $d is the number of performance issues found.
+#: big-sky.php:692
+msgid "Big Sky is affected by %d issue"
+msgid_plural "Big Sky is affected by %d issues"
+msgstr[0] "Το Big Sky επηρεάζεται από %d πρόβλημα"
+msgstr[1] "Το Big Sky επηρεάζεται από %d ζητήματα"
+
+#: big-sky.php:682
+msgid "Mapbox API key is set."
+msgstr "Το κλειδί API του Mapbox έχει ρυθμιστεί."
+
+#: big-sky.php:677
+msgid "Mapbox API key is not set. Big Sky requires a Mapbox API key to be set."
+msgstr "Το κλειδί API του Mapbox δεν έχει οριστεί. Το Big Sky απαιτεί να οριστεί ένα κλειδί API του Mapbox."
+
+#: big-sky.php:669
+msgid "Jetpack is connected to an admin."
+msgstr "Το Jetpack είναι συνδεδεμένο με έναν διαχειριστή."
+
+#: big-sky.php:664
+msgid "Jetpack does not have a connected admin. Big Sky requires Jetpack to be connected to an admin."
+msgstr "Το Jetpack δεν έχει συνδεδεμένο διαχειριστή. Το Big Sky απαιτεί το Jetpack να είναι συνδεδεμένο με έναν διαχειριστή."
+
+#: big-sky.php:655
+msgid "Jetpack is connected."
+msgstr "Το Jetpack είναι συνδεδεμένο."
+
+#: big-sky.php:650
+msgid "Jetpack is not connected. Big Sky requires Jetpack to be connected."
+msgstr "Το Jetpack δεν είναι συνδεδεμένο. Το Big Sky απαιτεί να είναι συνδεδεμένο το Jetpack."
+
+#: big-sky.php:639
+msgid "Jetpack is installed."
+msgstr "Το Jetpack έχει εγκατασταθεί."
+
+#: big-sky.php:634
+msgid "Jetpack is not installed. Big Sky requires Jetpack to be installed and active."
+msgstr "Το Jetpack δεν είναι εγκατεστημένο. Το Big Sky απαιτεί να είναι εγκατεστημένο και ενεργό το Jetpack."
+
+#: big-sky.php:608
+msgid "Big Sky did not find any known issues with your site."
+msgstr "Η Big Sky δεν βρήκε κανένα γνωστό πρόβλημα με τον Ιστότοπό σας."
+
+#: big-sky.php:600
+msgid "Big Sky Checks"
+msgstr "Big Sky Checks"
+
+#: big-sky.php:575
+#: big-sky.php:576
+msgid "Big Sky checks"
+msgstr "Μεγάλες επιταγές Sky"
+
+#: big-sky.php:406
+msgid "AI Features"
+msgstr "Χαρακτηριστικά AI"
+
+#: big-sky.php:398
+msgid "Enable AI-powered site building experience"
+msgstr "Ενεργοποίηση εμπειρίας δημιουργίας Ιστότοπου με τεχνητή νοημοσύνη"
+
+#. Author of the plugin
+#: big-sky.php
+msgid "Automattic, Inc."
+msgstr "Automattic, Inc."
+
+#: big-sky.php:348
+#: big-sky.php:603
+msgid "Big Sky"
+msgstr "Μεγάλος Ουρανός"

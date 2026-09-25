@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+llama-cpp-python
+requests
+
+# Google Antigravity SDK for building Gemini-powered AI agents
+google-antigravity==0.1.18

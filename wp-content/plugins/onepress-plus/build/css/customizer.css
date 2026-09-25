@@ -1,0 +1,34 @@
+
+.pm-instagram-user {
+	text-align: center;
+}
+.pm-inst-avatar {
+	width: 80px;
+    height: 80px;
+    margin: auto;
+    border-radius: 100px;
+}
+
+.pm-inst-avatar img {
+	border-radius: 100%;
+}
+
+.pm-inst-info {
+	margin: 10px 0;
+}
+
+.pm-inst-fullname {
+	color: #222;
+    font-weight: bold;
+	font-size: 13px;
+}
+
+.pm-inst-fullname a {
+	text-decoration: none;
+}
+
+.pm-inst-username {
+	font-size: 12px;
+    color: #444;
+}
+

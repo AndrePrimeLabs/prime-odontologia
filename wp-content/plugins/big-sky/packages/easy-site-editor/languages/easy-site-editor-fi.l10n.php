@@ -1,0 +1,2 @@
+<?php
+return ['domain'=>NULL,'plural-forms'=>'nplurals=2; plural=n != 1;','language'=>'fi','project-id-version'=>'WordPress.com - Easy Site Editor','pot-creation-date'=>'2026-09-16T17:26:00+00:00','po-revision-date'=>'2026-08-17 11:53:09+0000','x-generator'=>'GlotPress/2.4.0-alpha','messages'=>['Sending…'=>'Lähetetään','Cancel'=>'Peruuta','Publish'=>'Julkaise','Redo'=>'Tee uudelleen','Undo'=>'Peru, peruuta','%1$s (%2$s)'=>'%1$s (%2$s)','Discard'=>'Hylkää','Debug'=>'Testaa','Automattic'=>'Automattic','Keep editing'=>'Jatka muokkaamista','Preview'=>'Esikatsele']];

@@ -1,0 +1,993 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Big Sky\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:25:54+00:00\n"
+"PO-Revision-Date: 2026-09-09 14:59:00+0000\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:74
+msgid "Here is the visible area of the canvas. Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "這是畫布的可見區域。 相片會以實際大小的平面預留位置方塊顯示，因此會將任何灰色矩形視為已存在的圖片，而非遺漏的圖片。"
+
+#. %d: number of blocks framed in the screenshot.
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:73
+msgid "Here is the canvas around %d block(s). Photographs are shown as flat placeholder boxes at their real size, so treat any grey rectangle as an image that is present, not as a missing one."
+msgstr "這是 %d 區塊周圍的畫布。 相片會以實際大小的平面預留位置方塊顯示，因此會將任何灰色矩形視為已存在的圖片，而非遺漏的圖片。"
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:61
+msgid "Here is the whole page, top to bottom. It is scaled down to fit, so body text will not be legible — read it for colour, type scale, spacing and section rhythm, and take an ordinary picture of a specific area when wording or fine detail matters. Photographs are shown as flat placeholder boxes at their real size."
+msgstr "這是從上到下的整個頁面。 頁面已縮小以符合版面，因此內文文字無法辨識；請觀察顏色、字體大小、間距和區段編排，並在需要文字或細節資訊時，拍攝一張特定區域的普通圖片。 相片會以實際大小的平面預留位置方塊顯示。"
+
+#: src/abilities/capture-canvas/use-capture-canvas-tool.ts:47
+msgid "I couldn't get a picture of the canvas just now."
+msgstr "我剛才無法拍到畫布的圖片。"
+
+#: src/abilities/capture-canvas/index.ts:18
+msgid "Takes a picture of the editor canvas as it currently renders, including unsaved changes. Use it to check how the page actually looks when the block data alone cannot answer that — after changing styles, colours, spacing or CSS, or whenever a reported problem is visual. Pass fullPage to see the whole page at once, which is what a theme or global styles change needs checking against. Photographs are replaced by flat placeholder boxes at their real size."
+msgstr "拍攝編輯器畫布目前呈現的圖片，包括未儲存的變更。 在變更樣式、顏色、間距或 CSS 後，或當回報的問題涉及視覺呈現時，當僅憑區塊資料無法得知頁面實際外觀時藉此進行確認。 傳遞 fullPage 即可一次檢視整個頁面，這正是佈景主題或全域樣式變更需要進行比對的依據。 相片會由實際大小的平面預留位置方塊所取代。"
+
+#: src/abilities/capture-canvas/index.ts:16
+msgid "Capture Canvas"
+msgstr "擷取畫布"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:55
+msgid "Are there any changes you would like me to make?"
+msgstr "有任何你想要我進行的變更嗎？"
+
+#: src/ai/calypso-agent-provider/post-generation-welcome.ts:54
+msgid "Your site is ready! Please click around and check it out."
+msgstr "你的網站已就緒！ 請隨意點選瀏覽。"
+
+#: src/easy-mode/components/app.tsx:439
+msgid "Switching to edit mode so you can watch the new design being built."
+msgstr "切換到編輯模式，以便觀看建置中的新設計。"
+
+#: src/easy-mode/components/topbar.tsx:698
+msgid "Return to WP Admin"
+msgstr "返回 WP 管理員"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:313
+msgid "Personalize my site copy with my details."
+msgstr "使用我的詳細資料，將我的網站複本個人化。"
+
+#: src/easy-mode/hooks/use-save-controller.ts:121
+msgid "Your changes could not be saved. Your work is still here — try saving again."
+msgstr "無法儲存你的變更。 你的作品還在這裡，請再儲存一次。"
+
+#: src/easy-mode/hooks/use-save-controller.ts:120
+msgid "Some changes could not be saved. Your work is still here — try saving again."
+msgstr "無法儲存部分變更。 你的作品還在這裡，請再儲存一次。"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:66
+msgid "Save your changes?"
+msgstr "確定要儲存變更？"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:33
+msgid "You need to save or discard the changes to the current page."
+msgstr "請儲存或捨棄目前頁面的變更。"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:32
+msgid "The preview shows your saved site, so unsaved changes won’t appear there."
+msgstr "預覽畫面會顯示已儲存的網站內容，因此未儲存的變更不會顯示於此處。"
+
+#: src/easy-mode/components/topbar.tsx:763
+msgid "Save draft"
+msgstr "儲存草稿"
+
+#: src/easy-mode/components/topbar.tsx:749
+msgid "Publish"
+msgstr "發佈"
+
+#: src/easy-mode/components/topbar.tsx:713
+msgid "Redo"
+msgstr "取消復原"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Open in a new tab"
+msgstr "在新分頁中開啟"
+
+#: src/easy-mode/components/topbar.tsx:68
+msgid "Mode"
+msgstr "模式"
+
+#. %s: selected device, e.g. Desktop.
+#: src/easy-mode/components/topbar.tsx:743
+msgid "Responsive view: %s"
+msgstr "回應式檢視：%s"
+
+#: src/easy-mode/components/topbar.tsx:737
+msgid "Responsive view"
+msgstr "回應式檢視"
+
+#: src/easy-mode/components/topbar.tsx:725
+msgid "Reload preview"
+msgstr "重新載入預覽"
+
+#: src/easy-mode/components/topbar.tsx:696
+msgid "Annotate"
+msgstr "加上註解"
+
+#. %d: number of annotations waiting to be sent.
+#: src/easy-mode/components/topbar.tsx:694
+msgid "Resume annotating, %d pending"
+msgid_plural "Resume annotating, %d pending"
+msgstr[0] "繼續註解，有 %d 筆待確認"
+
+#: src/easy-mode/components/topbar.tsx:689
+msgid "Chat is unavailable"
+msgstr "無法對談"
+
+#: src/easy-mode/components/topbar.tsx:56
+msgid "Mobile"
+msgstr "行動"
+
+#: src/easy-mode/components/topbar.tsx:55
+msgid "Tablet"
+msgstr "平板電腦"
+
+#: src/easy-mode/components/topbar.tsx:54
+msgid "Desktop"
+msgstr "桌上型電腦"
+
+#: src/easy-mode/components/topbar.tsx:50
+msgid "Preview"
+msgstr "預覽"
+
+#: src/easy-mode/components/preview-overlay.tsx:147
+msgid "The site preview could not be loaded."
+msgstr "無法載入網站預覽。"
+
+#: src/easy-mode/components/page-switcher.tsx:116
+msgid "(no title)"
+msgstr "(無標題)"
+
+#. %s: page title.
+#: src/easy-mode/components/page-switcher.tsx:113
+msgid "%s — Draft"
+msgstr "%s (草稿)"
+
+#. %s: page currently open.
+#: src/easy-mode/components/page-switcher.tsx:99
+msgid "Switch page. Current page: %s"
+msgstr "切換頁面。 目前頁面：%s"
+
+#: src/easy-mode/components/page-switcher.tsx:76
+msgid "Switch page"
+msgstr "切換頁面"
+
+#: src/easy-mode/components/app.tsx:301
+msgid "Switching to edit mode so you can see the changes."
+msgstr "切換到編輯模式，以便檢視變更。"
+
+#: src/easy-mode/components/app.tsx:300
+msgid "Switching to edit mode so you can approve the changes before saving."
+msgstr "切換到編輯模式，方便你在儲存前先核准變更。"
+
+#: src/easy-mode/annotations/use-editor-annotations.ts:153
+msgid "Annotations could not be sent — the assistant is unavailable."
+msgstr "無法傳送註解，助理無法使用。"
+
+#. %d: number of annotations.
+#: src/easy-mode/annotations/prompt.ts:82
+msgid "%d annotation submitted"
+msgid_plural "%d annotations submitted"
+msgstr[0] "%d 個已提交的註解"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Annotating"
+msgstr "正在註解"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Discard annotations"
+msgstr "捨棄註解"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:22
+msgid "Exit annotation mode"
+msgstr "結束註解模式"
+
+#. %d: number of annotations to send.
+#: src/easy-mode/annotations/annotation-topbar.tsx:21
+msgid "Send %d annotation"
+msgid_plural "Send %d annotations"
+msgstr[0] "傳送 %d 筆註解"
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:18
+msgid "Sending…"
+msgstr "正在傳送..."
+
+#: src/easy-mode/annotations/annotation-topbar.tsx:14
+msgid "Send"
+msgstr "傳送"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:566
+msgid "Save annotation"
+msgstr "儲存註解"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:565
+msgid "Update annotation"
+msgstr "更新註解"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Delete annotation"
+msgstr "刪除註解"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Add a comment…"
+msgstr "新增留言..."
+
+#. %s: label of the block being annotated.
+#: src/easy-mode/annotations/annotation-layer.tsx:564
+msgid "Annotate %s"
+msgstr "為「%s」加上註解"
+
+#: src/easy-mode/annotations/annotation-layer.tsx:445
+msgid "Annotate blocks. Use the arrow keys to move between blocks, Enter to comment, and Escape to exit."
+msgstr "為區塊加上註解。 使用方向鍵在不同區塊之間移動，按 Enter 鍵留言，按 Esc 鍵結束。"
+
+#. 1: annotation number, 2: comment text.
+#: src/easy-mode/annotations/annotation-layer.tsx:367
+msgid "Annotation %1$d: %2$s"
+msgstr "註解 %1$d：%2$s"
+
+#. 1: block label, 2: position, 3: total count.
+#: src/easy-mode/annotations/annotation-layer.tsx:341
+msgid "%1$s, block %2$d of %3$d"
+msgstr "%1$s，區塊 %2$d/%3$d"
+
+#. %s: comma-separated list of navigation item identifiers that could not be
+#. resolved.
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:180
+msgid "Navigation items not found: %s. These are not in the menu or in the current page structure, so there is nothing to reorder them from — they are most likely from an earlier turn, or the header is not part of the page currently open in the editor. Read the page structure again and use the clientIds it returns, or identify each item by its url or label instead. This reorder was not applied."
+msgstr "找不到導覽列項目：%s。 這些項目不在選單或目前的頁面結構中，因此沒有重新排序的依據，很可能是從較早的頁首開始排序，或是頁首不屬於目前於編輯器中開啟的頁面。 請再次閱讀頁面結構並使用其回傳的 clientId，或是改成根據其 URL 或標籤來識別各個項目。 未套用這項重新排序。"
+
+#. Description of the plugin
+#: big-sky.php
+msgid "Your WordPress.com AI agent that helps with site setup, content, design, and more."
+msgstr "你的 WordPress.com AI 代理程式，可協助網站設定、內容、設計等。"
+
+#. Plugin Name of the plugin
+#: big-sky.php
+msgid "WordPress Agent"
+msgstr "WordPress 代理程式"
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:23
+msgid "Invalid editor path. look up the numeric id from <site_pages>, then retry navigation with the numeric editor_path."
+msgstr "無效的編輯器路徑。請從「<site_pages>」查詢數值 ID，然後使用數值 editor_path 重新嘗試導覽。"
+
+#: src/abilities/editor-navigate/use-navigate-tool.ts:22
+msgid "Invalid editor path. Page navigation requires /page/{numeric-id}. Look up the page ID first."
+msgstr "無效的編輯器路徑。 頁面導覽需要 /page/{numeric-id}。 請先查詢頁面 ID。"
+
+#: src/abilities/editor-navigate/index.ts:17
+msgid "Saves everything and navigates to the specified path in the editor. For page navigation, path must be a numeric editor path like \"/page/123\" or \"page/123\"; full URLs, slugs, \"all-pages\", and paths like \"/visit\" or \"/page/visit\" are invalid. If the user names a page and the current page is not the target, look up the numeric id from <site_pages> first, then navigate with the numeric editor path."
+msgstr "儲存所有內容，然後前往編輯器中的指定路徑。 若為頁面導覽，路徑必須是數值編輯器路徑，例如「/page/123」或「page/123」，至於完整 URL、代稱、「all-pages」以及「/visit」或「/page/visit」等路徑則皆無效。 如果使用者為頁面命名，而目前的頁面並非目標，請先從 <site_pages> 查詢數值 ID，然後使用數值編輯器路徑加以導覽。"
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:94
+msgid "I did not restore that checkpoint because it may replace or remove too much current content."
+msgstr "我沒有還原檢查點，因為檢查點可能會取代或移除太多目前的內容。"
+
+#: src/abilities/restore-checkpoint/index.ts:19
+msgid "Restores editor state from a checkpoint associated with a previous mutating tool call. Use for undo/redo requests. Prefer checkpointId values from clientContext.availableCheckpoints whose toolId matches the user intent: block-edit checkpoints for content changes, theme-update checkpoints for style/theme changes, and navigation/entity checkpoints for navigation/entity changes. For undo, use the checkpointId for the most recent relevant non-restore mutating Big Sky tool call. Only use a checkpoint whose toolId is big_sky__restore_checkpoint for explicit redo requests, because those checkpoints represent the state before a prior undo/restore. Pass requestIntentType to describe the user intent: \"undo\" for undo requests, \"redo\" for redo requests, or \"restore\" when restoring a specific checkpoint/version. The checkpoint ID usually starts with \"toolu_\". Do not use the current restore-checkpoint call ID, any id starting with \"call_\", a tool name/id, or calypsoCheckpointId/messageId. If the user reports missing homepage/footer/navigation content, do not rebuild or redesign unless the user explicitly agrees; try a relevant checkpoint, WordPress revisions, or support escalation instead."
+msgstr "從與前一個變動性工具呼叫相關聯的檢查點，還原編輯器狀態。 用於復原/重做要求。 偏好使用 clientContext.availableCheckpoints 的 checkpointId 值，其 toolId 與使用者意圖相符：內容變更的 block-edit 檢查點、樣式/佈景主題變更的 theme-update 檢查點，以及導覽/實體變更的 navigation/entity 檢查點。 若要執行復原，請使用最近一個相關且非還原的變動性 Big Sky 工具呼叫的 checkpointId。 對於明確的重做要求，請只使用 toolId 為 big_sky__restore_checkpoint 的檢查點，因為這些檢查點代表先前復原/還原之前的狀態。 傳送 requestIntentType 來說明使用者意圖：復原要求的「復原」、重做要求的「重做」，或回復特定檢查點/版本時的「回復」。 檢查點 ID 通常以「toolu_」開頭。 請勿使用目前的還原檢查點呼叫 ID、以「call_」開頭的任何 ID、工具名稱/id 或 calypsoCheckpointId/messageId。 如果使用者回報缺少首頁/頁尾/導覽內容，除非使用者明確同意，否則請勿重新建置或重新設計。不妨改試相關的檢查點、WordPress 修訂版本，或向上通報支援。"
+
+#: src/abilities/stream-page-design/index.ts:23
+msgid "The editor is still loading. Try the page design again once the page is editable."
+msgstr "編輯器仍在載入中。 請在可編輯頁面時，重新嘗試頁面設計。"
+
+#: src/abilities/stream-page-design/index.ts:22
+msgid "The generated page content has been staged in the editor for review."
+msgstr "生成的頁面內容放入編輯器暫存區，供你審核。"
+
+#: src/abilities/stream-page-design/index.ts:21
+msgid "Stream Page Design"
+msgstr "串流頁面設計"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1372
+msgid "The requested changes were already applied."
+msgstr "要求的變更已套用。"
+
+#: src/components/open-help-center-button.tsx:20
+msgid "Open Help Center"
+msgstr "開啟說明中心"
+
+#: src/abilities/open-help-center.ts:200
+msgid "Get help"
+msgstr "輔助說明"
+
+#: src/abilities/open-help-center.ts:144
+msgid "Show the user a button they can click to open WordPress.com Help Center chat when they ask to talk to a human, contact support, or get help from a person. This ability does not open Help Center automatically."
+msgstr "當使用者要求與真人交談、聯絡支援團隊或取得人員協助時，向他們顯示按一下即可開啟 WordPress.com 說明中心聊天的按鈕。 此功能不會自動開啟說明中心。"
+
+#: src/abilities/open-help-center.ts:142
+msgid "Show Help Center chat button"
+msgstr "顯示說明中心聊天按鈕"
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:49
+msgid "I could not find a checkpoint for that ID."
+msgstr "我找不到該 ID 的檢查點。"
+
+#: src/abilities/restore-checkpoint/use-restore-checkpoint-tool.ts:39
+msgid "I could not restore the checkpoint because no checkpoint ID was provided."
+msgstr "由於未提供檢查點 ID，我無法還原檢查點。"
+
+#: src/abilities/restore-checkpoint/index.ts:17
+msgid "Restore Checkpoint"
+msgstr "還原檢查點"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:580
+msgid "Awaiting user confirmation before making this change."
+msgstr "正在等待使用者確認，以進行這項變更。"
+
+#: src/abilities/site-logo/set-site-logo.ts:71
+msgid "There was an error with this request."
+msgstr "處理此要求時發生錯誤。"
+
+#: src/abilities/site-logo/set-site-logo.ts:58
+msgid "Logo set successfully"
+msgstr "已成功設定標誌"
+
+#: src/abilities/show-component/show-component.tsx:175
+msgid "Choose from the options I provided."
+msgstr "從我提供的選項中選擇。"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:592
+msgid "Updated the entity records."
+msgstr "已更新實體記錄。"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:442
+#: src/components/dock/index.js:429
+msgid "New chat"
+msgstr "開始新對話"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:59
+msgid "How can you help me?"
+msgstr "你有什麼功能？"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:53
+msgid "What should I do next?"
+msgstr "下一步該做什麼？"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:457
+msgid "Welcome to your new store! I'm your personal AI assistant. How can I help you?"
+msgstr "歡迎蒞臨你的新商店！ 我是你的個人 AI 助理。 請問需要什麼樣的協助？"
+
+#: src/components/product-card/ProductCard.tsx:51
+#: src/components/site-spec-landing/index.js:345
+msgid "Loading…"
+msgstr "正在載入..."
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:99
+msgid "Help me to connect PayPal Payments to my store"
+msgstr "協助我將 PayPal 付款連結到商店"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:98
+msgid "Connect PayPal Payments to my store"
+msgstr "將 PayPal 付款連結到商店"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:93
+msgid "Recommend shipping zones and methods for my store"
+msgstr "為商店推薦運送區域和方式"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:92
+msgid "Set up shipping rates"
+msgstr "設定運費"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:87
+msgid "Set my product pricing"
+msgstr "設定商品定價"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:81
+msgid "Help me to write a product description"
+msgstr "協助我撰寫商品說明"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:80
+msgid "Write a product description"
+msgstr "撰寫商品說明"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:75
+msgid "Help me to create a product"
+msgstr "協助我建立商品"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:22
+msgid "Failed to make the theme update. Please try again."
+msgstr "無法更新佈景主題。 請再試一次。"
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:67
+msgid "Add to post"
+msgstr "新增至文章"
+
+#: src/ai/wp-orchestrator/shared-dock/hooks/useImageRenderingIntegration.ts:60
+msgid "Replace selected image"
+msgstr "取代選取的圖片"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat"
+msgstr "開啟新對話"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Start a new chat to begin"
+msgstr "開啟新對話以開始使用"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "No past conversations"
+msgstr "沒有過去的對話內容"
+
+#: src/ai/wp-orchestrator/shared-dock/components/ConversationHistoryView.tsx:22
+msgid "Failed to load conversations. Please try again."
+msgstr "無法載入對話內容，請再試一次。"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:449
+msgid "Past chats"
+msgstr "過去對話內容"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:276
+msgid "Failed to upload images. Please try again."
+msgstr "無法上傳圖片。 請再試一次。"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:37
+msgid "Tell me what you can do for me"
+msgstr "告訴我你可以為我做什麼"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:74
+msgid "Create a product"
+msgstr "建立商品"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:31
+msgid "Show me recent comments"
+msgstr "顯示最新留言"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:30
+msgid "Review comments"
+msgstr "檢閱留言"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:25
+msgid "Show me my site health status"
+msgstr "顯示網站健康狀態"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:24
+msgid "Check site health"
+msgstr "檢查網站健康情形"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:19
+msgid "Help me create a new post"
+msgstr "協助我建立新文章"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:18
+msgid "Create content"
+msgstr "建立內容"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:13
+msgid "Show me my recent posts"
+msgstr "顯示最近的文章"
+
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:12
+msgid "Manage posts"
+msgstr "管理部落格文章"
+
+#: src/ai/hooks/suggestions-data.ts:91
+msgid "Remove the background from this image"
+msgstr "從此圖片中移除背景"
+
+#: src/ai/hooks/suggestions-data.ts:90
+msgid "Remove background"
+msgstr "移除背景"
+
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Discard"
+msgstr "捨棄"
+
+#: src/easy-mode/components/topbar.tsx:761
+msgid "Saving…"
+msgstr "儲存中…"
+
+#: src/ai/wp-orchestrator/index.tsx:52
+msgid "Unable to authenticate with Jetpack. Please try again."
+msgstr "無法透過 Jetpack 進行驗證。 請再試一次。"
+
+#: src/ai/wp-orchestrator/index.tsx:50
+msgid "Network connection issue. Please check your internet connection and try again."
+msgstr "網路連線發生問題。請檢查你的網路連線狀態，然後再試一次。"
+
+#: src/ai/wp-orchestrator/index.tsx:45
+msgid "Unable to connect to Jetpack. Please ensure Jetpack is active and up to date."
+msgstr "無法連結 Jetpack。 請確認 Jetpack 已啟用且為最新版本。"
+
+#: src/ai/wp-orchestrator/index.tsx:42
+msgid "You don't have permission to access AI features."
+msgstr "你沒有使用 AI 功能的權限。"
+
+#: src/ai/wp-orchestrator/index.tsx:39
+msgid "Your session expired. Please refresh the page and try again."
+msgstr "你的工作階段已逾期。請重新整理本頁，然後再試一次。"
+
+#: src/components/product-card/ProductCard.tsx:56
+msgid "Error: Product name is required"
+msgstr "錯誤：商品名稱為必填"
+
+#: src/components/product-card/ProductCard.tsx:87
+msgid "Product"
+msgstr "商品"
+
+#: src/components/product-card/ProductCard.tsx:84
+msgid "Service"
+msgstr "服務"
+
+#: src/components/product-card/ProductCard.tsx:53
+msgid "Error: Could not render product card"
+msgstr "錯誤：無法轉譯產品資訊卡"
+
+#: src/components/product-card/ProductCard.tsx:25
+msgid "unit"
+msgid_plural "units"
+msgstr[0] "單位"
+
+#: src/easy-mode/components/preview-overlay.tsx:155
+#: src/components/index.js:200
+msgid "Retry"
+msgstr "重試"
+
+#: src/abilities/set-styles/index.ts:20
+msgid "Apply color palette, font pairing, and button style variations to the WordPress site. Accepts variation titles (e.g., \"Professional\", \"Montserrat + Open Sans\") and applies the complete styling including colors, typography, button styles, and all associated theme variations."
+msgstr "將調色盤、字型配對和按鈕樣式變化套用到 WordPress 網站。 接受款式標題 (例如「Professional」、「Montserrat + Open Sans」)，套用完整的樣式，包括顏色、文字設計、按鈕樣式及所有相關佈景主題款式。"
+
+#: src/abilities/set-styles/index.ts:18
+msgid "Set Styles"
+msgstr "設定樣式"
+
+#: src/abilities/add-pages/index.ts:19
+msgid "Creates multiple WordPress pages with generated content from patterns and layouts. Page titles are provided by the backend, and page content is composed from layout blocks. Also updates site navigation."
+msgstr "從樣式和版面配置產生內容，建立多個 WordPress 頁面。 頁面標題由後端提供，頁面內容則由版面配置區塊組成。 同時更新網站導覽。"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:82
+msgid "Failed to update styles:"
+msgstr "更新樣式失敗："
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:76
+msgid "Failed to update styles. The style variation may be invalid."
+msgstr "無法更新樣式。 樣式變化可能無效。"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:62
+msgid "Styles updated successfully."
+msgstr "樣式已成功更新。"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:38
+msgid "Invalid button format. Button must be a string (variation title)."
+msgstr "按鈕格式無效。 按鈕必須為字串 (款式標題)。"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:31
+msgid "Invalid font format. Font must be a string (variation title)."
+msgstr "字型格式無效。 字型必須為字串 (款式標題)。"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:24
+msgid "Invalid color format. Color must be a string (variation title)."
+msgstr "顏色格式無效。 顏色必須為字串 (款式標題)。"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:17
+msgid "Invalid arguments. Provide at least one of: color, font, or button."
+msgstr "無效的參數。 請至少提供以下其中之一：顏色、字型或按鈕。"
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:169
+msgid "Failed to create pages:"
+msgstr "建立頁面失敗："
+
+#: src/abilities/add-pages/use-add-pages-tool.ts:65
+msgid "Invalid pages. Must provide an array of page objects."
+msgstr "頁面無效。 必須提供頁面物件陣列。"
+
+#: src/abilities/site-logo/index.ts:17
+msgid "Set the site logo"
+msgstr "設定網站標誌"
+
+#: src/abilities/site-logo/index.ts:15
+msgid "Set Site Logo"
+msgstr "設定網站標誌"
+
+#: src/abilities/update-theme/index.ts:17
+msgid "Update WordPress theme settings and styles using theme.json format"
+msgstr "使用 theme.json 格式更新 WordPress 佈景主題設定和樣式"
+
+#: src/abilities/update-theme/index.ts:15
+msgid "Update Theme"
+msgstr "更新佈景主題"
+
+#: src/abilities/edit-entity-record/index.ts:17
+msgid "Create, edit, or delete WordPress data entity records using the data layer"
+msgstr "使用資料層建立、編輯或刪除 WordPress 資料實體記錄"
+
+#: src/abilities/edit-entity-record/index.ts:15
+msgid "Manage Entity Records"
+msgstr "管理實體記錄"
+
+#: src/abilities/show-component/index.ts:23
+msgid "Display a component in the UI with specified props"
+msgstr "在 UI 中顯示具有指定屬性的元件"
+
+#: src/abilities/show-component/index.ts:21
+msgid "Show Component"
+msgstr "顯示元件"
+
+#: src/abilities/client-assistants/index.ts:29
+msgid "Always use this if the user asks for something that requires a client-side assistant. Available assistants:"
+msgstr "如果使用者要求的是需要用戶端助理的服務，請一律使用此選項。 可用的助理："
+
+#: src/abilities/client-assistants/index.ts:27
+msgid "Execute Client Assistant"
+msgstr "執行客戶端助理"
+
+#: src/abilities/apply-block-edits/index.ts:17
+msgid "Applies a collection of block edits to the canvas"
+msgstr "將區塊編輯的集合套用至畫布"
+
+#: src/abilities/apply-block-edits/index.ts:15
+msgid "Apply Block Edits"
+msgstr "套用區塊編輯"
+
+#: src/abilities/editor-navigate/index.ts:15
+msgid "Navigate"
+msgstr "導覽"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:131
+msgid "By updating the query, order posts from %s"
+msgstr "更新查詢後，文章便會自%s排序"
+
+#. %s is the order. Eg: 'newest to oldest'
+#: src/ai/hooks/suggestions-data.ts:128
+msgid "Stop inheriting default query settings and order posts from %s"
+msgstr "停止繼承預設查詢設定，將文章自%s排序"
+
+#: src/ai/hooks/suggestions-data.ts:123
+msgid "newest to oldest"
+msgstr "最新到最舊"
+
+#: src/ai/hooks/suggestions-data.ts:122
+msgid "oldest to newest"
+msgstr "最舊到最新"
+
+#: src/ai/hooks/suggestions-data.ts:117
+msgid "Order posts"
+msgstr "為文章排序"
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:110
+msgid "Currently this query is displaying %s posts per page, change it to:"
+msgstr "此查詢目前顯示每頁的 %s 篇文章，請將其變更為："
+
+#. %s is the number of posts. Eg: '10'
+#: src/ai/hooks/suggestions-data.ts:107
+msgid "Stop inheriting default query settings and change the current number of posts displayed per page from %s to:"
+msgstr "停止繼承預設查詢設定，並將目前每頁顯示的文章數從 %s 變更為："
+
+#: src/ai/hooks/suggestions-data.ts:99
+msgid "Change number of posts"
+msgstr "變更文章數"
+
+#: src/ai/hooks/suggestions-data.ts:96
+msgid "Tell me all the ways you can help design or edit my site"
+msgstr "說明你可設計或編輯網站的所有方法"
+
+#: src/ai/hooks/suggestions-data.ts:95
+#: src/ai/wp-orchestrator/shared-dock/suggestions.ts:36
+msgid "What else can you do?"
+msgstr "你還能做什麼？"
+
+#: src/ai/hooks/suggestions-data.ts:86
+msgid "Edit the image to:"
+msgstr "編輯圖片來："
+
+#: src/ai/hooks/suggestions-data.ts:85
+msgid "Edit image"
+msgstr "編輯圖片"
+
+#: src/ai/hooks/suggestions-data.ts:81
+msgid "Generate an image of:"
+msgstr "產生以下內容的圖片："
+
+#: src/ai/hooks/suggestions-data.ts:76
+msgid "Check the grammar of this text"
+msgstr "檢查這段文字的文法"
+
+#: src/ai/hooks/suggestions-data.ts:75
+msgid "Check grammar"
+msgstr "檢查文法"
+
+#: src/ai/hooks/suggestions-data.ts:71
+msgid "Change the tone of this text to be more:"
+msgstr "將此文字的語氣調整為更符合以下特質："
+
+#: src/ai/hooks/suggestions-data.ts:66
+msgid "Translate this to:"
+msgstr "將此翻譯成："
+
+#: src/ai/hooks/suggestions-data.ts:65
+msgid "Translate content"
+msgstr "翻譯內容"
+
+#: src/ai/hooks/suggestions-data.ts:61
+msgid "Add another column to the end of these"
+msgstr "在這段結尾處新增其他欄位"
+
+#: src/ai/hooks/suggestions-data.ts:60
+msgid "Add column"
+msgstr "新增欄位"
+
+#: src/ai/hooks/suggestions-data.ts:56
+msgid "Reverse the order of these columns"
+msgstr "反轉排序這些欄位"
+
+#: src/ai/hooks/suggestions-data.ts:55
+msgid "Swap columns"
+msgstr "交換欄位"
+
+#. %s is the button text
+#: src/ai/hooks/suggestions-data.ts:52
+msgid "Change the %s button link to:"
+msgstr "將 %s 按鈕連結變更為："
+
+#: src/ai/hooks/suggestions-data.ts:46
+msgid "Create a new page on my site for"
+msgstr "針對以下項目在我的網站建立新頁面："
+
+#: src/ai/hooks/suggestions-data.ts:45
+msgid "Add new page"
+msgstr "新建頁面"
+
+#: src/ai/hooks/suggestions-data.ts:42
+msgid "Show me different layouts for this page"
+msgstr "顯示此頁面的不同版面配置"
+
+#: src/ai/hooks/suggestions-data.ts:41
+msgid "Change page layout"
+msgstr "變更頁面版面配置"
+
+#: src/ai/hooks/suggestions-data.ts:38
+msgid "Show me color palettes for my site that are:"
+msgstr "顯示網站的調色盤，這些調色盤為："
+
+#: src/ai/hooks/suggestions-data.ts:37
+msgid "Customize colors"
+msgstr "自訂顏色"
+
+#: src/ai/hooks/suggestions-data.ts:34
+msgid "Show me new fonts for my site"
+msgstr "顯示網站的新字型"
+
+#: src/ai/hooks/suggestions-data.ts:33
+msgid "Choose new fonts"
+msgstr "選擇新字型"
+
+#: big-sky.php:349
+msgid "AI-powered site building and navigation abilities."
+msgstr "AI 網站建置和導覽功能。"
+
+#: src/components/product-card/ProductCard.tsx:90
+#: src/easy-mode/components/topbar.tsx:51
+msgid "Edit"
+msgstr "編輯"
+
+#: src/hooks/use-dock-state.ts:138
+#: src/components/dock/index.js:440
+msgid "Pop out sidebar"
+msgstr "彈出側邊欄"
+
+#: src/hooks/use-dock-state.ts:132
+#: src/components/dock/index.js:460
+msgid "Move to sidebar"
+msgstr "移至側邊欄"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:548
+msgid "Got a different request? Ask away."
+msgstr "有其他要求嗎？ 直接詢問。"
+
+#: src/ai/wp-orchestrator/shared-dock/OrchestratorDock.tsx:458
+#: src/components/dock/index.js:542
+msgid "Howdy! How can I help you today?"
+msgstr "你好！ 今天可以為你提供哪些協助？"
+
+#: src/abilities/set-styles/use-set-styles-tool.ts:65
+msgid "Updated:"
+msgstr "更新："
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:86
+msgid "Theme updated successfully"
+msgstr "佈景主題已成功更新。"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:51
+msgid "Invalid styles format. Styles must be an object."
+msgstr "樣式格式無效。 樣式必須為物件。"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:40
+msgid "Invalid settings format. Settings must be an object."
+msgstr "設定格式無效。 設定必須為物件。"
+
+#: src/abilities/update-theme/use-update-theme-tool.ts:29
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "引數無效。 提供設定或樣式以更新佈景主題。"
+
+#: big-sky.php:1652
+#: big-sky.php:1653
+msgid "AI Editor"
+msgstr "AI 編輯器"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:493
+msgid "Proceed"
+msgstr "繼續"
+
+#: src/ai/hooks/suggestions-data.ts:49
+msgid "Edit link"
+msgstr "編輯連結"
+
+#: src/abilities/show-component/show-component.tsx:214
+#: src/abilities/site-logo/set-site-logo.ts:70
+msgid "There was an error with this request. Please try again."
+msgstr "處理此要求時發生錯誤。 請再試一次。"
+
+#: src/abilities/client-assistants/run-assistant.ts:189
+msgid "No response from assistant"
+msgstr "助理沒有回應"
+
+#: src/abilities/client-assistants/index.ts:89
+msgid "Assistant completed successfully"
+msgstr "助理已成功完成"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1464
+msgid "Something went wrong. Please try again."
+msgstr "發生錯誤。請再試一次。"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1422
+msgid "I have completed the edits."
+msgstr "已完成編輯。"
+
+#. translators: %s is the theme name.
+#: big-sky.php:625
+msgid "The current theme (%s) is a block theme."
+msgstr "目前的佈景主題 (%s) 為區塊佈景主題。"
+
+#: big-sky.php:618
+msgid "The current theme is not a block theme. Big Sky requires a block theme to be active."
+msgstr "目前的佈景主題並非區塊佈景主題。 請先啟用區塊佈景主題，才能使用 Big Sky。"
+
+#: src/abilities/client-assistants/run-assistant.ts:182
+msgid "Sorry, I've encountered an error. Please try again or let me know if you need help with something else."
+msgstr "抱歉，系統發生錯誤。 請再試一次，或在需要其他協助時通知我。"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:499
+msgid "I changed my mind"
+msgstr "我改變心意了"
+
+#: src/abilities/apply-block-edits/use-apply-block-edits-tool.ts:1381
+msgid "I was not able to make the changes you requested. Either I don't have the capability to do so or I didn't understand your request. You can ask me to try again or ask me to do something else."
+msgstr "我無法進行你所要求的變更。 可能是因為我沒有能力執行，也可能是我不了解你的要求。 你可以要求我再試一次，或要求我進行其他動作。"
+
+#: src/easy-mode/components/preview-overlay.tsx:158
+msgid "Site preview"
+msgstr "網站預覽"
+
+#: src/ai/hooks/suggestions-data.ts:80
+msgid "Generate image"
+msgstr "產生圖片"
+
+#: src/easy-mode/components/page-switcher.tsx:49
+#: src/components/mosaic.js:633
+#: src/components/mosaic.js:675
+msgid "Pages"
+msgstr "頁面"
+
+#: src/easy-mode/components/page-switcher.tsx:34
+msgid "Home"
+msgstr "主頁"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:490
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:22
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:30
+msgid "No"
+msgstr "不"
+
+#: src/abilities/edit-entity-record/use-edit-entity-record-tool.ts:541
+#: src/ai/assistants/shared/start-over/use-tool-functions.js:16
+#: src/ai/assistants/shared/start-over/use-tool-functions.test.js:24
+msgid "Yes"
+msgstr "是"
+
+#: src/abilities/add-pages/index.ts:17
+msgid "Add Pages"
+msgstr "新增頁面"
+
+#: src/ai/hooks/suggestions-data.ts:70
+msgid "Change tone"
+msgstr "變更語氣"
+
+#: src/easy-mode/components/topbar.tsx:710
+msgid "Undo"
+msgstr "復原"
+
+#: src/easy-mode/components/topbar.tsx:763
+#: src/easy-mode/components/unsaved-changes-dialog.tsx:69
+msgid "Save"
+msgstr "儲存"
+
+#: big-sky.php:707
+msgid "These checks passed:"
+msgstr "這些檢查已通過："
+
+#: big-sky.php:693
+msgid "Big Sky detected the following issues with your site:"
+msgstr "Big Sky 在網站中偵測到以下問題："
+
+#. translators: $d is the number of performance issues found.
+#: big-sky.php:692
+msgid "Big Sky is affected by %d issue"
+msgid_plural "Big Sky is affected by %d issues"
+msgstr[0] "Big Sky 受到 %d 個問題的影響"
+
+#: big-sky.php:682
+msgid "Mapbox API key is set."
+msgstr "Mapbox API 金鑰已設定。"
+
+#: big-sky.php:677
+msgid "Mapbox API key is not set. Big Sky requires a Mapbox API key to be set."
+msgstr "Mapbox API 金鑰未設定。 請先設定 Mapbox API 金鑰，才能使用 Big Sky。"
+
+#: big-sky.php:669
+msgid "Jetpack is connected to an admin."
+msgstr "Jetpack 已連結至管理員。"
+
+#: big-sky.php:664
+msgid "Jetpack does not have a connected admin. Big Sky requires Jetpack to be connected to an admin."
+msgstr "Jetpack 並未連結任何管理員。 請先將 Jetpack 連結至管理員，才能使用 Big Sky。"
+
+#: big-sky.php:655
+msgid "Jetpack is connected."
+msgstr "Jetpack 已連結。"
+
+#: big-sky.php:650
+msgid "Jetpack is not connected. Big Sky requires Jetpack to be connected."
+msgstr "Jetpack 尚未連結。 請先連結 Jetpack，才能使用 Big Sky。"
+
+#: big-sky.php:639
+msgid "Jetpack is installed."
+msgstr "已安裝 Jetpack。"
+
+#: big-sky.php:634
+msgid "Jetpack is not installed. Big Sky requires Jetpack to be installed and active."
+msgstr "未安裝 Jetpack。 請先安裝並啟用 Jetpack，才能使用 Big Sky。"
+
+#: big-sky.php:608
+msgid "Big Sky did not find any known issues with your site."
+msgstr "Big Sky 在網站上找不到已知的問題。"
+
+#: big-sky.php:600
+msgid "Big Sky Checks"
+msgstr "Big Sky 檢查"
+
+#: big-sky.php:575
+#: big-sky.php:576
+msgid "Big Sky checks"
+msgstr "Big Sky 檢查"
+
+#: big-sky.php:406
+msgid "AI Features"
+msgstr "AI 功能"
+
+#: big-sky.php:398
+msgid "Enable AI-powered site building experience"
+msgstr "啟用支援 AI 技術的網站建置體驗"
+
+#. Author of the plugin
+#: big-sky.php
+msgid "Automattic, Inc."
+msgstr "Automattic, Inc."
+
+#: big-sky.php:348
+#: big-sky.php:603
+msgid "Big Sky"
+msgstr "Big Sky"

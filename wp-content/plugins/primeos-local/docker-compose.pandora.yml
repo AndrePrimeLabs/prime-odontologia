@@ -1,0 +1,241 @@
+version: "3.9"
+
+services:
+  gateway:
+    image: traefik:v3.0
+    container_name: pandora-gateway
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "5000:5000"
+      - "8080:8080"     # Traefik dashboard: http://<pandora-ip>:8080
+    volumes:
+      - ./gateway/traefik.yml:/etc/traefik/traefik.yml:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - primeos-mesh
+
+  postgres:
+    image: postgres:16
+    container_name: pandora-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: primeos
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pass}
+      POSTGRES_DB: primeos_app
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - primeos-mesh
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U primeos -d primeos_app"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  nats:
+    image: nats:2.10-alpine
+    container_name: pandora-nats
+    restart: unless-stopped
+    ports:
+      - "4222:4222"
+    networks:
+      - primeos-mesh
+
+  crm-x:
+    build: ./services/crm-x
+    container_name: pandora-crm-x
+    restart: unless-stopped
+    environment:
+      PORT: 4001
+      DATABASE_URL: postgres://primeos:${POSTGRES_PASSWORD:-pass}@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.crmx.rule=PathPrefix(`/api/customers`) || PathPrefix(`/api/interactions`) || PathPrefix(`/api/tickets`)"
+      - "traefik.http.routers.crmx.entrypoints=web,api"
+      - "traefik.http.services.crmx.loadbalancer.server.port=4001"
+
+  chan-x:
+    build: ./services/chan-x
+    container_name: pandora-chan-x
+    restart: unless-stopped
+    environment:
+      PORT: 4002
+      DATABASE_URL: postgres://primeos:${POSTGRES_PASSWORD:-pass}@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.chanx.rule=PathPrefix(`/api/channels`) || PathPrefix(`/api/campaigns`)"
+      - "traefik.http.routers.chanx.entrypoints=web,api"
+      - "traefik.http.services.chanx.loadbalancer.server.port=4002"
+
+  seg-x:
+    build: ./services/seg-x
+    container_name: pandora-seg-x
+    restart: unless-stopped
+    environment:
+      PORT: 4003
+      DATABASE_URL: postgres://primeos:${POSTGRES_PASSWORD:-pass}@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.segx.rule=PathPrefix(`/api/segments`) || PathPrefix(`/api/personas`)"
+      - "traefik.http.routers.segx.entrypoints=web,api"
+      - "traefik.http.services.segx.loadbalancer.server.port=4003"
+
+  rev-x:
+    build: ./services/rev-x
+    container_name: pandora-rev-x
+    restart: unless-stopped
+    environment:
+      PORT: 4004
+      DATABASE_URL: postgres://primeos:${POSTGRES_PASSWORD:-pass}@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.revx.rule=PathPrefix(`/api/products`) || PathPrefix(`/api/transactions`)"
+      - "traefik.http.routers.revx.entrypoints=web,api"
+      - "traefik.http.services.revx.loadbalancer.server.port=4004"
+
+  act-x:
+    build: ./services/act-x
+    container_name: pandora-act-x
+    restart: unless-stopped
+    environment:
+      PORT: 4005
+      DATABASE_URL: postgres://primeos:${POSTGRES_PASSWORD:-pass}@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.actx.rule=PathPrefix(`/api/activities`) || PathPrefix(`/api/sops`)"
+      - "traefik.http.routers.actx.entrypoints=web,api"
+      - "traefik.http.services.actx.loadbalancer.server.port=4005"
+
+  value-x:
+    build: ./services/value-x
+    container_name: pandora-value-x
+    restart: unless-stopped
+    environment:
+      PORT: 4006
+      DATABASE_URL: postgres://primeos:${POSTGRES_PASSWORD:-pass}@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.valuex.rule=PathPrefix(`/api/propositions`)"
+      - "traefik.http.routers.valuex.entrypoints=web,api"
+      - "traefik.http.services.valuex.loadbalancer.server.port=4006"
+
+  part-x:
+    build: ./services/part-x
+    container_name: pandora-part-x
+    restart: unless-stopped
+    environment:
+      PORT: 4007
+      DATABASE_URL: postgres://primeos:${POSTGRES_PASSWORD:-pass}@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.partx.rule=PathPrefix(`/api/partners`)"
+      - "traefik.http.routers.partx.entrypoints=web,api"
+      - "traefik.http.services.partx.loadbalancer.server.port=4007"
+
+  res-x:
+    build: ./services/res-x
+    container_name: pandora-res-x
+    restart: unless-stopped
+    environment:
+      PORT: 4008
+      DATABASE_URL: postgres://primeos:${POSTGRES_PASSWORD:-pass}@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.resx.rule=PathPrefix(`/api/resources`)"
+      - "traefik.http.routers.resx.entrypoints=web,api"
+      - "traefik.http.services.resx.loadbalancer.server.port=4008"
+
+  cost-x:
+    build: ./services/cost-x
+    container_name: pandora-cost-x
+    restart: unless-stopped
+    environment:
+      PORT: 4009
+      DATABASE_URL: postgres://primeos:${POSTGRES_PASSWORD:-pass}@postgres:5432/primeos_app
+      NATS_URL: nats://nats:4222
+    depends_on:
+      postgres:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    networks:
+      - primeos-mesh
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.costx.rule=PathPrefix(`/api/expenses`) || PathPrefix(`/api/budgets`)"
+      - "traefik.http.routers.costx.entrypoints=web,api"
+      - "traefik.http.services.costx.loadbalancer.server.port=4009"
+
+networks:
+  primeos-mesh:
+    driver: bridge
+
+volumes:
+  pgdata:

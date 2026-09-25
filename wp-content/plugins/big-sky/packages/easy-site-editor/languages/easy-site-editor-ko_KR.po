@@ -1,0 +1,586 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress.com - Easy Site Editor\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-16T17:26:00+00:00\n"
+"PO-Revision-Date: 2026-05-25 10:55:42+0000\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: src/components/DebugPanel.tsx:77
+msgid "Tracks Dashboard"
+msgstr "트랙스 알림판"
+
+#: src/components/DebugPanel.tsx:74
+msgid "Errors Dashboard"
+msgstr "오류 알림판"
+
+#: includes/class-easy-site-editor.php:155
+#: includes/class-easy-site-editor.php:156
+msgid "AI Editor"
+msgstr "AI 편집기"
+
+#: src/hooks/useAgentFeedbackAction.ts:395
+msgid "Tell us more"
+msgstr "더 말해 줘"
+
+#: src/hooks/useAgentFeedbackAction.ts:381
+msgid "Bad response"
+msgstr "품질이 낮은 응답"
+
+#: src/hooks/useAgentFeedbackAction.ts:371
+msgid "Good response"
+msgstr "품질이 높은 응답"
+
+#: src/components/AgentFeedbackPopover.tsx:96
+msgid "Feedback could not be sent. Please try again."
+msgstr "피드백을 보낼 수 없었습니다. 다시 시도해 주세요."
+
+#: src/components/AgentFeedbackPopover.tsx:206
+msgid "Send feedback"
+msgstr "피드백 보내기"
+
+#: src/components/AgentFeedbackPopover.tsx:205
+msgid "Sending…"
+msgstr "전송 중…"
+
+#: src/components/AgentFeedbackPopover.tsx:197
+msgid "Cancel"
+msgstr "취소"
+
+#: src/components/AgentFeedbackPopover.tsx:167
+msgid "What did you expect instead?"
+msgstr "대신 뭐를 기대했어?"
+
+#: src/components/AgentFeedbackPopover.tsx:154
+msgid "Add any details that would help us improve this response."
+msgstr "이 응답을 개선하는 데 도움이 될 수 있는 세부 정보를 추가해 주세요."
+
+#: src/components/AgentFeedbackPopover.tsx:148
+msgid "What went wrong?"
+msgstr "뭐가 잘못됐어?"
+
+#: src/hooks/useClientAbilityBridge.ts:40
+msgid "The current preview is not editable. It may be a dynamic front page. Tell the user to open a different page and try again."
+msgstr "현재 미리보기는 수정할 수 없습니다. 동적 프론트 페이지일 수 있습니다. 사용자가 다른 페이지를 열고 다시 시도하라고 알려주세요."
+
+#: src/components/AppTopBar.tsx:84
+msgid "WordPress Admin"
+msgstr "워드프레스 관리자"
+
+#: src/components/AnnouncementBar.tsx:52
+msgid "Dismiss announcement"
+msgstr "공지사항 닫기"
+
+#: src/components/AnnouncementBar.tsx:41
+msgid "Switch to the full Site Editor instead."
+msgstr "대신 전체 사이트 편집기로 전환하세요."
+
+#: src/components/AnnouncementBar.tsx:29
+msgid "You're using the new experimental Easy Site Editor."
+msgstr "너는 새로운 실험적인 쉬운 사이트 편집기를 사용하고 있어."
+
+#: src/components/AppTopBar.tsx:383
+msgid "Publish"
+msgstr "발행"
+
+#: src/components/AppTopBar.tsx:348
+msgid "Launch your site"
+msgstr "사이트 시작"
+
+#: src/components/AppTopBar.tsx:261
+msgid "Redo"
+msgstr "다시하기"
+
+#: src/components/AppTopBar.tsx:257
+msgid "Undo"
+msgstr "되돌리기"
+
+#. 1: control label, 2: keyboard shortcut.
+#: src/components/AppTopBar.tsx:252
+msgid "%1$s (%2$s)"
+msgstr "%1$s (%2$s)"
+
+#: src/components/AppTopBar.tsx:218
+msgid "Discard"
+msgstr "취소"
+
+#: src/components/DebugPanel.tsx:71
+msgid "No active session yet."
+msgstr "아직 활성 세션이 없습니다."
+
+#: src/components/DebugPanel.tsx:68
+msgid "Langfuse trace"
+msgstr "Langfuse 추적"
+
+#: src/components/DebugPanel.tsx:61
+msgid "Debug"
+msgstr "디버그"
+
+#: includes/class-easy-site-editor.php:997
+msgid "Assets have not been built yet. Run pnpm build in the plugin directory, then reload this page."
+msgstr "자산이 아직 생성되지 않았습니다. 플러그인 디렉터리에서 pnpm build를 실행한 다음 이 페이지를 새로 고치세요."
+
+#. Author of the plugin
+#: easy-site-editor.php
+msgid "Automattic"
+msgstr "오토매틱스"
+
+#. Description of the plugin
+#: easy-site-editor.php
+msgid "Split-pane AI site editor with chat on the left and a live frontend preview on the right."
+msgstr "왼쪽에 채팅이 있고 오른쪽에 실시간 프론트엔드 미리보기가 있는 분할 창 AI 사이트 편집기."
+
+#: src/lib/unsaved-changes-warning.ts:3
+msgid "You have unsaved changes. If you leave before saving, your changes will be lost."
+msgstr "저장되지 않은 변경 사항이 있습니다. 저장하기 전에 나가면 변경 사항이 사라집니다."
+
+#: src/lib/editor-bridge.ts:19
+msgid "The editor is still loading. Try the request again once the page is editable."
+msgstr "편집기가 아직 로딩 중이에요. 페이지가 편집 가능해지면 요청을 다시 시도해 보세요."
+
+#: src/hooks/useUpdateTheme.ts:311
+msgid "The requested theme update has been staged in the editor."
+msgstr "요청된 테마 업데이트가 편집기에 준비되었습니다."
+
+#: src/hooks/useUpdateTheme.ts:258
+msgid "Global styles are still loading. Try the theme update again in a moment."
+msgstr "전체 스타일이 아직 로딩 중입니다. 잠시 후 테마 업데이트를 다시 시도해 보세요."
+
+#: src/hooks/useUpdateTheme.ts:236
+msgid "Invalid arguments. Provide either settings or styles to update the theme."
+msgstr "유효하지 않은 인수. 설정 또는 스타일을 제공하고 테마를 업데이트하세요."
+
+#: src/hooks/useUpdateTheme.ts:220
+msgid "Invalid styles format. Styles must be an object."
+msgstr "스타일 형식이 유효하지 않습니다. 스타일은 객체여야 합니다."
+
+#: src/hooks/useUpdateTheme.ts:201
+msgid "Invalid settings format. Settings must be an object."
+msgstr "설정 형식이 유효하지 않습니다. 설정은 객체여야 합니다."
+
+#: src/hooks/useSuggestions.ts:35
+msgid "Create a new page on my site"
+msgstr "내 사이트에 새 페이지 만들기"
+
+#: src/hooks/useSuggestions.ts:34
+msgid "Add new page"
+msgstr "새 페이지 추가"
+
+#: src/hooks/useSuggestions.ts:27
+msgid "Suggest a new font family for my site that is:"
+msgstr "내 사이트에 대한 새로운 글꼴 패밀리를 제안해줘:"
+
+#: src/hooks/useSuggestions.ts:26
+msgid "Choose new fonts"
+msgstr "새 글꼴 선택"
+
+#: src/hooks/useSuggestions.ts:19
+msgid "Suggest a different layout for this page"
+msgstr "이 페이지에 대한 다른 레이아웃을 제안해 주세요"
+
+#: src/hooks/useSuggestions.ts:18
+msgid "Change page layout"
+msgstr "페이지 레이아웃 변경"
+
+#: src/hooks/useSuggestions.ts:11
+msgid "Suggest a new color palette for my site that is:"
+msgstr "내 사이트에 대한 새로운 색상 팔레트를 제안해줘: "
+
+#: src/hooks/useSuggestions.ts:10
+msgid "Customize colors"
+msgstr "색상 사용자 정의"
+
+#: src/hooks/usePreviewPages.ts:57
+msgid "Home"
+msgstr "홈"
+
+#: src/hooks/usePreviewPages.ts:130
+msgid "Unable to load pages."
+msgstr "페이지를 불러올 수 없습니다."
+
+#: src/hooks/useGlobalStylesVariation.ts:73
+msgid "Global styles are still loading. Try the selection again in a moment."
+msgstr "전체 스타일이 아직 로딩 중이에요. 잠시 후에 선택을 다시 시도해 보세요."
+
+#. %s is the requested page path.
+#: src/hooks/useEditorNavigate.ts:59
+msgid "Successfully navigated to: %s"
+msgstr "성공적으로 이동했습니다: %s"
+
+#. %s is the requested page path.
+#: src/hooks/useEditorNavigate.ts:40
+msgid "The current page has unsaved changes, so navigation to %s was canceled. If this was requested after creating a page, the page has already been created. Tell the user to save or discard their current changes, then open the page from the page picker."
+msgstr "현재 페이지에 저장되지 않은 변경 사항이 있어 %s로의 탐색이 취소되었습니다. 페이지를 생성한 후에 이 요청이 있었다면, 페이지는 이미 생성되었습니다. 사용자에게 현재 변경 사항을 저장하거나 폐기하라고 말한 다음, 페이지 선택기에서 페이지를 열어보라고 하세요."
+
+#: src/hooks/useEditorNavigate.ts:28
+msgid "Invalid path provided. Path must be a non-empty string."
+msgstr "유효하지 않은 경로가 제공되었습니다. 경로는 비어 있지 않은 문자열이어야 합니다."
+
+#: src/hooks/useEasySiteAgentChat.ts:110
+msgid "Jetpack token context is unavailable."
+msgstr "젯팩 토큰 컨텍스트를 사용할 수 없습니다."
+
+#: src/hooks/useClientAbilityBridge.ts:141
+msgid "Failed to display picker."
+msgstr "픽커를 표시하지 못했습니다."
+
+#: src/hooks/useClientAbilityBridge.ts:128
+msgid "Picker displayed successfully."
+msgstr "픽커가 성공적으로 표시되었습니다."
+
+#. %s: component type
+#: src/hooks/useClientAbilityBridge.ts:95
+msgid "Unsupported component type: %s"
+msgstr "지원되지 않는 구성 요소 유형: %s"
+
+#: src/components/SelectedPreviewBlock.tsx:38
+msgid "Clear selected block"
+msgstr "선택한 블록 지우기"
+
+#. %s: selected block title.
+#: src/components/SelectedPreviewBlock.tsx:24
+msgid "Selected block: %s"
+msgstr "선택한 블록: %s"
+
+#: src/components/PreviewPane.tsx:501
+msgid "Site frontend preview"
+msgstr "사이트 프론트엔드 미리보기"
+
+#: src/components/PreviewPane.tsx:493
+msgid "Preview loaded"
+msgstr "미리 보기 로드됨"
+
+#: src/components/PreviewPane.tsx:492
+msgid "Loading preview…"
+msgstr "미리 보다 로딩 중…"
+
+#: src/components/PreviewPane.tsx:465
+msgid "Site preview panel"
+msgstr "사이트 미리보기 패널"
+
+#: src/components/PreviewPane.tsx:464
+msgid "Site editor panel"
+msgstr "사이트 편집기 패널"
+
+#: src/components/PreviewPageSwitcher.tsx:122
+msgid "Preview Site"
+msgstr "미리보기 사이트"
+
+#: src/components/PreviewPageSwitcher.tsx:121
+msgid "Refresh"
+msgstr "새로 고침"
+
+#. %s: page path, e.g. "/about"
+#: src/components/PreviewPageSwitcher.tsx:117
+msgid "%s – draft"
+msgstr "%s – 임시글"
+
+#: src/components/PreviewPageSwitcher.tsx:215
+msgid "Loading pages…"
+msgstr "페이지 로딩 중…"
+
+#: src/components/PreviewPageSwitcher.tsx:211
+msgid "Site pages"
+msgstr "사이트 페이지"
+
+#: src/components/PreviewPageSwitcher.tsx:158
+msgid "Draft"
+msgstr "임시글"
+
+#: src/components/PreviewDeviceSwitcher.tsx:89
+msgid "Preview size"
+msgstr "미리보기 크기"
+
+#: src/components/PreviewDeviceSwitcher.tsx:65
+msgid "Device Preview"
+msgstr "기기 미리보기"
+
+#: src/components/PreviewDeviceSwitcher.tsx:53
+msgid "Mobile preview"
+msgstr "모바일 미리보기"
+
+#: src/components/PreviewDeviceSwitcher.tsx:52
+msgid "Mobile"
+msgstr "모바일"
+
+#: src/components/PreviewDeviceSwitcher.tsx:47
+msgid "Tablet preview"
+msgstr "태블릿 미리보기"
+
+#: src/components/PreviewDeviceSwitcher.tsx:46
+msgid "Tablet"
+msgstr "태블릿"
+
+#: src/components/PreviewDeviceSwitcher.tsx:41
+msgid "Desktop preview"
+msgstr "데스크탑 미리보기"
+
+#: src/components/PreviewDeviceSwitcher.tsx:40
+msgid "Desktop"
+msgstr "데스크톱"
+
+#. %d is the pattern layout number.
+#: src/components/PatternPicker.tsx:55
+msgid "Layout %d"
+msgstr "레이아웃 %d"
+
+#: src/components/PatternPicker.tsx:252
+#: src/components/StyleVariationPicker.tsx:457
+msgid "Next"
+msgstr "다음"
+
+#. %1$d is the current page, %2$d is the total page count.
+#: src/components/PatternPicker.tsx:244
+#: src/components/StyleVariationPicker.tsx:449
+msgid "%1$d/%2$d"
+msgstr "%1$d/%2$d"
+
+#: src/components/PatternPicker.tsx:231
+#: src/components/StyleVariationPicker.tsx:436
+msgid "Previous"
+msgstr "이전"
+
+#. %s is the pattern layout title.
+#: src/components/PatternPicker.tsx:208
+msgid "Select %s"
+msgstr "%s 선택"
+
+#: src/components/PatternPicker.tsx:175
+#: src/components/StyleVariationPicker.tsx:396
+msgid "The selection could not be staged. Please try again."
+msgstr "선택을 진행할 수 없었습니다. 다시 시도해 주세요."
+
+#: src/components/PatternPicker.tsx:157
+#: src/components/StyleVariationPicker.tsx:380
+msgid "The editor is still loading. Try again in a moment."
+msgstr "편집기가 아직 로딩 중이에요. 잠시 후에 다시 시도해 보세요."
+
+#: src/components/PatternPicker.tsx:136
+#: src/components/StyleVariationPicker.tsx:359
+msgid "There was a problem retrieving options. Please try again."
+msgstr "옵션 조회 중 문제가 발생했습니다. 다시 시도해 주세요."
+
+#: src/components/EditorWorkspace.tsx:90
+msgid "Resize chat panel"
+msgstr "채팅 패널 크기 조정"
+
+#: src/lib/content-editor/block-edits.ts:196
+msgid "Insertions must include block data with a block name."
+msgstr "삽입물에는 블록 이름이 포함된 블록 데이터가 있어야 해."
+
+#: src/lib/content-editor/block-edits.ts:182
+msgid "Updates must include the clientId of the block to update."
+msgstr "업데이트에는 업데이트할 블록의 clientId가 포함되어야 합니다."
+
+#. %s is a block type name, such as core/paragraph.
+#: src/lib/content-editor/block-edits.ts:159
+msgid "Block type \"%s\" is not available."
+msgstr "블록 유형 \"%s\"을(를) 사용할 수 없습니다."
+
+#: src/lib/content-editor/block-edits.ts:151
+msgid "Block data must include a block name."
+msgstr "블록 데이터에는 블록 이름이 포함되어야 합니다."
+
+#: src/lib/content-editor/block-edits.ts:102
+msgid "Global styles are still loading. Try the block edit again in a moment."
+msgstr "전체 스타일이 아직 로딩 중입니다. 잠시 후에 블록 편집을 다시 시도해 보세요."
+
+#: src/lib/content-editor/block-edits.ts:69
+msgid "Apply block edits needs at least one update, insert, delete, or summary."
+msgstr "블록 편집을 적용하려면 최소한 하나의 업데이트, 삽입, 삭제 또는 요약이 필요해."
+
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:334
+msgid "The requested block edits have been staged in the editor."
+msgstr "요청된 블록 편집이 편집기에 준비되었습니다."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:305
+msgid "Block \"%s\" was not found for deletion."
+msgstr "블록 \"%s\"를 삭제할 수 없습니다."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:292
+msgid "Could not map client ID \"%s\" for deletion."
+msgstr "삭제를 위해 클라이언트 ID \"%s\"를 매핑할 수 없습니다."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:231
+msgid "Block \"%s\" was not found for update."
+msgstr "블록 \"%s\"를 업데이트할 수 없습니다."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:216
+msgid "Could not map client ID \"%s\" for update."
+msgstr "업데이트를 위해 클라이언트 ID \"%s\"를 매핑할 수 없습니다."
+
+#. %s is a block client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:152
+msgid "Parent block \"%s\" was not found for insertion."
+msgstr "삽입을 위한 부모 블록 \"%s\"를 찾을 수 없습니다."
+
+#. %s is a compressed client ID.
+#: src/hooks/content-editor/useApplyBlockEditsHandler.ts:136
+msgid "Could not map parent client ID \"%s\" for insertion."
+msgstr "삽입을 위해 부모 클라이언트 ID \"%s\"를 매핑할 수 없습니다."
+
+#: src/components/PreviewPane.tsx:527
+#: src/components/content-editor/ContentEditorLoading.tsx:16
+msgid "Loading editor…"
+msgstr "편집기 로딩 중…"
+
+#: src/components/content-editor/ContentEditorError.tsx:6
+msgid "Failed to load template."
+msgstr "템플릿을 로드하는 데 실패했습니다."
+
+#: src/components/ChatPanel.tsx:57
+msgid "Ask for changes"
+msgstr "변경 요청하기"
+
+#: src/components/ApplyPatternLayoutBridge.tsx:28
+#: src/lib/content-editor/block-edits.ts:265
+msgid "Cannot create a block without a name."
+msgstr "이름 없이 블록을 생성할 수 없습니다."
+
+#: src/components/ApplyPatternLayoutBridge.tsx:239
+msgid "The selected pattern layout has been staged in the editor."
+msgstr "선택한 패턴 레이아웃이 편집기에 준비되었습니다."
+
+#: src/components/ApplyPatternLayoutBridge.tsx:184
+msgid "Cannot stage a pattern layout without blocks."
+msgstr "블록 없이 패턴 레이아웃을 배치할 수 없습니다."
+
+#: src/components/AppTopBar.tsx:85
+msgid "Start a new conversation"
+msgstr "새 대화 시작하기"
+
+#: src/components/AppTopBar.tsx:382
+msgid "Publishing…"
+msgstr "공개중..."
+
+#: src/components/AppTopBar.tsx:365
+#: src/components/PreviewPane.tsx:569
+msgid "Saving…"
+msgstr "저장 중..."
+
+#: src/components/AppTopBar.tsx:352
+msgid "Save"
+msgstr "저장"
+
+#: src/components/AppTopBar.tsx:351
+msgid "Save draft"
+msgstr "임시글 저장"
+
+#: src/components/AppTopBar.tsx:208
+msgid "Keep editing"
+msgstr "계속 편집하기"
+
+#: src/components/AppTopBar.tsx:202
+msgid "Unsaved changes"
+msgstr "저장되지 않은 변경사항"
+
+#: src/components/AppTopBar.tsx:196
+msgid "Edit"
+msgstr "편집"
+
+#: src/components/AppTopBar.tsx:193
+msgid "Edit mode"
+msgstr "편집 모드"
+
+#: src/components/AppTopBar.tsx:189
+msgid "Preview"
+msgstr "미리보기"
+
+#: src/components/AppTopBar.tsx:186
+msgid "Preview mode"
+msgstr "미리보기 모드"
+
+#: src/components/AppTopBar.tsx:164
+msgid "Editor mode"
+msgstr "편집기 모드"
+
+#: src/abilities/update-theme.ts:99
+msgid "Use this for site-wide theme.json settings or styles. After it succeeds, tell the user the theme update is staged in the editor and ready to review/save, not live or published."
+msgstr "사이트 전체의 theme.json 설정이나 스타일에 이걸 사용해. 성공하면 사용자에게 테마 업데이트가 편집기에 준비되어 있고 검토/저장할 수 있지만, 라이브나 발행된 건 아니라고 알려줘."
+
+#: src/abilities/update-theme.ts:70
+msgid "Stages WordPress theme settings and styles using theme.json format."
+msgstr "테마.json 형식을 사용하여 워드프레스 테마 설정 및 스타일을 단계별로 진행합니다."
+
+#: src/abilities/update-theme.ts:68
+msgid "Update theme"
+msgstr "테마 업데이트"
+
+#: src/abilities/update-theme.ts:33
+msgid "The editor is still loading. Try the theme update again once the page is editable."
+msgstr "편집기가 아직 로딩 중이에요. 페이지가 편집 가능해지면 테마 업데이트를 다시 시도해 보세요."
+
+#: src/abilities/show-component.ts:79
+msgid "Displays a font, color, or pattern picker in the Easy Site Editor chat."
+msgstr "Easy Site Editor 채팅에서 글꼴, 색상 또는 패턴 선택기를 표시합니다."
+
+#: src/abilities/show-component.ts:77
+msgid "Show picker"
+msgstr "쇼 픽커"
+
+#: src/abilities/show-component.ts:42
+msgid "The picker UI is still loading. Try the request again in a moment."
+msgstr "픽커 UI가 아직 로딩 중이에요. 잠시 후에 요청을 다시 시도해 보세요."
+
+#: src/abilities/show-component.ts:110
+msgid "Use this to show staged global font, color, or pattern choices. The user must select an option and save before changes are live."
+msgstr "이걸 사용해서 단계별 글로벌 글꼴, 색상 또는 패턴 선택을 보여줘. 사용자는 옵션을 선택하고 변경 사항이 적용되기 전에 저장해야 해."
+
+#: src/abilities/editor-navigate.ts:82
+msgid "Use this when the user asks to navigate, go to, open, view, or switch to a site page. If you call this after creating a new page, page creation is already complete before this tool runs. If navigation is canceled because the current page has unsaved changes, do not continue or retry page creation; tell the user the page exists and they need to save or discard their current changes before opening it."
+msgstr "사용자가 탐색, 이동, 열기, 보다 또는 사이트 페이지로 전환하라고 요청할 때 이걸 사용해. 새 페이지를 만든 후에 이걸 호출하면, 이 도구가 실행되기 전에 페이지 생성이 이미 완료돼. 현재 페이지에 저장되지 않은 변경 사항이 있어서 탐색이 취소되면, 페이지 생성을 계속하거나 다시 시도하지 마; 사용자에게 페이지가 존재한다고 말하고, 열기 전에 현재 변경 사항을 저장하거나 버려야 한다고 알려줘."
+
+#: src/abilities/editor-navigate.ts:60
+msgid "Navigates the Easy Site Editor preview to a specific site page or to the pages list."
+msgstr "쉬운 사이트 편집기 미리보기에서 특정 사이트 페이지나 페이지 목록으로 이동합니다."
+
+#: src/abilities/editor-navigate.ts:58
+msgid "Navigate"
+msgstr "탐색"
+
+#: src/abilities/editor-navigate.ts:30
+msgid "Editor navigation is still loading. Try navigating again in a moment."
+msgstr "편집기 탐색이 아직 로딩 중입니다. 잠시 후에 다시 탐색해 보세요."
+
+#: src/abilities/apply-block-edits.ts:93
+msgid "Stages block updates, insertions, and deletions in the client-side editor for review before saving."
+msgstr "저장하기 전에 클라이언트 측 편집기에서 블록 업데이트, 삽입 및 삭제를 검토합니다."
+
+#: src/abilities/apply-block-edits.ts:91
+msgid "Apply block edits"
+msgstr "블록 편집 적용"
+
+#: src/abilities/apply-block-edits.ts:81
+#: src/abilities/editor-navigate.ts:48
+#: src/abilities/show-component.ts:67
+#: src/abilities/update-theme.ts:58
+msgid "Abilities for staging edits in the Easy Site Editor."
+msgstr "쉬운 사이트 편집기에서 편집을 준비하는 능력."
+
+#. Plugin Name of the plugin
+#: src/abilities/apply-block-edits.ts:80
+#: src/abilities/editor-navigate.ts:47
+#: src/abilities/show-component.ts:66
+#: src/abilities/update-theme.ts:57
+#: easy-site-editor.php
+msgid "Easy Site Editor"
+msgstr "쉬운 사이트 편집기"
+
+#: src/abilities/apply-block-edits.ts:56
+msgid "The editor is still loading. Try the block edit again once the page is editable."
+msgstr "편집기가 아직 로딩 중이에요. 페이지가 편집 가능해지면 블록 편집을 다시 시도해 보세요."
+
+#: src/abilities/apply-block-edits.ts:134
+msgid "Use this for current-page content and layout edits. After it succeeds, tell the user the edits are staged in the editor and ready to review/save, not live or published."
+msgstr "현재 페이지의 콘텐츠 및 레이아웃 편집에 사용하세요. 성공한 후, 사용자에게 편집이 편집기에 준비되어 검토/저장할 수 있도록 대기 중이며, 라이브 또는 발행되지 않았다고 알려주세요."

@@ -1,0 +1,346 @@
+
+<style>
+* { box-sizing: border-box; }
+.sr-only { position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0) }
+.eco { padding: .75rem 0 2rem; }
+
+.topbar { display:flex;align-items:center;justify-content:space-between;padding-bottom:.75rem;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:1.25rem; }
+.logo { display:flex;align-items:center;gap:8px; }
+.logo-ring { width:28px;height:28px;border-radius:50%;border:2px solid #534AB7;display:flex;align-items:center;justify-content:center; }
+.logo-dot { width:10px;height:10px;border-radius:50%;background:#534AB7; }
+.logo-name { font-size:15px;font-weight:500;color:var(--color-text-primary); }
+.logo-name span { color:#534AB7; }
+.hw-pill { font-size:11px;padding:3px 10px;border-radius:20px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);display:flex;align-items:center;gap:5px; }
+
+.section-label { font-size:10px;font-weight:500;letter-spacing:.1em;color:var(--color-text-tertiary);text-transform:uppercase;margin:1.1rem 0 .55rem; }
+
+.g3 { display:grid;grid-template-columns:repeat(3,1fr);gap:9px; }
+.g4 { display:grid;grid-template-columns:repeat(4,1fr);gap:9px; }
+.g2 { display:grid;grid-template-columns:repeat(2,1fr);gap:9px; }
+.gflex { display:flex;gap:9px;flex-wrap:wrap; }
+
+.card {
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:.75rem .9rem;
+  cursor:pointer;
+  transition:border-color .15s,background .15s;
+}
+.card:hover { border-color:var(--color-border-primary); background:var(--color-background-secondary); }
+.card.sel { border-color:#534AB7 !important; }
+
+.ci { font-size:17px;margin-bottom:.3rem;color:var(--color-text-secondary); }
+.ct { font-size:13px;font-weight:500;color:var(--color-text-primary);margin:0 0 2px; }
+.cs { font-size:11px;color:var(--color-text-secondary);margin:0; }
+.cb { display:inline-block;font-size:10px;padding:2px 7px;border-radius:10px;margin-top:5px; }
+.bp { background:#EEEDFE;color:#3C3489; }
+.bt { background:#E1F5EE;color:#085041; }
+.ba { background:#FAEEDA;color:#633806; }
+.bb { background:#E6F1FB;color:#0C447C; }
+.bc { background:#FAECE7;color:#712B13; }
+.bg { background:#EAF3DE;color:#27500A; }
+.bk { background:#F1EFE8;color:#444441; }
+@media(prefers-color-scheme:dark){
+  .bp{background:#26215C;color:#CECBF6}
+  .bt{background:#04342C;color:#9FE1CB}
+  .ba{background:#412402;color:#FAC775}
+  .bb{background:#042C53;color:#B5D4F4}
+  .bc{background:#4A1B0C;color:#F5C4B3}
+  .bg{background:#173404;color:#C0DD97}
+  .bk{background:#2C2C2A;color:#D3D1C7}
+}
+
+.agent-row { display:grid;grid-template-columns:repeat(2,1fr);gap:9px; }
+.agent-card {
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:.85rem 1rem;
+  cursor:pointer;
+  transition:border-color .15s;
+  position:relative;
+  overflow:hidden;
+}
+.agent-card::before { content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:3px 0 0 3px; }
+.agent-card.clara::before { background:#534AB7; }
+.agent-card.luzia::before { background:#1D9E75; }
+.agent-card.nemo::before { background:#D85A30; }
+.agent-card.openclaw::before { background:#378ADD; }
+.agent-card:hover { border-color:var(--color-border-primary);background:var(--color-background-secondary); }
+
+.agent-header { display:flex;align-items:center;gap:8px;margin-bottom:4px; }
+.agent-avatar { width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0; }
+.av-clara { background:#EEEDFE;color:#3C3489; }
+.av-luzia { background:#E1F5EE;color:#085041; }
+.av-nemo { background:#FAECE7;color:#712B13; }
+.av-openclaw { background:#E6F1FB;color:#0C447C; }
+.agent-name { font-size:13px;font-weight:500;color:var(--color-text-primary); }
+.agent-role { font-size:11px;color:var(--color-text-secondary);margin:0; }
+.agent-tags { display:flex;flex-wrap:wrap;gap:4px;margin-top:6px; }
+.atag { font-size:10px;padding:2px 6px;border-radius:6px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary); }
+
+.seg-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:7px; }
+.seg-card { background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.5rem .65rem;cursor:pointer;border:0.5px solid var(--color-border-tertiary); }
+.seg-card:hover { border-color:var(--color-border-secondary); }
+.seg-n { font-size:11px;font-weight:500;color:var(--color-text-primary);margin:0 0 1px; }
+.seg-d { font-size:10px;color:var(--color-text-secondary);margin:0; }
+
+.detail-box { margin-top:1.25rem;border:0.5px solid #7F77DD;border-radius:var(--border-radius-lg);overflow:hidden; }
+.detail-head { display:flex;align-items:center;justify-content:space-between;padding:.6rem 1rem;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary); }
+.detail-title { font-size:13px;font-weight:500;color:var(--color-text-primary); }
+.detail-close { font-size:20px;cursor:pointer;color:var(--color-text-secondary);line-height:1;padding:0 4px; }
+.detail-body { padding:.9rem 1rem;display:grid;grid-template-columns:1fr 1fr;gap:6px; }
+.detail-feat { font-size:12px;color:var(--color-text-secondary);display:flex;align-items:flex-start;gap:5px; }
+.detail-feat i { color:#534AB7;font-size:13px;margin-top:1px; }
+.detail-cta { padding:.6rem 1rem;border-top:0.5px solid var(--color-border-tertiary);display:flex;gap:8px; }
+.detail-cta button { font-size:12px;padding:5px 14px;border-radius:20px;border:0.5px solid #534AB7;background:transparent;color:#534AB7;cursor:pointer; }
+.detail-cta button:hover { background:#EEEDFE; }
+
+.div-line { height:0.5px;background:var(--color-border-tertiary);margin:1.1rem 0; }
+.flow-row { display:flex;align-items:center;gap:6px;font-size:11px;color:var(--color-text-secondary);margin:.3rem 0; }
+.flow-node { padding:3px 10px;border-radius:10px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);white-space:nowrap; }
+.flow-arr { color:var(--color-text-tertiary); }
+</style>
+
+<h2 class="sr-only">PrimeOsHub full ecosystem — AI agents, BMC blocks, 11 market segments, and integrations</h2>
+
+<div class="eco">
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-ring"><div class="logo-dot"></div></div>
+      <span class="logo-name">PrimeOS<span>Hub</span> <span style="font-weight:400;font-size:12px;color:var(--color-text-secondary)">Enterprise Ecosystem</span></span>
+    </div>
+    <div class="hw-pill"><i class="ti ti-cpu" aria-hidden="true" style="font-size:12px"></i>Palit Pandora · NVIDIA JetPack 6</div>
+  </div>
+
+  <div class="section-label">AI Agent Layer — Government system</div>
+  <div class="agent-row">
+    <div class="agent-card clara" onclick="showDetail('clara','Clara — WhatsApp Virtual Assistant','Clara is the PrimeOsHub customer-facing AI agent, operating over WhatsApp. Built on OpenClaw and NemoClaw, she handles client onboarding, support tickets, sales inquiries, appointment scheduling, and proactive business alerts — available 24/7 across all 11 market segments.',['WhatsApp Business API','NLP-powered responses','Lead capture & CRM sync','Appointment scheduling','Multi-language (PT/EN/ES)','Escalation to human agent'])">
+      <div class="agent-header">
+        <div class="agent-avatar av-clara">CL</div>
+        <div><p class="agent-name">Clara</p><p class="agent-role">WhatsApp virtual assistant</p></div>
+      </div>
+      <div class="agent-tags">
+        <span class="atag">WhatsApp</span>
+        <span class="atag">OpenClaw</span>
+        <span class="atag">NemoClaw</span>
+        <span class="atag">24/7 support</span>
+        <span class="atag">Lead gen</span>
+      </div>
+    </div>
+    <div class="agent-card luzia" onclick="showDetail('luzia','Luzia — PrimeOsHub System Governance Agent','Luzia is the internal governance intelligence agent for PrimeOsHub. She monitors system health, enforces policy across all modules, generates compliance reports, audits activity logs, and alerts administrators to anomalies — operating inside the NVIDIA NemoClaw secure sandbox.',['System health monitoring','Policy enforcement engine','Compliance & audit reports','Anomaly detection alerts','Cross-module orchestration','Governance dashboard'])">
+      <div class="agent-header">
+        <div class="agent-avatar av-luzia">LZ</div>
+        <div><p class="agent-name">Luzia</p><p class="agent-role">System governance agent</p></div>
+      </div>
+      <div class="agent-tags">
+        <span class="atag">NemoClaw sandbox</span>
+        <span class="atag">Governance</span>
+        <span class="atag">Compliance</span>
+        <span class="atag">Audit logs</span>
+        <span class="atag">Internal ops</span>
+      </div>
+    </div>
+    <div class="agent-card nemo" onclick="showDetail('nemo','NemoClaw — Secure Agent Runtime','NVIDIA NemoClaw is the security and sandbox layer that runs all autonomous AI agents in PrimeOsHub. It wraps OpenClaw agents inside OpenShell with policy-enforced egress, filesystem isolation, and governed inference — preventing runaway actions and data leaks.',['OpenShell sandbox runtime','Network egress policy','Filesystem isolation','Inference routing (Nemotron)','Blueprint versioning','Security audit trail'])">
+      <div class="agent-header">
+        <div class="agent-avatar av-nemo">NC</div>
+        <div><p class="agent-name">NemoClaw</p><p class="agent-role">Secure sandbox runtime</p></div>
+      </div>
+      <div class="agent-tags">
+        <span class="atag">NVIDIA OpenShell</span>
+        <span class="atag">Policy enforcement</span>
+        <span class="atag">Sandbox</span>
+        <span class="atag">Nemotron</span>
+      </div>
+    </div>
+    <div class="agent-card openclaw" onclick="showDetail('openclaw','OpenClaw — Autonomous Agent Framework','OpenClaw is the always-on autonomous agent framework that powers both Clara and Luzia. It provides skill execution, memory, tool use, and multi-step reasoning. NemoClaw wraps it with security. Your PrimeOsHub repo on GitHub hosts custom plugins and blueprints.',['Always-on agent loop','Tool & plugin execution','Multi-step planning','Skill library (custom)','ClawHub plugin registry','GitHub repo integration'])">
+      <div class="agent-header">
+        <div class="agent-avatar av-openclaw">OC</div>
+        <div><p class="agent-name">OpenClaw</p><p class="agent-role">Autonomous agent framework</p></div>
+      </div>
+      <div class="agent-tags">
+        <span class="atag">Agent framework</span>
+        <span class="atag">Skill plugins</span>
+        <span class="atag">Memory</span>
+        <span class="atag">Tool use</span>
+        <span class="atag">PrimeOsHub repo</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-row" style="margin:.9rem 0 0">
+    <span class="flow-node" style="background:#EEEDFE;border-color:#AFA9EC;color:#3C3489">Clara (WhatsApp)</span>
+    <span class="flow-arr">→</span>
+    <span class="flow-node">OpenClaw</span>
+    <span class="flow-arr">→</span>
+    <span class="flow-node" style="background:#FAECE7;border-color:#F0997B;color:#712B13">NemoClaw sandbox</span>
+    <span class="flow-arr">→</span>
+    <span class="flow-node">PrimeOS Core</span>
+    <span class="flow-arr">→</span>
+    <span class="flow-node" style="background:#E1F5EE;border-color:#9FE1CB;color:#085041">Luzia governs</span>
+  </div>
+
+  <div class="div-line"></div>
+
+  <div class="section-label">9 Business model canvas blocks</div>
+  <div class="g3">
+    <div class="card" onclick="showDetail('kact','Key activities','The core processes and actions your business must perform to deliver its value proposition — production, problem-solving, platform management.',['Process automation','Workflow templates','Activity KPI tracking','Department task routing','Time tracking','Performance analytics'])">
+      <p class="ct">Key activities</p><p class="cs">Core business processes</p>
+      <span class="cb bp">BMC</span>
+    </div>
+    <div class="card" onclick="showDetail('kres','Key resources','The essential assets — physical, intellectual, human, financial — required to deliver value.',['Asset register','Team directory','IP & license tracker','Budget allocation','Resource utilisation','Capacity planning'])">
+      <p class="ct">Key resources</p><p class="cs">Assets & capabilities</p>
+      <span class="cb bp">BMC</span>
+    </div>
+    <div class="card" onclick="showDetail('vp','Value proposition','What makes your offer uniquely valuable to each customer segment.',['Product/service canvas','Segment-fit matrix','Pricing configurator','USP builder','A/B test tracker','Customer pain mapper'])">
+      <p class="ct">Value proposition</p><p class="cs">Unique offer per segment</p>
+      <span class="cb bp">BMC</span>
+    </div>
+    <div class="card" onclick="showDetail('cs','Cost structure','All costs incurred to operate the business model.',['Fixed vs variable costs','Unit economics','Break-even analysis','COGS calculator','Burn rate tracker','P&L integration'])">
+      <p class="ct">Cost structure</p><p class="cs">Fixed, variable, COGS</p>
+      <span class="cb ba">BMC</span>
+    </div>
+    <div class="card" onclick="showDetail('rs','Revenue streams','How the company earns money from each customer segment.',['Subscription billing','One-time sales','Licensing engine','Revenue recognition','MRR/ARR dashboard','Churn analytics'])">
+      <p class="ct">Revenue streams</p><p class="cs">MRR, sales, licensing</p>
+      <span class="cb bg">BMC</span>
+    </div>
+    <div class="card" onclick="showDetail('kp','Key partners','Network of suppliers, alliances, and partners that make the model work.',['Partner directory','SLA manager','Contract tracker','Co-marketing ops','Revenue sharing','Partner portal'])">
+      <p class="ct">Key partners</p><p class="cs">Suppliers & alliances</p>
+      <span class="cb bt">BMC</span>
+    </div>
+    <div class="card" onclick="showDetail('cr','Customer relationships','How the company acquires, retains, and grows each customer segment.',['CRM dashboard','NPS tracking','Loyalty programs','Churn prediction','Clara (WhatsApp bot)','Re-engagement flows'])">
+      <p class="ct">Customer relationships</p><p class="cs">Acquire, retain, grow</p>
+      <span class="cb bc">BMC</span>
+    </div>
+    <div class="card" onclick="showDetail('ch','Channels','How value is delivered and communicated to customers.',['Omnichannel hub','WhatsApp (Clara)','E-commerce module','Sales force tools','Content/SEO','Partner channels'])">
+      <p class="ct">Channels</p><p class="cs">Delivery & communication</p>
+      <span class="cb bb">BMC</span>
+    </div>
+    <div class="card" onclick="showDetail('cseg','Customer segments','The groups of people and organisations the business serves.',['Segment builder','Persona library','11 market verticals','Demographic filters','Lifetime value model','Segment dashboard'])">
+      <p class="ct">Customer segments</p><p class="cs">All 11 market verticals</p>
+      <span class="cb bp">BMC</span>
+    </div>
+  </div>
+
+  <div class="div-line"></div>
+
+  <div class="section-label">4 Operational departments</div>
+  <div class="g4">
+    <div class="card" onclick="showDetail('fin','Finances','Full financial management powered by AI forecasting — budgeting, invoicing, cash flow, P&L, and regulatory compliance for BR/global.',['Budget planning','Cash flow forecasting','Invoice automation','P&L statements','Tax compliance (BR/global)','AI spend anomaly alerts'])">
+      <div class="ci"><i class="ti ti-chart-line" aria-hidden="true"></i></div>
+      <p class="ct">Finances</p><p class="cs">Budget · invoicing · P&L</p>
+      <span class="cb bg">Department</span>
+    </div>
+    <div class="card" onclick="showDetail('mkt','Marketing','Multi-channel campaign management, lead funnel, content calendar, SEO, and social scheduler with ROI analytics.',['Campaign builder','Lead scoring CRM','Content calendar','SEO keyword tracker','Social scheduler','ROI dashboard'])">
+      <div class="ci"><i class="ti ti-speakerphone" aria-hidden="true"></i></div>
+      <p class="ct">Marketing</p><p class="cs">Campaigns · leads · SEO</p>
+      <span class="cb bp">Department</span>
+    </div>
+    <div class="card" onclick="showDetail('sales','Sales','AI-powered pipeline, deal tracking, quote builder, commission calc, and win/loss forecasting.',['Pipeline kanban','AI deal scoring','Quote builder','Commission engine','Win/loss analysis','Forecast dashboard'])">
+      <div class="ci"><i class="ti ti-rosette" aria-hidden="true"></i></div>
+      <p class="ct">Sales</p><p class="cs">Pipeline · CRM · quotes</p>
+      <span class="cb ba">Department</span>
+    </div>
+    <div class="card" onclick="showDetail('ops','Operations','Process automation, team scheduling, KPI tracking, SLA monitoring, and workflow templates for any business type.',['Workflow builder','Task automation','Team scheduling','KPI dashboard','SLA monitoring','Process templates'])">
+      <div class="ci"><i class="ti ti-settings-automation" aria-hidden="true"></i></div>
+      <p class="ct">Operations</p><p class="cs">Workflows · tasks · KPIs</p>
+      <span class="cb bt">Department</span>
+    </div>
+  </div>
+
+  <div class="div-line"></div>
+
+  <div class="section-label">11 Market segments served</div>
+  <div class="seg-grid">
+    <div class="seg-card" onclick="sendPrompt('How does PrimeOsHub serve the retail segment?')"><p class="seg-n">Retail</p><p class="seg-d">Physical & e-commerce</p></div>
+    <div class="seg-card" onclick="sendPrompt('How does PrimeOsHub serve the services segment?')"><p class="seg-n">Services</p><p class="seg-d">Professional services</p></div>
+    <div class="seg-card" onclick="sendPrompt('How does PrimeOsHub serve the hospitality segment?')"><p class="seg-n">Hospitality</p><p class="seg-d">Hotels, restaurants</p></div>
+    <div class="seg-card" onclick="sendPrompt('How does PrimeOsHub serve the health segment?')"><p class="seg-n">Health</p><p class="seg-d">Clinics, wellness</p></div>
+    <div class="seg-card" onclick="sendPrompt('How does PrimeOsHub serve the education segment?')"><p class="seg-n">Education</p><p class="seg-d">Schools, e-learning</p></div>
+    <div class="seg-card" onclick="sendPrompt('How does PrimeOsHub serve the construction segment?')"><p class="seg-n">Construction</p><p class="seg-d">Civil & engineering</p></div>
+    <div class="seg-card" onclick="sendPrompt('How does PrimeOsHub serve the tech segment?')"><p class="seg-n">Technology</p><p class="seg-d">SaaS, agencies</p></div>
+    <div class="seg-card" onclick="sendPrompt('How does PrimeOsHub serve the logistics segment?')"><p class="seg-n">Logistics</p><p class="seg-d">Transport, supply chain</p></div>
+    <div class="seg-card" onclick="sendPrompt('How does PrimeOsHub serve the agriculture segment?')"><p class="seg-n">Agriculture</p><p class="seg-d">Agro, rural business</p></div>
+    <div class="seg-card" onclick="sendPrompt('How does PrimeOsHub serve the manufacturing segment?')"><p class="seg-n">Manufacturing</p><p class="seg-d">Industry, production</p></div>
+    <div class="seg-card" onclick="sendPrompt('How does PrimeOsHub serve the financial services segment?')"><p class="seg-n">Fin. Services</p><p class="seg-d">Fintech, insurance</p></div>
+    <div class="seg-card" style="border-color:#534AB7;background:#EEEDFE" onclick="sendPrompt('Can PrimeOsHub serve a market segment not in the 11 listed?')"><p class="seg-n" style="color:#3C3489">+ Custom</p><p class="seg-d" style="color:#534AB7">Any vertical</p></div>
+  </div>
+
+  <div class="div-line"></div>
+
+  <div class="section-label">Integration layer</div>
+  <div class="gflex">
+    <div class="card" style="flex:0 0 auto;min-width:105px" onclick="showDetail('gh','GitHub · PrimeOsHub Enterprises','Version control, CI/CD, and repository management for all PrimeOsHub tools — including the NemoClaw blueprints, OpenClaw plugins (Clara & Luzia), and module source code.',['PrimeOsHub Enterprises org','NemoClaw blueprints repo','OpenClaw plugins repo','CI/CD pipelines','Release management','Issue & project boards'])">
+      <div class="ci"><i class="ti ti-brand-github" aria-hidden="true"></i></div>
+      <p class="ct" style="font-size:12px">GitHub</p><p class="cs" style="font-size:10px">PrimeOsHub Ent.</p>
+      <span class="cb bk" style="font-size:9px">Live</span>
+    </div>
+    <div class="card" style="flex:0 0 auto;min-width:105px" onclick="showDetail('notion','Notion','Workspace documentation, meeting notes, OKRs, and knowledge base synced with PrimeOS tasks and project wikis.',['Docs sync','Project wikis','OKR tracking','Meeting notes','Template library','Embed in PrimeOS'])">
+      <div class="ci"><i class="ti ti-notes" aria-hidden="true"></i></div>
+      <p class="ct" style="font-size:12px">Notion</p><p class="cs" style="font-size:10px">Docs · wikis</p>
+      <span class="cb bk" style="font-size:9px">Live</span>
+    </div>
+    <div class="card" style="flex:0 0 auto;min-width:105px" onclick="showDetail('netlify','Netlify','Deploy and host PrimeOsHub front-end modules and dashboards with instant previews, edge functions, and domain routing.',['Auto deploy CI/CD','Edge functions','Preview environments','Form handling','Analytics','Custom domains'])">
+      <div class="ci"><i class="ti ti-cloud-upload" aria-hidden="true"></i></div>
+      <p class="ct" style="font-size:12px">Netlify</p><p class="cs" style="font-size:10px">Deploy · hosting</p>
+      <span class="cb bk" style="font-size:9px">Live</span>
+    </div>
+    <div class="card" style="flex:0 0 auto;min-width:105px" onclick="showDetail('wa','WhatsApp Business','The channel through which Clara operates — WhatsApp Business API connecting agents to clients across all 11 market segments.',['WhatsApp Business API','Message templates','Broadcast lists','Media messages','Read receipts','Meta Cloud API'])">
+      <div class="ci"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></div>
+      <p class="ct" style="font-size:12px">WhatsApp</p><p class="cs" style="font-size:10px">Clara channel</p>
+      <span class="cb bg" style="font-size:9px">Agent</span>
+    </div>
+    <div class="card" style="flex:0 0 auto;min-width:105px" onclick="sendPrompt('How should I integrate ERP or SAP into PrimeOsHub?')">
+      <div class="ci"><i class="ti ti-building-factory" aria-hidden="true"></i></div>
+      <p class="ct" style="font-size:12px">ERP / SAP</p><p class="cs" style="font-size:10px">Enterprise systems</p>
+      <span class="cb ba" style="font-size:9px">Roadmap</span>
+    </div>
+    <div class="card" style="flex:0 0 auto;min-width:105px" onclick="sendPrompt('How should I integrate payments like Stripe or PagSeguro into PrimeOsHub?')">
+      <div class="ci"><i class="ti ti-credit-card" aria-hidden="true"></i></div>
+      <p class="ct" style="font-size:12px">Payments</p><p class="cs" style="font-size:10px">Stripe · PagSeguro</p>
+      <span class="cb ba" style="font-size:9px">Roadmap</span>
+    </div>
+  </div>
+
+  <div id="detail" class="detail-box" style="display:none">
+    <div class="detail-head">
+      <span class="detail-title" id="d-title"></span>
+      <span class="detail-close" onclick="closeD()">×</span>
+    </div>
+    <div class="detail-body" id="d-body"></div>
+    <div class="detail-cta">
+      <button id="d-btn" onclick="askMore()">↗ Go deeper on this</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let cur = null;
+const items = {};
+
+function showDetail(id, title, desc, feats) {
+  items[id] = { title, desc, feats };
+  cur = id;
+  document.querySelectorAll('.card,.agent-card,.seg-card').forEach(c => c.classList.remove('sel'));
+  if (event && event.currentTarget) event.currentTarget.classList.add('sel');
+  document.getElementById('d-title').textContent = title;
+  const b = document.getElementById('d-body');
+  b.innerHTML = `<div style="grid-column:1/-1;font-size:12px;color:var(--color-text-secondary);margin-bottom:4px;line-height:1.5">${desc}</div>`;
+  feats.forEach(f => {
+    b.innerHTML += `<div class="detail-feat"><i class="ti ti-check" aria-hidden="true"></i><span>${f}</span></div>`;
+  });
+  document.getElementById('detail').style.display = 'block';
+}
+
+function closeD() {
+  document.getElementById('detail').style.display = 'none';
+  document.querySelectorAll('.card,.agent-card,.seg-card').forEach(c => c.classList.remove('sel'));
+  cur = null;
+}
+
+function askMore() {
+  if (!cur) return;
+  sendPrompt('Tell me more about ' + items[cur].title + ' in the PrimeOsHub system — how to build and integrate it');
+}
+</script>

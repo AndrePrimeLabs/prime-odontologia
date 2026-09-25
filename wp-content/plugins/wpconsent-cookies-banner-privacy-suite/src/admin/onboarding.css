@@ -1,0 +1,354 @@
+.wpconsent-admin-page.wpconsent-onboarding {
+	#adminmenumain,
+	#wpfooter,
+	#wpadminbar {
+		display: none;
+		margin-left: 0 !important;
+	}
+
+	#wpbody {
+		width: 100%;
+		display: block;
+		padding-top: 0;
+		margin-top: 0 !important;
+	}
+
+	#wpbody-content,
+	#wpcontent {
+		margin-left: 0 !important;
+		margin-bottom: 0;
+		padding: 0;
+	}
+
+	#wpwrap {
+		background-color: white;
+	}
+
+	.wpconsent-content {
+		padding: 0;
+	}
+}
+
+.wpconsent-onboarding-progress-bar {
+	height: 4px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+
+	.wpconsent-onboarding-progress-bar-inner {
+		background-color: var(--wpconsent-color-primary);
+		height: 4px;
+		width: 25%;
+	}
+}
+
+.wpconsent-onboarding-header {
+	padding: 40px;
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	top: 4px;
+	left: 0;
+	right: 0;
+}
+
+.wpconsent-onboarding {
+	a, .wpconsent-button-text {
+		font-size: 14px;
+		font-weight: 500;
+		color: #051F3180;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+}
+
+.wpconsent-onboarding-skip {
+	display: none;
+}
+
+.wpconsent-onboarding-step-1 {
+	.wpconsent-onboarding-back {
+		display: none;
+	}
+
+	.wpconsent-onboarding-skip {
+		display: block;
+	}
+}
+
+.wpconsent-onboarding-content {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	min-height: 100vh;
+	padding: 120px 20px;
+	overflow-y: auto;
+
+	.wpconsent-onboarding-content-inner {
+		margin: auto 0;
+		max-width: 530px;
+		width: 100%;
+		text-align: center;
+	}
+
+	h2 {
+		font-size: 40px;
+		font-weight: 590;
+		letter-spacing: -0.02em;
+		color: #051F31;
+		margin-bottom: 24px;
+		line-height: 1.2;
+	}
+
+	p {
+		font-size: 16px;
+		font-weight: 510;
+		line-height: 1.8;
+		color: var(--wpconsent-text-color-paragraph);
+
+		&.wpconsent-disclaimer {
+			font-size: 12px;
+			font-weight: 400;
+
+			a {
+				color: var(--wpconsent-text-color-paragraph);
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+.wpconsent-onboarding-image {
+	margin-bottom: 40px;
+}
+
+.wpconsent-onboarding-buttons {
+	margin-top: 40px;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+
+	.wpconsent-button {
+		margin-bottom: 20px;
+	}
+
+	.wpconsent-inline-styled-checkbox {
+		margin-bottom: 20px;
+
+		a {
+			font-size: inherit;
+			font-weight: 400;
+		}
+	}
+}
+
+.wpconsent-onboarding-step {
+	display: none;
+}
+
+.wpconsent-onboarding-step-1 {
+	.wpconsent-step-1 {
+		display: block;
+	}
+}
+
+.wpconsent-onboarding-step-2 {
+	.wpconsent-step-2 {
+		display: block;
+	}
+}
+
+.wpconsent-onboarding-step-3 {
+	.wpconsent-step-3 {
+		display: block;
+	}
+
+	.wpconsent-onboarding-content-inner {
+		max-width: 872px;
+	}
+}
+
+.wpconsent-onboarding-step-4 {
+	.wpconsent-step-4 {
+		display: block;
+	}
+}
+
+.wpconsent-onboarding-selectable-list {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 20px;
+	margin-top: 50px;
+}
+
+.wpconsent-onboarding-selectable-item {
+	display: flex;
+	align-items: flex-start;
+	border: 1px solid #39960D;
+	border-radius: 4px;
+	position: relative;
+	padding: 20px;
+	text-align: left;
+	cursor: pointer;
+
+	.wpconsent-onboarding-service-checkbox {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+	}
+
+	.wpconsent-onboarding-service-logo {
+		margin-right: 16px;
+
+		img {
+			width: 22px;
+		}
+	}
+
+	h3 {
+		margin-top: 0;
+		font-size: 14px;
+		line-height: 1.2;
+		font-weight: 600;
+		margin-bottom: 12px;
+	}
+
+	p {
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 1.6;
+		color: #051F31B2;
+		margin-top: 12px;
+		margin-bottom: 0;
+	}
+}
+
+.wpconsent-onboarding-banner {
+	margin-top: 50px;
+	text-align: left;
+
+	.wpconsent-image-radio {
+		margin-bottom: 50px;
+		flex-wrap: nowrap;
+	}
+
+	h3 {
+		margin: 25px 0;
+	}
+
+	.wpconsent-image-radio-label {
+		align-items: center;
+		justify-content: center;
+		margin-right: 0;
+		margin-left: 14px;
+
+		&:first-of-type {
+			margin-left: 0;
+		}
+	}
+
+	.wpconsent-image-radio-large {
+		img {
+			width: 98px;
+		}
+
+		.wpconsent-image-radio-label {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+
+	.wpconsent-image-radio-small {
+		img {
+			width: 100px;
+		}
+	}
+}
+
+.wpconsent-footer-buttons {
+	position: absolute;
+	bottom: 40px;
+	left: 0;
+	right: 0;
+}
+
+.wpconsent-onboarding-license-key {
+	text-align: left;
+	margin-top: 20px;
+
+	label {
+		font-weight: 600;
+		font-size: 16px;
+	}
+
+	.wpconsent-regular-text {
+		width: 100%;
+		height: 46px;
+		border: 1px solid var(--wpconsent-border-color);
+		border-radius: 4px;
+		margin: 10px 0 0;
+	}
+
+	p {
+		font-size: 12px;
+		font-weight: 400;
+		margin: 5px 0 0;
+
+		a {
+			font-size: 14px;
+			font-weight: 400;
+		}
+	}
+}
+
+.wpconsent-services-upsell {
+	width: 100%;
+	background: #F6FAFF;
+	border: 1px solid #EFEFEF;
+	border-radius: 4px;
+	padding: 20px;
+	text-align: left;
+	margin: 20px 0 0;
+	display: flex;
+	align-items: center;
+
+	.wpconsent-services-upsell-buttons {
+		padding-left: 20px;
+		flex-shrink: 0;
+	}
+
+	h2 {
+		font-size: 16px;
+		margin: 0;
+		color: var(--wpconsent-text-color-heading);
+	}
+
+	p {
+		font-size: 14px;
+		font-weight: 400;
+		margin-bottom: 0;
+
+		a {
+			color: #005AE0;
+		}
+	}
+
+	.wpconsent-button {
+		color: #fff;
+	}
+}
+
+.wpconsent-usage-tracking-toggle {
+	.wpconsent-inline-styled-checkbox {
+		a {
+			color: inherit;
+			font-weight: 600;
+		}
+	}
+}

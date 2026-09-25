@@ -1,0 +1,7 @@
+{
+  "id": "local-user",
+  "full_name": "PrimeOS Local User",
+  "email": "local@primeodontologia.com.br",
+  "role": "admin",
+  "app_id": "com.primeodontologia.os"
+}

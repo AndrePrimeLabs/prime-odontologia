@@ -1,0 +1,119 @@
+<?php
+
+namespace WPForms\Integrations\Stripe;
+
+use WPForms\Integrations\IntegrationInterface;
+use WPForms\Integrations\Stripe\Protections\LowAmountSurgeDetector;
+
+/**
+ * Integration of the Stripe payment gateway.
+ *
+ * @since 1.8.2
+ */
+final class Stripe implements IntegrationInterface {
+
+	/**
+	 * Determine if the integration is allowed to load.
+	 *
+	 * @since 1.8.2
+	 *
+	 * @return bool
+	 */
+	public function allow_load() {
+
+		static $allow_load;
+
+		if ( $allow_load !== null ) {
+			return $allow_load;
+		}
+
+		// Determine whether the Stripe addon version is compatible with the WPForms plugin version.
+		$addon_compat = ( new StripeAddonCompatibility() )->init();
+
+		if ( $addon_compat && ! $addon_compat->is_supported_version() ) {
+			$addon_compat->hooks();
+
+			$allow_load = false;
+
+			return $allow_load;
+		}
+
+		/**
+		 * Whether the integration is allowed to load.
+		 *
+		 * @since 1.8.2
+		 *
+		 * @param bool $is_allowed Integration loading state.
+		 */
+		$allow_load = (bool) apply_filters( 'wpforms_integrations_stripe_allow_load', true );
+
+		return $allow_load;
+	}
+
+	/**
+	 * Load the integration.
+	 *
+	 * @since 1.8.2
+	 */
+	public function load() {
+
+		( new Api\WebhookRoute() )->init();
+
+		if ( wpforms_is_admin_page( 'builder' ) ) {
+			( new Admin\Builder\Enqueues() )->init();
+		}
+
+		$api = new Api\PaymentIntents();
+
+		( new WebhooksHealthCheck() )->init();
+		( new DomainHealthCheck() )->init();
+		( new Admin\Payments\SingleActionsHandler() )->init( $api );
+		( new LowAmountSurgeDetector() )->init()->hooks();
+
+		// Bail early for paid users with active Stripe addon.
+		if ( Helpers::is_pro() ) {
+			return;
+		}
+
+		// It must be run only for the integration bundled into the core plugin.
+		$api->init();
+
+		( new Process() )->init( $api );
+		( new Frontend() )->init( $api );
+
+		if ( wpforms_is_admin_page( 'settings', 'payments' ) ) {
+			( new Admin\Settings() )->init();
+		}
+
+		if ( wpforms_is_admin_page( 'builder' ) ) {
+			( new Admin\Builder\Settings() )->init();
+			( new Admin\Builder\Notifications() )->init();
+		}
+	}
+
+	/**
+	 * Build the Stripe tile for the Payments Get Started empty state.
+	 *
+	 * @since 1.10.1.1
+	 *
+	 * @return array|null
+	 */
+	public static function get_started_gateway(): ?array {
+
+		if ( ! ( new self() )->allow_load() ) {
+			return null;
+		}
+
+		return [
+			'icon'        => WPFORMS_PLUGIN_URL . 'assets/images/empty-states/payments/stripe-icon.svg',
+			'icon_alt'    => __( 'Stripe', 'wpforms-lite' ),
+			'brand'       => WPFORMS_PLUGIN_URL . 'assets/images/empty-states/payments/stripe-brand-icon.svg',
+			'tagline'     => __( 'Securely Accept Credit Card Payments', 'wpforms-lite' ),
+			'name'        => __( 'Stripe', 'wpforms-lite' ),
+			'description' => __( 'Accept credit card payments, Apple Pay, Google Pay, ACH, and more with WPForms Stripe integration.', 'wpforms-lite' ),
+			'url'         => ( new Admin\Connect() )->get_connect_with_stripe_url(),
+			'btn_icon'    => WPFORMS_PLUGIN_URL . 'assets/images/empty-states/payments/stripe-connect-icon.svg',
+			'btn_text'    => __( 'Connect with Stripe', 'wpforms-lite' ),
+		];
+	}
+}
