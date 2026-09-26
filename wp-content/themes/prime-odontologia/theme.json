@@ -119,6 +119,9 @@
 		},
 		"elements": {
 			"heading": {
+				"color": {
+					"text": "var:preset|color|primary"
+				},
 				"typography": {
 					"fontFamily": "var:preset|font-family|public-sans",
 					"fontWeight": "700",

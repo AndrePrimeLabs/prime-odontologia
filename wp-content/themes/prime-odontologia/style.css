@@ -346,10 +346,12 @@ Tags: full-site-editing, block-patterns, block-styles, wide-blocks, accessibilit
 }
 .cta-stack h2 {
 	font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+	color: var(--wp--preset--color--background);
 }
 .cta-stack p {
 	max-width: 52ch;
 	margin-inline: auto;
+	color: var(--wp--preset--color--background);
 	opacity: 0.9;
 }
 .cta-stack .wp-block-buttons {
