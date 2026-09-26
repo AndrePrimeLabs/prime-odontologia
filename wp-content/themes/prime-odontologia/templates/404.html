@@ -1,21 +1,34 @@
-<!-- wp:template-part {"slug":"header"} /-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main"} -->
-<main class="wp-block-group">
-	<!-- wp:group {"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group">
-		<!-- wp:heading {"level":1} -->
-		<h1 class="wp-block-heading">Page not found</h1>
-		<!-- /wp:heading -->
-
-		<!-- wp:paragraph -->
-		<p>The page you were looking for doesn't exist. Try a search instead.</p>
+<!-- wp:group {"tagName":"main","className":"is-flush","layout":{"type":"constrained"}} -->
+<main class="wp-block-group is-flush">
+	<!-- wp:group {"align":"full","className":"section page-head notfound","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull section page-head notfound">
+		<!-- wp:paragraph {"className":"section-note"} -->
+		<p class="section-note">Erro 404</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:search {"label":"Search","showLabel":false,"buttonText":"Search"} /-->
+		<!-- wp:heading {"level":1} -->
+		<h1 class="wp-block-heading">Página não encontrada</h1>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"className":"page-lead"} -->
+		<p class="page-lead">O conteúdo que você procura não está aqui — mas o seu sorriso continua em boas mãos. Que tal voltar ao início ou visitar o nosso blog?</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-fill"} -->
+			<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="/">Voltar ao início</a></div>
+			<!-- /wp:button -->
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/blog/">Visitar o blog</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
 	</div>
 	<!-- /wp:group -->
 </main>
 <!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"footer"} /-->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

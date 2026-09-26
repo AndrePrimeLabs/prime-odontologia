@@ -8,6 +8,7 @@ vendor/
 
 # WordPress Studio SQLite & Cache
 wp-content/database/
+wp-content/cache/
 *.sqlite
 *.sqlite-journal
 *.sqlite3

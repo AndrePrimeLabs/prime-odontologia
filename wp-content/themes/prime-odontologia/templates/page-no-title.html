@@ -1,8 +1,12 @@
 <!-- wp:template-part {"slug":"header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"is-flush"} -->
+<!-- wp:group {"tagName":"main","className":"is-flush","layout":{"type":"constrained"}} -->
 <main class="wp-block-group is-flush">
-	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+	<!-- wp:group {"align":"full","className":"article-body","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull article-body">
+		<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+	</div>
+	<!-- /wp:group -->
 </main>
 <!-- /wp:group -->
 

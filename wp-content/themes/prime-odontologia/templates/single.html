@@ -1,23 +1,56 @@
-<!-- wp:template-part {"slug":"header"} /-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main"} -->
-<main class="wp-block-group">
-	<!-- wp:group {"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group">
+<!-- wp:group {"tagName":"main","className":"is-flush","layout":{"type":"constrained"}} -->
+<main class="wp-block-group is-flush">
+	<!-- wp:group {"align":"full","className":"section section-gray page-head article-head","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull section section-gray page-head article-head">
+		<!-- wp:post-date {"format":"d M Y","className":"section-note"} /-->
+
 		<!-- wp:post-title {"level":1} /-->
-		<!-- wp:post-date /-->
-		<!-- wp:post-featured-image /-->
+
+		<!-- wp:post-terms {"term":"category","className":"article-terms"} /-->
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+	<!-- wp:group {"align":"full","className":"article-body","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull article-body">
+		<!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
+		<div class="wp-block-group">
+			<!-- wp:post-content {"layout":{"type":"constrained","contentSize":"720px"}} /-->
+		</div>
+		<!-- /wp:group -->
 
-	<!-- wp:group {"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group">
-		<!-- wp:post-comments-form /-->
+		<!-- wp:group {"layout":{"type":"constrained","contentSize":"720px"}} -->
+		<div class="wp-block-group">
+			<!-- wp:post-navigation-link {"label":"Próximo"} /-->
+			<!-- wp:post-navigation-link {"type":"previous","label":"Anterior"} /-->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"full","className":"home-cta","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull home-cta">
+		<!-- wp:group {"className":"cta-stack","layout":{"type":"constrained"}} -->
+		<div class="wp-block-group cta-stack">
+			<!-- wp:heading {"level":2} -->
+			<h2 class="wp-block-heading">Ainda com dúvidas?</h2>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph -->
+			<p>Fale com a nossa equipe e descubra qual tratamento combina com você. Avaliação personalizada no nosso consultório.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:buttons -->
+			<div class="wp-block-buttons">
+				<!-- wp:button {"className":"is-style-fill"} -->
+				<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="/agendar/">Falar com a equipe</a></div>
+				<!-- /wp:button -->
+			</div>
+			<!-- /wp:buttons -->
+		</div>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 </main>
 <!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"footer"} /-->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

@@ -4,7 +4,7 @@ Description: A custom block theme scaffolded by Studio Code.
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.2
-Version: 0.1.0
+Version: 0.1.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: prime-odontologia
@@ -65,23 +65,23 @@ Tags: full-site-editing, block-patterns, block-styles, wide-blocks, accessibilit
 .hero-stack {
 	max-width: 640px;
 }
-.hero-title {
+.home-hero .hero-title {
 	font-size: clamp(2.4rem, 5vw, 4rem);
 	letter-spacing: -0.01em;
 	margin-block: 0.75rem 1.25rem;
 }
-.hero-eyebrow {
+.home-hero .hero-eyebrow {
 	color: var(--wp--preset--color--accent);
 	margin: 0;
 }
-.hero-title {
-	color: var(--wp--preset--color--background);
+.home-hero .hero-title {
+	color: #ffffff;
 	margin-block: 0 0;
 }
-.hero-lead {
+.home-hero .hero-lead {
 	max-width: 46ch;
 	font-size: 1.15rem;
-	color: var(--wp--preset--color--background);
+	color: #ffffff;
 	opacity: 0.92;
 	margin-block-end: 0.5rem;
 }
@@ -197,6 +197,119 @@ Tags: full-site-editing, block-patterns, block-styles, wide-blocks, accessibilit
 }
 
 /* === blog cards === */
+.page-head {
+	text-align: center;
+}
+.page-head h1 {
+	color: var(--wp--preset--color--primary);
+	max-width: 20ch;
+	margin-inline: auto;
+}
+.page-lead {
+	color: var(--wp--preset--color--secondary);
+	max-width: 60ch;
+	margin-inline: auto;
+	font-size: 1.1rem;
+}
+.blog-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+.blog-card {
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: var(--wp--custom--rounded--sm, 6px);
+	box-shadow: 0 1px 3px rgb(16 24 40 / 0.06);
+	padding: 2rem;
+	transition: box-shadow 160ms ease, transform 160ms ease, border-color 160ms ease;
+}
+.blog-card:hover {
+	box-shadow: 0 12px 24px rgb(16 24 40 / 0.1);
+	transform: translateY(-2px);
+	border-color: var(--wp--preset--color--line);
+}
+.blog-card-meta {
+	color: var(--wp--preset--color--secondary);
+	font-size: 0.82rem;
+	letter-spacing: 0.02em;
+	margin-block-end: 0.4rem;
+}
+.blog-card-meta a {
+	color: var(--wp--preset--color--secondary);
+	text-decoration: none;
+}
+.blog-card h2 a {
+	color: var(--wp--preset--color--primary);
+	text-decoration: none;
+}
+.blog-card h2 a:hover {
+	color: var(--wp--preset--color--accent);
+}
+.blog-card .wp-block-post-excerpt {
+	color: var(--wp--preset--color--secondary);
+	margin-block-start: 0.9rem;
+}
+.blog-card .wp-block-post-excerpt__more-text a {
+	color: var(--wp--preset--color--accent);
+	font-weight: 600;
+	text-decoration: none;
+}
+.wp-block-query-pagination {
+	margin-block-start: 2.5rem;
+}
+.wp-block-query-pagination a {
+	color: var(--wp--preset--color--text);
+	text-decoration: none;
+}
+.wp-block-query-pagination a:hover,
+.wp-block-query-pagination .page-numbers.current {
+	color: var(--wp--preset--color--accent);
+}
+
+.article-head {
+	text-align: center;
+}
+.article-head h1 {
+	color: var(--wp--preset--color--primary);
+	max-width: 26ch;
+	margin-inline: auto;
+}
+.article-head .section-note {
+	text-align: center;
+	margin-inline: auto;
+}
+.article-terms {
+	margin-block-start: 0.5rem;
+	font-size: 0.85rem;
+}
+.article-terms a {
+	color: var(--wp--preset--color--accent);
+	font-weight: 600;
+	text-decoration: none;
+}
+.article-body {
+	padding-block: 3rem 4rem;
+}
+.article-body .wp-block-post-content {
+	color: var(--wp--preset--color--text);
+	line-height: 1.7;
+}
+.article-body .wp-block-post-content img {
+	border-radius: var(--wp--custom--rounded--sm, 6px);
+}
+.wp-block-post-navigation-link {
+	font-size: 0.95rem;
+	margin-block-start: 2.5rem;
+}
+.wp-block-post-navigation-link a {
+	color: var(--wp--preset--color--accent);
+	font-weight: 600;
+	text-decoration: none;
+}
+.wp-block-post-navigation-link a:hover {
+	color: var(--wp--preset--color--primary);
+}
+
 .post-card {
 	border: 1px solid var(--wp--preset--color--line);
 	border-radius: var(--wp--custom--rounded--sm, 6px);
