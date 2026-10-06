@@ -72,6 +72,29 @@ function clsx() {
 }
 var clsx_default = clsx;
 
+// node_modules/@base-ui/utils/createLogOnce.mjs
+var loggedMessages;
+if (true) {
+  loggedMessages = /* @__PURE__ */ new Set();
+}
+function createLogOnce(severity, prefix) {
+  return function logOnce(...messages) {
+    if (true) {
+      const message = messages.join(" ");
+      const output = prefix ? `${prefix}: ${message}` : message;
+      const key = `${severity}:${output}`;
+      if (!loggedMessages.has(key)) {
+        loggedMessages.add(key);
+        if (severity === "warn") {
+          console.warn(output);
+        } else {
+          console.error(output);
+        }
+      }
+    }
+  };
+}
+
 // node_modules/@base-ui/utils/useRefWithInit.mjs
 var React = __toESM(require_react(), 1);
 var UNINITIALIZED = {};
@@ -84,19 +107,11 @@ function useRefWithInit(init, initArg) {
 }
 
 // node_modules/@base-ui/utils/warn.mjs
-var set;
-if (true) {
-  set = /* @__PURE__ */ new Set();
-}
-function warn(...messages) {
-  if (true) {
-    const messageKey = messages.join(" ");
-    if (!set.has(messageKey)) {
-      set.add(messageKey);
-      console.warn(`Base UI: ${messageKey}`);
-    }
-  }
-}
+var warn = createLogOnce("warn", "Base UI");
+
+// node_modules/@base-ui/utils/empty.mjs
+var EMPTY_ARRAY = Object.freeze([]);
+var EMPTY_OBJECT = Object.freeze({});
 
 // node_modules/@base-ui/react/internals/useRenderElement.mjs
 var React4 = __toESM(require_react(), 1);
@@ -226,10 +241,6 @@ function mergeObjects(a, b) {
   }
   return void 0;
 }
-
-// node_modules/@base-ui/utils/empty.mjs
-var EMPTY_ARRAY = Object.freeze([]);
-var EMPTY_OBJECT = Object.freeze({});
 
 // node_modules/@base-ui/react/internals/getStateAttributesProps.mjs
 function getStateAttributesProps(state, customMapping) {
@@ -420,19 +431,21 @@ function isSyntheticEvent(event) {
 // node_modules/@base-ui/react/internals/useRenderElement.mjs
 var import_react = __toESM(require_react(), 1);
 function useRenderElement(element, componentProps, params = {}) {
-  const renderProp = componentProps.render;
-  const outProps = useRenderElementProps(componentProps, params);
+  let renderProp = componentProps.render;
+  if (params.enabled !== false) {
+    renderProp = unwrapLazyRenderProp(renderProp);
+  }
+  const outProps = useRenderElementProps(componentProps, params, renderProp);
   if (params.enabled === false) {
     return null;
   }
   const state = params.state ?? EMPTY_OBJECT;
   return evaluateRenderProp(element, renderProp, outProps, state);
 }
-function useRenderElementProps(componentProps, params = {}) {
+function useRenderElementProps(componentProps, params, renderProp) {
   const {
     className: classNameProp,
-    style: styleProp,
-    render: renderProp
+    style: styleProp
   } = componentProps;
   const {
     state = EMPTY_OBJECT,
@@ -475,6 +488,13 @@ function resolveRenderFunctionProps(props) {
 var REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy");
 var COMPONENT_IDENTIFIER_PATTERN = /^[A-Z][A-Za-z0-9$]*$/;
 var LOWERCASE_CHARACTER_PATTERN = /[a-z]/;
+function unwrapLazyRenderProp(render) {
+  if (render?.$$typeof !== REACT_LAZY_TYPE) {
+    return render;
+  }
+  const unwrapped = React4.Children.toArray(render)[0];
+  return /* @__PURE__ */ React4.isValidElement(unwrapped) ? unwrapped : render;
+}
 function evaluateRenderProp(element, render, props, state) {
   if (render) {
     if (typeof render === "function") {
@@ -485,17 +505,12 @@ function evaluateRenderProp(element, render, props, state) {
     }
     const mergedProps = mergeProps(props, render.props);
     mergedProps.ref = props.ref;
-    let newElement = render;
-    if (newElement?.$$typeof === REACT_LAZY_TYPE) {
-      const children = React4.Children.toArray(render);
-      newElement = children[0];
-    }
     if (true) {
-      if (!/* @__PURE__ */ React4.isValidElement(newElement)) {
+      if (!/* @__PURE__ */ React4.isValidElement(render)) {
         throw new Error(["Base UI: The `render` prop was provided an invalid React element as `React.isValidElement(render)` is `false`.", "A valid React element must be provided to the `render` prop because it is cloned with props to replace the default element.", "https://base-ui.com/r/invalid-render-prop"].join("\n"));
       }
     }
-    return /* @__PURE__ */ React4.cloneElement(newElement, mergedProps);
+    return /* @__PURE__ */ React4.cloneElement(render, mergedProps);
   }
   if (element) {
     if (typeof element === "string") {
@@ -731,7 +746,7 @@ function registerStyle2(hash, css) {
   }
 }
 if (typeof process === "undefined" || true) {
-  registerStyle2("fa606a57ae", "@layer wp-ui{@layer utilities, components, compositions, overrides;@layer components{.f37b9e2e191ebd66__visually-hidden{word-wrap:normal;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal}}}");
+  registerStyle2("f4df7461e9", "@layer wp-ui{@layer utilities, components, compositions, overrides;@layer components{.f37b9e2e191ebd66__visually-hidden{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;overflow-wrap:normal;padding:0;position:absolute;width:1px;word-break:normal}}}");
 }
 var style_default2 = { "visually-hidden": "f37b9e2e191ebd66__visually-hidden" };
 var VisuallyHidden = (0, import_element2.forwardRef)(
@@ -988,7 +1003,9 @@ function HelloDolly() {
   }, []);
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Stack, { align: "center", justify: "center", className: style_default4.root, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text, { variant: "body-xl", render: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {}), className: style_default4.quote, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(VisuallyHidden, { render: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {}), children: [
-      (0, import_i18n.__)("Quote from Hello Dolly song, by Jerry Herman:"),
+      (0, import_i18n.__)(
+        "Quote from Hello Dolly song, by Jerry Herman:"
+      ),
       " "
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { dir: "ltr", lang: "en", children: quote })

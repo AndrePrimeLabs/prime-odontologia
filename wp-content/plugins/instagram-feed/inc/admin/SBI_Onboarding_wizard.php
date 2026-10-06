@@ -418,6 +418,8 @@ class SBI_Onboarding_wizard extends SBI_Feed_Builder
 				}
 				return false;
 		}
+
+		return false; // phpcs:ignore Generic.PHP.UpperCaseConstant
 	}
 
 	/**
@@ -775,6 +777,18 @@ class SBI_Onboarding_wizard extends SBI_Feed_Builder
 					@SBI_Onboarding_wizard::install_single_plugin($plugin_name);
 					$this->disable_installed_plugins_redirect();
 				}
+			}
+			// SMASH-1245 — opt-in consent from onboarding success page.
+			// Storage is the dedicated consent options (NOT sb_instagram_settings),
+			// and we set $dismiss_modal=true so the post-onboarding re-prompt won't fire.
+			if (
+				isset( $single_data['type'] )
+				&& 'consent' === $single_data['type']
+				&& isset( $single_data['value'] )
+				&& true === $single_data['value'] // phpcs:ignore Generic.PHP.UpperCaseConstant
+				&& class_exists( 'SBI_Consent' )
+			) {
+				\SBI_Consent::update( true, true, true ); // phpcs:ignore Generic.PHP.UpperCaseConstant
 			}
 		}
 		update_option('sb_instagram_settings', $sbi_settings);

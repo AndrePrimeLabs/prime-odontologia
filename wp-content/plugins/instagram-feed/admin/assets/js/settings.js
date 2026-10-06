@@ -1,5 +1,10 @@
 var sbiSettings;
 
+// Tab index → template id. Advanced must remain 'app-3' so the existing
+// v-if="selected === 'app-3'" in tab/advanced.php keeps matching; the new
+// Debug tab gets 'app-4'.
+var SBI_TAB_ID_MAP = { 0: 'app-1', 1: 'app-2', 2: 'app-4', 3: 'app-3' };
+
 // Declaring as global variable for quick prototyping
 var settings_data = {
     adminUrl: sbi_settings.admin_url,
@@ -23,6 +28,7 @@ var settings_data = {
     feedsTab: sbi_settings.feedsTab,
     translationTab: sbi_settings.translationTab,
     advancedTab: sbi_settings.advancedTab,
+    debugTab: sbi_settings.debugTab,
     footerUpgradeUrl: sbi_settings.footerUpgradeUrl,
     upgradeUrl: sbi_settings.upgradeUrl,
     supportPageUrl: sbi_settings.supportPageUrl,
@@ -39,7 +45,7 @@ var settings_data = {
     currentView: null,
     selected: null,
     current: 0,
-    sections: ["General", "Feeds", "Advanced"],
+    sections: ["General", "Feeds", "Data Sharing", "Advanced"],
     indicator_width: 0,
     indicator_pos: 0,
     forwards: true,
@@ -121,7 +127,7 @@ var settings_data = {
 Vue.component("tab", {
     props: ["section", "index"],
     template: `
-        <button type="button" class="tab" :id="'sbi-settings-tab-' + section.toLowerCase().trim()" role="tab" :aria-selected="section === $parent.currentTab ? 'true' : 'false'" :aria-controls="'sbi-panel-' + section.toLowerCase().trim()" :tabindex="section === $parent.currentTab ? 0 : -1" @click="emitWidth($el);changeComponent(index);activeTab(section)" @keydown="onTabKeydown">{{section}}</button>
+        <button type="button" class="tab" :id="'sbi-settings-tab-' + section.toLowerCase().trim().split(' ').join('-')" role="tab" :aria-selected="section === $parent.currentTab ? 'true' : 'false'" :aria-controls="'sbi-panel-' + section.toLowerCase().trim().split(' ').join('-')" :tabindex="section === $parent.currentTab ? 0 : -1" @click="emitWidth($el);changeComponent(index);activeTab(section)" @keydown="onTabKeydown">{{section}}</button>
     `,
     created: () => {
         let urlParams = new URLSearchParams(window.location.search);
@@ -145,18 +151,17 @@ Vue.component("tab", {
             } else if (prev > index) {
                 settings_data.forwards = true;
             }
-            settings_data.selected = "app-" + (index + 1);
+            settings_data.selected = SBI_TAB_ID_MAP[index];
             settings_data.current = index;
         },
         activeTab: function (section) {
-            this.setView(section.toLowerCase().trim());
+            this.setView(section.toLowerCase().trim().split(' ').join('-'));
             settings_data.currentTab = section;
         },
         setView: function (section) {
             history.replaceState({}, null, settings_data.adminUrl + 'admin.php?page=sbi-settings&view=' + section);
         },
         // WAI-ARIA Authoring Practices tablist keyboard interaction.
-        // Ports the pure-DOM handler pattern from PATTERNS.md §11 into Vue method form.
         onTabKeydown: function (e) {
             var tabs = Array.prototype.slice.call(
                 document.querySelectorAll('#sb-tabs-container [role="tablist"] [role="tab"]')
@@ -189,6 +194,9 @@ var sbiSettings = new Vue({
     },
     data: settings_data,
     created: function () {
+        // Snapshot the consent toggles as loaded so a save only writes consent
+        // when the user actually changed them (never re-submits a stale value).
+        this.loadedConsent = JSON.stringify(this.model.debug);
         this.$nextTick(function () {
             let tabEl = document.querySelector('.tab');
             settings_data.indicator_width = tabEl.offsetWidth;
@@ -200,16 +208,47 @@ var sbiSettings = new Vue({
     mounted: function () {
         var self = this;
         // set the current view page on page load
+        let viewIndex = settings_data.sections.findIndex(function (s) { return s.toLowerCase().trim().split(' ').join('-') === settings_data.currentView; });
+        // The Data Sharing tab is hidden when a Pro plugin locks consent; a direct
+        // ?view=data-sharing link must not open its panel either.
+        if (settings_data.debugTab && settings_data.debugTab.lockedByPro && settings_data.currentView === 'data-sharing') {
+            viewIndex = -1;
+        }
+        // Fall back to the first tab when the ?view= URL param is unknown, e.g. a
+        // legacy ?view=debug bookmark after the tab was renamed to "data-sharing".
+        // Without this guard querySelector() returns null and reading offsetWidth
+        // throws a TypeError that blanks the entire settings page.
+        if (viewIndex < 0) {
+            viewIndex = 0;
+            settings_data.currentView = settings_data.sections[0].toLowerCase().trim().split(' ').join('-');
+        }
         let activeEl = document.querySelector('button.tab#sbi-settings-tab-' + settings_data.currentView);
-		if ( ! activeEl ) { return; }
-        // we have to uppercase the first letter
-        let currentView = settings_data.currentView.charAt(0).toUpperCase() + settings_data.currentView.slice(1);
-        let viewIndex = settings_data.sections.indexOf(currentView) + 1;
-        settings_data.indicator_width = activeEl.offsetWidth;
-        settings_data.indicator_pos = activeEl.offsetLeft;
-        settings_data.selected = "app-" + viewIndex;
+        if (activeEl) {
+            settings_data.indicator_width = activeEl.offsetWidth;
+            settings_data.indicator_pos = activeEl.offsetLeft;
+        }
+
+        // On a hard refresh, the measurement above can run before the tab web
+        // font swaps in, leaving the underline indicator narrower/offset (worst
+        // on later tabs). Re-measure the active tab once fonts/layout settle and
+        // on resize. Keyed off currentTab so it stays correct after navigation.
+        var sbReindicateTab = function () {
+            var active = settings_data.currentTab;
+            if (!active) { return; }
+            var el = document.querySelector('button.tab#sbi-settings-tab-' + active.toLowerCase().trim().split(' ').join('-'));
+            if (el) {
+                settings_data.indicator_width = el.offsetWidth;
+                settings_data.indicator_pos = el.offsetLeft;
+            }
+        };
+        if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === 'function') {
+            document.fonts.ready.then(function () { sbReindicateTab(); });
+        }
+        window.addEventListener('load', sbReindicateTab);
+        window.addEventListener('resize', sbReindicateTab);
+        settings_data.selected = SBI_TAB_ID_MAP[viewIndex] || 'app-1';
         settings_data.current = viewIndex;
-        settings_data.currentTab = currentView;
+        settings_data.currentTab = settings_data.sections[viewIndex];
 
         setTimeout(function () {
             settings_data.appLoaded = true;
@@ -228,6 +267,23 @@ var sbiSettings = new Vue({
         },
         chooseDirection: function () {
             return "slide-fade";
+        }
+    },
+    watch: {
+        // Invariant: when data-sharing consent is on, in-plugin notifications
+        // must also be on. The template disables the notifications checkbox
+        // while DSC is true, but the inverse direction (forcing notifications
+        // on whenever DSC flips on, or reconciling a stale-on-load model)
+        // needs reactive enforcement — a stale model where DSC=true but
+        // notifications=false would otherwise display a disabled-but-unchecked
+        // box and persist that inconsistency on next save.
+        'model.debug.sbc_data_sharing_consent': {
+            immediate: true,
+            handler: function (newVal) {
+                if (newVal && this.model && this.model.debug) {
+                    this.model.debug.sbc_in_plugin_notifications = true;
+                }
+            }
         }
     },
     methods: {
@@ -602,7 +658,14 @@ var sbiSettings = new Vue({
             this.pressedBtnName = 'saveChanges';
             let data = new FormData();
             data.append('action', 'sbi_save_settings');
-            data.append('model', JSON.stringify(this.model));
+            // Snapshot what is actually sent, so a toggle flipped while this save is
+            // in flight is still treated as a change on the next save.
+            let sentConsent = JSON.stringify(this.model.debug);
+            data.append('model', JSON.stringify(Object.assign({}, this.model, {
+                // Omit consent unless the user changed it on this page, so a stale
+                // tab can never silently turn data sharing back on.
+                debug: sentConsent !== this.loadedConsent ? this.model.debug : undefined
+            })));
             data.append('sbi_license_key', this.licenseKey);
             data.append('extensions_license_key', JSON.stringify(this.extensionsLicenseKey));
             data.append('nonce', this.nonce);
@@ -620,6 +683,7 @@ var sbiSettings = new Vue({
 
                     this.cronNextCheck = data.data.cronNextCheck;
                     this.btnStatus = 'success';
+                    this.loadedConsent = sentConsent;
                     setTimeout(function () {
                         this.btnStatus = null;
                         this.pressedBtnName = null;

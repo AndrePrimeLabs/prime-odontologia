@@ -67,6 +67,15 @@ class SmashUsageTracking {
 			return;
 		}
 
+		// WP.org compliance kill-switch: no outbound telemetry unless data-sharing
+		// consent is granted. Pro forces it on at read time; removing Pro reverts
+		// to the Free user's stored choice. Ported from the removed legacy tracker
+		// (SMASH-1245) so the guarantee survives the usage-tracking refactor.
+		if ( class_exists( '\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager' )
+			&& ! \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager::is_dsc_enabled() ) {
+			return;
+		}
+
 		$host = wp_parse_url( home_url(), PHP_URL_HOST );
 		if ( 'smashballoon.com' === $host || '.smashballoon.com' === substr( (string) $host, -17 ) ) {
 			return;

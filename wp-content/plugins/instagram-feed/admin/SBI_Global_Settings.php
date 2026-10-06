@@ -85,7 +85,7 @@ class SBI_Global_Settings
 	 *
 	 * This will save the data fron the settings page
 	 *
-	 * @return SBI_Response
+	 * @return void
 	 * @since 6.0
 	 */
 	public function sbi_save_settings()
@@ -192,6 +192,24 @@ class SBI_Global_Settings
 			if ( ! $tracking_enabled ) {
 				wp_clear_scheduled_hook( SmashTrackingConfig::CRON_HOOK );
 			}
+		}
+
+		/**
+		 * Debug Tab — consent toggles.
+		 *
+		 * Routed through SBI_Consent::update() so cron reconciliation and the
+		 * 3-state notification source switch stay consistent. Pass null for
+		 * $dismiss_modal so the re-prompt-modal state is not affected by a
+		 * Settings save. The flags are stored as top-level wp_options, NOT in
+		 * sb_instagram_settings, so we do not add them to $sbi_settings.
+		 */
+		if ( isset( $model['debug'] ) && class_exists( 'SBI_Consent' ) ) {
+			$debug = (array) $model['debug'];
+			\SBI_Consent::update(
+				! empty( $debug['sbc_data_sharing_consent'] ),
+				! empty( $debug['sbc_in_plugin_notifications'] ),
+				null
+			);
 		}
 
 		// Update the sbi_style_settings option that contains data for translation and advanced tabs
@@ -323,7 +341,7 @@ class SBI_Global_Settings
 	/**
 	 * SBI Activate License Key
 	 *
-	 * @return SBI_Response
+	 * @return void
 	 * @since 6.0
 	 */
 	public function sbi_activate_license()
@@ -414,7 +432,7 @@ class SBI_Global_Settings
 	/**
 	 * SBI Deactivate License Key
 	 *
-	 * @return SBI_Response
+	 * @return void
 	 * @since 6.0
 	 */
 	public function sbi_deactivate_license()
@@ -448,7 +466,7 @@ class SBI_Global_Settings
 	/**
 	 * SBI Test Connection
 	 *
-	 * @return SBI_Response
+	 * @return void
 	 * @since 6.0
 	 */
 	public function sbi_test_connection()
@@ -492,7 +510,7 @@ class SBI_Global_Settings
 	/**
 	 * SBI Re-Check License
 	 *
-	 * @return SBI_Response
+	 * @return void
 	 * @since 6.0
 	 */
 	public function sbi_recheck_connection()
@@ -568,7 +586,7 @@ class SBI_Global_Settings
 	/**
 	 * SBI Import Feed Settings JSON
 	 *
-	 * @return SBI_Response
+	 * @return void
 	 * @since 6.0
 	 */
 	public function sbi_import_settings_json()
@@ -616,7 +634,7 @@ class SBI_Global_Settings
 	/**
 	 * SBI Export Feed Settings JSON
 	 *
-	 * @return SBI_Response
+	 * @return void
 	 * @since 6.0
 	 */
 	public function sbi_export_settings_json()
@@ -875,7 +893,7 @@ class SBI_Global_Settings
 		wp_enqueue_style(
 			'settings-style',
 			SBI_PLUGIN_URL . 'admin/assets/css/settings.css',
-			false,
+			array( 'common' ),
 			SBIVER
 		);
 
@@ -918,6 +936,19 @@ class SBI_Global_Settings
 		$footer_upgrade_url = 'https://smashballoon.com/instagram-feed/instagram-lite-upgrade/?utm_campaign=instagram-free&utm_source=settings&utm_medium=footer-banner&utm_content=Try Demo';
 		$usage_tracking_url = 'https://smashballoon.com/instagram-feed/usage-tracking/?utm_campaign=instagram-free&utm_source=settings&utm_medium=docs';
 		$feed_issue_email_url = 'https://smashballoon.com/doc/email-report-is-not-in-my-inbox/?instagram&utm_campaign=instagram-free&utm_source=settings&utm_medium=docs';
+
+		// SMASH-1245 — Settings/Debug consent links route through the shared
+		// Consent package (sb-common owns the canonical URLs + per-surface UTM
+		// tags: utm_source=settings-consent, dynamic {plugin}-free campaign).
+		// Empty when the package is absent rather than duplicating the URLs here.
+		$sbi_consent_permissions_url = '';
+		$sbi_consent_terms_url       = '';
+		$sbi_consent_privacy_url     = '';
+		if ( class_exists( '\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager' ) ) {
+			$sbi_consent_permissions_url = \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager::link_url( 'settings', 'permissions', 'instagram' );
+			$sbi_consent_terms_url       = \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager::link_url( 'settings', 'terms', 'instagram' );
+			$sbi_consent_privacy_url     = \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager::link_url( 'settings', 'privacy', 'instagram' );
+		}
 
 		$sources_list = SBI_Feed_Builder::get_source_list();
 
@@ -1151,6 +1182,22 @@ class SBI_Global_Settings
 					'clear' => __('Delete all Platform Data', 'instagram-feed'),
 				),
 			),
+			'debugTab'             => array(
+				'dataSharingTitle'    => __( 'Data sharing', 'instagram-feed' ),
+				'dataSharingDesc'     => __( 'We share limited, non-sensitive usage data to keep your plugins updated and improve our products. We never collect your feed content or your visitors’ personal information.', 'instagram-feed' ),
+				'permissionsLinkText' => __( 'What permissions are being granted?', 'instagram-feed' ),
+				'termsLinkText'       => __( 'Terms & Conditions', 'instagram-feed' ),
+				'privacyLinkText'     => __( 'Privacy', 'instagram-feed' ),
+				'permissionsUrl'      => $sbi_consent_permissions_url,
+				'termsUrl'            => $sbi_consent_terms_url,
+				'privacyUrl'          => $sbi_consent_privacy_url,
+				'notificationsTitle'  => __( 'In-Plugin Notifications', 'instagram-feed' ),
+				'notificationsDesc'   => __( 'We send you in-plugin notifications about updates, fixes, and new features.', 'instagram-feed' ),
+				// When any Smash Balloon Pro plugin is active, consent is forced on
+				// and governed centrally — the toggles are hidden on this tab.
+				// See SBI_Consent::is_locked_by_pro().
+				'lockedByPro'         => class_exists( 'SBI_Consent' ) && \SBI_Consent::is_locked_by_pro(),
+			),
 			'dialogBoxPopupScreen' => array(
 				'deleteSource' => array(
 					'heading' => __('Delete "#"?', 'instagram-feed'),
@@ -1218,6 +1265,13 @@ class SBI_Global_Settings
 		$is_wpconsent_installed = file_exists(WP_PLUGIN_DIR . '/' . $wpconsent_file);
 		$is_wpconsent_active = is_plugin_active($wpconsent_file);
 
+		// Seed Debug-tab toggles from the central consent flags. These flags live in
+		// top-level options (sbc_data_sharing_consent / sbc_in_plugin_notifications),
+		// not inside sb_instagram_settings — see ConsentManager::update().
+		$consent_flags = class_exists( 'SBI_Consent' )
+			? \SBI_Consent::flags()
+			: array_fill_keys( array( 'dsc', 'notif' ), (bool) 0 );
+
 		return array(
 			'general' => array(
 				'preserveSettings' => $sbi_preserve_setitngs
@@ -1252,7 +1306,11 @@ class SBI_Global_Settings
 				'enable_email_report' => $sbi_settings['enable_email_report'],
 				'email_notification' => $sbi_settings['email_notification'],
 				'email_notification_addresses' => $sbi_settings['email_notification_addresses'],
-			)
+			),
+			'debug'           => array(
+				'sbc_data_sharing_consent'    => $consent_flags['dsc'],
+				'sbc_in_plugin_notifications' => $consent_flags['notif'],
+			),
 		);
 	}
 

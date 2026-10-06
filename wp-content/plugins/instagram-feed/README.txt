@@ -3,7 +3,7 @@ Contributors: smashballoon, craig-at-smash-balloon, am, smub
 Tags: Instagram, Instagram feed, Instagram photos, Instagram widget, Instagram gallery
 Requires at least: 4.1
 Tested up to: 7.1
-Stable tag: 6.13.1
+Stable tag: 6.14.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -308,6 +308,13 @@ For more FAQs related to the Instagram Feed plugin please visit the [FAQ section
 
 == Changelog ==
 
+= 6.14.0 =
+* New - You can now choose whether to share anonymous usage data. The setup wizard asks for your consent, and a new Data Sharing tab under Settings lets you review or change your data-sharing and in-plugin notification preferences at any time.
+* Tweak - The About Us page has been refreshed.
+* Fix - Feeds on pages served from a long-lived page cache no longer show up empty, and Load More works again.
+* Fix - Dismissed in-plugin notifications no longer come back after a page reload.
+* Fix - Deactivation feedback is no longer lost when another Smash Balloon plugin is active.
+
 = 6.13.1 =
 * Fix - The Instagram feed block preview in the WordPress editor is styled again on WordPress 7.0 and newer, instead of showing unstyled content with oversized icons.
 
@@ -578,6 +585,10 @@ This plugin connects to three external sites:
 * **Smashballoon.com**: Used for connecting and authenticating your sources. Occasionally, it sends dynamic notices to users. These notices can include information about major API changes, critical updates, and marketing messages.
 
 * **Instagram.com and Facebook.com**: Used to fetch posts so your visitors can view them directly on your site without needing to leave.
+
+=**Optional Data Sharing and In-Plugin Notifications**=
+
+Sharing anonymous usage data with Smash Balloon and receiving in-plugin notifications are both off until you opt in, either in the setup wizard, in the one-time data sharing prompt, or under Instagram Feed > Settings > Data Sharing. You can turn them off again at any time on that tab. When off, no usage data is sent, and in-plugin notifications and About Us page content are not loaded from Smash Balloon. See what is shared: https://smashballoon.com/data-sharing-permissions/
 
 =**Data Usage**=
 

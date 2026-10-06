@@ -195,6 +195,15 @@
     background: #0096CC;
 }
 
+.sbi-checkbox input[type=checkbox]:disabled + .toggle-track {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.sbi-checkbox:has(input[type=checkbox]:disabled) {
+    cursor: not-allowed;
+}
+
 .sbi-error-text {
     color: #D72C2C;
 }
@@ -2469,4 +2478,35 @@ Sources Instance Popup
 }
 .sb-tab-content .sbi-uo-install-notice.sb-wpconsent-box .sbi-notice-left {
     align-items: start
+}
+
+/* SMASH-1245 — Settings → Debug consent row layout (Touchpoint 3) */
+.sb-data-sharing-consent-box .sbi-tab-form-field .sb-form-field > .help-text,
+.sb-in-plugin-notifications-box .sbi-tab-form-field .sb-form-field > .help-text {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #434960;
+}
+
+.sbi-debug-consent-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.sbi-debug-consent-links a,
+.sbi-debug-consent-links a:visited {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #0068A0;
+    text-decoration: none;
+}
+
+.sbi-debug-consent-links a:hover,
+.sbi-debug-consent-links a:focus {
+    text-decoration: underline;
+    color: #0068A0;
 }

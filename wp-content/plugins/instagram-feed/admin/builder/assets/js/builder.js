@@ -3334,11 +3334,19 @@ sbiBuilder = new Vue({
 
         //
         submitWizardData: function () {
-            const self = this,
-                wizardData = {
-                    action: 'sbi_feed_saver_manager_process_wizard',
-                    data: JSON.stringify(self.currentOnboardingWizardActiveSettings)
-                };
+            const self = this;
+
+            // SMASH-1245 — append onboarding consent entry only when user opted in (DOM checkbox; v-model removed).
+            // The PHP handler iterates values and dispatches by `type`; key name is irrelevant.
+            var sbConsentCheckbox = document.getElementById('sbc-consent-onboarding-checkbox');
+            if (sbConsentCheckbox && sbConsentCheckbox.checked) {
+                self.currentOnboardingWizardActiveSettings.consent = { type: 'consent', value: true };
+            }
+
+            const wizardData = {
+                action: 'sbi_feed_saver_manager_process_wizard',
+                data: JSON.stringify(self.currentOnboardingWizardActiveSettings)
+            };
 
             self.ajaxPost(wizardData, function (_ref) {
             });
@@ -3528,9 +3536,25 @@ sbiBuilder = new Vue({
                     action: 'sbi_feed_saver_manager_dismiss_wizard'
                 };
 
-            self.ajaxPost(dismissWizardData, function (_ref) {
-                window.location = self.builderUrl;
-            });
+            // SMASH-1245 — the success-page consent checkbox is shown AFTER
+            // submitWizardData has already fired, so an opt-in there is not
+            // captured by the wizard data path. Persist it through the
+            // dedicated consent endpoint before dismissing so the
+            // post-onboarding re-prompt modal doesn't fire on reload.
+            var doDismiss = function () {
+                self.ajaxPost(dismissWizardData, function (_ref) {
+                    window.location = self.builderUrl;
+                });
+            };
+
+            // SMASH-1245 — read consent from DOM (v-model removed); delegate to vanilla consent.js for the AJAX.
+            var sbConsentCheckbox = document.getElementById('sbc-consent-onboarding-checkbox');
+            if (sbConsentCheckbox && sbConsentCheckbox.checked && window.sbcConsent && typeof window.sbcConsent.saveChoice === 'function') {
+                // Dismiss either way — failure to save consent shouldn't trap the user in the wizard.
+                window.sbcConsent.saveChoice('accept').then(doDismiss, doDismiss);
+            } else {
+                doDismiss();
+            }
             sbiBuilder.$forceUpdate();
         },
 

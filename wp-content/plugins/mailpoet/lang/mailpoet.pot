@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the MailPoet plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: MailPoet 5.39.0\n"
+"Project-Id-Version: MailPoet 5.40.0\n"
 "Report-Msgid-Bugs-To: http://support.mailpoet.com/\n"
 "Last-Translator: MailPoet i18n (https://www.transifex.com/organization/wysija)\n"
 "Language-Team: MailPoet i18n <https://www.transifex.com/organization/wysija>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-22T15:32:50+00:00\n"
+"POT-Creation-Date: 2026-09-29T02:24:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -92,7 +92,7 @@ msgid "No"
 msgstr ""
 
 #: views/emails/congratulatoryMssEmail.html:52
-#: views/segments/translations.html:185
+#: views/segments/translations.html:186
 #: views/subscribers/subscribers.html:115
 #: views/homepage.html:78
 #: assets/dist/js/commons.js:2
@@ -268,7 +268,7 @@ msgstr ""
 #: views/subscription/admin_user_status_field.html:23
 #: lib/Automation/Integrations/MailPoet/Fields/SubscriberFieldsFactory.php:120
 #: lib/Newsletter/Statistics/Export/StatisticsExporter.php:151
-#: lib/Subscribers/SubscriberListingRepository.php:1040
+#: lib/Subscribers/SubscriberListingRepository.php:1044
 #: lib/Subscription/ManageSubscriptionFormRenderer.php:250
 #: assets/dist/js/admin.js:2
 #: assets/dist/js/automation_analytics.js:1
@@ -281,7 +281,7 @@ msgstr ""
 #: views/subscribers/subscribers.html:37
 #: lib/Automation/Integrations/MailPoet/Fields/SubscriberFieldsFactory.php:128
 #: lib/Newsletter/Statistics/Export/StatisticsExporter.php:150
-#: lib/Subscribers/SubscriberListingRepository.php:1050
+#: lib/Subscribers/SubscriberListingRepository.php:1054
 #: lib/Subscription/ManageSubscriptionFormRenderer.php:258
 #: assets/dist/js/admin.js:2
 msgid "Bounced"
@@ -3238,7 +3238,7 @@ msgstr ""
 #: views/subscribers/subscribers.html:34
 #: views/subscription/admin_user_status_field.html:12
 #: lib/Automation/Integrations/MailPoet/Fields/SubscriberFieldsFactory.php:112
-#: lib/Subscribers/SubscriberListingRepository.php:1030
+#: lib/Subscribers/SubscriberListingRepository.php:1034
 #: lib/Subscription/ManageSubscriptionFormRenderer.php:242
 #: assets/dist/js/admin.js:2
 msgid "Subscribed"
@@ -3247,7 +3247,7 @@ msgstr ""
 #: views/segments/translations.html:8
 #: views/subscribers/subscribers.html:33
 #: lib/Automation/Integrations/MailPoet/Fields/SubscriberFieldsFactory.php:116
-#: lib/Subscribers/SubscriberListingRepository.php:1035
+#: lib/Subscribers/SubscriberListingRepository.php:1039
 #: assets/dist/js/admin.js:2
 msgid "Unconfirmed"
 msgstr ""
@@ -3256,7 +3256,7 @@ msgstr ""
 #: views/subscribers/importExport/import.html:138
 #: views/subscribers/subscribers.html:36
 #: lib/Automation/Integrations/MailPoet/Fields/SubscriberFieldsFactory.php:124
-#: lib/Subscribers/SubscriberListingRepository.php:1045
+#: lib/Subscribers/SubscriberListingRepository.php:1049
 #: lib/Subscription/ManageSubscriptionFormRenderer.php:270
 #: assets/dist/js/admin.js:2
 #: assets/dist/js/commons.js:2
@@ -3348,7 +3348,7 @@ msgstr ""
 #: lib/Form/Listing/FormListingRepository.php:47
 #: lib/Newsletter/Listing/NewsletterListingRepository.php:174
 #: lib/Segments/SegmentListingRepository.php:122
-#: lib/Subscribers/SubscriberListingRepository.php:1055
+#: lib/Subscribers/SubscriberListingRepository.php:1059
 #: assets/dist/js/admin.js:2
 #: assets/dist/js/custom_fields.js:1
 msgid "Trash"
@@ -3505,12 +3505,12 @@ msgid "opens"
 msgstr ""
 
 #: views/segments/translations.html:67
-#: views/segments/translations.html:152
+#: views/segments/translations.html:153
 msgid "more than"
 msgstr ""
 
 #: views/segments/translations.html:68
-#: views/segments/translations.html:154
+#: views/segments/translations.html:155
 #: lib/Automation/Integrations/Core/Filters/NumberFilter.php:32
 msgid "less than"
 msgstr ""
@@ -3671,50 +3671,54 @@ msgid "MailPoet has no open or click data for subscribers who opted out of track
 msgstr ""
 
 #: views/segments/translations.html:124
-msgid "Subscribers who opted out of tracking are not counted here, because MailPoet has no open or click data for them."
+msgid "Subscribers we cannot track have no engagement score, so they count as Unknown or Dormant."
 msgstr ""
 
 #: views/segments/translations.html:125
-msgid "WordPress user role"
+msgid "Subscribers who opted out of tracking are not counted here, because MailPoet has no open or click data for them."
 msgstr ""
 
 #: views/segments/translations.html:126
+msgid "WordPress user role"
+msgstr ""
+
+#: views/segments/translations.html:127
 msgid "MailPoet custom field"
 msgstr ""
 
-#: views/segments/translations.html:128
+#: views/segments/translations.html:129
 msgid "Search membership plans"
 msgstr ""
 
-#: views/segments/translations.html:130
+#: views/segments/translations.html:131
 msgid "Search subscriptions"
 msgstr ""
 
-#: views/segments/translations.html:131
+#: views/segments/translations.html:132
 msgid "Search lists"
 msgstr ""
 
-#: views/segments/translations.html:134
+#: views/segments/translations.html:135
 #: assets/dist/js/admin.js:2
 msgid "Search forms"
 msgstr ""
 
-#: views/segments/translations.html:136
+#: views/segments/translations.html:137
 #: assets/dist/js/admin.js:2
 msgid "any of"
 msgstr ""
 
-#: views/segments/translations.html:137
+#: views/segments/translations.html:138
 #: assets/dist/js/admin.js:2
 msgid "all of"
 msgstr ""
 
-#: views/segments/translations.html:138
+#: views/segments/translations.html:139
 #: assets/dist/js/admin.js:2
 msgid "none of"
 msgstr ""
 
-#: views/segments/translations.html:140
+#: views/segments/translations.html:141
 #: lib/Config/Menu.php:485
 #: lib/Config/Menu.php:486
 #: assets/dist/js/admin.js:2
@@ -3723,125 +3727,125 @@ msgstr ""
 msgid "Automations"
 msgstr ""
 
-#: views/segments/translations.html:141
+#: views/segments/translations.html:142
 msgid "entered automation"
 msgstr ""
 
-#: views/segments/translations.html:142
+#: views/segments/translations.html:143
 msgid "exited automation"
 msgstr ""
 
-#: views/segments/translations.html:143
+#: views/segments/translations.html:144
 #: assets/dist/js/automation.js:1
 msgid "Search automations"
 msgstr ""
 
-#: views/segments/translations.html:145
+#: views/segments/translations.html:146
 msgid "any"
 msgstr ""
 
-#: views/segments/translations.html:146
+#: views/segments/translations.html:147
 msgid "1 star"
 msgstr ""
 
-#: views/segments/translations.html:147
+#: views/segments/translations.html:148
 msgid "2 star"
 msgstr ""
 
-#: views/segments/translations.html:148
+#: views/segments/translations.html:149
 msgid "3 star"
 msgstr ""
 
-#: views/segments/translations.html:149
+#: views/segments/translations.html:150
 msgid "4 star"
 msgstr ""
 
-#: views/segments/translations.html:150
+#: views/segments/translations.html:151
 msgid "5 star"
 msgstr ""
 
-#: views/segments/translations.html:153
+#: views/segments/translations.html:154
 msgid "more than or equal"
 msgstr ""
 
-#: views/segments/translations.html:155
+#: views/segments/translations.html:156
 msgid "less than or equal"
 msgstr ""
 
-#: views/segments/translations.html:156
+#: views/segments/translations.html:157
 #: assets/dist/js/admin.js:2
 msgid "count"
 msgstr ""
 
-#: views/segments/translations.html:157
+#: views/segments/translations.html:158
 #: assets/dist/js/automation_analytics.js:1
 #: assets/dist/js/commons.js:2
 msgid "days"
 msgstr ""
 
-#: views/segments/translations.html:160
+#: views/segments/translations.html:161
 #: assets/dist/js/automation_analytics.js:1
 msgid "orders"
 msgstr ""
 
-#: views/segments/translations.html:161
+#: views/segments/translations.html:162
 msgid "reviews"
 msgstr ""
 
-#: views/segments/translations.html:162
+#: views/segments/translations.html:163
 msgid "amount"
 msgstr ""
 
-#: views/segments/translations.html:163
+#: views/segments/translations.html:164
 msgid "Search categories"
 msgstr ""
 
-#: views/segments/translations.html:164
+#: views/segments/translations.html:165
 #: lib/AutomaticEmails/WooCommerce/Events/PurchasedProduct.php:111
 msgid "Search products"
 msgstr ""
 
-#: views/segments/translations.html:165
+#: views/segments/translations.html:166
 msgid "Search variable products"
 msgstr ""
 
-#: views/segments/translations.html:166
+#: views/segments/translations.html:167
 msgid "Select variations"
 msgstr ""
 
-#: views/segments/translations.html:167
+#: views/segments/translations.html:168
 msgid "Search countries"
 msgstr ""
 
-#: views/segments/translations.html:168
+#: views/segments/translations.html:169
 msgid "Search coupon codes"
 msgstr ""
 
-#: views/segments/translations.html:169
+#: views/segments/translations.html:170
 msgid "Search payment methods"
 msgstr ""
 
-#: views/segments/translations.html:170
+#: views/segments/translations.html:171
 msgid "Search shipping methods"
 msgstr ""
 
-#: views/segments/translations.html:173
+#: views/segments/translations.html:174
 msgid "Calculating segment size…"
 msgstr ""
 
-#: views/segments/translations.html:174
+#: views/segments/translations.html:175
 msgid "It's taking longer than usual to generate the segment, which may be due to a complex configuration. Try using fewer or simpler conditions."
 msgstr ""
 
-#: views/segments/translations.html:175
+#: views/segments/translations.html:176
 msgid "This segment has %1$d subscribers."
 msgstr ""
 
-#: views/segments/translations.html:176
+#: views/segments/translations.html:177
 msgid "Learn more."
 msgstr ""
 
-#: views/segments/translations.html:178
+#: views/segments/translations.html:179
 #: views/subscribers/subscribers.html:108
 #: views/homepage.html:71
 #: lib/Automation/Integrations/MailPoet/Fields/SubscriberFieldsFactory.php:152
@@ -3855,38 +3859,38 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: views/segments/translations.html:179
+#: views/segments/translations.html:180
 #: views/subscribers/subscribers.html:109
 #: views/homepage.html:72
 msgid "Not enough data."
 msgstr ""
 
-#: views/segments/translations.html:180
+#: views/segments/translations.html:181
 #: views/subscribers/subscribers.html:110
 #: views/homepage.html:73
-msgid "Fewer than 3 emails sent ever"
+msgid "Not enough tracked emails in the last year"
 msgstr ""
 
-#: views/segments/translations.html:181
+#: views/segments/translations.html:182
 #: views/subscribers/subscribers.html:111
 #: views/homepage.html:74
 #: assets/dist/js/admin.js:2
 msgid "Dormant"
 msgstr ""
 
-#: views/segments/translations.html:182
+#: views/segments/translations.html:183
 #: views/subscribers/subscribers.html:112
 #: views/homepage.html:75
 msgid "Not enough recent data."
 msgstr ""
 
-#: views/segments/translations.html:183
+#: views/segments/translations.html:184
 #: views/subscribers/subscribers.html:113
 #: views/homepage.html:76
 msgid "Fewer than 3 emails sent in the last year"
 msgstr ""
 
-#: views/segments/translations.html:184
+#: views/segments/translations.html:185
 #: views/subscribers/subscribers.html:114
 #: views/homepage.html:77
 #: lib/Twig/Functions.php:365
@@ -3896,12 +3900,12 @@ msgstr ""
 msgid "Excellent"
 msgstr ""
 
-#: views/segments/translations.html:186
+#: views/segments/translations.html:187
 #: views/homepage.html:79
 msgid "50% or more"
 msgstr ""
 
-#: views/segments/translations.html:187
+#: views/segments/translations.html:188
 #: views/subscribers/subscribers.html:117
 #: views/homepage.html:80
 #: lib/Twig/Functions.php:367
@@ -3911,51 +3915,51 @@ msgstr ""
 msgid "Good"
 msgstr ""
 
-#: views/segments/translations.html:188
+#: views/segments/translations.html:189
 #: views/subscribers/subscribers.html:118
 #: views/homepage.html:81
 #: assets/dist/js/commons.js:2
 msgid "Good stuff."
 msgstr ""
 
-#: views/segments/translations.html:189
+#: views/segments/translations.html:190
 #: views/homepage.html:82
 msgid "between 20 and 50%"
 msgstr ""
 
-#: views/segments/translations.html:190
+#: views/segments/translations.html:191
 #: views/subscribers/subscribers.html:120
 #: views/homepage.html:83
 msgid "Low"
 msgstr ""
 
-#: views/segments/translations.html:191
+#: views/segments/translations.html:192
 #: views/subscribers/subscribers.html:121
 #: views/homepage.html:84
 #: assets/dist/js/commons.js:2
 msgid "Something to improve."
 msgstr ""
 
-#: views/segments/translations.html:192
+#: views/segments/translations.html:193
 #: views/homepage.html:85
 msgid "20% or fewer"
 msgstr ""
 
-#: views/segments/translations.html:193
+#: views/segments/translations.html:194
 #: views/subscribers/subscribers.html:123
 #: views/homepage.html:86
 msgid "Average percent of emails subscribers read in the last year"
 msgstr ""
 
-#: views/segments/translations.html:195
+#: views/segments/translations.html:196
 msgid "Due to email privacy protections, some opens may not be tracked. Consider using a different engagement metric."
 msgstr ""
 
-#: views/segments/translations.html:197
+#: views/segments/translations.html:198
 msgid "Your current MailPoet plan does not support advanced segments with multiple conditions. Upgrade to the MailPoet Business plan to more precisely target your emails based on how people engage with your business. [link]Learn more.[/link]"
 msgstr ""
 
-#: views/segments/translations.html:198
+#: views/segments/translations.html:199
 #: views/subscribers/subscribers.html:98
 #: lib/Config/Menu.php:438
 #: lib/Config/Menu.php:439
@@ -3966,7 +3970,7 @@ msgstr ""
 msgid "Upgrade"
 msgstr ""
 
-#: views/segments/translations.html:199
+#: views/segments/translations.html:200
 #: views/subscribers/subscribers.html:100
 #: lib/Util/Notices/PremiumFeaturesAvailableNotice.php:59
 #: assets/dist/js/admin.js:2
@@ -3974,7 +3978,7 @@ msgstr ""
 msgid "Your current MailPoet plan includes advanced features, but they require the MailPoet Premium plugin to be installed and activated."
 msgstr ""
 
-#: views/segments/translations.html:200
+#: views/segments/translations.html:201
 #: views/subscribers/subscribers.html:101
 #: lib/Util/Notices/PremiumFeaturesAvailableNotice.php:89
 #: assets/dist/js/admin.js:2
@@ -3982,7 +3986,7 @@ msgstr ""
 msgid "Download MailPoet Premium plugin"
 msgstr ""
 
-#: views/segments/translations.html:201
+#: views/segments/translations.html:202
 #: views/subscribers/subscribers.html:102
 #: lib/Util/Notices/PremiumFeaturesAvailableNotice.php:70
 #: assets/dist/js/admin.js:2
@@ -3990,14 +3994,14 @@ msgstr ""
 msgid "Activate MailPoet Premium plugin"
 msgstr ""
 
-#: views/segments/translations.html:202
+#: views/segments/translations.html:203
 #: views/subscribers/subscribers.html:97
 #: views/subscribers/subscribers.html:103
 #: assets/dist/js/admin.js:2
 msgid "Congratulations, you now have [subscribersCount] subscribers! Your plan is limited to [subscribersLimit] subscribers. You need to upgrade now to be able to continue using MailPoet."
 msgstr ""
 
-#: views/segments/translations.html:203
+#: views/segments/translations.html:204
 #: views/subscribers/subscribers.html:104
 #: assets/dist/js/admin.js:2
 msgid "Upgrade your plan"
@@ -4090,32 +4094,32 @@ msgctxt "Tracking consent state: the subscriber has never been asked about track
 msgid "not asked yet"
 msgstr ""
 
-#: views/segments/translations.html:127
+#: views/segments/translations.html:128
 msgctxt "Dynamic segment creation: User selects this to use any WooCommerce Memberships filters"
 msgid "WooCommerce Memberships"
 msgstr ""
 
-#: views/segments/translations.html:129
+#: views/segments/translations.html:130
 msgctxt "Dynamic segment creation: User selects this to use any WooCommerce Subscriptions filters"
 msgid "WooCommerce Subscriptions"
 msgstr ""
 
-#: views/segments/translations.html:132
+#: views/segments/translations.html:133
 msgctxt "Subscriber tag"
 msgid "tag"
 msgstr ""
 
-#: views/segments/translations.html:158
+#: views/segments/translations.html:159
 msgctxt "Appears together with `inTheLast` when creating a new WooCommerce segment based on the number of orders."
 msgid "days"
 msgstr ""
 
-#: views/segments/translations.html:159
+#: views/segments/translations.html:160
 msgctxt "Appears together with `days` when creating a new WooCommerce segment based on the number of orders."
 msgid "in the last"
 msgstr ""
 
-#: views/segments/translations.html:171
+#: views/segments/translations.html:172
 msgctxt "Dynamic segment creation: User selects this to use any woocommerce filters"
 msgid "WooCommerce"
 msgstr ""
@@ -6507,7 +6511,7 @@ msgid "Protect your MailPoet forms against spam signups"
 msgstr ""
 
 #: views/settings_translations.html:134
-msgid "Built-in CAPTCHA protects your subscription forms against bots. Alternatively, use reCAPTCHA by Google or Cloudflare Turnstile."
+msgid "Built-in CAPTCHA protects your subscription forms against bots. Alternatively, use reCAPTCHA by Google or Cloudflare Turnstile. Unprotected forms are often abused by bots and can hurt your deliverability."
 msgstr ""
 
 #: views/settings_translations.html:135
@@ -6579,7 +6583,7 @@ msgid "Protect WordPress and WooCommerce registration pages with a CAPTCHA."
 msgstr ""
 
 #: views/settings_translations.html:152
-msgid "Disable"
+msgid "None - I use another spam protection"
 msgstr ""
 
 #: views/settings_translations.html:153
@@ -7247,7 +7251,7 @@ msgstr ""
 #: lib/Config/Menu.php:218
 #: lib/Config/Menu.php:709
 #: lib/Config/PrivacyPolicy.php:12
-#: lib/EmailEditor/Integrations/MailPoet/Blocks/BlockTypes/LatestPosts.php:162
+#: lib/EmailEditor/Integrations/MailPoet/Blocks/BlockTypes/LatestPosts.php:178
 #: lib/WooCommerce/MultichannelMarketing/MPMarketingChannel.php:49
 #: lib/WooCommerce/WooSystemInfoController.php:41
 msgid "MailPoet"
@@ -11228,7 +11232,7 @@ msgstr ""
 #: lib/Newsletter/Listing/NewsletterListingRepository.php:106
 #: lib/Newsletter/Sending/ScheduledTaskSubscribersListingRepository.php:48
 #: lib/Segments/SegmentListingRepository.php:117
-#: lib/Subscribers/SubscriberListingRepository.php:1025
+#: lib/Subscribers/SubscriberListingRepository.php:1029
 #: assets/dist/js/admin.js:2
 #: assets/dist/js/automation.js:1
 #: assets/dist/js/automation_templates.js:1
@@ -11296,7 +11300,7 @@ msgstr ""
 msgid "The custom field type cannot be changed because subscribers have values stored for this field."
 msgstr ""
 
-#: lib/EmailEditor/Integrations/MailPoet/Blocks/BlockTypes/LatestPosts.php:977
+#: lib/EmailEditor/Integrations/MailPoet/Blocks/BlockTypes/LatestPosts.php:996
 #: assets/dist/js/email-editor-blocks/latest-posts-block.js:1
 msgid "No posts found."
 msgstr ""
@@ -13435,7 +13439,7 @@ msgstr ""
 msgid "Invalid bulk action '%s' provided."
 msgstr ""
 
-#: lib/Newsletter/Editor/PostContentManager.php:163
+#: lib/Newsletter/Editor/PostContentManager.php:175
 msgid "Click here to view media."
 msgstr ""
 
@@ -13453,7 +13457,7 @@ msgid "View full newsletter"
 msgstr ""
 
 #: lib/Newsletter/Listing/NewsletterListingRepository.php:62
-#: lib/Subscribers/SubscriberListingRepository.php:1185
+#: lib/Subscribers/SubscriberListingRepository.php:1189
 msgid "All Lists"
 msgstr ""
 
@@ -14406,11 +14410,11 @@ msgid "Your MailPoet subscriber list is at %d%% of its limit"
 msgstr ""
 
 #. translators: %s is the number of subscribers without a list.
-#: lib/Subscribers/SubscriberListingRepository.php:1171
+#: lib/Subscribers/SubscriberListingRepository.php:1175
 msgid "Subscribers without a list (%s)"
 msgstr ""
 
-#: lib/Subscribers/SubscriberListingRepository.php:1224
+#: lib/Subscribers/SubscriberListingRepository.php:1228
 msgid "All Tags"
 msgstr ""
 
@@ -14693,9 +14697,19 @@ msgstr ""
 msgid "You can use all MailPoet features and send [link1]email previews[/link1] to your [link2]authorized email addresses[/link2], but sending to your email list contacts is temporarily paused until we review your subscription. If you don't hear from us within 48 hours, please check the inbox and spam folders of your MailPoet account email for follow-up emails with the subject \"%s\" and reply, or [link3]contact us[/link3]."
 msgstr ""
 
-#. translators: %s is the PHP version
-#: lib/Util/Notices/PHPVersionWarnings.php:26
+#. translators: %1$s is the PHP version the site is running, %2$s is the recommended PHP version
+#: lib/Util/Notices/PHPVersionWarnings.php:73
 msgid "Your website is running an outdated version of PHP (%1$s), on which MailPoet might stop working in the future. We recommend upgrading to %2$s or greater. Read our [link]simple PHP upgrade guide.[/link]"
+msgstr ""
+
+#. translators: %1$s is the PHP version the site is running, %2$s is the date the requirement takes effect, already translated and in the site’s date format (e.g. February 23, 2027), %3$s is the required PHP version, %4$s is the recommended PHP version
+#: lib/Util/Notices/PHPVersionWarnings.php:87
+msgid "Your website is running PHP %1$s. Starting %2$s, new versions of MailPoet will require PHP %3$s or newer. MailPoet will keep working on this site, but it won’t receive updates, including security fixes. Ask your hosting provider to upgrade PHP. We recommend PHP %4$s. Read our [link]simple PHP upgrade guide.[/link]"
+msgstr ""
+
+#. translators: %1$s is the PHP version the site is running, %2$s is the date the requirement took effect, already translated and in the site’s date format (e.g. February 23, 2027), %3$s is the required PHP version, %4$s is the recommended PHP version
+#: lib/Util/Notices/PHPVersionWarnings.php:90
+msgid "Your website is running PHP %1$s. Since %2$s, new versions of MailPoet require PHP %3$s or newer. This site no longer receives MailPoet updates, including security fixes. Ask your hosting provider to upgrade PHP. We recommend PHP %4$s. Read our [link]simple PHP upgrade guide.[/link]"
 msgstr ""
 
 #: lib/Util/Notices/SenderDomainAuthenticationNotices.php:104
@@ -14799,7 +14813,7 @@ msgstr ""
 #. translators: %s is the PHP version
 #. translators: %s is the number of minimum WooCommerce version that MailPoet requires
 #: lib/Util/Notices/WooCommerceVersionWarning.php:40
-#: mailpoet.php:67
+#: mailpoet.php:69
 msgid "MailPoet plugin requires WooCommerce version %s or newer. Please update your WooCommerce plugin version, or read our [link]instructions[/link] for additional options on how to resolve this issue."
 msgstr ""
 
@@ -14973,24 +14987,24 @@ msgid "MailPoet Error:"
 msgstr ""
 
 #. translators: %s is the number of minimum WordPress version that MailPoet requires
-#: mailpoet.php:41
+#: mailpoet.php:43
 msgid "MailPoet plugin requires WordPress version %s or newer. Please read our [link]instructions[/link] on how to resolve this issue."
 msgstr ""
 
-#: mailpoet.php:88
+#: mailpoet.php:90
 msgid "MailPoet plugin cannot run under Microsoft's Internet Information Services (IIS) web server. We recommend that you use a web server powered by Apache or NGINX."
 msgstr ""
 
-#: mailpoet.php:94
+#: mailpoet.php:96
 msgid "MailPoet cannot start because it is missing core files. Please reinstall the plugin."
 msgstr ""
 
 #. translators: %1$s is the plugin name (MailPoet or MailPoet Premium), %2$s, %3$s, and %4$s are PHP version (e.g. "8.1.30")
-#: mailpoet.php:102
+#: mailpoet.php:104
 msgid "%1$s requires PHP version %2$s or newer (%3$s recommended). You are running version %4$s."
 msgstr ""
 
-#: mailpoet.php:109
+#: mailpoet.php:111
 msgid "Please read our [link]instructions[/link] on how to upgrade your site."
 msgstr ""
 
@@ -16755,6 +16769,10 @@ msgstr ""
 
 #: assets/dist/js/admin.js:2
 msgid "Navigate to the lists page"
+msgstr ""
+
+#: assets/dist/js/admin.js:2
+msgid "Only subscribers we can track"
 msgstr ""
 
 #: assets/dist/js/admin.js:2

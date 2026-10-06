@@ -408,6 +408,11 @@ if (!sbi_js_exists) {
                 var $self = $(this.el),
                     feed = this;
                 feed.page++;
+                // Each request starts from a clean status region, so an earlier failure
+                // message can't linger into this request's own announcement.
+                feed.postSetRequest = (feed.postSetRequest || 0) + 1;
+                var sbiRequestId = feed.postSetRequest;
+                $self.find('[data-sbi-feed-status]').text('');
 
                 var locatorNonce = '';
                 if (typeof $self.attr('data-locatornonce') !== 'undefined') {
@@ -427,11 +432,24 @@ if (!sbi_js_exists) {
                         locator_nonce: locatorNonce
                     };
                 var onSuccess = function (data) {
-                    var response = data?.data;
+                    var payload = data;
 
-                    if (typeof data !== 'object' && data.trim().indexOf('{') === 0) {
-                        response = JSON.parse(data.trim());
+                    if (typeof payload === 'string' && payload.trim().indexOf('{') === 0) {
+                        try {
+                            payload = JSON.parse(payload.trim());
+                        } catch (e) {
+                            payload = data;
+                        }
                     }
+
+                    // A rejected request (e.g. a stale locator token in cached HTML)
+                    // returns {success: false} with no feedStatus; never read into it.
+                    if (!feed.isValidPostSetResponse(payload)) {
+                        feed.handlePostSetFailure(payload, false, sbiRequestId);
+                        return;
+                    }
+
+                    var response = payload.data;
                     if (feed.settings.debugEnabled) {
                         console.log(response);
                     }
@@ -482,7 +500,133 @@ if (!sbi_js_exists) {
                     $('.sbi_no_js').removeClass('sbi_no_js');
 
                 };
-                sbiAjax(submitData, onSuccess);
+                var onError = function (jqXHR) {
+                    feed.handlePostSetFailure(jqXHR, true, sbiRequestId);
+                };
+                sbiAjax(submitData, onSuccess, onError);
+            },
+            isValidPostSetResponse: function (payload) {
+                return !!(payload
+                    && typeof payload === 'object'
+                    && payload.success === true
+                    && payload.data
+                    && typeof payload.data === 'object'
+                    && payload.data.feedStatus
+                    && typeof payload.data.feedStatus === 'object');
+            },
+            handlePostSetFailure: function (payload, isTransportError, requestId) {
+                var $self = $(this.el),
+                    feed = this;
+
+                try {
+                    if (typeof requestId === 'undefined') {
+                        requestId = feed.postSetRequest;
+                    }
+
+                    // A newer request (e.g. a double click) has started since this one was
+                    // sent; its own outcome owns the page counter, button, status and focus.
+                    if (requestId !== feed.postSetRequest) {
+                        if (feed.settings.debugEnabled) {
+                            console.log('Instagram Feed: ignoring superseded post request failure', payload);
+                        }
+                        return;
+                    }
+
+                    if (feed.settings.debugEnabled) {
+                        console.log('Instagram Feed: could not load posts', payload);
+                    }
+
+                    var sbiLoadBtn = $self.find('.sbi_load_btn');
+                    var sbiLoadBtnFocused = sbiLoadBtn.is(document.activeElement);
+                    var sbiStatusEl = $self.find('[data-sbi-feed-status]');
+                    var sbiFailText;
+                    $self.find('.sbi_loader').addClass('sbi_hidden');
+                    $self.find('.sbi_btn_text').removeClass('sbi_hidden');
+
+                    // Load More moved held-back posts to .sbi_transition before the request;
+                    // reveal them as a successful load would, so they don't stay blank.
+                    if (!feed.settings.ajaxPostLoad) {
+                        try {
+                            feed.afterNewImagesLoaded();
+                        } catch (e) {
+                            if (feed.settings.debugEnabled) {
+                                console.log(e);
+                            }
+                        }
+                    }
+
+                    // A transport error (timeout, 5xx, network) on a Load More click can be
+                    // retried: keep the button and give the page number back. A rejected
+                    // request, or a failed AJAX initial load, ends pagination.
+                    if (isTransportError === true && !feed.settings.ajaxPostLoad) {
+                        feed.page = Math.max(1, feed.page - 1);
+                        feed.outOfPages = false;
+                        sbiFailText = typeof sbiTranslate === 'function'
+                            ? sbiTranslate('Couldn\'t load more posts. Please try again.')
+                            : 'Couldn\'t load more posts. Please try again.';
+                        if (sbiLoadBtnFocused) {
+                            sbiLoadBtn.focus();
+                        }
+                    } else {
+                        feed.outOfPages = true;
+                        sbiLoadBtn.hide();
+
+                        if (feed.settings.ajaxPostLoad) {
+                            feed.settings.ajaxPostLoad = false;
+                            try {
+                                feed.afterInitialImagesLoaded();
+                            } catch (e) {
+                                if (feed.settings.debugEnabled) {
+                                    console.log(e);
+                                }
+                            }
+                        }
+
+                        sbiFailText = typeof sbiTranslate === 'function'
+                            ? sbiTranslate('Couldn\'t load more posts.')
+                            : 'Couldn\'t load more posts.';
+                        if (sbiLoadBtnFocused) {
+                            // The status region is visually hidden; focus the last post that is
+                            // actually rendered (not collapsed or still faded out), else the feed.
+                            var sbiFocusTarget = $self;
+                            var sbiItems = $self.find('#sbi_images .sbi_item');
+                            for (var sbiIndex = sbiItems.length - 1; sbiIndex >= 0; sbiIndex--) {
+                                var sbiItemEl = sbiItems[sbiIndex];
+                                var sbiOpacity = '';
+                                try {
+                                    sbiOpacity = window.getComputedStyle(sbiItemEl).opacity;
+                                } catch (e) {
+                                    sbiOpacity = '';
+                                }
+                                if (sbiItemEl.offsetHeight > 0 && sbiOpacity !== '0') {
+                                    sbiFocusTarget = $(sbiItemEl);
+                                    break;
+                                }
+                            }
+                            sbiFocusTarget.attr('tabindex', '-1').focus();
+                        }
+                    }
+
+                    if (sbiStatusEl.length) {
+                        // Clear first so a repeated failure is announced again; skip the write
+                        // if a newer request has started or already announced its own result.
+                        sbiStatusEl.text('');
+                        setTimeout(function () {
+                            try {
+                                if (feed.postSetRequest === requestId && sbiStatusEl.text() === '') {
+                                    sbiStatusEl.text(sbiFailText);
+                                }
+                            } catch (e) {
+                            }
+                        }, 100);
+                    }
+
+                    $('.sbi_no_js').removeClass('sbi_no_js');
+                } catch (e) {
+                    if (feed.settings && feed.settings.debugEnabled) {
+                        console.log(e);
+                    }
+                }
             },
             appendNewPosts: function (newPostsHtml) {
                 var $self = $(this.el),
@@ -1009,13 +1153,17 @@ if (!sbi_js_exists) {
             return new SbiFeed(feed, index, feedOptions);
         }
 
-        function sbiAjax(submitData, onSuccess) {
-            $.ajax({
+        function sbiAjax(submitData, onSuccess, onError) {
+            var ajaxArgs = {
                 url: sbiajaxurl,
                 type: 'post',
                 data: submitData,
                 success: onSuccess
-            });
+            };
+            if (typeof onError === 'function') {
+                ajaxArgs.error = onError;
+            }
+            $.ajax(ajaxArgs);
         }
 
         function sbiCmplzGetCookie(cname) {

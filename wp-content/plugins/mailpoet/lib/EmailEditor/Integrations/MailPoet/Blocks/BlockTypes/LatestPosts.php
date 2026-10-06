@@ -40,6 +40,8 @@ class LatestPosts extends AbstractBlock {
   private const MAX_POSTS = 100;
   private const DEFAULT_BLOCK_GAP = '20px';
   private const DEFAULT_CONTENT_WIDTH_PX = 600;
+  /** Marks the inner blocks as a post loop for core's post blocks. */
+  private const QUERY_ID = 0;
 
   /** Template blocks. Not email-enabled by default, so we opt them in. */
   private const TEMPLATE_CORE_BLOCKS = [
@@ -71,40 +73,54 @@ class LatestPosts extends AbstractBlock {
    * Everything else (scripts, embeds, forms, ...) is stripped.
    */
   private const CLASSIC_CONTENT_ALLOWED_HTML = [
-    'a' => ['href' => true, 'title' => true],
-    'b' => [],
-    'blockquote' => ['cite' => true],
+    'a' => ['href' => true, 'title' => true, 'class' => true],
+    'abbr' => ['title' => true, 'class' => true],
+    'address' => ['class' => true],
+    'b' => ['class' => true],
+    'blockquote' => ['cite' => true, 'class' => true],
     'br' => [],
-    'cite' => [],
-    'code' => [],
-    'em' => [],
-    'figcaption' => [],
-    'figure' => [],
-    'h1' => [],
-    'h2' => [],
-    'h3' => [],
-    'h4' => [],
-    'h5' => [],
-    'h6' => [],
-    'hr' => [],
-    'i' => [],
-    'img' => ['src' => true, 'alt' => true, 'width' => true, 'height' => true],
-    'li' => [],
-    'ol' => ['start' => true],
-    'p' => [],
-    'pre' => [],
-    's' => [],
-    'span' => [],
-    'strong' => [],
-    'table' => [],
-    'tbody' => [],
-    'td' => ['colspan' => true, 'rowspan' => true],
-    'tfoot' => [],
-    'th' => ['colspan' => true, 'rowspan' => true],
-    'thead' => [],
-    'tr' => [],
-    'u' => [],
-    'ul' => [],
+    'cite' => ['class' => true],
+    'code' => ['class' => true],
+    'dd' => ['class' => true],
+    'del' => ['cite' => true, 'datetime' => true, 'class' => true],
+    'dl' => ['class' => true],
+    'dt' => ['class' => true],
+    'em' => ['class' => true],
+    'figcaption' => ['class' => true],
+    'figure' => ['class' => true],
+    'h1' => ['class' => true],
+    'h2' => ['class' => true],
+    'h3' => ['class' => true],
+    'h4' => ['class' => true],
+    'h5' => ['class' => true],
+    'h6' => ['class' => true],
+    'hr' => ['class' => true],
+    'i' => ['class' => true],
+    'img' => ['src' => true, 'alt' => true, 'width' => true, 'height' => true, 'class' => true],
+    'ins' => ['cite' => true, 'datetime' => true, 'class' => true],
+    'kbd' => ['class' => true],
+    'li' => ['class' => true],
+    'mark' => ['class' => true],
+    'ol' => ['start' => true, 'class' => true],
+    'p' => ['class' => true],
+    'pre' => ['class' => true],
+    'q' => ['cite' => true, 'class' => true],
+    's' => ['class' => true],
+    'small' => ['class' => true],
+    'span' => ['class' => true],
+    'strike' => ['class' => true],
+    'strong' => ['class' => true],
+    'sub' => ['class' => true],
+    'sup' => ['class' => true],
+    'table' => ['width' => true, 'border' => true, 'cellpadding' => true, 'cellspacing' => true, 'align' => true, 'class' => true],
+    'tbody' => ['class' => true],
+    'td' => ['colspan' => true, 'rowspan' => true, 'align' => true, 'valign' => true, 'width' => true, 'class' => true],
+    'tfoot' => ['class' => true],
+    'th' => ['colspan' => true, 'rowspan' => true, 'align' => true, 'valign' => true, 'width' => true, 'class' => true],
+    'thead' => ['class' => true],
+    'tr' => ['align' => true, 'valign' => true, 'class' => true],
+    'u' => ['class' => true],
+    'ul' => ['class' => true],
   ];
 
   /** @var array<int, int[]> */
@@ -902,6 +918,9 @@ class LatestPosts extends AbstractBlock {
     $injectContext = static function (array $context) use ($postId, $postType): array {
       $context['postId'] = $postId;
       $context['postType'] = $postType; // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+      // Core's post blocks treat a finite queryId as "inside a post loop", which is
+      // what these are. It keeps the editor and the email on the same branch.
+      $context['queryId'] = self::QUERY_ID;
       return $context;
     };
 

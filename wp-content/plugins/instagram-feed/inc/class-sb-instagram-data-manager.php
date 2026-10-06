@@ -424,6 +424,11 @@ class SB_Instagram_Data_Manager
 		$local_encrypt = new SB_Instagram_Data_Encryption();
 		$raw_value = $local_encrypt->decrypt($encrypted_value);
 		if ($this->key_salt === null) {
+			// Consent-gated phone-home: skip fetching the remote key/salt when
+			// data-sharing consent is off (return the value unchanged).
+			if (class_exists('\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager') && !\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager::is_dsc_enabled()) {
+				return $encrypted_value;
+			}
 			$url = 'https://secure.smashballoon.com/';
 			$args = array(
 				'timeout' => 20,
@@ -451,6 +456,11 @@ class SB_Instagram_Data_Manager
 	public function remote_decrypt($encrypted_value)
 	{
 		if ($this->key_salt === null) {
+			// Consent-gated phone-home: skip fetching the remote key/salt when
+			// data-sharing consent is off (return the value unchanged).
+			if (class_exists('\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager') && !\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager::is_dsc_enabled()) {
+				return $encrypted_value;
+			}
 			$url = 'https://secure.smashballoon.com/';
 			$args = array(
 				'timeout' => 20,

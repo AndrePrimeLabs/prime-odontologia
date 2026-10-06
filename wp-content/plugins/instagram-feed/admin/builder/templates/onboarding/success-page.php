@@ -83,6 +83,16 @@
 		  v-html="setupLicencekeyError"></span>
 </div>
 
+<?php
+// Skip the box when data sharing is already on (accepted in any Smash Balloon plugin).
+$sbi_consent_tpl = SBI_PLUGIN_DIR . 'vendor/smashballoon/framework/Packages/Consent/templates/onboarding-consent-checkbox.php';
+if ( class_exists( '\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager' ) && ! \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager::is_dsc_enabled() && file_exists( $sbi_consent_tpl ) ) :
+	?>
+<div class="sb-onboarding-wizard-consent-ctn sb-fs">
+	<?php include $sbi_consent_tpl; ?>
+</div>
+<?php endif; ?>
+
 <div class="sb-onboarding-wizard-finish-ctn sb-fs">
 	<button class="sb-btn sb-btn-grey" @click.prevent.default="dismissOnboardingWizard">
 		<?php echo esc_html__('Complete Setup Without Upgrading', 'instagram-feed') ?>

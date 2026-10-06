@@ -34,7 +34,19 @@ class PostContentManager {
       return '';
     }
 
-
+    /**
+     * Filters whether the body or excerpt of a password-protected post is included in an email.
+     *
+     * @param bool                 $show Whether to include the content. Default false.
+     * @param \WP_Post|\WC_Product $post The post or WooCommerce product being rendered.
+     * @return bool
+     */
+    if (
+      $this->hasPassword($post)
+      && !$this->wp->applyFilters('mailpoet_newsletter_show_password_protected_post_content', false, $post)
+    ) {
+      return '';
+    }
 
     if ($this->woocommerceHelper->isWooCommerceActive()) {
       if ($this->isWcProduct($post)) {
@@ -179,6 +191,16 @@ class PostContentManager {
 
   private function isWcProduct($post) {
     return class_exists('\WC_Product') && $post instanceof \WC_Product;
+  }
+
+  /**
+   * Don't use post_password_required() here: it returns false when the current
+   * request carries the visitor's post password cookie, e.g. an admin who
+   * unlocked the post on the front end, and the content would end up in emails.
+   */
+  private function hasPassword($post): bool {
+    $password = $this->isWcProduct($post) ? $post->get_post_password() : ($post->post_password ?? ''); // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+    return $password !== '';
   }
 
   private function fixAnchorLinks($content, $post) {

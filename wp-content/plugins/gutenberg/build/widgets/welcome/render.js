@@ -81,12 +81,15 @@ var import_i18n3 = __toESM(require_i18n());
 // packages/icons/build-module/library/layout.mjs
 var import_primitives = __toESM(require_primitives(), 1);
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-var layout_default = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.Path, { d: "M18 5.5H6a.5.5 0 00-.5.5v3h13V6a.5.5 0 00-.5-.5zm.5 5H10v8h8a.5.5 0 00.5-.5v-7.5zm-10 0h-3V18a.5.5 0 00.5.5h2.5v-8zM6 4h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2z" }) });
+var layout_default = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", style: { fill: "none" }, stroke: "currentColor", strokeWidth: "1.5", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.Path, { d: "M9.75 19.25H18C18.6904 19.25 19.25 18.6904 19.25 18V9.75M9.75 19.25H6C5.30964 19.25 4.75 18.6904 4.75 18V9.75M9.75 19.25V9.75M19.25 9.75V6C19.25 5.30964 18.6904 4.75 18 4.75H6C5.30964 4.75 4.75 5.30964 4.75 6V9.75M19.25 9.75H9.75M9.75 9.75H4.75", vectorEffect: "non-scaling-stroke" }) });
 
 // packages/icons/build-module/library/pencil.mjs
 var import_primitives2 = __toESM(require_primitives(), 1);
 var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
-var pencil_default = /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_primitives2.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_primitives2.Path, { d: "m19 7-3-3-8.5 8.5-1 4 4-1L19 7Zm-7 11.5H5V20h7v-1.5Z" }) });
+var pencil_default = /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_primitives2.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", style: { fill: "none" }, stroke: "currentColor", strokeWidth: "1.5", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_primitives2.Path, { d: "M5 19.25H12", vectorEffect: "non-scaling-stroke" }),
+  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_primitives2.Path, { d: "M10 15L7.5 15.5L8 13L16 5L18 7L10 15Z", fill: "currentColor", vectorEffect: "non-scaling-stroke" })
+] });
 
 // packages/icons/build-module/library/styles.mjs
 var import_primitives3 = __toESM(require_primitives(), 1);
@@ -112,6 +115,29 @@ function clsx() {
 }
 var clsx_default = clsx;
 
+// node_modules/@base-ui/utils/createLogOnce.mjs
+var loggedMessages;
+if (true) {
+  loggedMessages = /* @__PURE__ */ new Set();
+}
+function createLogOnce(severity, prefix) {
+  return function logOnce(...messages) {
+    if (true) {
+      const message = messages.join(" ");
+      const output = prefix ? `${prefix}: ${message}` : message;
+      const key = `${severity}:${output}`;
+      if (!loggedMessages.has(key)) {
+        loggedMessages.add(key);
+        if (severity === "warn") {
+          console.warn(output);
+        } else {
+          console.error(output);
+        }
+      }
+    }
+  };
+}
+
 // node_modules/@base-ui/utils/useRefWithInit.mjs
 var React = __toESM(require_react(), 1);
 var UNINITIALIZED = {};
@@ -124,19 +150,11 @@ function useRefWithInit(init, initArg) {
 }
 
 // node_modules/@base-ui/utils/warn.mjs
-var set;
-if (true) {
-  set = /* @__PURE__ */ new Set();
-}
-function warn(...messages) {
-  if (true) {
-    const messageKey = messages.join(" ");
-    if (!set.has(messageKey)) {
-      set.add(messageKey);
-      console.warn(`Base UI: ${messageKey}`);
-    }
-  }
-}
+var warn = createLogOnce("warn", "Base UI");
+
+// node_modules/@base-ui/utils/empty.mjs
+var EMPTY_ARRAY = Object.freeze([]);
+var EMPTY_OBJECT = Object.freeze({});
 
 // node_modules/@base-ui/react/internals/useRenderElement.mjs
 var React4 = __toESM(require_react(), 1);
@@ -266,10 +284,6 @@ function mergeObjects(a, b) {
   }
   return void 0;
 }
-
-// node_modules/@base-ui/utils/empty.mjs
-var EMPTY_ARRAY = Object.freeze([]);
-var EMPTY_OBJECT = Object.freeze({});
 
 // node_modules/@base-ui/react/internals/getStateAttributesProps.mjs
 function getStateAttributesProps(state, customMapping) {
@@ -460,19 +474,21 @@ function isSyntheticEvent(event) {
 // node_modules/@base-ui/react/internals/useRenderElement.mjs
 var import_react = __toESM(require_react(), 1);
 function useRenderElement(element, componentProps, params = {}) {
-  const renderProp = componentProps.render;
-  const outProps = useRenderElementProps(componentProps, params);
+  let renderProp = componentProps.render;
+  if (params.enabled !== false) {
+    renderProp = unwrapLazyRenderProp(renderProp);
+  }
+  const outProps = useRenderElementProps(componentProps, params, renderProp);
   if (params.enabled === false) {
     return null;
   }
   const state = params.state ?? EMPTY_OBJECT;
   return evaluateRenderProp(element, renderProp, outProps, state);
 }
-function useRenderElementProps(componentProps, params = {}) {
+function useRenderElementProps(componentProps, params, renderProp) {
   const {
     className: classNameProp,
-    style: styleProp,
-    render: renderProp
+    style: styleProp
   } = componentProps;
   const {
     state = EMPTY_OBJECT,
@@ -515,6 +531,13 @@ function resolveRenderFunctionProps(props) {
 var REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy");
 var COMPONENT_IDENTIFIER_PATTERN = /^[A-Z][A-Za-z0-9$]*$/;
 var LOWERCASE_CHARACTER_PATTERN = /[a-z]/;
+function unwrapLazyRenderProp(render) {
+  if (render?.$$typeof !== REACT_LAZY_TYPE) {
+    return render;
+  }
+  const unwrapped = React4.Children.toArray(render)[0];
+  return /* @__PURE__ */ React4.isValidElement(unwrapped) ? unwrapped : render;
+}
 function evaluateRenderProp(element, render, props, state) {
   if (render) {
     if (typeof render === "function") {
@@ -525,17 +548,12 @@ function evaluateRenderProp(element, render, props, state) {
     }
     const mergedProps = mergeProps(props, render.props);
     mergedProps.ref = props.ref;
-    let newElement = render;
-    if (newElement?.$$typeof === REACT_LAZY_TYPE) {
-      const children = React4.Children.toArray(render);
-      newElement = children[0];
-    }
     if (true) {
-      if (!/* @__PURE__ */ React4.isValidElement(newElement)) {
+      if (!/* @__PURE__ */ React4.isValidElement(render)) {
         throw new Error(["Base UI: The `render` prop was provided an invalid React element as `React.isValidElement(render)` is `false`.", "A valid React element must be provided to the `render` prop because it is cloned with props to replace the default element.", "https://base-ui.com/r/invalid-render-prop"].join("\n"));
       }
     }
-    return /* @__PURE__ */ React4.cloneElement(newElement, mergedProps);
+    return /* @__PURE__ */ React4.cloneElement(render, mergedProps);
   }
   if (element) {
     if (typeof element === "string") {

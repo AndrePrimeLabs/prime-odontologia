@@ -18,6 +18,7 @@
 			<div class="sb-tabs">
 				<div class="left-buttons" role="tablist" aria-label="<?php esc_attr_e( 'Settings', 'instagram-feed' ); ?>">
 					<tab v-bind:section="section" v-bind:index="index" v-for="(section, index) in sections"
+						 v-if="section !== 'Data Sharing' || !debugTab.lockedByPro"
 						 v-bind:class="{ active : section === currentTab }" v-bind:data-index="index+1"
 						 key="index"></tab>
 				</div>
@@ -34,6 +35,7 @@
 					<?php
 					InstagramFeed\SBI_View::render('settings.tab.general');
 					InstagramFeed\SBI_View::render('settings.tab.feeds');
+					InstagramFeed\SBI_View::render( 'settings.tab.debug' );
 					InstagramFeed\SBI_View::render('settings.tab.advanced');
 					?>
 				</div>

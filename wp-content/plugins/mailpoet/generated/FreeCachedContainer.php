@@ -5728,7 +5728,7 @@ class FreeCachedContainer extends Container
      */
     protected function getFilterHelperService()
     {
-        return $this->services['MailPoet\\Segments\\DynamicSegments\\Filters\\FilterHelper'] = new \MailPoet\Segments\DynamicSegments\Filters\FilterHelper(($this->services['MailPoetVendor\\Doctrine\\ORM\\EntityManager'] ?? $this->getEntityManagerService()));
+        return $this->services['MailPoet\\Segments\\DynamicSegments\\Filters\\FilterHelper'] = new \MailPoet\Segments\DynamicSegments\Filters\FilterHelper(($this->services['MailPoetVendor\\Doctrine\\ORM\\EntityManager'] ?? $this->getEntityManagerService()), ($this->services['MailPoet\\Subscribers\\TrackingConsentController'] ?? $this->getTrackingConsentControllerService()), ($this->services['MailPoet\\Settings\\TrackingConfig'] ?? $this->getTrackingConfigService()));
     }
 
     /**
@@ -6368,7 +6368,7 @@ class FreeCachedContainer extends Container
      */
     protected function getStatisticsOpensRepositoryService()
     {
-        return $this->services['MailPoet\\Statistics\\StatisticsOpensRepository'] = new \MailPoet\Statistics\StatisticsOpensRepository(($this->services['MailPoetVendor\\Doctrine\\ORM\\EntityManager'] ?? $this->getEntityManagerService()), ($this->services['MailPoet\\Settings\\TrackingConfig'] ?? $this->getTrackingConfigService()));
+        return $this->services['MailPoet\\Statistics\\StatisticsOpensRepository'] = new \MailPoet\Statistics\StatisticsOpensRepository(($this->services['MailPoetVendor\\Doctrine\\ORM\\EntityManager'] ?? $this->getEntityManagerService()), ($this->services['MailPoet\\Settings\\TrackingConfig'] ?? $this->getTrackingConfigService()), ($this->services['MailPoet\\Subscribers\\TrackingConsentController'] ?? $this->getTrackingConsentControllerService()));
     }
 
     /**

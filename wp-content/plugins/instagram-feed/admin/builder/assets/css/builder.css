@@ -6688,13 +6688,22 @@ body #sbi_lightbox.sbi_lightbox:not(.sbi-lightbox-dummy-ctn) {
     border-radius: 5px;
 }
 
-.sb-onboarding-wizard-features-ctn,
-.sb-onboarding-wizard-license-ctn {
+.sb-onboarding-wizard-features-ctn {
     background: #fff;
     border: 1px solid #E6E6EB;
     box-shadow: 0px 4px 5px 0px #0000000D, 0px 1px 2px 0px #0000000D;
     margin-bottom: 20px;
     border-radius: 5px;
+}
+
+.sb-onboarding-wizard-license-ctn {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow:
+        0 1.063px 2.835px 0 rgba(0, 0, 0, 0.04),
+        0 0.521px 1.39px 0 rgba(0, 0, 0, 0.03),
+        0 0.206px 0.55px 0 rgba(0, 0, 0, 0.02);
+    margin-bottom: 20px;
 }
 
 .sb-onboarding-wizard-upgrader-features {
@@ -7268,4 +7277,58 @@ div:not(.sb-onboarding-wizard-welcome-btns) > button.sb-btn-wizard-next {
     line-height: 1.4;
     color: #434960;
 }
+
+/* SMASH-1245 — Onboarding consent checkbox (Touchpoint 1) */
+.sb-onboarding-wizard-consent-ctn {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow:
+        0 1.063px 2.835px 0 rgba(0, 0, 0, 0.04),
+        0 0.521px 1.39px 0 rgba(0, 0, 0, 0.03),
+        0 0.206px 0.55px 0 rgba(0, 0, 0, 0.02);
+    margin-bottom: 20px;
+    padding: 24px 43px 32px;
+    overflow: hidden;
+}
+
+/* SMASH-1245 Phase A — checkbox visuals (.sbc-consent-checkbox*) now ship from the
+   shared Consent package. The wrapper layout above stays plugin-owned because the
+   package's checkbox renders inside this container in the onboarding success page. */
+
+.sb-onboarding-wizard-consent-ctn > a {
+    display: inline-block;
+    margin: 12px 0 0 37px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #0068A0;
+    text-decoration: underline;
+}
+
+.sb-onboarding-wizard-consent-ctn > a:hover {
+    text-decoration: underline;
+    color: #004f7a;
+}
+
+/* Responsive — tighten side padding on narrow viewports. */
+@media (max-width: 768px) {
+    .sb-onboarding-wizard-consent-ctn {
+        padding: 20px 24px 24px;
+    }
+    .sb-onboarding-wizard-consent-ctn > a {
+        margin-left: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sb-onboarding-wizard-consent-ctn {
+        padding: 16px 16px 20px;
+    }
+    .sb-onboarding-wizard-consent-ctn > a {
+        margin-left: 0;
+    }
+}
+
+/* SMASH-1245 Phase A — Post-onboarding re-prompt modal CSS (.sbc-consent-reprompt-*)
+   now ships from the shared Consent package's assets/css/consent.css. */
+
 .sb-onboarding-wizard-elem-text > span

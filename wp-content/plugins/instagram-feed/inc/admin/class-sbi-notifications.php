@@ -92,15 +92,44 @@ class SBI_Notifications
 			return array();
 		}
 
+		// SMASH-1245: honour the consent source switch so local <-> remote is an
+		// exclusive swap rather than additive. Mirrors instagram-feed-pro.
+		// 'none' hides everything; 'local' serves the Consent package's bundled
+		// local.json fallback; 'remote' uses the fetched feed as before.
+		$source = class_exists('SBI_Consent') ? \SBI_Consent::notification_source() : 'remote';
+
+		if ('none' === $source) {
+			return array();
+		}
+
 		$option = $this->get_option();
 
-		// Update notifications using async task.
-		if (empty($option['update']) || sbi_get_current_time() > $option['update'] + DAY_IN_SECONDS) {
-			$this->update();
+		if ('local' === $source) {
+			// The package's load_local_fallback() already runs the payload
+			// through schema + targeting verification, so use it directly. The
+			// recent-install gate in verify_active() is intentionally skipped so
+			// the offline notices surface immediately.
+			$feed = class_exists('\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications')
+				? \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications::load_local_fallback(self::PLUGIN, sbi_is_pro_version())
+				: array();
+		} else {
+			// Update notifications using async task.
+			if (empty($option['update']) || sbi_get_current_time() > $option['update'] + DAY_IN_SECONDS) {
+				$this->update();
+				$option = $this->get_option(false);
+			}
+
+			$feed = !empty($option['feed']) ? $this->verify_active($option['feed']) : array();
+
+			// Free and Pro share sbi_notifications, so after a downgrade/upgrade the
+			// cached feed still holds the other edition's cards until the daily
+			// refetch. Re-scope it to this edition on read.
+			if (class_exists('\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications')) {
+				$feed = \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications::verify($feed, self::PLUGIN, sbi_is_pro_version());
+			}
 		}
 
 		$events = !empty($option['events']) ? $this->verify_active($option['events']) : array();
-		$feed = !empty($option['feed']) ? $this->verify_active($option['feed']) : array();
 
 		// If there is a new user notification, add it to the beginning of the notification list
 		$sbi_newuser = new SBI_New_User();
@@ -137,15 +166,27 @@ class SBI_Notifications
 	 */
 	public function update()
 	{
-		$feed = $this->fetch_feed();
+		// SMASH-1245: only the 'remote' source performs a fetch; 'local' is served
+		// by the Consent package's bundled fallback and 'none' is a no-op. Guard the
+		// SBI_Consent call (mirrors get()) so an edge context without the alias can't
+		// fatal.
+		$source = class_exists( 'SBI_Consent' ) ? \SBI_Consent::notification_source() : 'remote';
+
+		if ( 'remote' !== $source ) {
+			return;
+		}
+
+		// Persist the fetched feed so get() can render it — and so it isn't re-fetched
+		// on every page load until the daily staleness window elapses.
+		$feed   = $this->fetch_feed();
 		$option = $this->get_option();
 
 		update_option(
-			'sbi_notifications',
+			$this->option_name(),
 			array(
-				'update' => sbi_get_current_time(),
-				'feed' => $feed,
-				'events' => $option['events'],
+				'update'    => sbi_get_current_time(),
+				'feed'      => $feed,
+				'events'    => $option['events'],
 				'dismissed' => $option['dismissed'],
 			)
 		);
@@ -171,7 +212,15 @@ class SBI_Notifications
 			return array();
 		}
 
-		return $this->verify(json_decode($body, true));
+		$decoded = json_decode( $body, true ); // phpcs:ignore Generic.PHP.UpperCaseConstant
+
+		if ( class_exists( '\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications' ) ) {
+			// Scope to Instagram + its edition so other plugins' notices and
+			// ids dismissed in sbi_notifications are filtered out on refetch.
+			return \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications::verify( $decoded, self::PLUGIN, sbi_is_pro_version() );
+		}
+
+		return is_array( $decoded ) ? $decoded : array();
 	}
 
 	/**
@@ -183,105 +232,6 @@ class SBI_Notifications
 	public function source_url()
 	{
 		return self::SOURCE_URL;
-	}
-
-	/**
-	 * Verify notification data before it is saved.
-	 *
-	 * @param array $notifications Array of notifications items to verify.
-	 *
-	 * @return array
-	 * @since 2.6/5.9
-	 */
-	public function verify($notifications)  // phpcs:ignore Generic.Metrics.CyclomaticComplexity.TooHigh
-	{
-		$data = array();
-
-		if (!is_array($notifications) || empty($notifications)) {
-			return $data;
-		}
-
-		$option = $this->get_option();
-
-		foreach ($notifications as $notification) {
-			// Ignore if not a targeted plugin
-			if (!empty($notification['plugin']) && is_array($notification['plugin']) && !in_array(self::PLUGIN, $notification['plugin'], true)) {
-				continue;
-			}
-
-			// Ignore if max wp version detected
-			if (!empty($notification['maxwpver']) && version_compare(get_bloginfo('version'), $notification['maxwpver'], '>')) {
-				continue;
-			}
-
-			// Ignore if max version has been reached
-			if (!empty($notification['maxver']) && version_compare($notification['maxver'], SBIVER) < 0) {
-				continue;
-			}
-
-			// Ignore if min version has not been reached
-			if (!empty($notification['minver']) && version_compare($notification['minver'], SBIVER) > 0) {
-				continue;
-			}
-
-
-			// Ignore if PHP version requirement not met
-			if (!empty($notification['minphpver']) && version_compare(PHP_VERSION, $notification['minphpver'], '<')) {
-				continue;
-			}
-
-			// Ignore if PHP version is too high
-			if (!empty($notification['maxphpver']) && version_compare(PHP_VERSION, $notification['maxphpver'], '>')) {
-				continue;
-			}
-
-			// Ignore if a specific sbi_status is empty or false
-			if (!empty($notification['statuscheck'])) {
-				$status_key = sanitize_key($notification['statuscheck']);
-				$sbi_statuses_option = get_option('sbi_statuses', array());
-
-				if (empty($sbi_statuses_option[$status_key])) {
-					continue;
-				}
-			}
-
-			// The message and license should never be empty, if they are, ignore.
-			if (empty($notification['content']) || empty($notification['type'])) {
-				continue;
-			}
-
-			// Ignore if license type does not match.
-			$license = sbi_is_pro_version() ? 'pro' : 'free';
-
-			if (!in_array($license, $notification['type'], true)) {
-				continue;
-			}
-
-			// Ignore if expired.
-			if (!empty($notification['end']) && sbi_get_current_time() > strtotime($notification['end'])) {
-				continue;
-			}
-
-			// Ignore if notification has already been dismissed.
-			if (!empty($option['dismissed']) && in_array($notification['id'], $option['dismissed'])) { // phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict
-				continue;
-			}
-
-			// TODO: Ignore if notification existed before installing SBI.
-			// Prevents bombarding the user with notifications after activation.
-			$activated = false;
-			if (
-				!empty($activated)
-				&& !empty($notification['start'])
-				&& $activated > strtotime($notification['start'])
-			) {
-				continue;
-			}
-
-			$data[] = $notification;
-		}
-
-		return $data;
 	}
 
 	/**
@@ -384,6 +334,12 @@ class SBI_Notifications
 	 */
 	public function recently_installed()
 	{
+		// Testing escape hatch: bypass the fresh-install gate when defined in
+		// wp-config.php as `define('SBI_DISABLE_RECENT_INSTALL_GATE', true);`.
+		if ( defined( 'SBI_DISABLE_RECENT_INSTALL_GATE' ) && SBI_DISABLE_RECENT_INSTALL_GATE ) {
+			return false; // phpcs:ignore Generic.PHP.UpperCaseConstant.Found
+		}
+
 		$sbi_statuses_option = get_option('sbi_statuses', array());
 
 		if (!isset($sbi_statuses_option['first_install'])) {
@@ -422,7 +378,9 @@ class SBI_Notifications
 			}
 		}
 
-		$notification = $this->verify(array($notification));
+		$notification = class_exists( '\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications' )
+			? \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications::verify( array( $notification ) )
+			: array( $notification );
 
 		update_option(
 			'sbi_notifications',
@@ -457,7 +415,7 @@ class SBI_Notifications
 		wp_enqueue_style(
 			'sbi-admin-notifications',
 			SBI_PLUGIN_URL . "css/admin-notifications{$min}.css",
-			array(),
+			array( 'common' ),
 			SBIVER
 		);
 
@@ -482,6 +440,14 @@ class SBI_Notifications
 		}
 
 		$notifications = $this->get();
+
+		// SMASH-1245: keep the persisted marketing store in sync with the active
+		// consent source — an empty/none result clears it — so notices from a
+		// previous source can't linger. Expected-id derivation now lives in the
+		// shared Consent package.
+		if (class_exists('\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications')) {
+			\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications::reconcile_from_notifications('instagram-feed', $notifications);
+		}
 
 		if (empty($notifications)) {
 			return;

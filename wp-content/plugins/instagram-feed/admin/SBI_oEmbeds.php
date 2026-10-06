@@ -81,7 +81,7 @@ class SBI_oEmbeds
 	/**
 	 * Disable Instagram oEmbed
 	 *
-	 * @return SBI_Response
+	 * @return void
 	 * @since 4.0
 	 */
 	public function disable_instagram_oembed_from_instagram()
@@ -130,7 +130,7 @@ class SBI_oEmbeds
 	/**
 	 * Disable Facebook oEmbed
 	 *
-	 * @return SBI_Response
+	 * @return void
 	 * @since 4.0
 	 */
 	public function disable_facebook_oembed_from_instagram()
@@ -171,7 +171,7 @@ class SBI_oEmbeds
 		wp_enqueue_style(
 			'oembeds-style',
 			SBI_PLUGIN_URL . 'admin/assets/css/oembeds.css',
-			false,
+			array( 'common' ),
 			SBIVER
 		);
 

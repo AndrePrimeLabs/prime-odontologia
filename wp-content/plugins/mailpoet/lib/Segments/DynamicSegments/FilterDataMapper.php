@@ -48,6 +48,22 @@ class FilterDataMapper {
   public const MAX_GROUPS = 5;
   public const MAX_FILTERS_PER_GROUP = 10;
 
+  private const ONLY_TRACKABLE_ACTIONS = [
+    DynamicSegmentFilterData::TYPE_EMAIL => [
+      EmailAction::ACTION_OPENED,
+      EmailAction::ACTION_MACHINE_OPENED,
+      EmailAction::ACTION_CLICKED,
+      EmailOpensAbsoluteCountAction::TYPE,
+      EmailOpensAbsoluteCountAction::MACHINE_TYPE,
+      NumberOfClicks::ACTION,
+    ],
+    DynamicSegmentFilterData::TYPE_USER_ROLE => [
+      SubscriberDateField::LAST_OPEN_DATE,
+      SubscriberDateField::LAST_CLICK_DATE,
+      SubscriberDateField::LAST_ENGAGEMENT_DATE,
+    ],
+  ];
+
   private WPFunctions $wp;
 
   private DateFilterHelper $dateFilterHelper;
@@ -91,7 +107,11 @@ class FilterDataMapper {
     $this->validateGroups($data['filters'], $data['filters_connect'] ?? null);
     $processFilter = function ($filter, $data) {
       $filter['connect'] = $data['filters_connect'] ?? DynamicSegmentFilterData::CONNECT_TYPE_AND;
-      return $this->withGroupingParams($this->createFilter($filter), $filter);
+      return $this->withOnlyTrackable(
+        $this->withGroupingParams($this->createFilter($filter), $filter),
+        $filter,
+        $this->getQueryGroupOperator($data['filters'], $filter, $data['filters_connect'] ?? null)
+      );
     };
     $wpFilterName = 'mailpoet_dynamic_segments_filters_map';
     if ($this->wp->hasFilter($wpFilterName)) {
@@ -156,6 +176,69 @@ class FilterDataMapper {
       (string)$filterData->getAction(),
       $existingData
     );
+  }
+
+  /**
+   * Keeps the "only subscribers we can track" option on the engagement filters that
+   * support it. Inside a NONE group the filter's result is excluded, so narrowing it
+   * would add untracked subscribers back in; the option is dropped there. On the
+   * single-email filters it only changes "none of", so it is kept only there.
+   */
+  private function withOnlyTrackable(DynamicSegmentFilterData $filterData, array $rawFilter, string $groupOperator): DynamicSegmentFilterData {
+    if (!$this->isTruthy($rawFilter[DynamicSegmentFilterData::ONLY_TRACKABLE] ?? null)) {
+      return $filterData;
+    }
+    if (!in_array($filterData->getAction(), self::ONLY_TRACKABLE_ACTIONS[$filterData->getFilterType()] ?? [], true)) {
+      return $filterData;
+    }
+    if ($groupOperator === DynamicSegmentFilterData::CONNECT_TYPE_NONE) {
+      return $filterData;
+    }
+    $isEmailAction = in_array($filterData->getAction(), [EmailAction::ACTION_OPENED, EmailAction::ACTION_MACHINE_OPENED, EmailAction::ACTION_CLICKED], true);
+    if ($isEmailAction && $filterData->getParam('operator') !== DynamicSegmentFilterData::OPERATOR_NONE) {
+      return $filterData;
+    }
+    $data = $filterData->getData() ?? [];
+    $data[DynamicSegmentFilterData::ONLY_TRACKABLE] = true;
+    return new DynamicSegmentFilterData(
+      (string)$filterData->getFilterType(),
+      (string)$filterData->getAction(),
+      $data
+    );
+  }
+
+  /**
+   * The operator the query will use for this filter's group, following the same
+   * rules as SegmentEntity::getFilterGroups().
+   */
+  private function getQueryGroupOperator(array $filters, array $rawFilter, ?string $filtersConnect): string {
+    $legacyOperator = is_string($filtersConnect) && $filtersConnect !== '' ? $filtersConnect : DynamicSegmentFilterData::CONNECT_TYPE_AND;
+    $groupKey = $this->getGroupKey($rawFilter);
+    foreach ($filters as $filter) {
+      if (!is_array($filter) || $this->getGroupKey($filter) !== $groupKey) {
+        continue;
+      }
+      if (!$this->hasNumericGroupId($filter)) {
+        return $legacyOperator;
+      }
+      return $this->normalizeGroupOperator($filter['group_operator'] ?? null);
+    }
+    return $legacyOperator;
+  }
+
+  private function getGroupKey(array $filter): int {
+    return $this->hasNumericGroupId($filter) ? (int)$filter['group_id'] : 0;
+  }
+
+  private function hasNumericGroupId(array $filter): bool {
+    return isset($filter['group_id']) && is_numeric($filter['group_id']);
+  }
+
+  /**
+   * @param mixed $value
+   */
+  private function isTruthy($value): bool {
+    return in_array($value, [true, 1, '1', 'true'], true);
   }
 
   private function normalizeGroupOperator($value): string {

@@ -69,7 +69,9 @@ class SBI_New_User extends SBI_Notifications
 			}
 		}
 
-		$notification = $this->verify(array($notification));
+		$notification = class_exists( '\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications' )
+			? \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentNotifications::verify( array( $notification ) )
+			: array( $notification );
 
 		update_option(
 			$this->option_name(),
@@ -383,11 +385,20 @@ class SBI_New_User extends SBI_Notifications
 			return array();
 		}
 
+		// SMASH-1245: mirror the consent gate from update(). When the remote source
+		// is withheld (Free without consent), update() early-returns without ever
+		// writing $option['update'], so an unguarded "empty($option['update'])"
+		// re-fired update() — and notification_source() — on every admin page load.
+		// Only attempt the fetch when the source is remote, then re-read the option
+		// so a freshly-fetched feed renders immediately.
+		$source = class_exists( 'SBI_Consent' ) ? \SBI_Consent::notification_source() : 'remote';
+
 		$option = $this->get_option();
 
 		// Only update if does not exist.
-		if (empty($option['update'])) {
+		if ('remote' === $source && empty($option['update'])) {
 			$this->update();
+			$option = $this->get_option(false);
 		}
 
 		$events = !empty($option['events']) ? $this->verify_active($option['events']) : array();
@@ -403,6 +414,16 @@ class SBI_New_User extends SBI_Notifications
 	 */
 	public function update()
 	{
+		// SMASH-1245: gate remote new-user feed fetch on consent. notification_source()
+		// reflects the per-edition default (Pro on by default, Free off until opt-in),
+		// so the remote request only fires once the user has consented. Guard on the
+		// SBI_Consent alias to stay consistent with get() and the parent
+		// SBI_Notifications::update().
+		$source = class_exists( 'SBI_Consent' ) ? \SBI_Consent::notification_source() : 'remote';
+		if ( 'remote' !== $source ) {
+			return;
+		}
+
 		$feed = $this->fetch_feed();
 		$option = $this->get_option();
 
@@ -535,9 +556,7 @@ class SBI_New_User extends SBI_Notifications
 	/**
 	 * SBI Get Notice Title depending on the notice type
 	 *
-	 * @param array $notification
-	 *
-	 * @return string $title
+	 * @return void
 	 * @since 6.0
 	 */
 	public function dismiss()

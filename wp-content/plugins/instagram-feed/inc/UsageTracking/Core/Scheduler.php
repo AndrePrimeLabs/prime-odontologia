@@ -23,6 +23,16 @@ class Scheduler {
 	public function schedule() {
 		$this->cleanup_legacy();
 
+		// WP.org compliance: never leave a telemetry cron scheduled without
+		// data-sharing consent. Unschedule (not merely skip) when consent is off,
+		// since WP.org review flags scheduled hooks that hit external URLs.
+		// Ported from the removed legacy tracker (SMASH-1245).
+		if ( class_exists( '\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager' )
+			&& ! \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager::is_dsc_enabled() ) {
+			$this->unschedule();
+			return;
+		}
+
 		if ( ! Config::is_enabled() ) {
 			return;
 		}

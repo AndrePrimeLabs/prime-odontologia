@@ -92,12 +92,9 @@ class SBI_Support
 			return;
 		}
 
-		wp_enqueue_style(
-			'sbi-fira-code-font',
-			'https://fonts.googleapis.com/css2?family=Fira+Code&display=swap',
-			false,
-			SBIVER
-		);
+		// Fira Code was loaded from Google Fonts (external CDN, disallowed by
+		// WP.org). Dropped — the code sample falls back to the system monospace
+		// font, with no external request.
 
 		wp_enqueue_style(
 			'global-style',
@@ -109,7 +106,7 @@ class SBI_Support
 		wp_enqueue_style(
 			'support-style',
 			SBI_PLUGIN_URL . 'admin/assets/css/support.css',
-			false,
+			array( 'common' ),
 			SBIVER
 		);
 

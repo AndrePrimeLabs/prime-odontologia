@@ -56,6 +56,10 @@ class SBI_Feed_Builder
 		add_action('wp_ajax_sbi_dismiss_onboarding', array('InstagramFeed\Builder\SBI_Feed_Builder', 'after_dismiss_onboarding'));
 
 		add_action('wp_ajax_sbi_other_plugins_modal', array('InstagramFeed\Builder\SBI_Feed_Builder', 'sb_other_plugins_modal'));
+
+		// SMASH-1245 Phase A — consent AJAX handler + modal rendering are now owned by the
+		// shared Consent package (action: wp_ajax_sbc_save_consent_choice; admin_footer modal
+		// auto-registered by ConsentManager::init).
 	}
 
 	public static function instance()
@@ -157,7 +161,7 @@ class SBI_Feed_Builder
 	/**
 	 * Update status of onboarding sequence for specific user
 	 *
-	 * @return string|boolean
+	 * @return void
 	 *
 	 * @since 6.0
 	 */
@@ -310,13 +314,6 @@ class SBI_Feed_Builder
 						'embedFeedDescription' => __('Easily add the feed anywhere on your website', 'instagram-feed'),
 						'customizeImgPath' => SBI_BUILDER_URL . 'assets/img/welcome-1.png',
 						'embedImgPath' => SBI_BUILDER_URL . 'assets/img/welcome-2.png',
-					),
-					'pluginsInfo' => array(
-						'social_wall' => array(
-							'installed' => isset($installed_plugins['social-wall/social-wall.php']),
-							'activated' => is_plugin_active('social-wall/social-wall.php'),
-							'settingsPage' => admin_url('admin.php?page=sbsw'),
-						)
 					),
 					'allFeedsScreen' => array(
 						'mainHeading' => __('All Feeds', 'instagram-feed'),
@@ -609,6 +606,10 @@ class SBI_Feed_Builder
 				);
 				// Customize screens
 				$sbi_builder['customizeScreens'] = $this->get_customize_screens_text();
+
+				// SMASH-1245 Phase A — consent reprompt enqueue + localize + trigger flag are now
+				// owned by the shared Consent package (ConsentManager::init handles enqueue, AJAX, modal).
+
 				wp_localize_script(
 					'sbi-builder-app',
 					'sbi_builder',

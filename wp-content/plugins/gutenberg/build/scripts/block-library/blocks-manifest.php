@@ -28,7 +28,10 @@ return array(
 			),
 			'color' => array(
 				'background' => true,
-				'gradients' => true
+				'gradients' => true,
+				'link' => true,
+				'heading' => true,
+				'button' => true
 			),
 			'__experimentalBorder' => array(
 				'color' => true,
@@ -218,9 +221,15 @@ return array(
 		),
 		'supports' => array(
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'background' => true,
-				'gradients' => true
+				'gradients' => true,
+				'link' => true,
+				'heading' => true,
+				'button' => true
 			),
 			'interactivity' => true,
 			'spacing' => array(
@@ -290,9 +299,17 @@ return array(
 		'supports' => array(
 			'__experimentalOnEnter' => true,
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'color' => array(
 				'background' => true,
-				'gradients' => true
+				'gradients' => true,
+				'link' => true,
+				'heading' => true,
+				'button' => true
 			),
 			'interactivity' => true,
 			'spacing' => array(
@@ -390,6 +407,15 @@ return array(
 				'width' => true,
 				'style' => true
 			),
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'html' => false,
 			'spacing' => array(
 				'margin' => true,
@@ -484,6 +510,14 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'align' => true,
+			'color' => array(
+				'background' => false,
+				'link' => true,
+				'text' => false,
+				'__experimentalDefaultControls' => array(
+					'link' => true
+				)
+			),
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true,
@@ -654,6 +688,9 @@ return array(
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
+			),
+			'background' => array(
+				'gradient' => true
 			),
 			'color' => array(
 				'gradients' => true,
@@ -893,6 +930,15 @@ return array(
 			),
 			'html' => false,
 			'__experimentalExposeControlsToChildren' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
 				'text' => false,
@@ -1060,6 +1106,15 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'align' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'html' => false,
 			'spacing' => array(
 				'margin' => true,
@@ -1072,6 +1127,7 @@ return array(
 			'typography' => array(
 				'fontSize' => true,
 				'lineHeight' => true,
+				'textColumns' => true,
 				'__experimentalFontFamily' => true,
 				'__experimentalFontWeight' => true,
 				'__experimentalFontStyle' => true,
@@ -1105,7 +1161,8 @@ return array(
 					'width' => true,
 					'style' => true
 				)
-			)
+			),
+			'shadow' => true
 		),
 		'editorStyle' => 'wp-block-categories-editor',
 		'style' => 'wp-block-categories'
@@ -1132,6 +1189,15 @@ return array(
 				'wide'
 			),
 			'anchor' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'typography' => array(
 				'fontSize' => true,
 				'lineHeight' => true,
@@ -1175,6 +1241,7 @@ return array(
 					'text' => true
 				)
 			),
+			'shadow' => true,
 			'interactivity' => array(
 				'clientNavigation' => true
 			)
@@ -1217,6 +1284,15 @@ return array(
 			'anchor' => true,
 			'reusable' => false,
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
 				'heading' => true,
@@ -1315,6 +1391,15 @@ return array(
 				'__experimentalDefaultControls' => array(
 					'background' => true,
 					'text' => true
+				)
+			),
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
 				)
 			),
 			'spacing' => array(
@@ -1455,6 +1540,9 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
@@ -1516,8 +1604,13 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => true,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
+				'heading' => true,
+				'button' => true,
 				'link' => true,
 				'__experimentalDefaultControls' => array(
 					'background' => true,
@@ -1589,6 +1682,9 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -1657,6 +1753,9 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'link' => true,
 				'gradients' => true,
@@ -1716,6 +1815,9 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => true,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -1836,8 +1938,18 @@ return array(
 				'full'
 			),
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
+				'button' => true,
 				'heading' => true,
 				'link' => true,
 				'__experimentalDefaultControls' => array(
@@ -1917,6 +2029,9 @@ return array(
 			'align' => true,
 			'reusable' => false,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -1977,6 +2092,9 @@ return array(
 			'anchor' => true,
 			'reusable' => false,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'text' => false,
@@ -2020,6 +2138,9 @@ return array(
 			'anchor' => true,
 			'reusable' => false,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'text' => false,
@@ -2076,6 +2197,12 @@ return array(
 			'anchor' => true,
 			'reusable' => false,
 			'html' => false,
+			'background' => array(
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
 				'text' => false,
@@ -2137,6 +2264,9 @@ return array(
 			'anchor' => true,
 			'align' => true,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'__experimentalBorder' => array(
 				'radius' => true,
 				'color' => true,
@@ -2403,9 +2533,20 @@ return array(
 				'full'
 			),
 			'anchor' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
+				'heading' => true,
+				'button' => true,
 				'__experimentalDefaultControls' => array(
 					'background' => true,
 					'text' => true
@@ -2417,6 +2558,7 @@ return array(
 				'style' => true
 			),
 			'html' => false,
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true,
@@ -2576,6 +2718,15 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'align' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
@@ -2623,6 +2774,15 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'__experimentalBorder' => array(
 				'radius' => true,
 				'color' => true,
@@ -2648,6 +2808,7 @@ return array(
 			'multiple' => false,
 			'reusable' => false,
 			'inserter' => false,
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true,
@@ -2849,6 +3010,15 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'align' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'__experimentalBorder' => array(
 				'radius' => true,
 				'color' => true,
@@ -3008,6 +3178,7 @@ return array(
 			'typography' => array(
 				'fontSize' => true,
 				'lineHeight' => true,
+				'textColumns' => true,
 				'__experimentalFontFamily' => true,
 				'__experimentalFontWeight' => true,
 				'__experimentalFontStyle' => true,
@@ -3067,6 +3238,15 @@ return array(
 			'anchor' => true,
 			'className' => true,
 			'splitting' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'__experimentalBorder' => array(
 				'color' => true,
 				'radius' => true,
@@ -3081,6 +3261,7 @@ return array(
 					'text' => true
 				)
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true,
@@ -3100,6 +3281,7 @@ return array(
 				'__experimentalTextTransform' => true,
 				'__experimentalTextDecoration' => true,
 				'__experimentalWritingMode' => true,
+				'textShadow' => true,
 				'fitText' => true,
 				'__experimentalDefaultControls' => array(
 					'fontSize' => true
@@ -3151,6 +3333,11 @@ return array(
 			'anchor' => true,
 			'reusable' => false,
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'typography' => array(
 				'fontSize' => true,
 				'lineHeight' => true,
@@ -3162,6 +3349,19 @@ return array(
 				'__experimentalLetterSpacing' => true,
 				'__experimentalDefaultControls' => array(
 					'fontSize' => true
+				)
+			),
+			'shadow' => true,
+			'__experimentalBorder' => array(
+				'color' => true,
+				'radius' => true,
+				'style' => true,
+				'width' => true,
+				'__experimentalDefaultControls' => array(
+					'color' => false,
+					'radius' => false,
+					'style' => false,
+					'width' => false
 				)
 			),
 			'interactivity' => array(
@@ -3509,6 +3709,15 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'align' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -3523,6 +3732,7 @@ return array(
 				'margin' => true,
 				'padding' => true
 			),
+			'shadow' => true,
 			'typography' => array(
 				'fontSize' => true,
 				'lineHeight' => true,
@@ -3629,6 +3839,15 @@ return array(
 			'align' => true,
 			'html' => false,
 			'layout' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -3673,6 +3892,7 @@ return array(
 					'style' => true
 				)
 			),
+			'shadow' => true,
 			'interactivity' => array(
 				'clientNavigation' => true
 			)
@@ -3882,6 +4102,15 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'className' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'background' => true,
 				'text' => false,
@@ -3915,6 +4144,7 @@ return array(
 				'width' => true,
 				'style' => true
 			),
+			'shadow' => true,
 			'interactivity' => array(
 				'clientNavigation' => true
 			)
@@ -3944,6 +4174,15 @@ return array(
 				'style' => true,
 				'width' => true
 			),
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
 				'__experimentalDefaultControls' => array(
@@ -3951,6 +4190,7 @@ return array(
 					'text' => true
 				)
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true,
@@ -3972,6 +4212,8 @@ return array(
 		'attributes' => array(
 			'latex' => array(
 				'type' => 'string',
+				'source' => 'text',
+				'selector' => 'math annotation[encoding="application/x-tex"]',
 				'role' => 'content'
 			),
 			'mathML' => array(
@@ -4108,6 +4350,7 @@ return array(
 				'gradients' => true,
 				'heading' => true,
 				'link' => true,
+				'button' => true,
 				'__experimentalDefaultControls' => array(
 					'background' => true,
 					'text' => true
@@ -4521,6 +4764,13 @@ return array(
 					'text' => true
 				)
 			),
+			'shadow' => true,
+			'__experimentalBorder' => array(
+				'color' => true,
+				'radius' => true,
+				'style' => true,
+				'width' => true
+			),
 			'spacing' => array(
 				'padding' => true,
 				'__experimentalDefaultControls' => array(
@@ -4630,9 +4880,15 @@ return array(
 					'fontSize' => true
 				)
 			),
+			'shadow' => array(
+				'__experimentalSkipSerialization' => true
+			),
 			'interactivity' => array(
 				'clientNavigation' => true
 			)
+		),
+		'selectors' => array(
+			'shadow' => '.wp-block-navigation-submenu > .wp-block-navigation__submenu-container'
 		),
 		'editorStyle' => 'wp-block-navigation-submenu-editor',
 		'style' => 'wp-block-navigation-submenu'
@@ -4722,6 +4978,15 @@ return array(
 			'interactivity' => array(
 				'clientNavigation' => true
 			),
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'text' => true,
 				'background' => true,
@@ -4747,6 +5012,7 @@ return array(
 					'margin' => false
 				)
 			),
+			'shadow' => true,
 			'contentRole' => true
 		),
 		'editorStyle' => 'wp-block-page-list-editor',
@@ -4891,6 +5157,7 @@ return array(
 				'__experimentalLetterSpacing' => true,
 				'__experimentalTextTransform' => true,
 				'__experimentalWritingMode' => true,
+				'textShadow' => true,
 				'fitText' => true,
 				'__experimentalDefaultControls' => array(
 					'fontSize' => true
@@ -5036,6 +5303,7 @@ return array(
 				)
 			),
 			'interactivity' => true,
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
@@ -5239,6 +5507,9 @@ return array(
 				'margin' => true,
 				'padding' => true
 			),
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -5251,6 +5522,7 @@ return array(
 				'fontSize' => true,
 				'lineHeight' => true,
 				'textAlign' => true,
+				'textColumns' => true,
 				'__experimentalFontFamily' => true,
 				'__experimentalFontWeight' => true,
 				'__experimentalFontStyle' => true,
@@ -5309,6 +5581,11 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
@@ -5404,6 +5681,9 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'__experimentalDefaultControls' => array(
@@ -5456,7 +5736,17 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
+				'button' => true,
 				'gradients' => true,
 				'heading' => true,
 				'link' => true,
@@ -5613,6 +5903,7 @@ return array(
 			'dimensions' => array(
 				'minHeight' => true
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'blockGap' => true,
 				'padding' => true,
@@ -5624,6 +5915,7 @@ return array(
 			),
 			'color' => array(
 				'gradients' => true,
+				'button' => true,
 				'heading' => true,
 				'link' => true,
 				'__experimentalDefaultControls' => array(
@@ -5634,6 +5926,7 @@ return array(
 			'typography' => array(
 				'fontSize' => true,
 				'lineHeight' => true,
+				'textAlign' => true,
 				'__experimentalFontFamily' => true,
 				'__experimentalFontWeight' => true,
 				'__experimentalFontStyle' => true,
@@ -5696,6 +5989,9 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -5773,6 +6069,11 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -5782,6 +6083,7 @@ return array(
 					'link' => true
 				)
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
@@ -5999,9 +6301,39 @@ return array(
 					'fontSize' => true
 				)
 			),
+			'shadow' => array(
+				'__experimentalSkipSerialization' => true
+			),
 			'interactivity' => array(
 				'clientNavigation' => true
+			),
+			'spacing' => array(
+				'__experimentalSkipSerialization' => true,
+				'margin' => true,
+				'padding' => true,
+				'__experimentalDefaultControls' => array(
+					'margin' => false,
+					'padding' => false
+				)
+			),
+			'__experimentalBorder' => array(
+				'__experimentalSkipSerialization' => true,
+				'color' => true,
+				'radius' => true,
+				'style' => true,
+				'width' => true,
+				'__experimentalDefaultControls' => array(
+					'color' => false,
+					'radius' => false,
+					'style' => false,
+					'width' => false
+				)
 			)
+		),
+		'selectors' => array(
+			'border' => '.wp-block-post-navigation-link:not(:empty)',
+			'shadow' => '.wp-block-post-navigation-link:not(:empty)',
+			'spacing' => '.wp-block-post-navigation-link:not(:empty)'
 		),
 		'style' => 'wp-block-post-navigation-link'
 	),
@@ -6035,9 +6367,20 @@ return array(
 				'full'
 			),
 			'layout' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
+				'heading' => true,
+				'button' => true,
 				'__experimentalDefaultControls' => array(
 					'background' => true,
 					'text' => true
@@ -6076,7 +6419,8 @@ return array(
 				'color' => true,
 				'width' => true,
 				'style' => true
-			)
+			),
+			'shadow' => true
 		),
 		'style' => 'wp-block-post-template',
 		'editorStyle' => 'wp-block-post-template-editor'
@@ -6118,6 +6462,11 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -6127,6 +6476,7 @@ return array(
 					'link' => true
 				)
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
@@ -6191,6 +6541,11 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'__experimentalDefaultControls' => array(
@@ -6199,6 +6554,7 @@ return array(
 				)
 			),
 			'html' => false,
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true,
@@ -6283,6 +6639,15 @@ return array(
 				'full'
 			),
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -6292,6 +6657,7 @@ return array(
 					'link' => true
 				)
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
@@ -6347,13 +6713,20 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
+				'link' => true,
 				'__experimentalDefaultControls' => array(
 					'background' => true,
 					'text' => true
 				)
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'padding' => true,
 				'margin' => true
@@ -6440,6 +6813,7 @@ return array(
 			'dimensions' => array(
 				'minHeight' => true
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
@@ -6585,9 +6959,16 @@ return array(
 			'align' => true,
 			'reusable' => false,
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
-				'link' => true
+				'link' => true,
+				'heading' => true,
+				'button' => true
 			),
 			'spacing' => array(
 				'padding' => true,
@@ -6618,7 +6999,8 @@ return array(
 				'color' => true,
 				'width' => true,
 				'style' => true
-			)
+			),
+			'shadow' => true
 		),
 		'style' => 'wp-block-query-no-results'
 	),
@@ -6661,6 +7043,9 @@ return array(
 			'align' => true,
 			'reusable' => false,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -6724,6 +7109,9 @@ return array(
 			'anchor' => true,
 			'reusable' => false,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'text' => false,
@@ -6775,6 +7163,9 @@ return array(
 			'anchor' => true,
 			'reusable' => false,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'text' => false,
@@ -6828,6 +7219,9 @@ return array(
 			'anchor' => true,
 			'reusable' => false,
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'text' => false,
@@ -6896,6 +7290,9 @@ return array(
 				'full'
 			),
 			'html' => false,
+			'background' => array(
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'__experimentalDefaultControls' => array(
@@ -6967,6 +7364,11 @@ return array(
 				'full'
 			),
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
@@ -7003,6 +7405,7 @@ return array(
 					'style' => true
 				)
 			),
+			'shadow' => true,
 			'interactivity' => array(
 				'clientNavigation' => true
 			)
@@ -7100,6 +7503,7 @@ return array(
 					'text' => true
 				)
 			),
+			'shadow' => true,
 			'layout' => array(
 				'allowEditing' => false
 			),
@@ -7151,6 +7555,11 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'text' => true
@@ -7187,6 +7596,7 @@ return array(
 					'width' => true
 				)
 			),
+			'shadow' => true,
 			'interactivity' => array(
 				'clientNavigation' => true
 			)
@@ -7267,6 +7677,12 @@ return array(
 					'padding' => false,
 					'margin' => false
 				)
+			),
+			'shadow' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
 			),
 			'color' => array(
 				'background' => true,
@@ -7604,6 +8020,11 @@ return array(
 				'full'
 			),
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'__experimentalDefaultControls' => array(
@@ -7631,6 +8052,7 @@ return array(
 				'__experimentalFontWeight' => true,
 				'__experimentalLetterSpacing' => true,
 				'__experimentalWritingMode' => true,
+				'fitText' => true,
 				'__experimentalDefaultControls' => array(
 					'fontSize' => true
 				)
@@ -7643,7 +8065,8 @@ return array(
 				'color' => true,
 				'width' => true,
 				'style' => true
-			)
+			),
+			'shadow' => true
 		),
 		'editorStyle' => 'wp-block-site-tagline-editor',
 		'style' => 'wp-block-site-tagline'
@@ -7694,6 +8117,11 @@ return array(
 				'full'
 			),
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -7735,7 +8163,8 @@ return array(
 				'color' => true,
 				'width' => true,
 				'style' => true
-			)
+			),
+			'shadow' => true
 		),
 		'editorStyle' => 'wp-block-site-title-editor',
 		'style' => 'wp-block-site-title'
@@ -7854,6 +8283,9 @@ return array(
 				'default' => array(
 					'type' => 'flex'
 				)
+			),
+			'background' => array(
+				'gradient' => true
 			),
 			'color' => array(
 				'enableContrastChecker' => false,
@@ -8070,9 +8502,21 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'html' => false,
 			'color' => array(
 				'background' => true,
+				'button' => true,
+				'heading' => true,
+				'link' => true,
 				'text' => true,
 				'__experimentalDefaultControls' => array(
 					'background' => true,
@@ -8080,17 +8524,30 @@ return array(
 				)
 			),
 			'layout' => true,
+			'shadow' => true,
 			'spacing' => array(
 				'blockGap' => true,
 				'padding' => true
 			),
 			'typography' => array(
 				'fontSize' => true,
+				'lineHeight' => true,
 				'__experimentalFontFamily' => true,
+				'__experimentalFontWeight' => true,
+				'__experimentalFontStyle' => true,
+				'__experimentalTextTransform' => true,
+				'__experimentalTextDecoration' => true,
+				'__experimentalLetterSpacing' => true,
 				'__experimentalDefaultControls' => array(
 					'fontSize' => true,
 					'__experimentalFontFamily' => true
 				)
+			),
+			'__experimentalBorder' => array(
+				'color' => true,
+				'radius' => true,
+				'style' => true,
+				'width' => true
 			),
 			'visibility' => false
 		),
@@ -8121,18 +8578,35 @@ return array(
 				'background' => true,
 				'text' => true,
 				'heading' => true,
+				'button' => true,
 				'link' => true,
 				'__experimentalDefaultControls' => array(
 					'background' => true,
 					'text' => true
 				)
 			),
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
+			'shadow' => true,
 			'spacing' => array(
 				'padding' => true
 			),
 			'typography' => array(
 				'fontSize' => true,
-				'__experimentalFontFamily' => true
+				'lineHeight' => true,
+				'__experimentalFontFamily' => true,
+				'__experimentalFontWeight' => true,
+				'__experimentalFontStyle' => true,
+				'__experimentalTextTransform' => true,
+				'__experimentalTextDecoration' => true,
+				'__experimentalLetterSpacing' => true
 			),
 			'__experimentalBorder' => array(
 				'radius' => true,
@@ -8417,12 +8891,18 @@ return array(
 			'anchor' => true,
 			'ariaLabel' => true,
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'color' => array(
 				'text' => true,
 				'background' => true,
 				'gradients' => true,
 				'link' => true
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
@@ -8430,6 +8910,7 @@ return array(
 			'typography' => array(
 				'fontSize' => true,
 				'lineHeight' => true,
+				'textAlign' => true,
 				'__experimentalFontFamily' => true,
 				'__experimentalFontWeight' => true,
 				'__experimentalFontStyle' => true,
@@ -8483,13 +8964,30 @@ return array(
 		'supports' => array(
 			'align' => true,
 			'anchor' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true
+				)
+			),
 			'color' => array(
 				'text' => true,
 				'background' => true,
+				'heading' => true,
+				'button' => true,
+				'link' => true,
 				'__experimentalDefaultControls' => array(
 					'text' => true,
 					'background' => true
 				)
+			),
+			'__experimentalBorder' => array(
+				'color' => true,
+				'radius' => true,
+				'style' => true,
+				'width' => true
 			),
 			'layout' => array(
 				'allowEditing' => false
@@ -8501,9 +8999,15 @@ return array(
 				'margin' => true,
 				'padding' => true
 			),
+			'shadow' => true,
 			'typography' => array(
 				'fontSize' => true,
-				'__experimentalFontFamily' => true
+				'lineHeight' => true,
+				'__experimentalFontFamily' => true,
+				'__experimentalFontWeight' => true,
+				'__experimentalFontStyle' => true,
+				'__experimentalTextTransform' => true,
+				'__experimentalLetterSpacing' => true
 			)
 		),
 		'usesContext' => array(
@@ -8558,8 +9062,27 @@ return array(
 		),
 		'supports' => array(
 			'anchor' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'html' => false,
 			'align' => true,
+			'color' => array(
+				'background' => true,
+				'link' => true,
+				'text' => false,
+				'__experimentalDefaultControls' => array(
+					'background' => true,
+					'link' => true
+				)
+			),
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
@@ -8650,6 +9173,11 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true
+			),
 			'color' => array(
 				'gradients' => true,
 				'__experimentalDefaultControls' => array(
@@ -8657,12 +9185,14 @@ return array(
 					'text' => true
 				)
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'padding' => true
 			),
 			'typography' => array(
 				'fontSize' => true,
 				'lineHeight' => true,
+				'textAlign' => true,
 				'__experimentalFontFamily' => true,
 				'__experimentalFontWeight' => true,
 				'__experimentalFontStyle' => true,
@@ -8709,6 +9239,14 @@ return array(
 				'full'
 			),
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true
+				)
+			),
 			'color' => array(
 				'link' => true,
 				'__experimentalDefaultControls' => array(
@@ -8737,6 +9275,7 @@ return array(
 			'interactivity' => array(
 				'clientNavigation' => true
 			),
+			'shadow' => true,
 			'__experimentalBorder' => array(
 				'radius' => true,
 				'color' => true,
@@ -8786,6 +9325,15 @@ return array(
 				'full'
 			),
 			'html' => false,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true,
+					'gradient' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -8795,6 +9343,7 @@ return array(
 					'link' => true
 				)
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'padding' => true
 			),
@@ -8852,6 +9401,14 @@ return array(
 				'full'
 			),
 			'layout' => true,
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true,
+				'gradient' => true,
+				'__experimentalDefaultControls' => array(
+					'backgroundImage' => true
+				)
+			),
 			'color' => array(
 				'gradients' => true,
 				'link' => true,
@@ -8893,7 +9450,8 @@ return array(
 				'color' => true,
 				'width' => true,
 				'style' => true
-			)
+			),
+			'shadow' => true
 		),
 		'style' => 'wp-block-term-template',
 		'editorStyle' => 'wp-block-term-template-editor'
@@ -9062,6 +9620,7 @@ return array(
 					'fontSize' => true
 				)
 			),
+			'shadow' => true,
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true,
@@ -9190,7 +9749,13 @@ return array(
 			),
 			'interactivity' => array(
 				'clientNavigation' => true
+			),
+			'shadow' => array(
+				'__experimentalSkipSerialization' => true
 			)
+		),
+		'selectors' => array(
+			'shadow' => '.wp-block-video video'
 		),
 		'editorStyle' => 'wp-block-video-editor',
 		'style' => 'wp-block-video'

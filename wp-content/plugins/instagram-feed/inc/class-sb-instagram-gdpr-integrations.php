@@ -140,7 +140,9 @@ class SB_Instagram_GDPR_Integrations
 			// not uncommon for the image editor to not work using it this way
 			if (!is_wp_error($image_editor)) {
 				$sbi_statuses_option['gdpr']['image_editor'] = true;
-			} else {
+			} elseif (class_exists('\InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager') && \InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent\ConsentManager::is_dsc_enabled()) {
+				// External image-editor probe is consent-gated (phone-home). With
+				// consent off, the flag stays false and feeds still render.
 				$test_image = 'https://plugin.smashballoon.com/editor-test.png';
 
 				$image_editor = wp_get_image_editor($test_image);

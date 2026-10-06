@@ -1558,7 +1558,14 @@ class SB_Instagram_Feed
 
 
 		$other_atts .= ' data-postid="' . esc_attr(get_the_ID()) . '"';
-		$other_atts .= ' data-locatornonce="' . esc_attr(wp_create_nonce('sbi-locator-nonce-' . get_the_ID() . '-' . $this->regular_feed_transient_name)) . '"';
+		// Page caches serve logged-out HTML, so only that gets the non-expiring token.
+		// A logged-in render (e.g. a draft preview) keeps the user-bound, expiring nonce.
+		if (is_user_logged_in()) {
+			$locator_token = wp_create_nonce('sbi-locator-nonce-' . get_the_ID() . '-' . $this->regular_feed_transient_name);
+		} else {
+			$locator_token = sbi_create_locator_token(get_the_ID(), $this->regular_feed_transient_name);
+		}
+		$other_atts .= ' data-locatornonce="' . esc_attr($locator_token) . '"';
 		if (! empty($settings['imageaspectratio'])) {
 			$other_atts .= ' data-imageaspectratio="' . esc_attr($settings['imageaspectratio']) . '"';
 		}
