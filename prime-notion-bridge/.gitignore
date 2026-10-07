@@ -1,0 +1,5 @@
+bridge-state.json*
+*.lock
+.env
+.env.*
+!.env.example

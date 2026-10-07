@@ -1,0 +1,4 @@
+Saved draft 42. Review in WordPress: https://example.test/wp-admin/post.php?post=42&action=edit
+Saved draft 42. Review in WordPress: https://example.test/wp-admin/post.php?post=42&action=edit
+Saved draft 42. Review in WordPress: https://example.test/wp-admin/post.php?post=42&action=edit
+PASS: IDs, escaping, unsafe links, block conversion, nested lists, images, unsupported blocks, draft create/update, conflict guard, published guard, approval gate, standalone gate, allowlist, HTTPS and lock cleanup.
