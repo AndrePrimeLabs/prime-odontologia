@@ -1,0 +1,544 @@
+/*
+Theme Name: Prime Odontologia (Pomelli)
+Theme URI: https://primeodontologia.blog
+Author: Verum Labs
+Description: Tema em blocos que replica o site gerado no Google Pomelli para a Prime Odontologia, com blog.
+Version: 1.0.0
+Requires at least: 6.5
+Requires PHP: 7.4
+License: GPLv2 or later
+Text Domain: prime-pomelli
+*/
+/* CSS Variables - Brand Palette */
+:root {
+    --brand-primary: #03c4eb;
+    --brand-light: #ffffff;
+    --brand-dark: #333333;
+    
+    --bg-offset: #f4fcfe; /* Very light tint of primary for alternating sections */
+    --text-main: #4a4a4a;
+    
+    --font-head: 'Acme', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --header-height: 80px;
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--brand-light);
+    line-height: 1.6;
+    padding-top: var(--header-height);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-head);
+    color: var(--brand-dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-weight: normal;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Essential Image Rules - Guaranteeing Bottom-Right Visibility */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    /* Pin the bottom-right corner to ensure watermarks are never cropped */
+    object-position: right bottom; 
+}
+
+.bg-image {
+    background-size: cover;
+    /* Pin the bottom-right corner for background images as well */
+    background-position: right bottom;
+    background-repeat: no-repeat;
+}
+
+/* Utility Classes */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.text-center { text-align: center; }
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--brand-primary);
+    margin: 0.5rem auto 0;
+}
+
+.section-title.left::after {
+    margin: 0.5rem 0 0;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    background-color: var(--brand-primary);
+    color: var(--brand-dark); /* Better contrast than white on bright cyan */
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px var(--brand-dark);
+}
+
+.btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--brand-dark);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--brand-primary);
+    color: var(--brand-primary);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background-color: var(--brand-primary);
+    color: var(--brand-dark);
+    transform: none;
+}
+
+/* Header & Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid #eee;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    color: var(--brand-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo span {
+    color: var(--brand-dark);
+}
+
+/* Mobile Menu Checkbox Hack */
+.menu-toggle { display: none; }
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--brand-dark);
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    color: var(--brand-dark);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--brand-primary);
+}
+
+.nav-cta {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    padding: 6rem 0;
+    color: var(--brand-dark);
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - var(--header-height));
+}
+
+/* Overlay to ensure text readability against the background image */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.2) 100%);
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--brand-primary);
+}
+
+.hero-content h1 span {
+    color: var(--brand-dark);
+    display: block;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    /* Sharp corners, no overflow hidden to preserve watermarks */
+    background-color: var(--brand-primary);
+    padding: 1rem;
+    box-shadow: 15px 15px 0px var(--brand-dark);
+}
+
+.hero-image-wrapper img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/5;
+}
+
+/* About / Values Section */
+.values-section {
+    padding: 6rem 0;
+    background-color: var(--brand-dark);
+    color: var(--brand-light);
+}
+
+.values-section h2 {
+    color: var(--brand-primary);
+}
+
+.values-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.value-card {
+    flex: 1 1 200px;
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(3, 196, 235, 0.2);
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    background: rgba(3, 196, 235, 0.1);
+    transform: translateY(-5px);
+}
+
+.value-card i {
+    font-size: 2.5rem;
+    color: var(--brand-primary);
+    margin-bottom: 1rem;
+}
+
+.value-card h3 {
+    color: var(--brand-light);
+    font-size: 1.3rem;
+    margin-bottom: 0;
+}
+
+/* Products / Services Section */
+.services-section {
+    padding: 8rem 0;
+    background-color: var(--bg-offset);
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+/* Flex-grow ensures no orphaned items on the last row */
+.service-card {
+    flex: 1 1 300px;
+    background: var(--brand-light);
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid var(--brand-primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s;
+}
+
+.service-card:hover {
+    box-shadow: 0 15px 40px rgba(3, 196, 235, 0.15);
+}
+
+.service-image {
+    height: 250px;
+    width: 100%;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.service-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.service-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--brand-primary);
+}
+
+.service-content p {
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+/* Technology Showcase */
+.tech-section {
+    padding: 8rem 0;
+    background-color: var(--brand-light);
+}
+
+.tech-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.tech-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.tech-images img {
+    width: 100%;
+    height: 250px;
+    border: 1px solid #eee;
+}
+
+.tech-images img:first-child {
+    grid-column: 1 / -1;
+    height: 350px;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 8rem 0;
+    position: relative;
+    color: var(--brand-light);
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(51, 51, 51, 0.9);
+    z-index: 1;
+}
+
+.contact-section .container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-section h2 {
+    color: var(--brand-primary);
+}
+
+.contact-info-box {
+    background: rgba(0,0,0,0.3);
+    padding: 3rem;
+    border-left: 5px solid var(--brand-primary);
+}
+
+.contact-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-item i {
+    color: var(--brand-primary);
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+.hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.hours-table th, .hours-table td {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: left;
+}
+
+.hours-table th {
+    font-family: var(--font-head);
+    font-weight: normal;
+    color: var(--brand-primary);
+}
+
+/* Footer */
+.footer {
+    background-color: #1a1a1a;
+    color: #888;
+    padding: 4rem 0 2rem;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255,255,255,0.05);
+    color: var(--brand-primary);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--brand-primary);
+    color: var(--brand-dark);
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero .container, .tech-layout, .contact-section .container {
+        grid-template-columns: 1fr;
+    }
+    .hero { padding: 4rem 0; }
+    .hero-image-wrapper { margin-top: 2rem; }
+    .section-title { font-size: 2rem; }
+}
+
+@media (max-width: 768px) {
+    .menu-icon { display: block; }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        padding: 2rem;
+        border-bottom: 2px solid var(--brand-primary);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+    
+    .hero-content h1 { font-size: 2.5rem; }
+    
+    .contact-info-box { padding: 2rem 1rem; }
+}
+
+/* ---- WordPress integration ---- */
+.admin-bar .header { top: 32px; }
+@media (max-width: 782px) { .admin-bar .header { top: 46px; } }
+.wp-site-blocks > * { margin-block-start: 0; }
+.blog-main { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem; }
+.blog-main h1, .blog-main h2 { font-family: var(--font-head); color: var(--brand-dark); line-height: 1.2; margin-bottom: 1rem; }
+.blog-main h1 { font-size: 2.4rem; } .blog-main h2 { font-size: 1.6rem; }
+.blog-main p, .blog-main ul, .blog-main ol { margin-bottom: 1.2rem; }
+.blog-main ul, .blog-main ol { padding-left: 1.5rem; }
+.blog-main img { max-width: 100%; height: auto; border-radius: 12px; }
+.blog-main a { text-decoration: underline; }
+.blog-main .wp-block-post { padding: 2rem 0; border-bottom: 1px solid #e5e5e5; }
+.blog-main .wp-block-post-date { font-size: .9rem; opacity: .7; margin-bottom: .5rem; }
+.blog-main .wp-block-query-pagination { margin-top: 2rem; display: flex; gap: 1rem; }
