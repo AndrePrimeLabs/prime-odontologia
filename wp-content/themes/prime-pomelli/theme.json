@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "layout": { "contentSize": "760px", "wideSize": "1200px" },
+    "color": { "palette": [] }
+  },
+  "styles": {
+    "spacing": { "blockGap": "0", "padding": { "top": "0", "right": "0", "bottom": "0", "left": "0" } }
+  },
+  "customTemplates": []
+}
